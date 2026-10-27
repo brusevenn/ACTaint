@@ -128,50 +128,118 @@ def build_plan():
   "created_utc":now(),"ground_truth_read":False,"labels_in_detector_input":False,"automatic_retries":0,
   "duplicate_samples_replayed":False,"execution_launched":False,"jobs":jobs,"case_records":cases,
   "disposition_counts":{s:sum(j["disposition"]==s for j in jobs) for s in sorted({j["disposition"] for j in jobs})}}
+def _stop_for_provider_error(job_dir):
+ for log in Path(job_dir).rglob("requests.jsonl"):
+  for line in log.read_text(errors="replace").splitlines():
+   try:r=json.loads(line)
+   except json.JSONDecodeError:return True
+   if r.get("event")=="error":
+    code=r.get("status_code",r.get("http_status"))
+    try:code=int(code)
+    except (TypeError,ValueError):code=None
+    body=r.get("error_body",{})
+    provider_code=body.get("error",{}).get("code") if isinstance(body,dict) else None
+    if code in (401,402,403) or provider_code in ("insufficient_balance_error","insufficient_quota","payment_required"):return True
+ return False
+
+def _safe_text(path):
+ raw=Path(path).read_bytes()
+ clean=raw.replace(str(ROOT).encode(),b"[TOOL_ROOT]").replace(b"/home/shanzy/",b"[HOME]/").replace(b"/add/users/shanzy/",b"[SHANZY]/")
+ if clean!=raw:
+  side={"original_sha256":hashlib.sha256(raw).hexdigest(),"saved_sha256":hashlib.sha256(clean).hexdigest(),"normalization":"runtime_personal_paths"}
+  Path(str(path)+".path-normalization.json").write_text(json.dumps(side,sort_keys=True)+"\n")
+  Path(path).write_bytes(clean)
+
 def execute(plan):
- out=ROOT/"experiments"/RUN;out.mkdir(parents=True,exist_ok=True)
+ out=ROOT/"experiments"/RUN
+ out.mkdir(parents=True,exist_ok=True)
+ planfile=out/"resume-plan.json"
+ if planfile.exists():
+  prior=json.loads(planfile.read_text())
+  for k in ("tool","code_sha","manifest_sha256","input_index_sha256","case_count","project_group_count","jobs"):
+   if prior.get(k)!=plan.get(k):raise RuntimeError("PREPARED_RESUME_PLAN_IDENTITY_CHANGED:"+k)
+  plan=prior
+ else:write(planfile,plan)
  launch=out/"launch-receipt.json"
  if launch.exists():raise FileExistsError("RESUME_ALREADY_LAUNCHED_NO_REPLAY")
- planfile=out/"resume-plan.json"
- if planfile.exists():raise FileExistsError("RESUME_PLAN_EXISTS_NO_OVERWRITE")
- write(planfile,plan)
- eligible=[j for j in plan["jobs"] if j["disposition"]=="ELIGIBLE_ZERO_REQUEST_RESUME"]
+ jobs=plan["jobs"]; eligible=[j for j in jobs if j["disposition"]=="ELIGIBLE_ZERO_REQUEST_RESUME"]
  write(launch,{"tool":TOOL,"code_sha":plan["code_sha"],"started_utc":now(),"concurrency":2,
   "eligible_project_count":len(eligible),"eligible_case_ids":[c for j in eligible for c in j["case_ids"]],
   "fixed_protocol":{"model":"deepseek-flash","reasoning_effort":"high","thinking":"enabled","max_tokens":65536,"request_timeout_seconds":300,"case_timeout_seconds":1200,"retries":0},"prompt_layout":"prefix_stable_v2"})
+ import threading
+ stop=threading.Event()
+ def save_receipt(j,row):
+  row.update(tool=TOOL,dataset="ACToolBench154",project_id=j["project_id"],case_ids=j["case_ids"],
+   source_hashes=j["source_hashes"],source_file_inventory=j["source_file_inventory"],
+   input_identity=j["input_identity"],compile_config_sha256=j["compile_config_sha256"],
+   prior_request_attempts=0,code_sha=plan["code_sha"],prompt_layout="prefix_stable_v2",ended_utc=now())
+  write(out/"jobs"/j["project_id"]/"resume-result.json",row)
+  return row
  def one(j):
   dest=out/"jobs"/j["project_id"];dest.mkdir(parents=True,exist_ok=True)
-  if list(dest.iterdir()):raise FileExistsError("RESUME_JOB_OUTPUT_EXISTS:"+j["project_id"])
-  start={"tool":TOOL,"dataset":"ACToolBench154","project_id":j["project_id"],"case_ids":j["case_ids"],"input_identity":j["input_identity"],"source_hashes":j["source_hashes"],"compile_config_sha256":j["compile_config_sha256"],"code_sha":plan["code_sha"],"started_utc":now(),"prompt_layout":"prefix_stable_v2","max_tokens":65536,"reasoning_effort":"high","thinking":{"type":"enabled"},"request_timeout_seconds":300,"case_timeout_seconds":1200,"automatic_retries":0,"prior_request_attempts":0}
-  write(dest/"started.json",start)
-  cmd=[PYTHON,"-B","scripts/benchmark.py","--project-id",j["project_id"],"--output",str(dest/"native"),"--prompt-layout","prefix_stable_v2","--timeout-seconds","1200"]
+  started=dest/"started.json";receipt=dest/"resume-result.json"
+  if receipt.exists():return json.loads(receipt.read_text())
+  if started.exists():
+   return save_receipt(j,{"status":"INTERRUPTED_NOT_RETRIED","reason":"previous start marker without terminal result; do not replay physical request"})
+  if stop.is_set():
+   return save_receipt(j,{"status":"NOT_RUN_PROVIDER_STOP"})
+  write(started,{"tool":TOOL,"dataset":"ACToolBench154","project_id":j["project_id"],"case_ids":j["case_ids"],
+   "input_identity":j["input_identity"],"source_hashes":j["source_hashes"],"compile_config_sha256":j["compile_config_sha256"],
+   "code_sha":plan["code_sha"],"started_utc":now(),"prompt_layout":"prefix_stable_v2","max_tokens":65536,
+   "reasoning_effort":"high","thinking":{"type":"enabled"},"request_timeout_seconds":300,"case_timeout_seconds":1200,
+   "automatic_retries":0,"prior_request_attempts":0})
+  cmd=[PYTHON,"-B","scripts/benchmark.py","--project-id",j["project_id"],"--output",str(dest/"native"),
+       "--prompt-layout","prefix_stable_v2","--timeout-seconds","1200"]
   if TOOL=="ACTaint":cmd += ["--compiler-map","/add/users/shanzy/comparison-runs/comparison-20261027-deepseek-high/compiler-map.local.json","--code-sha",plan["code_sha"]]
-  with (dest/"stdout.txt").open("xb") as so,(dest/"stderr.txt").open("xb") as se:
-   p=subprocess.Popen(cmd,cwd=ROOT,stdout=so,stderr=se,start_new_session=True)
-   try:rc=p.wait(timeout=1200);status="COMPLETED" if rc==0 else "TOOL_ERROR"
-   except subprocess.TimeoutExpired:
-    os.killpg(p.pid,signal.SIGTERM)
-    try:p.wait(timeout=3)
-    except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait()
-    rc=p.returncode;status="TIMEOUT"
-  native=dest/"native/project-result.json"
-  nr=json.loads(native.read_text()) if native.exists() else {}
-  return {"tool":TOOL,"project_id":j["project_id"],"case_ids":j["case_ids"],"source_hashes":j["source_hashes"],"input_identity":j["input_identity"],"compile_config_sha256":j["compile_config_sha256"],"prior_request_attempts":0,"code_sha":plan["code_sha"],"prompt_layout":"prefix_stable_v2","status":nr.get("status",status),"exit_code":rc,"native_result_present":native.exists(),"artifact":str(dest.relative_to(ROOT)),"ended_utc":now()}
- import concurrent.futures as cf
+  try:
+   with (dest/"stdout.txt").open("xb") as so,(dest/"stderr.txt").open("xb") as se:
+    proc=subprocess.Popen(cmd,cwd=ROOT,stdout=so,stderr=se,start_new_session=True)
+    try:rc=proc.wait(timeout=1200);outer="COMPLETED" if rc==0 else "TOOL_ERROR"
+    except subprocess.TimeoutExpired:
+     os.killpg(proc.pid,signal.SIGTERM)
+     try:proc.wait(timeout=3)
+     except subprocess.TimeoutExpired:os.killpg(proc.pid,signal.SIGKILL);proc.wait()
+     rc=proc.returncode;outer="TIMEOUT"
+   _safe_text(dest/"stdout.txt");_safe_text(dest/"stderr.txt")
+   native=dest/"native/project-result.json";nr=json.loads(native.read_text()) if native.exists() else {}
+   status=nr.get("status",outer)
+   row=save_receipt(j,{"status":status,"exit_code":rc,"native_result_present":native.exists(),"native_output":"native/project-result.json" if native.exists() else None,"artifact":str(dest.relative_to(ROOT)),"native_execution_status":status})
+   if _stop_for_provider_error(dest):stop.set()
+   return row
+  except Exception as e:
+   row=save_receipt(j,{"status":"CONTROLLER_ERROR","error_type":type(e).__name__,"error_message":str(e).replace(str(ROOT),"[TOOL_ROOT]")[:1200]})
+   if _stop_for_provider_error(dest):stop.set()
+   return row
+ # Per-job receipts are persisted as each future finishes; provider stop closes the queue.
  results=[]
- with cf.ThreadPoolExecutor(max_workers=2) as pool:
-  for r in pool.map(one,eligible):
-   write(out/"jobs"/r["project_id"]/"resume-result.json",r);results.append(r)
- by={j["project_id"]:j for j in plan["jobs"]};new={r["project_id"]:r for r in results}
- merged=[]
+ with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+  pending={pool.submit(one,j):j for j in eligible}
+  for f in concurrent.futures.as_completed(pending):
+   try:r=f.result()
+   except Exception as e:
+    j=pending[f];r=save_receipt(j,{"status":"CONTROLLER_ERROR","error_type":type(e).__name__,"error_message":str(e)[:800]})
+   results.append(r)
+ # Reuse historical paid/completed/diagnostic evidence explicitly; not rerun.
+ result_by={r["project_id"]:r for r in results}
+ for j in jobs:
+  if j["project_id"] in result_by:continue
+  result_by[j["project_id"]]={**j,"tool":TOOL,"dataset":"ACToolBench154","status":j["disposition"],
+   "prior_request_attempts":j["prior_request_attempts"],"code_sha":plan["code_sha"],
+   "prompt_layout":j.get("prior_prompt_layout") or ("prefix_stable_v2" if j.get("prior_phase")=="cache-diagnostic" else "baseline")}
+ records=[]
  for c in plan["case_records"]:
-  n=new.get(c["project_id"])
-  merged.append({**c,"status":n["status"] if n else c["status"],"new_artifact":n["artifact"] if n else None,"new_code_sha":n["code_sha"] if n else None,"new_prompt_layout":n["prompt_layout"] if n else None})
- assert len(merged)==154 and len({r["case_id"] for r in merged})==154
- write(out/"case-records.json",{"schema":"NATIVE_LLM_RESUME_CASE_RECORDS_V1","tool":TOOL,"dataset":"ACToolBench154","case_count":154,"records":merged,"ground_truth_read":False,"scoring_performed":False})
- write(out/"execution-summary.json",{"tool":TOOL,"code_sha":plan["code_sha"],"case_count":154,"project_group_count":121,"resumed_project_count":len(results),"status_counts":{s:sum(x["status"]==s for x in merged) for s in sorted({x["status"] for x in merged})},"finished_utc":now(),"full_run_scoring":False})
+  r=result_by[c["project_id"]]
+  records.append({**c,"status":r["status"],"provenance_variant":r.get("prompt_layout"),
+   "execution_artifact":r.get("artifact") or r.get("prior_artifact"),"execution_code_sha":r.get("code_sha"),
+   "new_attempted":r["project_id"] in {x["project_id"] for x in results}})
+ assert len(records)==154 and len({x["case_id"] for x in records})==154
+ write(out/"case-records.json",{"schema":"NATIVE_LLM_RESUME_CASE_RECORDS_V1","tool":TOOL,"dataset":"ACToolBench154","case_count":154,"records":records,"ground_truth_read":False,"scoring_performed":False})
+ write(out/"execution-summary.json",{"tool":TOOL,"code_sha":plan["code_sha"],"case_count":154,"project_group_count":121,
+  "resumed_project_count":len(results),"provider_stop":stop.is_set(),"status_counts":{st:sum(x["status"]==st for x in records) for st in sorted({x["status"] for x in records})},
+  "finished_utc":now(),"scoring_performed":False})
  files={str(p.relative_to(out)):sha(p) for p in out.rglob("*") if p.is_file() and p.name!="resume-seal.json"}
- seal={"schema":"NATIVE_LLM_RESUME_SEAL_V1","tool":TOOL,"dataset":"ACToolBench154","code_sha":plan["code_sha"],"manifest_sha256":plan["manifest_sha256"],"case_count":154,"files":files,"finished_utc":now(),"ground_truth_read":False,"scoring_performed":False,"old_predictions_modified":False}
+ seal={"schema":"NATIVE_LLM_RESUME_SEAL_V1","tool":TOOL,"dataset":"ACToolBench154","code_sha":plan["code_sha"],"manifest_sha256":plan["manifest_sha256"],
+  "case_count":154,"files":files,"finished_utc":now(),"ground_truth_read":False,"scoring_performed":False,"old_predictions_modified":False}
  seal["seal_sha256"]=hashlib.sha256(json.dumps(seal,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()).hexdigest()
  write(out/"resume-seal.json",seal)
 def main():

@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:executeInflationRateUpdate, Visibility:external, Explanation:Writes to variable lastInflationDecay without any access control.}
+{Function:executeInflationRateUpdate, Visibility:external, Explanation:Writes to variable initialPeriodEnded without any access control.}
+{Function:executeInflationRateUpdate, Visibility:external, Explanation:Writes to variable lastEvent without any access control.}
+{Function:executeInflationRateUpdate, Visibility:external, Explanation:Writes to variable totalAvailableToNow without any access control.}
+
+=============Contract: Minter
+Sink:
+Reviewed the contract’s state-changing functions. `executeInflationRateUpdate` is external and has no access-control modifier or caller check. It calls `_executeInflationRateUpdate`, which writes global inflation accounting state. The other state-changing functions are protected by `onlyGovernance` or the controller inflation manager check. The constructor is the actual constructor.
+
+--Sink--:
+{Function: executeInflationRateUpdate, Sink: lastInflationDecay, Visibility: external, Explanation: The function is callable by anyone and writes lastInflationDecay without access control.}
+{Function: executeInflationRateUpdate, Sink: initialPeriodEnded, Visibility: external, Explanation: The function is callable by anyone and writes initialPeriodEnded without access control.}
+{Function: executeInflationRateUpdate, Sink: lastEvent, Visibility: external, Explanation: The function is callable by anyone and writes lastEvent without access control.}
+{Function: executeInflationRateUpdate, Sink: totalAvailableToNow, Visibility: external, Explanation: The function is callable by anyone and writes totalAvailableToNow without access control.}

@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:disableMakers, Visibility:external, Explanation:Writes to variable makers without any access control.}
+{Function:enableMakers, Visibility:external, Explanation:Writes to variable makers without any access control.}
+{Function:enableVaults, Visibility:external, Explanation:Writes to variable vaults without any access control.}
+{Function:disableVaults, Visibility:external, Explanation:Writes to variable vaults without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable collateral without any access control.}
+
+=============Contract: Automator
+Sink:
+**Reasoning:**
+- `initialize` is an external initializer with no constructor. The `initializer` modifier only prevents multiple calls, not unauthorized first callers. Anyone can call it to set `collateral`, `referral`, `feeCollector`, and become the owner via `__Ownable_init()`. This is a sink.
+- Because `initialize` can be called by an arbitrary address to set ownership, the `onlyOwner` modifier is not a reliable access-control barrier. Functions guarded only by `onlyOwner` that modify security-sensitive state are sinks: `enableVaults`, `disableVaults`, `enableMakers`, and `disableMakers`.
+- `burnProducts` is external with no access control. It accepts arbitrary vault addresses and product data, calls `IVault(products[i].vault).burnBatch(...)`, and updates `totalCollateral`, `totalFee`, and `_positions`. Any caller can trigger burns of Automator-owned positions and alter accounting state. This is a sink.
+- Other functions either operate only on the caller’s own assets/state (`deposit`, `withdraw`, `claimRedemptions`), are view functions, are protected by a maker signature (`mintProducts`), or are permissionless but send funds only to the fixed `feeCollector` (`harvest`). They are not classified as sinks here.
+
+--Sink--:
+{Function: initialize, Sink: Write to collateral/referral/feeCollector and ownership initialization, Visibility: external, Explanation: Unprotected initializer with no constructor; anyone can call it first and set critical addresses and owner.}
+{Function: enableVaults, Sink: Write to vaults mapping and approve collateral, Visibility: external, Explanation: onlyOwner is unreliable because initialize allows an arbitrary caller to become owner; enables arbitrary vaults and grants max collateral approval.}
+{Function: disableVaults, Sink: Write to vaults mapping and revoke collateral approval, Visibility: external, Explanation: onlyOwner is unreliable because initialize allows an arbitrary caller to become owner; can disable vaults and revoke approvals.}
+{Function: enableMakers, Sink: Write to makers mapping, Visibility: external, Explanation: onlyOwner is unreliable because initialize allows an arbitrary caller to become owner; can authorize arbitrary makers.}
+{Function: disableMakers, Sink: Write to makers mapping, Visibility: external, Explanation: onlyOwner is unreliable because initialize allows an arbitrary caller to become owner; can deauthorize makers.}
+{Function: burnProducts, Sink: External call to IVault.burnBatch and update totalCollateral/_positions, Visibility: external, Explanation: No access control; caller supplies arbitrary vault and products, allowing unauthorized burning of Automator positions and accounting updates.}

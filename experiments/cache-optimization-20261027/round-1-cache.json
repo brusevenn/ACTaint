@@ -1,0 +1,23 @@
+{
+  "concurrency": 2,
+  "error_count": 0,
+  "exact_cache_rate": 0.2172883627429082,
+  "known_usage_totals": {
+    "completion_tokens": 35929,
+    "prompt_cache_hit_tokens": 4864,
+    "prompt_cache_miss_tokens": 17521,
+    "prompt_tokens": 22385
+  },
+  "missing_usage": 0,
+  "observed_cache_rate": 0.2172883627429082,
+  "physical_attempts": 5,
+  "project_ids": [
+    "proj-83d6a41518987deb",
+    "proj-a7b0bd2cc330617f"
+  ],
+  "provider_stop": false,
+  "responses": 5,
+  "round": 1,
+  "round_finished_utc": "2026-10-27T08:03:42.344664+00:00",
+  "target_met": false
+}

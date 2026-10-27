@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "1ec68fce302cb61fb57bfe285da6c40a0f2557f130a655e12e94b0f87ac9d9be",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.17+commit.8df45f5f",
+    "compiler_sha256": "99f2070b776e9714f1f76c43c229cf99b8978a92938ee8d2364c6de11c1a03d4",
+    "metadata": "v0.8.17+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path [WORKSPACE]/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-83d6a41518987deb/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.17"
+  },
+  "elapsed_seconds": 202.057,
+  "ended_utc": "2026-10-27T08:03:42.298929+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/8b10f0c57af4d3d5/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-83d6a41518987deb/source_code/LendingLedger.sol",
+  "source_sha256": "1ec68fce302cb61fb57bfe285da6c40a0f2557f130a655e12e94b0f87ac9d9be",
+  "started_utc": "2026-10-27T08:00:20.243166+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-83d6a41518987deb/source_code/LendingLedger.sol"
+}

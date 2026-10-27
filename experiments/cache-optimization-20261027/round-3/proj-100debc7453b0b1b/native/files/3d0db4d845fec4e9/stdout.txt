@@ -1,0 +1,37 @@
+==============Start====================
+rules:
+{Function:_clearReentrancyGuard, Visibility:internal, Explanation:Writes to variable _reentrancyGuard without any access control.}
+{Function:_setReentrancyGuard, Visibility:internal, Explanation:Writes to variable _reentrancyGuard without any access control.}
+
+=============Contract: ReentrancyGuard
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:depositUpTo, Visibility:public, Explanation:Writes to variable _withdrawalData without any access control.}
+{Function:updateState, Visibility:external, Explanation:Writes to variable _withdrawalData without any access control.}
+{Function:collectFees, Visibility:external, Explanation:Writes to variable _withdrawalData without any access control.}
+{Function:deposit, Visibility:external, Explanation:Writes to variable _withdrawalData without any access control.}
+
+=============Contract: WildcatMarket
+Sink:
+The candidate operations all either modify only `msg.sender`'s own account/funds, enforce a role/modifier, or apply deterministic contract-defined state updates without letting the caller choose an arbitrary recipient or protected state value.
+
+- `updateState`: permissionless state synchronization; it applies contract-defined interest/fee/expired-withdrawal processing and does not accept caller-controlled parameters to redirect funds or alter arbitrary user balances.
+- `depositUpTo` / `deposit`: deposit pulls funds from `msg.sender` and mints to `msg.sender`; `_getAccountWithRole(msg.sender, AuthRole.DepositAndWithdraw)` enforces deposit authorization.
+- `collectFees`: transfers available fees only to the fixed `feeRecipient`; the caller cannot redirect the transfer or choose the recipient.
+- `borrow`: protected by `onlyBorrower` and transfers to the borrower.
+- `closeMarket`: protected by `onlyController`.
+
+No valid access-control sink is present.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 2, "contracts_seen": 21, "contracts_skipped_interface_abstract_library": 15, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 4, "elapsed_seconds": 76.392, "sink_agent_calls": 2, "taint_agent_calls": 0, "target_contracts": 21, "total_token": 13366}
+==============End======================
+total time: 76.39174771308899
+total token: 13366

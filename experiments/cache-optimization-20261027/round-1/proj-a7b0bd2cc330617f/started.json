@@ -1,0 +1,14 @@
+{
+  "code_sha": "1d7dac8cc3fb2b6772622e7d14afe84ccd2b36c3",
+  "job_timeout": 1200,
+  "layout": "prefix_stable_v2",
+  "project_id": "proj-a7b0bd2cc330617f",
+  "request_timeout": 300,
+  "retries": 0,
+  "round": 1,
+  "source_hashes": [
+    "f303f1e9038ef3871a3817ef6b5c7986cbfd4ecad605a47ecf834375493e54a7"
+  ],
+  "started_utc": "2026-10-27T08:00:18.890666+00:00",
+  "tool": "ACTaint"
+}

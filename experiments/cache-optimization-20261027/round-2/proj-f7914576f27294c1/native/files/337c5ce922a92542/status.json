@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "cfc4a08d8aa6636b23aa0695a666c46fb658b71858343b486293d80fce4d925b",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.10+commit.fc410830",
+    "compiler_sha256": "c7effacf28b9d64495f81b75228fbf4266ac0ec87e8f1adc489ddd8a4dd06d89",
+    "metadata": "v0.8.10+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path [WORKSPACE]/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-f7914576f27294c1/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.10"
+  },
+  "elapsed_seconds": 95.492,
+  "ended_utc": "2026-10-27T08:05:18.972289+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/337c5ce922a92542/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-f7914576f27294c1/source_code/Minter.sol",
+  "source_sha256": "cfc4a08d8aa6636b23aa0695a666c46fb658b71858343b486293d80fce4d925b",
+  "started_utc": "2026-10-27T08:03:43.481198+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-f7914576f27294c1/source_code/Minter.sol"
+}

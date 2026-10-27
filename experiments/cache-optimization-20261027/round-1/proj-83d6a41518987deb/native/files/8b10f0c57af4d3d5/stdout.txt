@@ -1,0 +1,50 @@
+==============Start====================
+rules:
+{Function:_checkpoint, Visibility:internal, Explanation:Writes to variable userPointHistory without any access control.}
+{Function:createLock, Visibility:external, Explanation:Writes to variable userPointHistory without any access control.}
+{Function:delegate, Visibility:external, Explanation:Writes to variable userPointHistory without any access control.}
+{Function:increaseAmount, Visibility:external, Explanation:Writes to variable userPointHistory without any access control.}
+{Function:_delegate, Visibility:internal, Explanation:Writes to variable userPointHistory without any access control.}
+{Function:checkpoint, Visibility:external, Explanation:Writes to variable userPointHistory without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable userPointHistory without any access control.}
+{Function:_checkpoint, Visibility:internal, Explanation:Writes to variable pointHistory without any access control.}
+{Function:createLock, Visibility:external, Explanation:Writes to variable pointHistory without any access control.}
+{Function:delegate, Visibility:external, Explanation:Writes to variable pointHistory without any access control.}
+{Function:increaseAmount, Visibility:external, Explanation:Writes to variable pointHistory without any access control.}
+{Function:_delegate, Visibility:internal, Explanation:Writes to variable pointHistory without any access control.}
+{Function:checkpoint, Visibility:external, Explanation:Writes to variable pointHistory without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable pointHistory without any access control.}
+
+=============Contract: VotingEscrow
+Sink:
+The state writes flagged by static analysis are in `_checkpoint`, `checkpoint`, `createLock`, `increaseAmount`, `withdraw`, `delegate`, and `_delegate`.
+
+- `_checkpoint` is internal and is reached through lock-management functions. Its user-history writes are for `msg.sender` or for delegatee addresses involved in the caller’s own delegation state.
+- `checkpoint` only advances global voting-power history using time-based slope changes; it does not modify user-owned assets or another user’s lock.
+- `createLock`, `increaseAmount`, and `withdraw` operate on `msg.sender`’s lock and enforce the relevant value/expiry/delegation checks.
+- `delegate` and `_delegate` move the caller’s own delegated voting power to/from delegatees as explicitly allowed by the contract’s delegation logic.
+- The constructor is deployment-only and not externally callable after deployment.
+- View/pure functions do not write sensitive state.
+
+No unauthorized access-control-sensitive state modification is present.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:_checkpoint_lender, Visibility:private, Explanation:Writes to variable lendingMarketBalancesEpoch without any access control.}
+{Function:_checkpoint_market, Visibility:private, Explanation:Writes to variable lendingMarketTotalBalanceEpoch without any access control.}
+
+=============Contract: LendingLedger
+Sink:
+Reviewed the contract’s state-modifying functions:
+- `sync_ledger` has `lendingMarketWhitelist[msg.sender]` access control.
+- `claim` modifies only `msg.sender`’s claim state and sends CANTO to `msg.sender`.
+- `setRewards` and `whiteListLendingMarket` are protected by `onlyGovernance`.
+- `checkpoint_market` and `checkpoint_lender` are external without access control and pass arbitrary `_market` / `_lender` parameters into private checkpoint functions.
+- The private checkpoint functions write to epoch mappings for arbitrary addresses, so these writes are reachable without authorization.
+
+--Sink--:
+{Function: _checkpoint_lender, Sink: write to lendingMarketBalancesEpoch, Visibility: private, Explanation: Called from external functions with arbitrary _market and _lender parameters; writes another lender’s checkpoint epoch without verifying caller authorization.}
+{Function: _checkpoint_market, Sink: write to lendingMarketTotalBalanceEpoch, Visibility: private, Explanation: Called from external functions with an arbitrary _market parameter; writes market checkpoint epoch without verifying caller authorization.}

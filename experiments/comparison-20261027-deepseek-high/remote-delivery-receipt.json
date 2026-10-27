@@ -1,0 +1,13 @@
+{
+  "archived_commit": "11861006303ee86fe443f173867932997a312098",
+  "method": "FRESH_GITHUB_PARTIAL_CLONE_NO_LOCAL_REFERENCE",
+  "mismatched_files": [],
+  "missing_files": [],
+  "schema": "NATIVE_COMPARISON_REMOTE_BYTE_READBACK_V1",
+  "scoring_performed": false,
+  "skipped_files": 0,
+  "tool": "ACTaint",
+  "verified_bytes": 15327419,
+  "verified_files": 2999,
+  "verified_utc": "2026-10-27T06:43:38.597522+00:00"
+}

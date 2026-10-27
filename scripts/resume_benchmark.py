@@ -4,8 +4,7 @@ import argparse,concurrent.futures,datetime,hashlib,json,os,signal,subprocess,sy
 from pathlib import Path
 
 TOOL="ACTaint";ROOT=Path(__file__).resolve().parents[1];RUN="llm-resume-20261027";OLD="comparison-20261027-deepseek-high";CACHE="cache-optimization-20261027"
-PYTHON="/home/shanzy/anaconda3/envs/actaint-py312/bin/python"
-COMPILER_MAP=Path("/add/users/shanzy/comparison-runs/comparison-20261027-deepseek-high/compiler-map.local.json")
+PYTHON=sys.executable
 def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
 def sha(p):
  h=hashlib.sha256()
@@ -153,7 +152,7 @@ def _stop_for_provider_error(job_dir):
 
 def _safe_text(path):
  raw=Path(path).read_bytes()
- clean=raw.replace(str(ROOT).encode(),b"[TOOL_ROOT]").replace(b"/home/shanzy/",b"[HOME]/").replace(b"/add/users/shanzy/",b"[SHANZY]/")
+ clean=raw.replace(str(ROOT).encode(),b"[TOOL_ROOT]").replace(str(Path.home()).encode(),b"[HOME]").replace(str(ROOT.parent).encode(),b"[WORKSPACE]/")
  if clean!=raw:
   side={"original_sha256":hashlib.sha256(raw).hexdigest(),"saved_sha256":hashlib.sha256(clean).hexdigest(),"normalization":"runtime_personal_paths"}
   Path(str(path)+".path-normalization.json").write_text(json.dumps(side,sort_keys=True)+"\n")
@@ -200,7 +199,10 @@ def execute(plan):
    "automatic_retries":0,"prior_request_attempts":0})
   cmd=[PYTHON,"-B","scripts/benchmark.py","--project-id",j["project_id"],"--output",str(dest/"native"),
        "--prompt-layout","prefix_stable_v2","--timeout-seconds","1200"]
-  if TOOL=="ACTaint":cmd += ["--compiler-map","/add/users/shanzy/comparison-runs/comparison-20261027-deepseek-high/compiler-map.local.json","--code-sha",plan["code_sha"]]
+  if TOOL=="ACTaint":
+   compiler_map=os.environ.get("ACTAINT_COMPILER_MAP")
+   if not compiler_map:raise RuntimeError("ACTAINT_COMPILER_MAP_REQUIRED")
+   cmd += ["--compiler-map",compiler_map,"--code-sha",plan["code_sha"]]
   try:
    with (dest/"stdout.txt").open("xb") as so,(dest/"stderr.txt").open("xb") as se:
     proc=subprocess.Popen(cmd,cwd=ROOT,stdout=so,stderr=se,start_new_session=True,env=os.environ.copy())

@@ -122,7 +122,7 @@ def build_plan():
     "input_identity":j["input_identity"],"historical_prediction_seal_sha256":formal_seal})
  if len(cases)!=154 or len({x["case_id"] for x in cases})!=154:raise ValueError("RESUME_CASE_DENOMINATOR_INVALID")
  return {"schema":"NATIVE_LLM_RESUME_PLAN_V1","tool":TOOL,"dataset":"ACToolBench154",
-  "code_sha":subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),
+  "code_sha":subprocess.check_output(["git","log","-1","--format=%H","--","scripts/benchmark.py","scripts/resume_benchmark.py"],cwd=ROOT,text=True).strip(),
   "manifest_sha256":sha(mp),"input_index_sha256":sha(ix),"case_count":154,"project_group_count":121,
   "created_utc":now(),"ground_truth_read":False,"labels_in_detector_input":False,"automatic_retries":0,
   "duplicate_samples_replayed":False,"execution_launched":False,"jobs":jobs,"case_records":cases,

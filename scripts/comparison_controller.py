@@ -174,7 +174,7 @@ def run_job(tool,dataset,job,layout,phase,code_sha):
     if tool!="ASTRO" and STOP.is_set():
         row={**identity_for(tool,dataset,job,code_sha),"status":"NOT_RUN_PROVIDER_STOP","phase":phase,"prompt_layout":layout}
         write(receipt,row);return row
-    command=native_command(tool,dataset,job,target,layout)
+    command=native_command(tool,dataset,job,target/"native",layout)
     write(marker,{"tool":tool,"dataset":dataset,"input_identity":job.get("input_identity"),"manifest_sha256":job.get("manifest_sha256"),"id":job["id"],"case_ids":job["case_ids"],"code_sha":code_sha,"phase":phase,"prompt_layout":layout,"started_utc":now(),"file_count":job["file_count"],"timeout_seconds":1200})
     env=dict(os.environ,PYTHONDONTWRITEBYTECODE="1")
     start=time.monotonic()
@@ -187,7 +187,7 @@ def run_job(tool,dataset,job,layout,phase,code_sha):
             except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait()
             rc=p.returncode;status="TIMEOUT"
     for f in (target/"controller.stdout.txt",target/"controller.stderr.txt"):redact_file(f)
-    native=target/"project-result.json"
+    native=target/"native/project-result.json"
     native_status=None
     if native.exists():
         n=json.loads(native.read_text());native_status=n.get("status")

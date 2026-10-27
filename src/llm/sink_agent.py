@@ -90,9 +90,12 @@ class SinkAgent():
         """     
         
         user_content = baseline_user_content
-        if os.getenv("ACTAINT_PROMPT_LAYOUT", "baseline") == "prefix_stable":
-            _, tail = baseline_user_content.split("Source code: " + chr(96)*3, 1)
-            source_code, instructions = tail.split(chr(96)*3 + ".", 1)
+        if os.getenv("ACTAINT_PROMPT_LAYOUT", "baseline") in {"prefix_stable", "prefix_stable_v2"}:
+            source_code = self.source_code
+            source_prefix = "Source code: " + chr(96)*3 + self.source_code + chr(96)*3 + "."
+            if not baseline_user_content.startswith(source_prefix):
+                raise ValueError("ACTAINT_SOURCE_PREFIX_IDENTITY_MISMATCH")
+            instructions = baseline_user_content[len(source_prefix):]
             instructions = instructions.replace(
                 f"Here is a static analysis result: {self.static_rules}.",
                 "Here is the ACTaint static analysis context listed at the end.",
@@ -114,6 +117,18 @@ class SinkAgent():
         --Sink--: 
         no sinks
         """
+
+        if os.getenv("ACTAINT_PROMPT_LAYOUT", "baseline") == "prefix_stable_v2":
+            # Keep native task/rules/output contract before all source-varying text.
+            user_content = (
+                instructions.strip() + "\n\n" + assistant_content.strip()
+                + "\n\nSource code: " + chr(96)*3 + self.source_code + chr(96)*3
+                + "\n" + construct_str + "\nStatic analysis result:\n" + self.static_rules
+            )
+            return [
+                {"role": "system", "content": system_content},
+                {"role": "user", "content": user_content},
+            ]
 
         msgs = [
             {"role": "system", "content": system_content},

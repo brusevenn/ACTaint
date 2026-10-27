@@ -92,6 +92,8 @@ if __name__ == "__main__":
             slither_kwargs["cwd"] = compilation_cwd
         if solc_args:
             slither_kwargs["solc_args"] = " ".join(solc_args)
+    if compilation_cwd:
+        os.chdir(compilation_cwd)
     slither = Slither(config.SOL_FILE_PATH, **slither_kwargs)
 
     analyzer_stats = {

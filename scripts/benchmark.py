@@ -427,7 +427,7 @@ def run_project(
 ) -> dict[str, Any]:
     if timeout_seconds != 1200:
         raise RunError("PROJECT_GROUP_TIMEOUT_MUST_BE_1200_SECONDS")
-    if prompt_layout not in {"baseline", "prefix_stable"}:
+    if prompt_layout not in {"baseline", "prefix_stable", "prefix_stable_v2"}:
         raise RunError("INVALID_PROMPT_LAYOUT")
     project = next((row for row in plan["projects"] if row["project_id"] == project_id), None)
     if project is None:
@@ -582,7 +582,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--project-id")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--compiler-map", type=Path)
-    parser.add_argument("--prompt-layout", choices=("baseline", "prefix_stable"), default="baseline")
+    parser.add_argument("--prompt-layout", choices=("baseline", "prefix_stable", "prefix_stable_v2"), default="baseline")
     parser.add_argument("--code-sha", default=os.getenv("COMPARISON_CODE_SHA"))
     parser.add_argument("--index", type=Path, default=REPO_ROOT / INDEX_RELATIVE)
     parser.add_argument("--timeout-seconds", type=int, default=1200)

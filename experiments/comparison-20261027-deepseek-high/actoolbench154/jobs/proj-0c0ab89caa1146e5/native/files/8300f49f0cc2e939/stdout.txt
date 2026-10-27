@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:claimRewards, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:harvest, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: SCRVVoter
+Sink:
+Reasoning:
+- `withdraw`, `harvest`, and `claimRewards` contain token transfers to `msg.sender`, but each is protected by `require(strategies[msg.sender])`. This is a proper access-control check restricting callers to governance-approved strategies, so these are not access-control sinks.
+- `deposit` has no access control. It transfers the voter’s token balance to `crvLocker`, then reads `crvLocker`’s entire balance of `_token`, approves an arbitrary `_gauge` for that balance, and calls `_gauge.deposit`. Anyone can invoke this function, causing `crvLocker` to approve an arbitrary address and enabling theft of tokens held by `crvLocker`. This is a security-sensitive operation lacking access control.
+
+--Sink--:
+{Function: deposit, Sink: approve/external call, Visibility: external, Explanation: No access control; transfers tokens and approves an arbitrary _gauge to spend crvLocker's token balance, enabling theft.}

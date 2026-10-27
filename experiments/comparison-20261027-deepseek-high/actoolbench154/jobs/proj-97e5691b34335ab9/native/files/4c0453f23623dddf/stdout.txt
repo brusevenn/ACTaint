@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:fallback, Visibility:external, Explanation:Uses assembly.}
+
+=============Contract: EthVault
+Sink:
+--Sink--:
+{Function: fallback, Sink: delegatecall, Visibility:external, Explanation: The fallback function performs a delegatecall to the implementation address using inline assembly, allowing arbitrary code execution in the context of EthVault and potentially modifying its storage or bypassing access control.}

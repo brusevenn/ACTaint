@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable totalReserves without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+
+=============Contract: RToken
+Sink:
+Reasoning summary:
+- `initialize` is a public initializer. The contract source has no constructor, so per the constructor context rule this initializer is treated as a wrong-constructor sink. It writes critical market initialization state.
+- `balanceOfUnderlying` has no direct access control, but it only triggers permissionless interest accrual through `exchangeRateCurrent`/`accrueInterest`. This is intended global accrual, not unauthorized modification of another user’s assets.
+- `_setInterestRateModel` calls `accrueInterest` before the admin check, but the actual sensitive update is guarded in `_setInterestRateModelFresh` by `msg.sender == admin`. The accrual portion is intended to be permissionless.
+- Standard ERC-20 `transfer`, `transferFrom`, and `approve` manage caller-owned allowance/balance state and are not sinks.
+- `seize` modifies borrower collateral, but it is guarded by `cointroller.seizeAllowed` with `msg.sender` as the seizer token, so arbitrary callers cannot seize collateral.
+- Admin functions `_setPendingAdmin`, `_acceptAdmin`, `_setCointroller`, `_setReserveFactor`, `_reduceReserves`, and `_setInterestRateModelFresh` enforce admin or pending-admin authorization.
+- Internal mint/redeem/borrow/repay/liquidation helpers are not externally callable in this source and are additionally guarded by cointroller checks where applicable.
+
+--Sink--:
+{Function: initialize, Sink: initializer writes critical market state, Visibility: public, Explanation: The contract has no constructor, so this initializer is treated as a wrong constructor sink; it sets initialExchangeRateMantissa, cointroller, accrualBlockNumber, borrowIndex, interestRateModel, name, symbol, decimals, and _notEntered.}

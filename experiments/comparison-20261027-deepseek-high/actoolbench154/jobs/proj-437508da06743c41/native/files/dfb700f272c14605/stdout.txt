@@ -1,0 +1,38 @@
+==============Start====================
+rules:
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721Upgradeable
+Sink:
+The externally callable ERC721 functions enforce standard authorization: `approve` requires owner or operator approval, `setApprovalForAll` modifies only the caller’s own approvals, and `transferFrom`/`safeTransferFrom` require `_isApprovedOrOwner`. Internal mint/burn/transfer helpers are not externally callable. The initializer functions are `internal` and `onlyInitializing`, so they are not externally invocable. `_checkOnERC721Received` uses assembly only to bubble a revert reason and does not create an access-control sink.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:setmaxMintAmount, Visibility:public, Explanation:Writes to variable maxMintAmount without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable maxMintAmount without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable minStakingAmount without any access control.}
+{Function:setMinStakingAmount, Visibility:public, Explanation:Writes to variable minStakingAmount without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable cost without any access control.}
+{Function:setCost, Visibility:public, Explanation:Writes to variable cost without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable maxLockDays without any access control.}
+{Function:setLockDays, Visibility:public, Explanation:Writes to variable maxLockDays without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable novo without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable lockDays without any access control.}
+{Function:mintForStakingV1ByOwner, Visibility:public, Explanation:Writes to variable stakingNFTs without any access control.}
+{Function:mintForStakingV1ByOwner, Visibility:public, Explanation:Writes to variable mapLockStatus without any access control.}
+{Function:mintForStakingV1ByOwner, Visibility:public, Explanation:Writes to variable mapStakers without any access control.}
+
+=============Contract: NovoNFT
+Sink:
+The unprotected `initialize` function is a sink because `initializer` only limits repeated calls, not who may call it first. The actual owner-only setters (`setCost`, `setMinStakingAmount`, `setmaxMintAmount`, `setLockDays`, etc.) and `mintForStakingV1ByOwner` are protected by `onlyOwner`, so they are not sinks despite the static-analysis entries.
+
+--Sink--:
+{Function: initialize, Sink: novo, Visibility: public, Explanation: Public unprotected initializer writes the NOVO contract address, which is used in access checks and token transfers.}
+{Function: initialize, Sink: cost, Visibility: public, Explanation: Public unprotected initializer writes cost used in the mint payment requirement.}
+{Function: initialize, Sink: maxMintAmount, Visibility: public, Explanation: Public unprotected initializer writes maxMintAmount used in the mint amount requirement.}
+{Function: initialize, Sink: minStakingAmount, Visibility: public, Explanation: Public unprotected initializer writes minStakingAmount used in the staking amount requirement.}
+{Function: initialize, Sink: maxLockDays, Visibility: public, Explanation: Public unprotected initializer writes maxLockDays used in the unstaking lock requirement.}
+{Function: initialize, Sink: lockDays, Visibility: public, Explanation: Public unprotected initializer writes lockDays used in unstaking lock and fee logic.}

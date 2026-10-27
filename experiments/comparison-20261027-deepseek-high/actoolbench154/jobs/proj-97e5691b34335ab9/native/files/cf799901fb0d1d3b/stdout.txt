@@ -1,0 +1,12 @@
+==============Start====================
+rules:
+{Function:setValidChain, Visibility:public, Explanation:Writes to variable isValidChain without any access control.}
+{Function:setTetherAddress, Visibility:public, Explanation:Writes to variable tetherAddress without any access control.}
+{Function:changeActivate, Visibility:public, Explanation:Writes to variable isActivated without any access control.}
+{Function:bytesToAddress, Visibility:private, Explanation:Uses assembly.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: EthVaultImpl
+Sink:
+--Sink--:
+{Function: withdraw, Sink: Ether/Token transfer, Visibility: public, Explanation: Transfers Ether or tokens to an address derived from toAddr based on a signature hash computed with abi.encodePacked over multiple dynamic types (fromChain, fromAddr, toAddr, token, bytes32s, uints), which does not uniquely bind the parameters and can allow signature reuse for altered withdrawal parameters.}

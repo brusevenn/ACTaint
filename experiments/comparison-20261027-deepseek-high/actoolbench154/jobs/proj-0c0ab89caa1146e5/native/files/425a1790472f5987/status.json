@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "75a6c499c218eb45602324709edffd75f2fe6060b47223662cc48804654972af",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 3,
+    "contracts_skipped_interface_abstract_library": 3,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.07,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 3,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.6.7+commit.b8d736ae",
+    "compiler_sha256": "20263aa17c2e7ca8c10ecd3d4242df61db9d549bc1ddb72b9a387c0c1136c1cf",
+    "metadata": "v0.6.7+commit.b8d736ae",
+    "metadata_build": "b8d736ae",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.7"
+  },
+  "elapsed_seconds": 279.417,
+  "ended_utc": "2026-10-27T05:32:11.992393+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/interfaces/uniswapv2.sol",
+  "source_sha256": "75a6c499c218eb45602324709edffd75f2fe6060b47223662cc48804654972af",
+  "started_utc": "2026-10-27T05:32:11.325118+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-0c0ab89caa1146e5/source_code/src/interfaces/uniswapv2.sol"
+}

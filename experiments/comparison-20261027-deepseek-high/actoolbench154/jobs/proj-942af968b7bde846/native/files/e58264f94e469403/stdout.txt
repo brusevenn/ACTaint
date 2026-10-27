@@ -1,0 +1,10 @@
+==============Start====================
+rules:
+{Function:_approveFor, Visibility:internal, Explanation:Writes to variable _operators without any access control.}
+{Function:setApprovalForAll, Visibility:external, Explanation:Writes to variable _operatorsForAll without any access control.}
+{Function:_checkInterfaceWith10000Gas, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: ERC721BaseToken
+Sink:
+--Sink--:
+{Function: _burn, Sink: Writes to _owners[id] and _numNFTPerAddress[from], Visibility: public, Explanation: `_burn(address from, address owner, uint256 id)` is public and only requires `from == owner`. It does not verify that `msg.sender` is authorized for the token or that `owner` is the actual owner of `id`. Any caller can call `_burn(attacker, attacker, victimTokenId)` to set `_owners[victimTokenId] = 2**160`, burning a token without owning it.}

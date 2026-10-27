@@ -1,0 +1,21 @@
+==============Start====================
+rules:
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable totalReserves without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+
+=============Contract: RToken
+Sink:
+Reasoning:
+- The static-analysis flags for `_setInterestRateModel` and `balanceOfUnderlying` are caused by calls to `accrueInterest()`, which is intentionally public in this Compound-style market. `_setInterestRateModel` still checks `msg.sender == admin` in `_setInterestRateModelFresh` before changing the interest-rate model. `balanceOfUnderlying` only accrues interest and returns a balance. These are not access-control sinks.
+- Standard ERC-20 functions (`transfer`, `transferFrom`, `approve`) enforce caller ownership or allowance and are not sinks.
+- Admin setters (`_setPendingAdmin`, `_acceptAdmin`, `_setCointroller`, `_setReserveFactorFresh`, `_reduceReservesFresh`, `_setInterestRateModelFresh`) explicitly check `admin`/`pendingAdmin`.
+- Seizure/liquidation functions rely on the Cointroller checks and are intended protocol operations.
+- The contract has no constructor, and `initialize` is a public initializer writing critical market state. Per the constructor context, it is treated as a wrong constructor and a sink.
+
+--Sink--:
+{Function: initialize, Sink: initialize, Visibility: public, Explanation: The contract has no constructor; `initialize` is a public initializer that writes critical market state (`cointroller`, `interestRateModel`, `accrualBlockNumber`, `borrowIndex`, `name`, `symbol`, `decimals`, `_notEntered`). It is treated as a wrong constructor and is a sink.}

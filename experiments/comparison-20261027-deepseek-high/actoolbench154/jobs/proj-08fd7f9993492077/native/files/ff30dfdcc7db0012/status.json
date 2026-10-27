@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "c7e11ca4bfd0c2abb4584ea60b127181fcf9308a20f01eafad4f621c6e01ff8f",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.18+commit.87f61d96",
+    "compiler_sha256": "95e6ed4949a63ad89afb443ecba1fb8302dd2860ee5e9baace3e674a0f48aa77",
+    "metadata": "v0.8.18+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.18"
+  },
+  "elapsed_seconds": 9.407,
+  "ended_utc": "2026-10-27T05:26:32.295452+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code/CoreBranchRouter.sol",
+  "source_sha256": "c7e11ca4bfd0c2abb4584ea60b127181fcf9308a20f01eafad4f621c6e01ff8f",
+  "started_utc": "2026-10-27T05:26:26.765992+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-08fd7f9993492077/source_code/CoreBranchRouter.sol"
+}

@@ -1,0 +1,60 @@
+==============Start====================
+rules:
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:_transferFrom, Visibility:internal, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:_burn, Visibility:internal, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:_burn, Visibility:internal, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:_safeTransferFrom, Visibility:internal, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:approve, Visibility:public, Explanation:Writes to variable _tokenApprovals without any access control.}
+{Function:_checkOnERC721Received, Visibility:internal, Explanation:Uses low level call.}
+{Function:_checkOnERC721Received, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: ERC721
+Sink:
+Reasoning:
+- `constructor()` is the actual constructor. It is not externally callable after deployment and does not introduce an access-control sink.
+- `approve` enforces `_msgSender() == owner || isApprovedForAll(owner, _msgSender())` before writing `_tokenApprovals`.
+- `setApprovalForAll` writes only the caller’s own operator approvals.
+- `transferFrom` and both `safeTransferFrom` overloads enforce `_isApprovedOrOwner(_msgSender(), tokenId)`.
+- `_transferFrom`, `_safeTransferFrom`, `_burn`, `_mint`, and `_safeMint` are internal. This contract exposes no unprotected public entry point to them.
+- `_checkOnERC721Received` is an internal ERC721 receiver callback used by authorized safe-transfer/mint paths. Its low-level call and assembly revert logic do not modify access-control state.
+- No initializer or wrong-constructor function exists.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:_setTokenURI, Visibility:internal, Explanation:Writes to variable _tokenURIs without any access control.}
+
+=============Contract: ERC721Metadata
+Sink:
+Reasoning:
+- The actual constructor `constructor(string,string)` executes only during deployment and initializes `_name`, `_symbol`, and the ERC165 interface. It is not an externally invokable post-deployment function.
+- `name`, `symbol`, `tokenURI`, and `baseURI` are view functions and perform no state-changing sink operation.
+- `_setTokenURI` is `internal`. It writes `_tokenURIs[tokenId]`, but no public or external function in this contract calls it. External actors cannot invoke it directly. The static-analysis candidate is therefore not an externally reachable access-control sink in this source.
+- `_setBaseURI` is also `internal` and is not externally exposed in this contract.
+- `_burn` is `internal` and not externally exposed in this contract; it delegates authorization-sensitive burning to `super._burn`.
+- No init/initializer function other than the actual constructor is present.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:_transferOwnership, Visibility:internal, Explanation:Writes to variable _owner without any access control.}
+
+=============Contract: Ownable
+Sink:
+The only write to `_owner` outside the constructor is in `_transferOwnership`, which is `internal` and is only called by `transferOwnership`, a function protected by the `onlyOwner` modifier. `renounceOwnership` is also protected by `onlyOwner`. The constructor correctly initializes `_owner` to the deployer and is not externally callable after deployment. No unprotected external function can modify ownership or other sensitive state. Therefore, no valid sinks are present.
+
+--Sink--:
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 3, "contracts_seen": 13, "contracts_skipped_interface_abstract_library": 4, "contracts_skipped_no_implementation": 3, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 3, "elapsed_seconds": 68.486, "sink_agent_calls": 3, "taint_agent_calls": 0, "target_contracts": 13, "total_token": 21076}
+==============End======================
+total time: 68.48636746406555
+total token: 21076

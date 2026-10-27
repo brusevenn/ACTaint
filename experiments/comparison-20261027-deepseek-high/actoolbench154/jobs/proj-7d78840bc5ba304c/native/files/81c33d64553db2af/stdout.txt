@@ -1,0 +1,41 @@
+==============Start====================
+rules:
+{Function:updateUser, Visibility:public, Explanation:Writes to variable stakedOfTimeSum without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable stakedOfTime without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable stakedOf without any access control.}
+{Function:setStartTime, Visibility:public, Explanation:Writes to variable startTime without any access control.}
+{Function:setListToken, Visibility:public, Explanation:Writes to variable listToken without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable users without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable upaddress without any access control.}
+{Function:setEx, Visibility:public, Explanation:Writes to variable myReward without any access control.}
+{Function:updateU, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:stake, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claim, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:getToken, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:sell, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: StakingRewards
+Sink:
+Reasoning:
+- The constructor is the actual constructor and sets initial approvals/addresses; it is not a sink.
+- `updateUser`, `setListToken`, `setStartTime`, `setEx`, and `getToken` are protected by `onlyOwner`; the static-analysis flags on these are false positives.
+- `setUPs` contains `require(upaddress[to] == msg.sender)`, so it is access-controlled for the current upline and is not a sink.
+- `updateU` is internal but is reachable through public `claim`; it transfers contract tokens to upline addresses derived from `upaddress`.
+- `stake` is external/public, transfers/spends contract-held tokens, and appends `msg.sender` into a caller-selected `up` user’s `arrs` without that user’s authorization.
+- `claim` is public and transfers contract tokens to `msg.sender` and uplines, using caller-supplied `token1` for price calculation.
+- `sell` is public and transfers contract `token1` to `msg.sender`.
+- `swapSell` is public and causes the router to spend contract-held `SELLC` to ETH sent to a hardcoded address.
+- `swapBuy` is public/payable and forwards `amount0In` wei from the contract to the router without requiring `amount0In == msg.value`.
+- `addLiquidity` is public and writes `listToken`, `myReward`, and the fee address’s `tz` without `onlyOwner`.
+
+--Sink--:
+{Function: stake, Sink: token1 transfer / _buy / _addL, Visibility: external, Explanation: Public staking transfers contract-held token1 to the fee address and router/pair using caller-supplied token addresses and amount, with no check that token1 matches token2 or that the amount is denominated in token1.}
+{Function: stake, Sink: users[token][up].arrs.push, Visibility: external, Explanation: Public staking appends msg.sender into the caller-selected up user’s arrs without that user’s authorization.}
+{Function: updateU, Sink: IERC20(token).transfer, Visibility: internal, Explanation: Internal transfer sends token from the contract to addresses taken from upaddress; it is reachable through public claim and has no access control on the upline addresses.}
+{Function: claim, Sink: IERC20(token).transfer(msg.sender, coin*50/100), Visibility: public, Explanation: Public claim transfers contract tokens to msg.sender, and the payout uses caller-supplied token1 in getTokenPrice.}
+{Function: sell, Sink: IERC20(token1).transfer(msg.sender,_sellc), Visibility: public, Explanation: Public sell transfers contract token1 to msg.sender based on caller-supplied token and amount.}
+{Function: swapSell, Sink: IRouters.swapExactTokensForETHSupportingFeeOnTransferTokens, Visibility: public, Explanation: Public function causes the router to transfer contract-held SELLC and swap it to ETH sent to a hardcoded address with no access control.}
+{Function: swapBuy, Sink: IRouters.swapExactETHForTokensSupportingFeeOnTransferTokens{value: amount0In}, Visibility: public, Explanation: Public payable function sends amount0In wei from the contract to the router without requiring amount0In to equal msg.value.}
+{Function: addLiquidity, Sink: listToken[_token] write, Visibility: public, Explanation: Public function sets listToken[_token]=true without onlyOwner, bypassing owner-only setListToken.}
+{Function: addLiquidity, Sink: myReward[_token] write, Visibility: public, Explanation: Public function writes myReward[_token]=token1 when the current value is zero, bypassing owner-only setEx.}
+{Function: addLiquidity, Sink: users[_token][fee].tz write, Visibility: public, Explanation: Public function increments users[_token][fee].tz by 100 ether for the hardcoded fee address without authorization.}

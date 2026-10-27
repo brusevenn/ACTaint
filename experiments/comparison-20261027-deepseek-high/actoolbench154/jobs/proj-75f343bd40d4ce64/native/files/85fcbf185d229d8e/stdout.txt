@@ -1,0 +1,33 @@
+==============Start====================
+rules:
+{Function:setController, Visibility:external, Explanation:Writes to variable controller without any access control.}
+
+=============Contract: Controllable
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:removeFromWhitelist, Visibility:external, Explanation:Writes to variable whitelist without any access control.}
+{Function:addToWhitelist, Visibility:external, Explanation:Writes to variable whitelist without any access control.}
+
+=============Contract: Whitelist
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:switchEoaOnly, Visibility:external, Explanation:Writes to variable preventSmartContracts without any access control.}
+{Function:setWithdrawHandler, Visibility:external, Explanation:Writes to variable emergencyHandler without any access control.}
+{Function:setWithdrawHandler, Visibility:external, Explanation:Writes to variable withdrawHandler without any access control.}
+{Function:addSafeAddress, Visibility:external, Explanation:Writes to variable safeAddresses without any access control.}
+{Function:setDepositHandler, Visibility:external, Explanation:Writes to variable depositHandler without any access control.}
+{Function:setLifeGuard, Visibility:external, Explanation:Writes to variable buoy without any access control.}
+{Function:setBigFishThreshold, Visibility:external, Explanation:Writes to variable bigFishAbsoluteThreshold without any access control.}
+
+=============Contract: Controller
+Sink:
+--Sink--:
+{Function: distributeStrategyGainLoss, Sink: unauthorized PnL distribution via IPnL(pnl).distributeStrategyGainLoss(gainUsd, lossUsd, reward) and IPnL(pnl).distributePriceChange(_totalAssets()), Visibility: external, Explanation: The require condition `index > 0 || index <= N_COINS + 1` is true for every uint256 value, so it does not restrict callers to registered vaults. No other caller validation is present. Any caller can invoke the PnL distribution/update operations with caller-supplied gain and loss values, modifying system PnL/reward state without authorization.}

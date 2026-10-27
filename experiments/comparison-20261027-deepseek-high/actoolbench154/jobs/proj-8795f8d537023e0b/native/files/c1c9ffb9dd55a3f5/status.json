@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "7c069a517381ba02456458d6420fb106c0da53fb85efa4523ee27ceb3f6ccbc3",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.24+commit.e11b9ed9",
+    "compiler_sha256": "fb03a29a517452b9f12bcf459ef37d0a543765bb3bbc911e70a87d6a37c30d5f",
+    "metadata": "v0.8.24+commit.e11b9ed9",
+    "metadata_build": "e11b9ed9",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-8795f8d537023e0b/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.24"
+  },
+  "elapsed_seconds": 4.237,
+  "ended_utc": "2026-10-27T06:10:27.206150+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-8795f8d537023e0b/source_code/IPancakeRouter02.sol",
+  "source_sha256": "7c069a517381ba02456458d6420fb106c0da53fb85efa4523ee27ceb3f6ccbc3",
+  "started_utc": "2026-10-27T06:10:26.589068+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-8795f8d537023e0b/source_code/IPancakeRouter02.sol"
+}

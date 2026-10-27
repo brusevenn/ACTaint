@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+
+=============Contract: StrategyCurveSCRVv3_2
+Sink:
+The only state-changing external/public function is `harvest()`, which is guarded by the `onlyBenevolent` access-control modifier. The constructor is the actual constructor and is not an initializer sink. `getMostPremium` is a view function and `getName` is pure; neither performs security-sensitive state mutations. Therefore, no access-control sink operations are identified.
+
+--Sink--: 
+no sinks
+Report:
+--Tx.origin Vulnerability--:
+{Function: onlyBenevolent, Explanation: Uses tx.origin as condition.}
+{Function: harvest, Explanation: Uses tx.origin as condition.}
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 27, "contracts_skipped_interface_abstract_library": 0, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 44.766, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 10446}
+==============End======================
+total time: 44.766294956207275
+total token: 10446

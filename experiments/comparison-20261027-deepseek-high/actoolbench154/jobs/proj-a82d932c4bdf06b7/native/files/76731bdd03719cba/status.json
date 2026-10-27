@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "3029cadb62d7b2f22a75ff2cbf2b8b7ab3de3cbcfea16ece2e6c86caae94caa3",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 1,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 1,
+    "elapsed_seconds": 0.017,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.5.17+commit.d19bba13",
+    "compiler_sha256": "c35ce7a4d3ffa5747c178b1e24c8541b2e5d8a82c1db3719eb4433a1f19e16f3",
+    "metadata": "v0.5.17+commit.d19bba13",
+    "metadata_build": "d19bba13",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.17"
+  },
+  "elapsed_seconds": 0.618,
+  "ended_utc": "2026-10-27T06:20:11.314324+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a82d932c4bdf06b7/source_code/@openzeppelin/contracts/GSN/Context.sol",
+  "source_sha256": "3029cadb62d7b2f22a75ff2cbf2b8b7ab3de3cbcfea16ece2e6c86caae94caa3",
+  "started_utc": "2026-10-27T06:20:10.697569+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-a82d932c4bdf06b7/source_code/@openzeppelin/contracts/GSN/Context.sol"
+}

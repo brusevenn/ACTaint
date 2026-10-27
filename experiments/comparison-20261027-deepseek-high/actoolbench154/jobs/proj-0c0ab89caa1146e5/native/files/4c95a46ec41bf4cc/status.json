@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "975351a47cee3f210c89a63f466ff9d015455067a6cb86ec134b0ff8d26c20ea",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 17,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 6.163,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 2287
+  },
+  "compiler": {
+    "actual_full_version": "0.6.7+commit.b8d736ae",
+    "compiler_sha256": "20263aa17c2e7ca8c10ecd3d4242df61db9d549bc1ddb72b9a387c0c1136c1cf",
+    "metadata": "v0.6.7+commit.b8d736ae",
+    "metadata_build": "b8d736ae",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.7"
+  },
+  "elapsed_seconds": 720.845,
+  "ended_utc": "2026-10-27T05:39:33.419869+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/4c95a46ec41bf4cc/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/strategies/uniswapv2/strategy-uni-eth-dai-lp-v4.sol",
+  "source_sha256": "975351a47cee3f210c89a63f466ff9d015455067a6cb86ec134b0ff8d26c20ea",
+  "started_utc": "2026-10-27T05:39:26.590012+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-0c0ab89caa1146e5/source_code/src/strategies/uniswapv2/strategy-uni-eth-dai-lp-v4.sol"
+}

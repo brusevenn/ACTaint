@@ -1,0 +1,129 @@
+{
+  "case_ids": [
+    "acb-22a75d69f1c00c11",
+    "acb-ed61f3b5f23eb606",
+    "acb-f16d2287950d3a28"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-0fe4b3faf45f3e29/source_code/config.json",
+  "compile_config_sha256": "2f1e7f7b7166f7f31a078aaea5abe27dd45b63b7e3f4aabefcb4138ea82d796f",
+  "compiler": {
+    "actual_full_version": "0.8.16+commit.07a7930e",
+    "compiler_sha256": "1632786c6c1f856a4a899232ec975a12f305118f43cce90e724ed0b2eebfeee1",
+    "metadata": "v0.8.16+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-0fe4b3faf45f3e29/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.16"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 2.761,
+  "ended_utc": "2026-10-27T05:30:49.201813+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "263757a0de23e83e4c8605b8f6eabb4cbd6cfbffce26d1f00e0b7438d36ae7bd",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.16+commit.07a7930e",
+        "compiler_sha256": "1632786c6c1f856a4a899232ec975a12f305118f43cce90e724ed0b2eebfeee1",
+        "metadata": "v0.8.16+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-0fe4b3faf45f3e29/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.16"
+      },
+      "elapsed_seconds": 1.019,
+      "ended_utc": "2026-10-27T05:30:47.458939+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0fe4b3faf45f3e29/source_code/StaderConfig.sol",
+      "source_sha256": "263757a0de23e83e4c8605b8f6eabb4cbd6cfbffce26d1f00e0b7438d36ae7bd",
+      "started_utc": "2026-10-27T05:30:46.441355+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-0fe4b3faf45f3e29/source_code/StaderConfig.sol"
+    },
+    {
+      "actual_source_sha256": "f4611306f585bb580fe54f45103fd678f5889db3db5b7e3dc40e2e6ec4d588c2",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.16+commit.07a7930e",
+        "compiler_sha256": "1632786c6c1f856a4a899232ec975a12f305118f43cce90e724ed0b2eebfeee1",
+        "metadata": "v0.8.16+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-0fe4b3faf45f3e29/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.16"
+      },
+      "elapsed_seconds": 1.989,
+      "ended_utc": "2026-10-27T05:30:48.429713+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0fe4b3faf45f3e29/source_code/ValidatorWithdrawalVault.sol",
+      "source_sha256": "f4611306f585bb580fe54f45103fd678f5889db3db5b7e3dc40e2e6ec4d588c2",
+      "started_utc": "2026-10-27T05:30:47.461786+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-0fe4b3faf45f3e29/source_code/ValidatorWithdrawalVault.sol"
+    },
+    {
+      "actual_source_sha256": "e02a5abb52640e0856d0dc1f3d68ecf70eca1a583af02c17051d662c756974cb",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.16+commit.07a7930e",
+        "compiler_sha256": "1632786c6c1f856a4a899232ec975a12f305118f43cce90e724ed0b2eebfeee1",
+        "metadata": "v0.8.16+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-0fe4b3faf45f3e29/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.16"
+      },
+      "elapsed_seconds": 2.76,
+      "ended_utc": "2026-10-27T05:30:49.200142+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0fe4b3faf45f3e29/source_code/VaultProxy.sol",
+      "source_sha256": "e02a5abb52640e0856d0dc1f3d68ecf70eca1a583af02c17051d662c756974cb",
+      "started_utc": "2026-10-27T05:30:48.432466+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-0fe4b3faf45f3e29/source_code/VaultProxy.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-0fe4b3faf45f3e29",
+  "prompt_layout": "prefix_stable",
+  "record_count": 3,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 3,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:30:46.440640+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

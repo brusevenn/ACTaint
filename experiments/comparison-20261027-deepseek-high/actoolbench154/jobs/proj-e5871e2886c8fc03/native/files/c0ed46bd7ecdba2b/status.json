@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "47f9be5456eb8da9dc52b31229179bedc869a095d266d51e16a8b34ef783481b",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 10,
+    "contracts_skipped_interface_abstract_library": 8,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 2,
+    "elapsed_seconds": 0.176,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 10,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-e5871e2886c8fc03/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "elapsed_seconds": 0.768,
+  "ended_utc": "2026-10-27T06:41:18.830439+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-e5871e2886c8fc03/source_code/BurnFlashStakeDeposit.sol",
+  "source_sha256": "47f9be5456eb8da9dc52b31229179bedc869a095d266d51e16a8b34ef783481b",
+  "started_utc": "2026-10-27T06:41:18.063650+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-e5871e2886c8fc03/source_code/BurnFlashStakeDeposit.sol"
+}

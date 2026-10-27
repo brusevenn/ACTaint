@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:decreaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:increaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:approve, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+
+=============Contract: StandardToken
+Sink:
+--Sink--:
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 9, "contracts_skipped_interface_abstract_library": 1, "contracts_skipped_no_implementation": 2, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 5, "elapsed_seconds": 8.146, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 9, "total_token": 3307}
+==============End======================
+total time: 8.145678997039795
+total token: 3307

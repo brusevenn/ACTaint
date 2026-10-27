@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "ccbfb8def84c2cf4da607e2137427b71565b1c671086775aee2ef61de0017063",
+  "analyzer_summary": {
+    "contracts_analyzed": 2,
+    "contracts_seen": 13,
+    "contracts_skipped_interface_abstract_library": 11,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 71.845,
+    "sink_agent_calls": 2,
+    "taint_agent_calls": 0,
+    "target_contracts": 13,
+    "total_token": 19387
+  },
+  "compiler": {
+    "actual_full_version": "0.8.7+commit.e28d00a7",
+    "compiler_sha256": "003d75383e45212f9812d0b6add90329fd3b239e6c378d2882f61f9345896d99",
+    "metadata": "v0.8.7+commit.e28d00a7",
+    "metadata_build": "e28d00a7",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-82c8ff156ec8a48d/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.7"
+  },
+  "elapsed_seconds": 72.483,
+  "ended_utc": "2026-10-27T06:08:54.981516+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/4ce3c69289057cf8/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-82c8ff156ec8a48d/source_code/Bad_Guys_by_RPF.sol",
+  "source_sha256": "ccbfb8def84c2cf4da607e2137427b71565b1c671086775aee2ef61de0017063",
+  "started_utc": "2026-10-27T06:07:42.499243+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-82c8ff156ec8a48d/source_code/Bad_Guys_by_RPF.sol"
+}

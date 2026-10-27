@@ -1,0 +1,39 @@
+==============Start====================
+rules:
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_excludedFromTransferContent, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_excludedToTransferContent, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_standardTransferContent, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_sendToCharity, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_bothTransferContent, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:restoreAllFee, Visibility:private, Explanation:Writes to variable _CHARITY_FEE without any access control.}
+{Function:restoreAllFee, Visibility:private, Explanation:Writes to variable _BURN_FEE without any access control.}
+{Function:restoreAllFee, Visibility:private, Explanation:Writes to variable _TAX_FEE without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_reflectFee, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_reflectFee, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_excludedFromTransferContent, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_excludedToTransferContent, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_sendToCharity, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_bothTransferContent, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+
+=============Contract: CoinToken
+Sink:
+--Sink--:
+{Function: burn, Sink: _rOwned and _tTotal, Visibility: public, Explanation: Public burn calls _burn(msg.sender, _value), reducing _rOwned[msg.sender] and _tTotal while leaving _rTotal unchanged; any holder can call it, which alters the reflection rate and therefore changes other holders' effective balances without their authorization.}

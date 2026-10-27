@@ -1,0 +1,20 @@
+==============Start====================
+rules:
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable totalReserves without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:seizeInternal, Visibility:internal, Explanation:Writes to variable totalReserves without any access control.}
+
+=============Contract: CToken
+Sink:
+--Sink--:
+{Function: initialize, Sink: initialExchangeRateMantissa, Visibility: public, Explanation: Initializer function in a contract with no constructor; marked as a wrong constructor sink.}
+{Function: initialize, Sink: comptroller, Visibility: public, Explanation: Initializer function in a contract with no constructor; marked as a wrong constructor sink.}
+{Function: initialize, Sink: accrualBlockNumber, Visibility: public, Explanation: Initializer function in a contract with no constructor; marked as a wrong constructor sink.}
+{Function: initialize, Sink: borrowIndex, Visibility: public, Explanation: Initializer function in a contract with no constructor; marked as a wrong constructor sink.}
+{Function: initialize, Sink: interestRateModel, Visibility: public, Explanation: Initializer function in a contract with no constructor; marked as a wrong constructor sink.}
+{Function: initialize, Sink: _notEntered, Visibility: public, Explanation: Initializer function in a contract with no constructor; marked as a wrong constructor sink.}

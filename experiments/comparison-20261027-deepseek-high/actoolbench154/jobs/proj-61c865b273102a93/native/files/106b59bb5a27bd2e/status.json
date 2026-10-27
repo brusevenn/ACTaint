@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "b29a5193bc1a5e9469f20139f7f6a096ab13988bda619894054947c3a24bfe4b",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.16+commit.07a7930e",
+    "compiler_sha256": "1632786c6c1f856a4a899232ec975a12f305118f43cce90e724ed0b2eebfeee1",
+    "metadata": "v0.8.16+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-61c865b273102a93/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.16"
+  },
+  "elapsed_seconds": 1.971,
+  "ended_utc": "2026-10-27T05:54:41.549192+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-61c865b273102a93/source_code/CashManager.sol",
+  "source_sha256": "b29a5193bc1a5e9469f20139f7f6a096ab13988bda619894054947c3a24bfe4b",
+  "started_utc": "2026-10-27T05:54:39.579447+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-61c865b273102a93/source_code/CashManager.sol"
+}

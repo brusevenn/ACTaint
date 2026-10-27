@@ -1,0 +1,10 @@
+==============Start====================
+rules:
+{Function:_execute, Visibility:internal, Explanation:Uses assembly.}
+{Function:swapExactJarForJar, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: ControllerV4
+Sink:
+--Sink--:
+{Function: _execute, Sink: delegatecall, Visibility: internal, Explanation: Contains inline assembly `delegatecall` to `_target`, executing external code in the Controller's storage context; the caller restricts `_target` to approved jar converters, but the delegatecall itself is a security-sensitive operation.}
+{Function: swapExactJarForJar, Sink: transfers Ether or Token, Visibility: external, Explanation: Publicly callable external function that transfers tokens from `msg.sender`, withdraws from a Jar, approves and deposits into `_toJar`, and transfers the resulting Jar tokens to `msg.sender`; it also uses contract-wide token balances when computing fees and deposit amounts, making it a security-sensitive token transfer sink.}

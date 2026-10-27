@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "$REPO_ROOT/src/analyze_smart_contract.py", line 210, in <module>
+    vulnerability_report += taint_agent.process() + "\n"
+                            ^^^^^^^^^^^^^^^^^^^^^
+  File "$REPO_ROOT/src/llm/taint_agent.py", line 20, in process
+    result += call_chatgpt(prompt_message)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$REPO_ROOT/src/llm/call_gpt.py", line 137, in call_chatgpt
+    raw_response = client.chat.completions.with_raw_response.create(**request_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/openai/_legacy_response.py", line 336, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/openai/_utils/_utils.py", line 277, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/openai/resources/chat/completions.py", line 646, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/openai/_base_client.py", line 1266, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/openai/_base_client.py", line 942, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/openai/_base_client.py", line 1046, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 1e6184df-5a8e-4bf2-af21-752880661c07)', 'type': 'insufficient_balance_error', 'param': None, 'code': 'invalid_request_error'}}

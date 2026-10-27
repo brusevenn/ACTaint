@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:addTransaction, Visibility:public, Explanation:Writes to variable transactions without any access control.}
+{Function:submitTransaction, Visibility:public, Explanation:Writes to variable transactions without any access control.}
+{Function:addTransaction, Visibility:public, Explanation:Writes to variable transactionCount without any access control.}
+{Function:submitTransaction, Visibility:public, Explanation:Writes to variable transactionCount without any access control.}
+{Function:submitTransaction, Visibility:public, Explanation:Writes to variable confirmations without any access control.}
+
+=============Contract: MultiSigWallet
+Sink:
+Reasoning:
+- The constructor only initializes the wallet at deployment; it is the designated constructor and is not callable afterward.
+- Functions guarded by `onlyWallet` (`addOwner`, `removeOwner`, `replaceOwner`, `changeRequirement`) check `msg.sender == address(this)`, so they are access-controlled through the wallet execution path.
+- `submitTransaction` is public, but it calls `confirmTransaction`, which enforces `ownerExists(msg.sender)`. A non-owner call reverts, rolling back the prior writes.
+- `addTransaction` is public and lacks both `ownerExists` and `onlyWallet`. It directly writes the `transactions` mapping and increments `transactionCount`, so anyone can create arbitrary transactions and inflate the counter.
+- `confirmTransaction` and `revokeConfirmation` only modify the caller’s own confirmation and require `ownerExists(msg.sender)`.
+- `executeTransaction` intentionally allows anyone to execute a transaction once it is confirmed by the required owners; this is protected by `isConfirmed(transactionId)`.
+- View functions and the payable fallback do not perform unauthorized sensitive state changes.
+
+--Sink--:
+{Function: addTransaction, Sink: transactions, Visibility: public, Explanation: Public function writes to the transactions mapping without owner or onlyWallet access control, allowing anyone to submit arbitrary transactions.}
+{Function: addTransaction, Sink: transactionCount, Visibility: public, Explanation: Public function increments transactionCount without access control, allowing anyone to inflate the transaction counter.}

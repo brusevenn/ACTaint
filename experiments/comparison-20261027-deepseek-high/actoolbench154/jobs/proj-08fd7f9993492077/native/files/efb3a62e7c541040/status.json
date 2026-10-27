@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "3147b05e79defb1c2d0ee5c37e4f7e6c84ffdfeabad0ebe49922b5a719988c8b",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.18+commit.87f61d96",
+    "compiler_sha256": "95e6ed4949a63ad89afb443ecba1fb8302dd2860ee5e9baace3e674a0f48aa77",
+    "metadata": "v0.8.18+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.18"
+  },
+  "elapsed_seconds": 68.609,
+  "ended_utc": "2026-10-27T05:27:31.496735+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code/UniswapV3Staker.sol",
+  "source_sha256": "3147b05e79defb1c2d0ee5c37e4f7e6c84ffdfeabad0ebe49922b5a719988c8b",
+  "started_utc": "2026-10-27T05:27:04.765962+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-08fd7f9993492077/source_code/UniswapV3Staker.sol"
+}

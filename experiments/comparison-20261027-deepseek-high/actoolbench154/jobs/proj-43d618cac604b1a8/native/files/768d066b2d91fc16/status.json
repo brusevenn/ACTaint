@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "c11e4908ec21c06e2e967cde3b9f376e7952805b23bb61fe43d7036857e7bc85",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 5,
+    "contracts_skipped_interface_abstract_library": 3,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 2,
+    "elapsed_seconds": 0.178,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 5,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.8.7+commit.e28d00a7",
+    "compiler_sha256": "003d75383e45212f9812d0b6add90329fd3b239e6c378d2882f61f9345896d99",
+    "metadata": "v0.8.7+commit.e28d00a7",
+    "metadata_build": "e28d00a7",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-43d618cac604b1a8/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.7"
+  },
+  "elapsed_seconds": 1.538,
+  "ended_utc": "2026-10-27T05:49:25.842494+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-43d618cac604b1a8/source_code/Token.sol",
+  "source_sha256": "c11e4908ec21c06e2e967cde3b9f376e7952805b23bb61fe43d7036857e7bc85",
+  "started_utc": "2026-10-27T05:49:25.074696+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-43d618cac604b1a8/source_code/Token.sol"
+}

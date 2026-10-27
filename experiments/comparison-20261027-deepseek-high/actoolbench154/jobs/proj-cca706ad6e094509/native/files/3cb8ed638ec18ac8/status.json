@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "6a06806edffe0750067b5780d08f707a16507e1d68d1d40d8fca5e15fa4aeeed",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.18+commit.9cf6e910",
+    "compiler_sha256": "898a5e05d3ac08d726b019d2415c1c087a9ae87866cdfa551c08b36b6b45321d",
+    "metadata": "v0.4.18+commit.9cf6e910",
+    "metadata_build": "9cf6e910",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.18"
+  },
+  "elapsed_seconds": 109.381,
+  "ended_utc": "2026-10-27T06:29:33.239874+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/3cb8ed638ec18ac8/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-cca706ad6e094509/source_code/EtherCartel.sol",
+  "source_sha256": "6a06806edffe0750067b5780d08f707a16507e1d68d1d40d8fca5e15fa4aeeed",
+  "started_utc": "2026-10-27T06:27:43.859686+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-cca706ad6e094509/source_code/EtherCartel.sol"
+}

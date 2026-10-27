@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "267d492a47bb5a6debd239b8eb3b44dba7795ac30ce09ebce14bed145ea86d12",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 5,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 1,
+    "elapsed_seconds": 0.21,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.5.17+commit.d19bba13",
+    "compiler_sha256": "c35ce7a4d3ffa5747c178b1e24c8541b2e5d8a82c1db3719eb4433a1f19e16f3",
+    "metadata": "v0.5.17+commit.d19bba13",
+    "metadata_build": "d19bba13",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.17"
+  },
+  "elapsed_seconds": 24.114,
+  "ended_utc": "2026-10-27T06:20:34.810534+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a82d932c4bdf06b7/source_code/@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol",
+  "source_sha256": "267d492a47bb5a6debd239b8eb3b44dba7795ac30ce09ebce14bed145ea86d12",
+  "started_utc": "2026-10-27T06:20:34.043118+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-a82d932c4bdf06b7/source_code/@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol"
+}

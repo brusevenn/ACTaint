@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "42a52a6186d02c63361c5e8e66c436006c4eeec6ea01985b99d7f7087bf3d624",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.24+commit.e11b9ed9",
+    "compiler_sha256": "fb03a29a517452b9f12bcf459ef37d0a543765bb3bbc911e70a87d6a37c30d5f",
+    "metadata": "v0.8.24+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-8318cf68f29753a5/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.24"
+  },
+  "elapsed_seconds": 2.824,
+  "ended_utc": "2026-10-27T06:10:12.001331+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-8318cf68f29753a5/source_code/PrizePool.sol",
+  "source_sha256": "42a52a6186d02c63361c5e8e66c436006c4eeec6ea01985b99d7f7087bf3d624",
+  "started_utc": "2026-10-27T06:10:09.179124+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-8318cf68f29753a5/source_code/PrizePool.sol"
+}

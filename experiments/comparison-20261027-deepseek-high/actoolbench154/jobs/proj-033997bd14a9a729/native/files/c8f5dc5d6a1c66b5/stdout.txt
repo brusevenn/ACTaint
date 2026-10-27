@@ -1,0 +1,28 @@
+==============Start====================
+rules:
+{Function:stakeFor, Visibility:public, Explanation:Writes to variable rewardData without any access control.}
+{Function:stakeAll, Visibility:external, Explanation:Writes to variable rewardData without any access control.}
+{Function:withdraw, Visibility:public, Explanation:Writes to variable rewardData without any access control.}
+{Function:stake, Visibility:external, Explanation:Writes to variable rewardData without any access control.}
+{Function:withdrawAll, Visibility:external, Explanation:Writes to variable rewardData without any access control.}
+{Function:migrateStake, Visibility:external, Explanation:Writes to variable rewardData without any access control.}
+{Function:stakeFor, Visibility:public, Explanation:Writes to variable _balances without any access control.}
+{Function:stakeAll, Visibility:external, Explanation:Writes to variable _balances without any access control.}
+{Function:withdraw, Visibility:public, Explanation:Writes to variable _balances without any access control.}
+{Function:stake, Visibility:external, Explanation:Writes to variable _balances without any access control.}
+{Function:withdrawAll, Visibility:external, Explanation:Writes to variable _balances without any access control.}
+{Function:migrateStake, Visibility:external, Explanation:Writes to variable _balances without any access control.}
+{Function:setRewardDistributor, Visibility:external, Explanation:Writes to variable rewardDistributor without any access control.}
+{Function:setMigrator, Visibility:external, Explanation:Writes to variable migrator without any access control.}
+
+=============Contract: StaxLPStaking
+Sink:
+Reasoning:
+- `setRewardDistributor`, `setMigrator`, and `addReward` are protected by `onlyOwner`; `notifyRewardAmount` is restricted to `rewardDistributor`; `migrateWithdraw` is protected by `onlyMigrator`. These have access control.
+- `stake`, `stakeAll`, `withdraw`, and `withdrawAll` only modify the caller’s own staking/reward state and require caller balance checks, so they are not access-control sinks.
+- `stakeFor` credits another account using the caller’s transferred tokens; this is a deposit-for-beneficiary pattern and does not remove another user’s assets.
+- `getRewards`/`getReward` may claim rewards for a specified staker, but the rewards are sent to that staker, not redirected to the caller, so they do not create an access-control sink.
+- `migrateStake` is externally callable with no access control and accepts an arbitrary `oldStaking` address. It calls that contract and then credits `msg.sender` via `_applyStake` without verifying that a real staking contract transferred the corresponding tokens. A malicious `oldStaking` can no-op, allowing arbitrary stake minting and later withdrawal of staking tokens.
+
+--Sink--:
+{Function: migrateStake, Sink: _balances and _totalSupply state update, Visibility: external, Explanation: No access control and arbitrary oldStaking/amount let any caller fake the migration; the contract calls oldStaking.migrateWithdraw and then credits msg.sender via _applyStake without verifying token transfer, enabling arbitrary stake minting and theft of staking tokens.}

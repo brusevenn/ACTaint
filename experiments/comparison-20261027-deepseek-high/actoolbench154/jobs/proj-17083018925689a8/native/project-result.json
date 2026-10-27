@@ -1,0 +1,77 @@
+{
+  "case_ids": [
+    "acb-7a46c5a963d98ebc"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-17083018925689a8/source_code/config.json",
+  "compile_config_sha256": "6741e4b8c583c3f3ee71dd9916457dbe99dd575cba1fc3bf17d1dd702d89b4ad",
+  "compiler": {
+    "actual_full_version": "0.7.6+commit.7338295f",
+    "compiler_sha256": "bd69ea85427bf2f4da74cb426ad951dd78db9dfdd01d791208eccc2d4958a6bb",
+    "metadata": "v0.7.6+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-17083018925689a8/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.7.6"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 79.094,
+  "ended_utc": "2026-10-27T05:36:16.778971+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "c25fda342859e1a4a44db72de829c076183c80854098610c05f2812372cc5e85",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.7.6+commit.7338295f",
+        "compiler_sha256": "bd69ea85427bf2f4da74cb426ad951dd78db9dfdd01d791208eccc2d4958a6bb",
+        "metadata": "v0.7.6+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-17083018925689a8/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.7.6"
+      },
+      "elapsed_seconds": 79.092,
+      "ended_utc": "2026-10-27T05:36:16.777060+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/beea12e644544800/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-17083018925689a8/source_code/AlgebraPool.sol",
+      "source_sha256": "c25fda342859e1a4a44db72de829c076183c80854098610c05f2812372cc5e85",
+      "started_utc": "2026-10-27T05:34:57.685802+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-17083018925689a8/source_code/AlgebraPool.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-17083018925689a8",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 1,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:34:57.684875+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

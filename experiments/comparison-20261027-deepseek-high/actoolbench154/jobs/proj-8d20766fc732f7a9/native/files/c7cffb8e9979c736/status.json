@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "afa3712171d57bfd0ae669dbcf8631f53272a39f4b0214d0db2ea386819248f2",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.12+commit.f00d7308",
+    "compiler_sha256": "556c3ec44faf8ff6b67933fa8a8a403abe82c978d6e581dbfec4bd07360bfbf3",
+    "metadata": "v0.8.12+commit.f00d7308",
+    "metadata_build": "f00d7308",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-8d20766fc732f7a9/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.12"
+  },
+  "elapsed_seconds": 10.338,
+  "ended_utc": "2026-10-27T06:10:49.413504+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-8d20766fc732f7a9/source_code/contracts/interfaces/IPancakePair.sol",
+  "source_sha256": "afa3712171d57bfd0ae669dbcf8631f53272a39f4b0214d0db2ea386819248f2",
+  "started_utc": "2026-10-27T06:10:48.796256+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-8d20766fc732f7a9/source_code/contracts/interfaces/IPancakePair.sol"
+}

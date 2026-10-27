@@ -1,0 +1,32 @@
+==============Start====================
+rules:
+{Function:moveRewardAddress, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:moveUtils, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_finalise, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:completeProposal, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_finalise, Visibility:internal, Explanation:Writes to variable mapPID_timeStart without any access control.}
+{Function:newAddressProposal, Visibility:public, Explanation:Writes to variable mapPID_type without any access control.}
+{Function:newGrantProposal, Visibility:public, Explanation:Writes to variable mapPID_type without any access control.}
+
+=============Contract: DAO
+Sink:
+Reasoning steps:
+1. The constructor is empty and contains no sensitive operation.
+2. The `init` function is a public initializer with only an `inited` flag check. It writes critical addresses `VADER`, `USDV`, `VAULT` and `coolOffPeriod`. Any caller can initialize before the first call, so it is a sink.
+3. `newGrantProposal` and `newAddressProposal` are public functions with no caller authorization. They write proposal mappings (`mapPID_type`, `mapPID_grant`, `mapPID_address`) using caller-supplied values, so they are sinks.
+4. `_finalise` is an internal function with no internal access control. It writes `mapPID_finalising` and `mapPID_timeStart`. It is reachable from public `voteProposal` and `finaliseProposal`, so it is a sink.
+5. `completeProposal` is an internal function with no internal access control. It writes `mapPID_votes`, `mapPID_finalised`, and `mapPID_finalising`. It is reachable from public `finaliseProposal` through `grantFunds`, `moveUtils`, and `moveRewardAddress`, so it is a sink.
+6. `grantFunds` is an internal function that calls `iVAULT(VAULT).grant(recipient, amount)`, transferring funds. It is reachable from public `finaliseProposal` without a quorum check at execution time, so it is a sink.
+7. `moveUtils` is an internal function that calls `iVADER(VADER).changeUTILS(proposedAddress)`, changing the UTILS address. It is reachable from public `finaliseProposal` without a quorum check at execution time, so it is a sink.
+8. `moveRewardAddress` is an internal function that calls `iVADER(VADER).setRewardAddress(proposedAddress)`, changing the reward address. It is reachable from public `finaliseProposal` without a quorum check at execution time, so it is a sink.
+9. `voteProposal` and `countMemberVotes` update only the caller’s own vote record, which is acceptable. `cancelProposal` implements the stated minority-cancellation mechanism and is intended governance logic. View functions contain no state-changing sensitive operation.
+
+--Sink--:
+{Function: init, Sink: writes VADER, USDV, VAULT, coolOffPeriod, Visibility: public, Explanation: Only the inited flag is checked; any caller can initialize the critical addresses before initialization.}
+{Function: newGrantProposal, Sink: writes mapPID_type and mapPID_grant, Visibility: public, Explanation: No caller authorization; any caller can create a grant proposal with arbitrary recipient and amount.}
+{Function: newAddressProposal, Sink: writes mapPID_type and mapPID_address, Visibility: public, Explanation: No caller authorization; any caller can create an address proposal with arbitrary type and proposed address.}
+{Function: _finalise, Sink: writes mapPID_finalising and mapPID_timeStart, Visibility: internal, Explanation: Internal state update lacks its own access control; reachable from public voteProposal and finaliseProposal; sets proposal finalising and cool-off start.}
+{Function: completeProposal, Sink: writes mapPID_votes, mapPID_finalised, and mapPID_finalising, Visibility: internal, Explanation: Internal state update lacks its own access control; reachable from public finaliseProposal through grantFunds, moveUtils, and moveRewardAddress; resets votes and marks the proposal finalized.}
+{Function: grantFunds, Sink: external call iVAULT(VAULT).grant(recipient, amount), Visibility: internal, Explanation: Transfers funds from VAULT to the proposal recipient; reachable from public finaliseProposal without a quorum check at execution time.}
+{Function: moveUtils, Sink: external call iVADER(VADER).changeUTILS(proposedAddress), Visibility: internal, Explanation: Changes the UTILS address in VADER; reachable from public finaliseProposal without a quorum check at execution time.}
+{Function: moveRewardAddress, Sink: external call iVADER(VADER).setRewardAddress(proposedAddress), Visibility: internal, Explanation: Changes the reward address in VADER; reachable from public finaliseProposal without a quorum check at execution time.}

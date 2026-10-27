@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "44edc4d7099c781d11421cea2d82a52948e738f5f6191c8ad01dfc0f9858549c",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.12+commit.f00d7308",
+    "compiler_sha256": "556c3ec44faf8ff6b67933fa8a8a403abe82c978d6e581dbfec4bd07360bfbf3",
+    "metadata": "v0.8.12+commit.f00d7308",
+    "metadata_build": "f00d7308",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-8d20766fc732f7a9/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.12"
+  },
+  "elapsed_seconds": 3.768,
+  "ended_utc": "2026-10-27T06:10:42.844074+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-8d20766fc732f7a9/source_code/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+  "source_sha256": "44edc4d7099c781d11421cea2d82a52948e738f5f6191c8ad01dfc0f9858549c",
+  "started_utc": "2026-10-27T06:10:42.226876+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-8d20766fc732f7a9/source_code/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol"
+}

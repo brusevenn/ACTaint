@@ -1,0 +1,126 @@
+{
+  "case_ids": [
+    "acb-6211080fc9b8efed"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-aab1c1c54a6396b0/source_code/config.json",
+  "compile_config_sha256": "0b417f0cf4bb4981114414b12a512c9032574feb6d2a46a4a53762bdb2d8b6d4",
+  "compiler": {
+    "actual_full_version": "0.4.25+commit.59dbf8f1",
+    "compiler_sha256": "c9b268750506b88fe71371100050e9dd1e7edcf8f69da34d1cd09557ecb24580",
+    "metadata": "v0.4.25+commit.59dbf8f1",
+    "metadata_build": "59dbf8f1",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.25"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 13.621,
+  "ended_utc": "2026-10-27T06:21:14.693138+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "dc094ed4d2c24aa12a99ff6441f7766bcc2485fe22ccc06db35b24cf4d11dcce",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 9,
+        "contracts_skipped_interface_abstract_library": 1,
+        "contracts_skipped_no_implementation": 2,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 5,
+        "elapsed_seconds": 8.146,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 9,
+        "total_token": 3307
+      },
+      "compiler": {
+        "actual_full_version": "0.4.25+commit.59dbf8f1",
+        "compiler_sha256": "c9b268750506b88fe71371100050e9dd1e7edcf8f69da34d1cd09557ecb24580",
+        "metadata": "v0.4.25+commit.59dbf8f1",
+        "metadata_build": "59dbf8f1",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.25"
+      },
+      "elapsed_seconds": 8.738,
+      "ended_utc": "2026-10-27T06:21:09.810172+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/04219ecf2b00882e/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol",
+      "source_sha256": "dc094ed4d2c24aa12a99ff6441f7766bcc2485fe22ccc06db35b24cf4d11dcce",
+      "started_utc": "2026-10-27T06:21:01.073028+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol"
+    },
+    {
+      "actual_source_sha256": "5bb829f9fcae4b16eeed1749413bea0e7a14ca4d85f4f41c59e6536f2c7a7686",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 9,
+        "contracts_skipped_interface_abstract_library": 1,
+        "contracts_skipped_no_implementation": 2,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 5,
+        "elapsed_seconds": 4.276,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 9,
+        "total_token": 2848
+      },
+      "compiler": {
+        "actual_full_version": "0.4.25+commit.59dbf8f1",
+        "compiler_sha256": "c9b268750506b88fe71371100050e9dd1e7edcf8f69da34d1cd09557ecb24580",
+        "metadata": "v0.4.25+commit.59dbf8f1",
+        "metadata_build": "59dbf8f1",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.25"
+      },
+      "elapsed_seconds": 13.619,
+      "ended_utc": "2026-10-27T06:21:14.691031+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/fe47bdb15ff03aa1/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol",
+      "source_sha256": "5bb829f9fcae4b16eeed1749413bea0e7a14ca4d85f4f41c59e6536f2c7a7686",
+      "started_utc": "2026-10-27T06:21:09.813269+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-aab1c1c54a6396b0",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:21:01.072368+00:00",
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

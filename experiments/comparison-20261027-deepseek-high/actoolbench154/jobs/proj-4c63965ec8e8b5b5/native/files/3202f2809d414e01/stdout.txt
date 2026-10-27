@@ -1,0 +1,48 @@
+==============Start====================
+rules:
+{Function:assignDefaultFeatures, Visibility:external, Explanation:Writes to variable enableTargetSwap without any access control.}
+{Function:setVaultFeatures, Visibility:public, Explanation:Writes to variable enableTargetSwap without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable enableTargetSwap without any access control.}
+{Function:assignDefaultFeatures, Visibility:external, Explanation:Writes to variable enableRandomSwap without any access control.}
+{Function:setVaultFeatures, Visibility:public, Explanation:Writes to variable enableRandomSwap without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable enableRandomSwap without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable quantity1155 without any access control.}
+{Function:swap, Visibility:external, Explanation:Writes to variable quantity1155 without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable quantity1155 without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable vaultFactory without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable enableTargetRedeem without any access control.}
+{Function:setVaultFeatures, Visibility:public, Explanation:Writes to variable enableTargetRedeem without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable assetAddress without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable enableRandomRedeem without any access control.}
+{Function:setVaultFeatures, Visibility:public, Explanation:Writes to variable enableRandomRedeem without any access control.}
+{Function:setManager, Visibility:public, Explanation:Writes to variable manager without any access control.}
+{Function:finalizeVault, Visibility:external, Explanation:Writes to variable manager without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable enableMint without any access control.}
+{Function:setVaultFeatures, Visibility:public, Explanation:Writes to variable enableMint without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable is1155 without any access control.}
+{Function:__NFTXVault_init, Visibility:public, Explanation:Writes to variable allowAllItems without any access control.}
+{Function:transferERC721, Visibility:internal, Explanation:Uses low level call.}
+{Function:transferFromERC721, Visibility:internal, Explanation:Uses low level call.}
+{Function:transferERC721, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: NFTXVaultUpgradeable
+Sink:
+Reasoning:
+- The contract has no constructor. `__NFTXVault_init` is a public initializer.
+- The `initializer` modifier only restricts repeated initialization; it does not restrict who may call it.
+- `__NFTXVault_init` calls `__Ownable_init`, setting the owner to `msg.sender`, and writes critical state: `assetAddress`, `vaultFactory`, `vaultId`, `is1155`, `allowAllItems`, and all vault feature flags via `setVaultFeatures`.
+- Therefore, the first caller can initialize the vault and set these critical values without authorization.
+- `assignDefaultFeatures` is protected by `require(msg.sender == 0xDEA9196Dcdd2173D6E369c2AcC0faCc83fD9346a, "Not dev")`, so it is not an access-control sink.
+- `setVaultFeatures`, `setManager`, `setFees`, `disableVaultFees`, `deployEligibilityStorage`, and `setVaultMetadata` are protected by `onlyPrivileged`.
+- `finalizeVault` calls `setManager`, which is protected by `onlyPrivileged`.
+- `mint`, `redeem`, and `swap` are standard user operations that act on the caller’s own assets or send assets to a chosen recipient; they are not access-control sinks.
+- `transferERC721` and `transferFromERC721` are internal functions used within nonReentrant external flows and use the fixed `assetAddress`; they are not standalone access-control sinks.
+
+--Sink--:
+{Function: __NFTXVault_init, Sink: __Ownable_init sets owner, Visibility: public, Explanation: The public initializer has no access control beyond the initializer modifier, so the first caller becomes owner.}
+{Function: __NFTXVault_init, Sink: assetAddress = _assetAddress, Visibility: public, Explanation: The public initializer writes critical assetAddress state without access control.}
+{Function: __NFTXVault_init, Sink: vaultFactory = INFTXVaultFactory(msg.sender), Visibility: public, Explanation: The public initializer writes critical vaultFactory state from the caller without access control.}
+{Function: __NFTXVault_init, Sink: vaultId = vaultFactory.numVaults(), Visibility: public, Explanation: The public initializer writes critical vaultId state without access control.}
+{Function: __NFTXVault_init, Sink: is1155 = _is1155, Visibility: public, Explanation: The public initializer writes critical is1155 state without access control.}
+{Function: __NFTXVault_init, Sink: allowAllItems = _allowAllItems, Visibility: public, Explanation: The public initializer writes critical allowAllItems state without access control.}
+{Function: __NFTXVault_init, Sink: setVaultFeatures sets enableMint, enableRandomRedeem, enableTargetRedeem, enableRandomSwap, enableTargetSwap, Visibility: public, Explanation: The public initializer calls setVaultFeatures after making the caller owner, so the caller can set all feature flags without authorization.}

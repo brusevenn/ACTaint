@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:buyDrugs, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:sellDrugs, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: EtherCartel
+Sink:
+Reasoning:
+- The contract has no real constructor. `DrugDealer()` is a public wrong-constructor function that writes `ceoAddress` without access control.
+- `seedMarket()` is an initializer-style function: it only checks `marketDrugs==0` and then sets `initialized` and arbitrary `marketDrugs`. The first caller controls initialization.
+- `buyDrugs()` performs an Ether transfer to `ceoAddress`. Since `ceoAddress` is controlled through the unprotected `DrugDealer()` wrong constructor, this transfer destination is tainted and access-control-sensitive.
+- `sellDrugs()` performs an Ether fee transfer to `ceoAddress`. The same tainted `ceoAddress` control makes this transfer access-control-sensitive.
+- Other state updates to `msg.sender`’s own mappings are not treated as sinks. View/pure functions perform no sensitive state changes.
+
+--Sink--:
+{Function: DrugDealer, Sink: ceoAddress=msg.sender, Visibility:public, Explanation: Wrong constructor with no access control; any caller can set ceoAddress and become CEO.}
+{Function: seedMarket, Sink: initialized=true; marketDrugs=drugs, Visibility:public, Explanation: Initializer-style function only checks marketDrugs==0; the first caller controls initialization and can set arbitrary marketDrugs.}
+{Function: buyDrugs, Sink: ceoAddress.transfer(devFee(msg.value)), Visibility:public, Explanation: Transfers Ether to ceoAddress, which is set by the unprotected DrugDealer wrong constructor and can be controlled by any caller.}
+{Function: sellDrugs, Sink: ceoAddress.transfer(fee), Visibility:public, Explanation: Transfers Ether fee to ceoAddress, which is tainted by the unprotected DrugDealer wrong constructor; any caller can make itself CEO and receive the fee.}

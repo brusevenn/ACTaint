@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:fallback, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: Virgo_ZodiacToken
+Sink:
+--Sink--:
+{Function: transferFrom, Sink: Writes to balances and allowed, Visibility: public, Explanation: The function is public and updates balances[_from], balances[_to], and allowed[_from][msg.sender]. Its balance and allowance checks use <=, so it permits moving tokens from an arbitrary _from without sufficient allowance, modifying another account's balance without authorization.}
+{Function: withdraw, Sink: Ether transfer to owner, Visibility: public, Explanation: The function is public and executes owner.transfer(this.balance) without checking msg.sender == owner. Any caller can trigger the transfer of the contract's Ether balance to owner.}

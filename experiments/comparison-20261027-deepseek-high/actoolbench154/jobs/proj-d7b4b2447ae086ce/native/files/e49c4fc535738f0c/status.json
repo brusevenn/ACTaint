@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "a9ea77a303ce6bf9e2b179574ce9968394db8c492704c2030b288029478073d1",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 10,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 7,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.119,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 7,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.5.16+commit.9c3226ce",
+    "compiler_sha256": "a15f01700ec7e02f91bbdfd4b6ff4450b3c2decae173e4f41910a3cfbaf5d3d3",
+    "metadata": "v0.5.16+commit.9c3226ce",
+    "metadata_build": "9c3226ce",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.16"
+  },
+  "elapsed_seconds": 429.773,
+  "ended_utc": "2026-10-27T06:40:01.290538+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d7b4b2447ae086ce/source_code/contracts/CTokenInterfaces.sol",
+  "source_sha256": "a9ea77a303ce6bf9e2b179574ce9968394db8c492704c2030b288029478073d1",
+  "started_utc": "2026-10-27T06:40:00.573045+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-d7b4b2447ae086ce/source_code/contracts/CTokenInterfaces.sol"
+}

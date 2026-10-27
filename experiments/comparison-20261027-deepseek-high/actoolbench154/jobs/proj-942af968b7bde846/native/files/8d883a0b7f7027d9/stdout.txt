@@ -1,0 +1,12 @@
+==============Start====================
+rules:
+{Function:_approveFor, Visibility:internal, Explanation:Writes to variable _operators without any access control.}
+{Function:setApprovalForAll, Visibility:external, Explanation:Writes to variable _operatorsForAll without any access control.}
+{Function:_checkInterfaceWith10000Gas, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: ERC721BaseToken
+Sink:
+`_burn` is public and changes token ownership and owner balance. Its only check is `require(from == owner)`, which does not authenticate `msg.sender`. Any caller can pass the current token owner as both `from` and `owner` and burn that owner’s token without authorization. Other state-changing internal helpers are reached through guarded external functions in this contract, `setApprovalForAll` changes only the caller’s own approval mapping, and `_checkInterfaceWith10000Gas` is a view-only staticcall used for interface checking.
+
+--Sink--:
+{Function: _burn, Sink: _owners[id] = 2**160; _numNFTPerAddress[from]--, Visibility: public, Explanation: Public _burn only enforces from == owner and does not check msg.sender or approval; any caller can pass the current owner as both from and owner to burn that owner's token, modifying another owner's ownership and balance.}

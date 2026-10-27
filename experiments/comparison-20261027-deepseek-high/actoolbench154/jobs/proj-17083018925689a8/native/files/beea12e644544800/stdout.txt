@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:swap, Visibility:external, Explanation:Writes to variable globalState without any access control.}
+{Function:swap, Visibility:external, Explanation:Writes to variable activeIncentive without any access control.}
+{Function:getOrCreatePosition, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: AlgebraPool
+Sink:
+Reasoning:
+- `constructor()` is the actual constructor; it runs at deployment and is not treated as a sink.
+- `initialize(uint160)` is initializer-like and has no access control. The check `require(globalState.price == 0, 'AI')` only limits repeated calls; it does not restrict the caller. It writes critical pool state (`globalState.price`, `globalState.unlocked`, `globalState.tick`) and calls `IDataStorageOperator.initialize`. Per the instructions, initializer-like functions without access control are sinks.
+- The static-analysis hits on `swap` are not sinks: `swap` is an intended permissionless AMM operation, and its writes to `globalState` are the normal state transition of a swap. The `activeIncentive` clearing only occurs when the configured virtual pool reports `NOT_EXIST`; `setIncentive` itself is access-controlled by the farming address.
+- `getOrCreatePosition` is `private view`, uses assembly only to compute a mapping key, and returns a storage pointer without performing a state write. It is not a sink by itself.
+- Other permissioned functions (`setCommunityFee`, `setLiquidityCooldown`, `setIncentive`) have access checks. Permissionless functions such as `mint`, `burn`, `collect`, `flash`, and swap variants operate through callbacks/msg.sender-owned positions and do not expose an unguarded privileged state write on their own.
+
+--Sink--:
+{Function: initialize, Sink: Unauthorized initializer writes globalState.price, globalState.unlocked, globalState.tick and calls IDataStorageOperator.initialize, Visibility: external, Explanation: The initializer-like function has no access control; require(globalState.price == 0) only prevents repeated initialization but does not restrict who may call it, so any caller can initialize the pool and set critical global state.}

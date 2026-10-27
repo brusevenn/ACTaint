@@ -1,0 +1,12 @@
+==============Start====================
+rules:
+{Function:owned, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: Owned
+Sink:
+Reasoning:
+- The contract has no constructor. `owned()` is public and assigns `owner = msg.sender` with no access-control check. It functions as an unprotected initializer/wrong constructor and allows any caller to set or overwrite `owner`.
+- `transferOwnership(address)` writes `owner`, but it is guarded by `onlyOwner`, which requires `msg.sender == owner`. Therefore it is not identified as a sink.
+
+--Sink--:
+{Function: owned, Sink: owner = msg.sender, Visibility: public, Explanation: The contract has no constructor; `owned()` is an unprotected public initializer/wrong constructor that lets any caller set `owner`.}

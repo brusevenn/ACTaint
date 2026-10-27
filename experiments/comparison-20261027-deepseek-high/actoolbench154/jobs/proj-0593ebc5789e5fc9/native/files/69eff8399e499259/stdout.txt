@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:sync, Visibility:external, Explanation:Writes to variable _BASE_RESERVE_ without any access control.}
+{Function:sync, Visibility:external, Explanation:Writes to variable _QUOTE_RESERVE_ without any access control.}
+{Function:permit, Visibility:external, Explanation:Writes to variable _ALLOWED_ without any access control.}
+{Function:approve, Visibility:public, Explanation:Writes to variable _ALLOWED_ without any access control.}
+{Function:_approve, Visibility:private, Explanation:Writes to variable _ALLOWED_ without any access control.}
+{Function:_burn, Visibility:internal, Explanation:Writes to variable _SHARES_ without any access control.}
+{Function:_mint, Visibility:internal, Explanation:Writes to variable _SHARES_ without any access control.}
+
+=============Contract: DVMVault
+Sink:
+Reasoning:
+- `sync()` is external and calls `_sync()`, which writes `_BASE_RESERVE_` and `_QUOTE_RESERVE_`. The only modifier is `preventReentrant`, which prevents reentrancy and does not restrict caller identity. These reserve writes are sensitive AMM state and lack access control.
+- `permit()` verifies the signature with `ecrecover` and requires `recoveredAddress == owner`, so the `_ALLOWED_` write is authorized by the owner’s signature.
+- `approve()` and `_approve()` are standard ERC20 allowance operations: `approve()` writes only for `msg.sender`, and `_approve()` is private and called by `approve()` or the signature-verified `permit()`.
+- `transfer()` and `transferFrom()` are standard ERC20 share operations with balance and allowance checks.
+- `_mint()` and `_burn()` are internal functions in the provided contract, and no public/external function in this source calls them. They are not externally reachable unguarded sinks in this contract.
+
+--Sink--:
+{Function: sync, Sink: _BASE_RESERVE_, Visibility: external, Explanation: sync() calls _sync(), which writes _BASE_RESERVE_ from the contract token balance. The only modifier is preventReentrant, which does not restrict caller identity, so the reserve state is externally writable without access control.}
+{Function: sync, Sink: _QUOTE_RESERVE_, Visibility: external, Explanation: sync() calls _sync(), which writes _QUOTE_RESERVE_ from the contract token balance. The only modifier is preventReentrant, which does not restrict caller identity, so the reserve state is externally writable without access control.}

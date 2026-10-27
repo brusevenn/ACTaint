@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "cb36c5c2fe1ae7c82dccd1a0c02e495e10f6d8c221e95d46553f895d7dead027",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-0d4dfd6b80de6f04/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "elapsed_seconds": 142.396,
+  "ended_utc": "2026-10-27T05:30:45.323296+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/b16abe745d0c4500/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0d4dfd6b80de6f04/source_code/TransactionManager.sol",
+  "source_sha256": "cb36c5c2fe1ae7c82dccd1a0c02e495e10f6d8c221e95d46553f895d7dead027",
+  "started_utc": "2026-10-27T05:28:22.928771+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-0d4dfd6b80de6f04/source_code/TransactionManager.sol"
+}

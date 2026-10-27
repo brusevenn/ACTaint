@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+
+=============Contract: StrategyUniEthWBtcLpV2
+Sink:
+Reviewing the provided source:
+
+- `constructor(address,address,address,address)` is the legitimate constructor. It only forwards initialization arguments to the parent constructor and does not expose a callable initializer.
+- `getName()` is `external pure` and only returns a constant string; it performs no state-changing or security-sensitive operation.
+- The public state variables create read-only getters; they do not modify state or permissions.
+- No access-control-sensitive writes, token transfers, approvals, mint/burn, cryptographic authorization, `selfdestruct`, or initializer-style functions are present in the listed source.
+
+--Sink--: 
+no sinks
+Report:
+--Tx.origin Vulnerability--:
+{Function: onlyBenevolent, Explanation: Uses tx.origin as condition.}
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 17, "contracts_skipped_interface_abstract_library": 0, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 6.772, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 2346}
+==============End======================
+total time: 6.77152681350708
+total token: 2346

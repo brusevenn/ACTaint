@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:batchClaiming, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimFees, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: FeeSplitter
+Sink:
+Reasoning:
+- `setCurves` publicly assigns the critical `curves` contract address with no access control. This state assignment controls the external contract used by balance, supply, and fee calculations.
+- `claimFees` performs an external Ether transfer `payable(msg.sender).transfer(claimable)`. The `claimable` value is derived from `curves` through `balanceOf` and fee accounting, and `curves` is publicly assignable without access control.
+- `batchClaiming` performs an external Ether transfer `payable(msg.sender).transfer(totalClaimable)`. The `totalClaimable` value is accumulated from `getClaimableFees`, which depends on `curves`, and `curves` is publicly assignable without access control.
+- `addFees` and `onBalanceChange` are guarded by `onlyManager`, which provides access control.
+- The constructor is the actual constructor and is not a sink.
+- `receive` only accepts Ether and performs no sensitive state change.
+
+--Sink--:
+{Function: setCurves, Sink: curves = curves_, Visibility: public, Explanation: Public assignment to the critical curves contract without access control; any caller can replace the contract used for balance, supply, and fee calculations.}
+{Function: claimFees, Sink: payable(msg.sender).transfer(claimable), Visibility: external, Explanation: External Ether transfer to the caller; claimable is computed from curves, which is publicly assignable without access control.}
+{Function: batchClaiming, Sink: payable(msg.sender).transfer(totalClaimable), Visibility: external, Explanation: External Ether transfer of aggregated claimable fees to the caller; totalClaimable is computed from curves, which is publicly assignable without access control.}

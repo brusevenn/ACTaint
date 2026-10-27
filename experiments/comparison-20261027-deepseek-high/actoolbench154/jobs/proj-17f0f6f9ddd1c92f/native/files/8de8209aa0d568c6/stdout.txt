@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:EAI_TokenERC20, Visibility:public, Explanation:Writes to variable balanceOf without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable balanceOf without any access control.}
+
+=============Contract: EAI_TokenERC
+Sink:
+Reasoning:
+- `EAI_TokenERC20` is not a real constructor because its name does not match the contract name `EAI_TokenERC`. It is `public` and has no access control. Any caller can overwrite `totalSupply`, assign the entire supply to `balanceOf[msg.sender]`, and change `name`/`symbol`.
+- `transfer` is a standard ERC-20 transfer: it debits only `msg.sender` via `_transfer(msg.sender, _to, _value)`. It is not a sink.
+- `transferFrom` is guarded by `allowance[_from][msg.sender]` and is a standard delegated transfer. It is not a sink.
+- `burn` modifies only `msg.sender`'s own balance and `totalSupply`. It is a standard burn. It is not a sink.
+- `burnFrom` is guarded by allowance and burns on behalf of `_from` using that allowance. It is not a sink.
+
+--Sink--:
+{Function: EAI_TokenERC20, Sink: totalSupply assignment / balanceOf[msg.sender] assignment / name assignment / symbol assignment, Visibility: public, Explanation: Public constructor-like initializer without access control. Because the function name does not match the contract name, it is not a constructor, so any caller can invoke it and assign the entire token supply to their own address while overwriting totalSupply, name, and symbol.}

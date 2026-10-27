@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "f6a2b59a521369888bce95f4fd66b99204eca84f18a5adf65e762e18b0ac52a2",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.7+commit.e28d00a7",
+    "compiler_sha256": "003d75383e45212f9812d0b6add90329fd3b239e6c378d2882f61f9345896d99",
+    "metadata": "v0.8.7+commit.e28d00a7",
+    "metadata_build": "e28d00a7",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-437508da06743c41/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.7"
+  },
+  "elapsed_seconds": 121.807,
+  "ended_utc": "2026-10-27T05:50:52.620849+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/dfb700f272c14605/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-437508da06743c41/source_code/NOVO.sol",
+  "source_sha256": "f6a2b59a521369888bce95f4fd66b99204eca84f18a5adf65e762e18b0ac52a2",
+  "started_utc": "2026-10-27T05:49:27.864606+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-437508da06743c41/source_code/NOVO.sol"
+}

@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:_setTokenURI, Visibility:internal, Explanation:Writes to variable _tokenURIs without any access control.}
+
+=============Contract: ERC721Metadata
+Sink:
+--Sink--:
+{Function: _setTokenURI, Sink: _tokenURIs[tokenId] = _tokenURI, Visibility: internal, Explanation: Writes to the _tokenURIs mapping without access control; require(_exists(tokenId)) only checks token existence, not caller authorization.}

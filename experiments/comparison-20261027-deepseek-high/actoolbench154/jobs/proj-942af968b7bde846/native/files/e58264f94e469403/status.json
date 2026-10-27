@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "aab7dd819e3606949889fb0511ebac0c6b9108ffc28503813a3f1dac3a26d230",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.9+commit.c68bc34e",
+    "compiler_sha256": "390d14ac47b4a01e4f804a57159ffa526c2329a0eb08b9e20dee00649efb3461",
+    "metadata": "v0.5.9+commit.e560f70d",
+    "metadata_build": "e560f70d",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 2000 --evm-version petersburg",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.9"
+  },
+  "elapsed_seconds": 204.5,
+  "ended_utc": "2026-10-27T06:14:36.609200+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/e58264f94e469403/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-942af968b7bde846/source_code/src/Land/erc721/ERC721BaseToken.sol",
+  "source_sha256": "aab7dd819e3606949889fb0511ebac0c6b9108ffc28503813a3f1dac3a26d230",
+  "started_utc": "2026-10-27T06:12:37.776492+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-942af968b7bde846/source_code/src/Land/erc721/ERC721BaseToken.sol"
+}

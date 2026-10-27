@@ -1,0 +1,102 @@
+{
+  "case_ids": [
+    "acb-4b459b5d523811e5"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-d82dfed006ac7c9c/source_code/config.json",
+  "compile_config_sha256": "7d4bfa069d189d672b0bebe7c2ad50f1de268d3e5e5ac609d415d677b1fab278",
+  "compiler": {
+    "actual_full_version": "0.4.17+commit.bdeb9e52",
+    "compiler_sha256": "13414bf86f80319e6f5863b4ca4af786956d188f5f9b99dda6439362c6d91115",
+    "metadata": "v0.4.17+commit.bdeb9e52",
+    "metadata_build": "bdeb9e52",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.17"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 17.628,
+  "ended_utc": "2026-10-27T06:37:22.912842+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "9631531fe0389832393231f3565b59c5f59c40a4c3e7d48c8cf2eea8a85acede",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.17+commit.bdeb9e52",
+        "compiler_sha256": "13414bf86f80319e6f5863b4ca4af786956d188f5f9b99dda6439362c6d91115",
+        "metadata": "v0.4.17+commit.bdeb9e52",
+        "metadata_build": "bdeb9e52",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.17"
+      },
+      "elapsed_seconds": 8.335,
+      "ended_utc": "2026-10-27T06:37:13.619364+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/61108c98a8f7df95/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d82dfed006ac7c9c/source_code/B2X.sol",
+      "source_sha256": "9631531fe0389832393231f3565b59c5f59c40a4c3e7d48c8cf2eea8a85acede",
+      "started_utc": "2026-10-27T06:37:05.285248+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-d82dfed006ac7c9c/source_code/B2X.sol"
+    },
+    {
+      "actual_source_sha256": "e49b128017a5640e954b10d0be196fb33960e0feb4bf458a6bdddd64d4f90a35",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.17+commit.bdeb9e52",
+        "compiler_sha256": "13414bf86f80319e6f5863b4ca4af786956d188f5f9b99dda6439362c6d91115",
+        "metadata": "v0.4.17+commit.bdeb9e52",
+        "metadata_build": "bdeb9e52",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.17"
+      },
+      "elapsed_seconds": 17.627,
+      "ended_utc": "2026-10-27T06:37:22.910907+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/3a1a2c41c4de65eb/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d82dfed006ac7c9c/source_code/MainContractFlattened.sol",
+      "source_sha256": "e49b128017a5640e954b10d0be196fb33960e0feb4bf458a6bdddd64d4f90a35",
+      "started_utc": "2026-10-27T06:37:13.622255+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-d82dfed006ac7c9c/source_code/MainContractFlattened.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-d82dfed006ac7c9c",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:37:05.284657+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

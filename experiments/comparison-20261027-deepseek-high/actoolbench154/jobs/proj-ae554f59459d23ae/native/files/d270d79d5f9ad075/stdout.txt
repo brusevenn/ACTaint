@@ -1,0 +1,9 @@
+==============Start====================
+rules:
+{Function:transfer, Visibility:public, Explanation:Writes to variable balanceOf without any access control.}
+{Function:owned, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: ERCDDAToken
+Sink:
+--Sink--:
+{Function: owned, Sink: owner = msg.sender, Visibility: public, Explanation: Sets the critical owner state variable to the caller without any access control, allowing any external account to take ownership.}

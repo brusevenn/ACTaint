@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:swap, Visibility:external, Explanation:Uses assembly.}
+
+=============Contract: SwapXProxy
+Sink:
+--Sink--:
+{Function: swap, Sink: swapXImpl.call{value: msg.value}(data), Visibility: external, Explanation: The function is externally callable by any user and performs a low-level call to swapXImpl with user-supplied data and msg.value. The whenNotPaused modifier only restricts the paused state, not the caller. This allows arbitrary external calls from the proxy contract to swapXImpl without additional access control, potentially modifying state or moving assets held by the proxy.}

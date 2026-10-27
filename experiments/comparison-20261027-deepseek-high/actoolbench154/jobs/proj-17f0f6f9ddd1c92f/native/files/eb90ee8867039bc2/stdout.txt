@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:EAI_TokenERC20, Visibility:public, Explanation:Writes to variable balanceOf without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable balanceOf without any access control.}
+
+=============Contract: EAI_TokenERC
+Sink:
+Reasoning:
+- `EAI_TokenERC20` is named like a constructor but does not match the contract name `EAI_TokenERC`, so it remains publicly callable. It has no access control and writes `totalSupply` and `balanceOf[msg.sender]`, allowing any caller to set the total supply and mint an arbitrary balance to themselves. This is a wrong constructor/initializer sink.
+- `transfer` is a standard ERC-20 transfer: it calls `_transfer(msg.sender, _to, _value)` and only decreases the caller’s balance after the balance check. This is authorized behavior and not a sink.
+- `transferFrom` checks `allowance[_from][msg.sender]` before moving tokens, so it is authorized by allowance and not a sink.
+- `burn` only burns the caller’s own balance and is not a sink.
+- `burnFrom` checks allowance before decreasing `balanceOf[_from]`, so it is authorized and not a sink.
+- `_transfer` is internal and only reached through the checked public functions, so it is not an externally callable sink.
+
+--Sink--:
+{Function: EAI_TokenERC20, Sink: balanceOf/totalSupply writes, Visibility: public, Explanation: Wrong constructor/initializer with no access control; any caller can set totalSupply and write balanceOf[msg.sender] to mint arbitrary tokens to themselves.}

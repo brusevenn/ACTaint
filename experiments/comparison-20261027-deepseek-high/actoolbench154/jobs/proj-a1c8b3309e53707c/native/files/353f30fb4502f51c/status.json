@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "7ebde70853ccafcf1876900dad458f46eb9444d591d39bfc58e952e2582f5587",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.19+commit.7dd6d404",
+    "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+    "metadata": "v0.8.19+commit.7dd6d404",
+    "metadata_build": "7dd6d404",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-a1c8b3309e53707c/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.19"
+  },
+  "elapsed_seconds": 10.075,
+  "ended_utc": "2026-10-27T06:17:59.574157+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a1c8b3309e53707c/source_code/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+  "source_sha256": "7ebde70853ccafcf1876900dad458f46eb9444d591d39bfc58e952e2582f5587",
+  "started_utc": "2026-10-27T06:17:58.956892+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-a1c8b3309e53707c/source_code/@openzeppelin/contracts/token/ERC20/IERC20.sol"
+}

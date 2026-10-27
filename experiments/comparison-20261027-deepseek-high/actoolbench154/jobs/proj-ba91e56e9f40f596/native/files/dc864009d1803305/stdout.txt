@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:_initializeMixinDisable, Visibility:internal, Explanation:Writes to variable isAlive without any access control.}
+
+=============Contract: MixinDisable
+Sink:
+--Sink--:
+{Function: _initializeMixinDisable, Sink: isAlive = true, Visibility: internal, Explanation: Initializer writes the access-gating state variable isAlive without access control; there is no constructor, and this initializer is treated as a wrong-constructor-style sink affecting onlyIfAlive behavior.}

@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+
+=============Contract: StrategyUniEthDaiLpV4
+Sink:
+The only constructor is the legitimate deployment constructor and is not externally invokable after deployment. `getName()` is a pure view function returning a constant string. No sink operations such as asset transfers, allowance changes, minting/burning, ownership changes, authorization checks, or selfdestruct are present.
+
+--Sink--:
+no sinks
+Report:
+--Tx.origin Vulnerability--:
+{Function: onlyBenevolent, Explanation: Uses tx.origin as condition.}
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 17, "contracts_skipped_interface_abstract_library": 0, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 6.163, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 2287}
+==============End======================
+total time: 6.163459777832031
+total token: 2287

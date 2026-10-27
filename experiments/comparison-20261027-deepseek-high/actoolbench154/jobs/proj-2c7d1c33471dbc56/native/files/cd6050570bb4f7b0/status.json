@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "714a051c3b1a639f45f0721664bc63842084f4fdfd51b208675da8d12a1cb510",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.1+commit.df193b15",
+    "compiler_sha256": "daa7f6d6cc0a316beb2607533183b64904798677b0cb99bda0549ea70e8de61a",
+    "metadata": "v0.8.1+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.1"
+  },
+  "elapsed_seconds": 131.405,
+  "ended_utc": "2026-10-27T05:49:23.186987+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/cd6050570bb4f7b0/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code/JoinFactory.sol",
+  "source_sha256": "714a051c3b1a639f45f0721664bc63842084f4fdfd51b208675da8d12a1cb510",
+  "started_utc": "2026-10-27T05:47:11.783304+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-2c7d1c33471dbc56/source_code/JoinFactory.sol"
+}

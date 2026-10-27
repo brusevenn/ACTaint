@@ -1,0 +1,102 @@
+{
+  "case_ids": [
+    "acb-66da2bfec581cfff"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-8c5dd3ed5228bdf6/source_code/config.json",
+  "compile_config_sha256": "6cd3ea739a19ab1eae9b16c5d76d89d844c5ae5c48fc494f2e8dcca8e2ea5236",
+  "compiler": {
+    "actual_full_version": "0.8.17+commit.8df45f5f",
+    "compiler_sha256": "99f2070b776e9714f1f76c43c229cf99b8978a92938ee8d2364c6de11c1a03d4",
+    "metadata": "v0.8.17+commit.8df45f5f",
+    "metadata_build": "8df45f5f",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 1000 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-8c5dd3ed5228bdf6/source_code --evm-version london",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.17"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 2.542,
+  "ended_utc": "2026-10-27T06:10:37.988066+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "ee872f858ca29136517b0304c61f51c83177b0a5615392fba17f25f58292309a",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.17+commit.8df45f5f",
+        "compiler_sha256": "99f2070b776e9714f1f76c43c229cf99b8978a92938ee8d2364c6de11c1a03d4",
+        "metadata": "v0.8.17+commit.8df45f5f",
+        "metadata_build": "8df45f5f",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 1000 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-8c5dd3ed5228bdf6/source_code --evm-version london",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.17"
+      },
+      "elapsed_seconds": 1.269,
+      "ended_utc": "2026-10-27T06:10:36.715299+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-8c5dd3ed5228bdf6/source_code/MainContractFlattened.sol",
+      "source_sha256": "ee872f858ca29136517b0304c61f51c83177b0a5615392fba17f25f58292309a",
+      "started_utc": "2026-10-27T06:10:35.446935+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-8c5dd3ed5228bdf6/source_code/MainContractFlattened.sol"
+    },
+    {
+      "actual_source_sha256": "2ed7190c0ba9a604b70b66137dfb38ca1e13553a65055b67a25b2592bf15ace8",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.17+commit.8df45f5f",
+        "compiler_sha256": "99f2070b776e9714f1f76c43c229cf99b8978a92938ee8d2364c6de11c1a03d4",
+        "metadata": "v0.8.17+commit.8df45f5f",
+        "metadata_build": "8df45f5f",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 1000 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-8c5dd3ed5228bdf6/source_code --evm-version london",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.17"
+      },
+      "elapsed_seconds": 2.54,
+      "ended_utc": "2026-10-27T06:10:37.986472+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-8c5dd3ed5228bdf6/source_code/contracts/MinterProxyV2.sol",
+      "source_sha256": "2ed7190c0ba9a604b70b66137dfb38ca1e13553a65055b67a25b2592bf15ace8",
+      "started_utc": "2026-10-27T06:10:36.718046+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-8c5dd3ed5228bdf6/source_code/contracts/MinterProxyV2.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-8c5dd3ed5228bdf6",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:10:35.446299+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

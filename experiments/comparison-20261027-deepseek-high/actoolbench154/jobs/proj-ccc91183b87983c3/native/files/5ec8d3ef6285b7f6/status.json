@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "2d5756dfe5a76c6f68c2995ea68225ca6c8b99e7caece1a03c89f13a2ccaa2ad",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.20+commit.a1b79de6",
+    "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+    "metadata": "v0.8.20+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-ccc91183b87983c3/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.20"
+  },
+  "elapsed_seconds": 3.174,
+  "ended_utc": "2026-10-27T06:29:42.601040+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-ccc91183b87983c3/source_code/EntropyGenerator.sol",
+  "source_sha256": "2d5756dfe5a76c6f68c2995ea68225ca6c8b99e7caece1a03c89f13a2ccaa2ad",
+  "started_utc": "2026-10-27T06:29:39.427779+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-ccc91183b87983c3/source_code/EntropyGenerator.sol"
+}

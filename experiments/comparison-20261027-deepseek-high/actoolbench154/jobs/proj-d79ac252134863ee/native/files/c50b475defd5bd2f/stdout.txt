@@ -1,0 +1,58 @@
+==============Start====================
+rules:
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _notEntered without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable initialExchangeRateMantissa without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable underlying without any access control.}
+{Function:doTransferOut, Visibility:internal, Explanation:Uses assembly.}
+{Function:doTransferIn, Visibility:internal, Explanation:Uses assembly.}
+{Function:doTransferOut, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:sweepToken, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: RBep20
+Sink:
+Reasoning:
+- `mint`, `redeem`, `redeemUnderlying`, `borrow`, `repayBorrow`, `repayBorrowBehalf`, `liquidateBorrow`, and `_addReserves` are protocol user operations. They update caller positions or protocol accounting under protocol checks and do not grant unauthorized control over another user's assets. The static-analysis writes to `totalReserves`, `borrowIndex`, `accrualBlockNumber`, `_notEntered`, and `accountBorrows` are accounting side effects of these intended operations.
+- `doTransferIn` and `doTransferOut` are internal helpers. Their public callers use `msg.sender` as the payer/recipient under protocol checks; the assembly return-data handling is not an access-control sink.
+- `sweepToken` is public by design and always sends swept non-underlying tokens to `admin`; the caller cannot choose an arbitrary recipient or take the funds. It is intended public behavior.
+- `initialize` is public, and the contract has no constructor. It initializes critical market state. The one-time initialization restriction does not restrict who can call it. This is an access-control-sensitive initialization sink.
+
+--Sink--:
+{Function: initialize, Sink: Writes to underlying and inherited initialization state (initialExchangeRateMantissa, borrowIndex, accrualBlockNumber, _notEntered), Visibility: public, Explanation: The contract has no constructor; initialize is publicly callable. Initialization restrictions only limit repeated initialization and do not restrict the caller. An arbitrary caller can set the market's critical initialization state, so this is an access-control-sensitive initialization sink.}

@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "ba0dc6fd21ea73fec63d82c48aa8d78f570e5257f085a9ba1dd5f46772faf6f8",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.24+commit.e11b9ed9",
+    "compiler_sha256": "fb03a29a517452b9f12bcf459ef37d0a543765bb3bbc911e70a87d6a37c30d5f",
+    "metadata": "v0.8.24+commit.e11b9ed9",
+    "metadata_build": "e11b9ed9",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-17ae9f448dadfaea/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.24"
+  },
+  "elapsed_seconds": 1.286,
+  "ended_utc": "2026-10-27T05:36:19.183974+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-17ae9f448dadfaea/source_code/ERC20.sol",
+  "source_sha256": "ba0dc6fd21ea73fec63d82c48aa8d78f570e5257f085a9ba1dd5f46772faf6f8",
+  "started_utc": "2026-10-27T05:36:18.517687+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-17ae9f448dadfaea/source_code/ERC20.sol"
+}

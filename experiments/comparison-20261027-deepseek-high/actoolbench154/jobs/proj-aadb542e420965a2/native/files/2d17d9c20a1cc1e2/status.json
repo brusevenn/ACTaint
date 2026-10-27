@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "503cdf07e3b6e043c905525b0cd2ff4f999f2589c03f1754fc810066025649dd",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.9+commit.e5eed63a",
+    "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+    "metadata": "v0.8.9+commit.e5eed63a",
+    "metadata_build": "e5eed63a",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-aadb542e420965a2/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.9"
+  },
+  "elapsed_seconds": 27.343,
+  "ended_utc": "2026-10-27T06:22:01.035172+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-aadb542e420965a2/source_code/contracts/base/TaxedStaking.sol",
+  "source_sha256": "503cdf07e3b6e043c905525b0cd2ff4f999f2589c03f1754fc810066025649dd",
+  "started_utc": "2026-10-27T06:21:59.566063+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-aadb542e420965a2/source_code/contracts/base/TaxedStaking.sol"
+}

@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "31a2908f7ddd9196d042e8fbc35a8190d5efdbb4d002bed3830861b8825bd6ba",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.6.7+commit.b8d736ae",
+    "compiler_sha256": "20263aa17c2e7ca8c10ecd3d4242df61db9d549bc1ddb72b9a387c0c1136c1cf",
+    "metadata": "v0.6.7+commit.b8d736ae",
+    "metadata_build": "b8d736ae",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.7"
+  },
+  "elapsed_seconds": 351.83,
+  "ended_utc": "2026-10-27T05:33:24.404827+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/cc8a72935fd76f47/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/proxy-logic/curve.sol",
+  "source_sha256": "31a2908f7ddd9196d042e8fbc35a8190d5efdbb4d002bed3830861b8825bd6ba",
+  "started_utc": "2026-10-27T05:32:22.404529+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-0c0ab89caa1146e5/source_code/src/proxy-logic/curve.sol"
+}

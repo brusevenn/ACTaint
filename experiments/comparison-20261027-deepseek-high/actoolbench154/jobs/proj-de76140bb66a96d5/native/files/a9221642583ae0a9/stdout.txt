@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable currentIndex without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:transferFrom, Visibility:external, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721A
+Sink:
+--Sink--:
+{Function: _safeMint, Sink: currentIndex, Visibility: internal, Explanation: Mints new tokens by updating currentIndex without any access control.}
+{Function: _safeMint, Sink: _ownerships, Visibility: internal, Explanation: Writes token ownership for newly minted tokens without any access control.}

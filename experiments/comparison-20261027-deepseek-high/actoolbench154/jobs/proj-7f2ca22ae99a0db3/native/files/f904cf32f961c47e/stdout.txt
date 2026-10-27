@@ -1,0 +1,13 @@
+==============Start====================
+rules:
+{Function:babyRouterDelegateCall, Visibility:internal, Explanation:Uses low level call.}
+{Function:babyRouterDelegateCall, Visibility:internal, Explanation:Uses assembly.}
+{Function:swapExactETHForTokensSupportingFeeOnTransferTokens, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:swapETHForExactTokens, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:swapExactETHForTokens, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: BabySmartRouter
+Sink:
+--Sink--:
+{Function: babyRouterDelegateCall, Sink: delegatecall, Visibility: internal, Explanation: The public fallback forwards user-controlled msg.data to this internal function, which delegatecalls normalRouter without access control, allowing arbitrary normalRouter code to execute in the BabySmartRouter context.}
+{Function: _swapSupportingFeeOnTransferTokens, Sink: token transfer, Visibility: internal, Explanation: For intermediate hops it calls routerFee with address(this) and then transfers IERC20(output).balanceOf(address(this)) to the next pair derived from caller-supplied path/factories, allowing any caller to move the contract's entire balance of that token.}

@@ -1,0 +1,26 @@
+==============Start====================
+rules:
+{Function:Mining24, Visibility:public, Explanation:Writes to variable minReq without any access control.}
+{Function:Mining24, Visibility:public, Explanation:Writes to variable value without any access control.}
+{Function:ToOwner, Visibility:public, Explanation:Writes to variable owner without any access control.}
+{Function:Mining24, Visibility:public, Explanation:Writes to variable owner without any access control.}
+{Function:fallback, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:ToOwner, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:Mining24, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: Cryptbond
+Sink:
+Reasoning: The contract has no constructor. `ToOwner` and `Mining24` are public initializer-like functions with no access control; they set `owner`, `balances`, and distribution parameters. The payable fallback mints tokens to the caller without access control or totalSupply/totalRemaining checks. `withdraw` and `withdrawForeignTokens` transfer contract assets; their `onlyOwner` guard is bypassable because `ToOwner` and `Mining24` allow any caller to overwrite `owner`.
+
+--Sink--:
+{Function: ToOwner, Sink: owner assignment, Visibility:public, Explanation: Public function has no access control and sets owner to msg.sender, so any caller becomes owner.}
+{Function: ToOwner, Sink: balances[msg.sender] assignment, Visibility:public, Explanation: Public function has no access control and assigns totalSupply tokens to msg.sender.}
+{Function: Mining24, Sink: owner assignment, Visibility:public, Explanation: Public function has no access control and sets owner to msg.sender, so any caller becomes owner.}
+{Function: Mining24, Sink: value assignment, Visibility:public, Explanation: Public function has no access control and sets the distribution parameter value.}
+{Function: Mining24, Sink: minReq assignment, Visibility:public, Explanation: Public function has no access control and sets the distribution parameter minReq.}
+{Function: Mining24, Sink: balances[msg.sender] assignment, Visibility:public, Explanation: Public function has no access control and sets the caller balance to totalDistributed.}
+{Function: fallback, Sink: balances[msg.sender] update, Visibility:public, Explanation: Payable fallback mints tokens to the caller from msg.value without access control or totalSupply/totalRemaining checks.}
+{Function: withdraw, Sink: Ether transfer, Visibility:public, Explanation: Transfers the entire Ether balance to owner; ToOwner and Mining24 allow any caller to set owner, so the onlyOwner check is bypassable.}
+{Function: withdrawForeignTokens, Sink: token transfer, Visibility:public, Explanation: Transfers the contract's foreign token balance to owner; ToOwner and Mining24 allow any caller to set owner, so the onlyOwner check is bypassable.}

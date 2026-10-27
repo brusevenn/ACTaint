@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:_transferOwnership, Visibility:internal, Explanation:Writes to variable _owner without any access control.}
+
+=============Contract: Ownable
+Sink:
+--Sink--:
+{Function: _transferOwnership, Sink: write to privileged state variable _owner, Visibility: internal, Explanation: The internal helper assigns _owner without any caller authorization check; it only validates newOwner != address(0), so an inherited/derived caller can transfer ownership without owner-only protection.}

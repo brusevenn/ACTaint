@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "7565f60d06a01da17699ef3bf37656f81ef8a6e2baf40c3dee5d8a48f052a136",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.6.6+commit.6c089d02",
+    "compiler_sha256": "5d8cd4e0cc02e9946497db68c06d56326a78ff95a21c9265cfedb819a10a539d",
+    "metadata": "v0.6.6+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.6"
+  },
+  "elapsed_seconds": 102.795,
+  "ended_utc": "2026-10-27T05:51:14.260589+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/9363111bfc849053/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-49ff192b5017d11c/source_code/Bonding.sol",
+  "source_sha256": "7565f60d06a01da17699ef3bf37656f81ef8a6e2baf40c3dee5d8a48f052a136",
+  "started_utc": "2026-10-27T05:49:31.466180+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-49ff192b5017d11c/source_code/Bonding.sol"
+}

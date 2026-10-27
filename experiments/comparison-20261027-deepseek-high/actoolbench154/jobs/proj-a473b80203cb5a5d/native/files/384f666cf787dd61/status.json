@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "971531bdade08aa3b49b92e76a757a0f8ed036cf7423b0952a4c6e832ab0343e",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.16+commit.07a7930e",
+    "compiler_sha256": "1632786c6c1f856a4a899232ec975a12f305118f43cce90e724ed0b2eebfeee1",
+    "metadata": "v0.8.16+commit.07a7930e",
+    "metadata_build": "07a7930e",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-a473b80203cb5a5d/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.16"
+  },
+  "elapsed_seconds": 7.59,
+  "ended_utc": "2026-10-27T06:18:15.660474+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a473b80203cb5a5d/source_code/src/swappers/ZeroXStargateLPSwapper.sol",
+  "source_sha256": "971531bdade08aa3b49b92e76a757a0f8ed036cf7423b0952a4c6e832ab0343e",
+  "started_utc": "2026-10-27T06:18:15.042883+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-a473b80203cb5a5d/source_code/src/swappers/ZeroXStargateLPSwapper.sol"
+}

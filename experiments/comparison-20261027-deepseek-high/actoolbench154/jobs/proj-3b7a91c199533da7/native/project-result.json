@@ -1,0 +1,129 @@
+{
+  "case_ids": [
+    "acb-6d2d1ac9798c0060",
+    "acb-d2934f4b7d14df65",
+    "acb-f0ed5c6d4149e180"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-3b7a91c199533da7/source_code/config.json",
+  "compile_config_sha256": "d79d20e318c8e20f3d006735bac0c7669703903779f0d007840e347997b398cb",
+  "compiler": {
+    "actual_full_version": "0.8.10+commit.fc410830",
+    "compiler_sha256": "c7effacf28b9d64495f81b75228fbf4266ac0ec87e8f1adc489ddd8a4dd06d89",
+    "metadata": "v0.8.10+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.10"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 2.81,
+  "ended_utc": "2026-10-27T05:48:33.213655+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "97e43abacdd7e8546d97aa2cf173f45165cad738a8863959ea66e7c66a20876b",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.10+commit.fc410830",
+        "compiler_sha256": "c7effacf28b9d64495f81b75228fbf4266ac0ec87e8f1adc489ddd8a4dd06d89",
+        "metadata": "v0.8.10+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.10"
+      },
+      "elapsed_seconds": 0.969,
+      "ended_utc": "2026-10-27T05:48:31.372397+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code/MIMOAutoAction.sol",
+      "source_sha256": "97e43abacdd7e8546d97aa2cf173f45165cad738a8863959ea66e7c66a20876b",
+      "started_utc": "2026-10-27T05:48:30.404973+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-3b7a91c199533da7/source_code/MIMOAutoAction.sol"
+    },
+    {
+      "actual_source_sha256": "bf6239cb7bfc7630c00bc57238045bde869430b4f1cdcc5600915ffea542b1e0",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.10+commit.fc410830",
+        "compiler_sha256": "c7effacf28b9d64495f81b75228fbf4266ac0ec87e8f1adc489ddd8a4dd06d89",
+        "metadata": "v0.8.10+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.10"
+      },
+      "elapsed_seconds": 1.887,
+      "ended_utc": "2026-10-27T05:48:32.290858+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code/MIMOProxy.sol",
+      "source_sha256": "bf6239cb7bfc7630c00bc57238045bde869430b4f1cdcc5600915ffea542b1e0",
+      "started_utc": "2026-10-27T05:48:31.373414+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-3b7a91c199533da7/source_code/MIMOProxy.sol"
+    },
+    {
+      "actual_source_sha256": "114ed4ee8f801a68c4bf0abc5e56f084bba294dfba79b491814075f8c62ede94",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.10+commit.fc410830",
+        "compiler_sha256": "c7effacf28b9d64495f81b75228fbf4266ac0ec87e8f1adc489ddd8a4dd06d89",
+        "metadata": "v0.8.10+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.10"
+      },
+      "elapsed_seconds": 2.808,
+      "ended_utc": "2026-10-27T05:48:33.211870+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code/MIMOProxyFactory.sol",
+      "source_sha256": "114ed4ee8f801a68c4bf0abc5e56f084bba294dfba79b491814075f8c62ede94",
+      "started_utc": "2026-10-27T05:48:32.293768+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-3b7a91c199533da7/source_code/MIMOProxyFactory.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-3b7a91c199533da7",
+  "prompt_layout": "prefix_stable",
+  "record_count": 3,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 3,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:48:30.404000+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

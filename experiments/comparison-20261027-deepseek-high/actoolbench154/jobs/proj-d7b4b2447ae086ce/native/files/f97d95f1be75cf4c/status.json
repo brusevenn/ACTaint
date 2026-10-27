@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "3336a16d353baf1634876ae1041a2e4efec4ce0a3991afaa7df4026f140141f9",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.16+commit.9c3226ce",
+    "compiler_sha256": "a15f01700ec7e02f91bbdfd4b6ff4450b3c2decae173e4f41910a3cfbaf5d3d3",
+    "metadata": "v0.5.16+commit.9c3226ce",
+    "metadata_build": "9c3226ce",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.16"
+  },
+  "elapsed_seconds": 233.03,
+  "ended_utc": "2026-10-27T06:36:44.548477+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/f97d95f1be75cf4c/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d7b4b2447ae086ce/source_code/contracts/CErc20.sol",
+  "source_sha256": "3336a16d353baf1634876ae1041a2e4efec4ce0a3991afaa7df4026f140141f9",
+  "started_utc": "2026-10-27T06:35:17.771021+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-d7b4b2447ae086ce/source_code/contracts/CErc20.sol"
+}

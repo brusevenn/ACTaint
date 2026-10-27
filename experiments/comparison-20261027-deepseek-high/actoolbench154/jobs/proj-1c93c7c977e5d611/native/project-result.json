@@ -1,0 +1,114 @@
+{
+  "case_ids": [
+    "acb-af30f23fc7d93b64"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-1c93c7c977e5d611/source_code/config.json",
+  "compile_config_sha256": "35c1be3a24224d2f9f469d13dee80f08305d9d26f1407235404c2bbc22280cfc",
+  "compiler": {
+    "actual_full_version": "0.8.3+commit.8d00100c",
+    "compiler_sha256": "fb33afd761d0d704671dad582d3b4a790d4d85a6370fe71b3f8935649681e292",
+    "metadata": "v0.8.3+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-1c93c7c977e5d611/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.3"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 217.117,
+  "ended_utc": "2026-10-27T05:40:49.049508+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "838fa5c6972e6e396554163c326c9ef19f4bfb6d6f1ea2c93497b06fa03aca5c",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.3+commit.8d00100c",
+        "compiler_sha256": "fb33afd761d0d704671dad582d3b4a790d4d85a6370fe71b3f8935649681e292",
+        "metadata": "v0.8.3+commit.8d00100c",
+        "metadata_build": "8d00100c",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-1c93c7c977e5d611/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.3"
+      },
+      "elapsed_seconds": 119.932,
+      "ended_utc": "2026-10-27T05:39:11.863709+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/1e74bdc026ce1009/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-1c93c7c977e5d611/source_code/CoinToken.sol",
+      "source_sha256": "838fa5c6972e6e396554163c326c9ef19f4bfb6d6f1ea2c93497b06fa03aca5c",
+      "started_utc": "2026-10-27T05:37:11.932986+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-1c93c7c977e5d611/source_code/CoinToken.sol"
+    },
+    {
+      "actual_source_sha256": "7a89938eb631860d9b146ddbf5eb1da8428f6db5fbd7cfdf79c31ec9a3476b5a",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 7,
+        "contracts_skipped_interface_abstract_library": 4,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 2,
+        "elapsed_seconds": 96.498,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 7,
+        "total_token": 22753
+      },
+      "compiler": {
+        "actual_full_version": "0.8.3+commit.8d00100c",
+        "compiler_sha256": "fb33afd761d0d704671dad582d3b4a790d4d85a6370fe71b3f8935649681e292",
+        "metadata": "v0.8.3+commit.8d00100c",
+        "metadata_build": "8d00100c",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-1c93c7c977e5d611/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.3"
+      },
+      "elapsed_seconds": 217.115,
+      "ended_utc": "2026-10-27T05:40:49.047371+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/a93d68ef5fe046ea/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-1c93c7c977e5d611/source_code/MainContractFlattened.sol",
+      "source_sha256": "7a89938eb631860d9b146ddbf5eb1da8428f6db5fbd7cfdf79c31ec9a3476b5a",
+      "started_utc": "2026-10-27T05:39:11.866813+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-1c93c7c977e5d611/source_code/MainContractFlattened.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-1c93c7c977e5d611",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:37:11.932353+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

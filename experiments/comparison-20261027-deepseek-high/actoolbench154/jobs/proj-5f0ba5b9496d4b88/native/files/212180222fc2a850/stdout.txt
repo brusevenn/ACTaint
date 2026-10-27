@@ -1,0 +1,20 @@
+==============Start====================
+rules:
+{Function:increaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:decreaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:approve, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:quaker, Visibility:public, Explanation:Writes to variable tokenBalances without any access control.}
+{Function:quaker, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: BOMBBA
+Sink:
+Reasoning:
+- The only constructor is inherited `Ownable()`; it is not treated as a sink.
+- `approve`, `increaseApproval`, and `decreaseApproval` modify only the caller’s own allowance mapping entry for `_spender`; these are standard ERC-20 approval operations and are not sinks.
+- `transfer`, `transferFrom`, `balanceOf`, `allowance`, `totalSupply`, and `showMyTokenBalance` are standard ERC-20/view operations; `transferFrom` checks the caller’s allowance before moving tokens. These are not sinks.
+- `mint` and `pullBack` are protected by `onlyOwner`, which provides access control. They are not sinks.
+- `quaker` is public, has no access control, and behaves like a wrong constructor/initializer. It writes `owner` and `tokenBalances[wallet]`, allowing any caller to set ownership and assign the initial token balance. These are sinks.
+
+--Sink--:
+{Function: quaker, Sink: owner, Visibility:public, Explanation: Public function without access control sets owner to msg.sender, allowing any caller to become owner.}
+{Function: quaker, Sink: tokenBalances, Visibility:public, Explanation: Public function without access control sets tokenBalances[wallet] to the initial supply, allowing any caller to assign tokens to an arbitrary address.}

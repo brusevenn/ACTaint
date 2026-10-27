@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "f4493ecede0c80bdcb25279fdf17919bd7b1dd2bce2764c5699538112b3148dc",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.9+commit.e5eed63a",
+    "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+    "metadata": "v0.8.9+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.9"
+  },
+  "elapsed_seconds": 1.638,
+  "ended_utc": "2026-10-27T06:31:25.420478+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code/RemoteAddressValidator.sol",
+  "source_sha256": "f4493ecede0c80bdcb25279fdf17919bd7b1dd2bce2764c5699538112b3148dc",
+  "started_utc": "2026-10-27T06:31:24.552774+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-d74473f5d860a396/source_code/RemoteAddressValidator.sol"
+}

@@ -1,0 +1,39 @@
+{
+  "case_ids": [
+    "acb-682cf046c4180b69"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "dataset": "actoolbench154",
+  "elapsed_seconds": 338.758,
+  "ended_utc": "2026-10-27T06:37:04.231000+00:00",
+  "exit_code": 4,
+  "file_count": 14,
+  "id": "proj-d79ac252134863ee",
+  "input_identity": "9e70eddb444b05e7ce9869353be3a7e9439a0c45e75cdd004c61c7067042706e",
+  "manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "native_result_present": true,
+  "native_status": "PROJECT_WITH_ERRORS",
+  "phase": "formal",
+  "prompt_layout": "prefix_stable",
+  "request_accounting": {
+    "complete_token_weighted_cache_hit_rate": 0.0737366700605541,
+    "error_count": 0,
+    "inflight_or_missing_terminal_count": 0,
+    "invalid_log_rows": [],
+    "known_usage_totals": {
+      "completion_tokens": 42192,
+      "prompt_cache_hit_tokens": 5504,
+      "prompt_cache_miss_tokens": 69140,
+      "prompt_tokens": 74644
+    },
+    "legacy_missing_start_count": 0,
+    "missing_usage_attempts": 0,
+    "observed_token_weighted_cache_hit_rate": 0.0737366700605541,
+    "physical_attempts": 6,
+    "response_count": 6,
+    "target_95_established": false,
+    "usage_complete": true
+  },
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

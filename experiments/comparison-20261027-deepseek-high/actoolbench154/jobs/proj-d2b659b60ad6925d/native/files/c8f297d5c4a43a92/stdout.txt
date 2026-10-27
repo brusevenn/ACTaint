@@ -1,0 +1,57 @@
+==============Start====================
+rules:
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _tOwned without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _tOwned without any access control.}
+{Function:disableFees, Visibility:public, Explanation:Writes to variable _maxTxAmount without any access control.}
+{Function:enableFees, Visibility:public, Explanation:Writes to variable _maxTxAmount without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _burnFee without any access control.}
+{Function:enableFees, Visibility:public, Explanation:Writes to variable _burnFee without any access control.}
+{Function:disableFees, Visibility:public, Explanation:Writes to variable _burnFee without any access control.}
+{Function:restoreAllFee, Visibility:private, Explanation:Writes to variable _burnFee without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _burnFee without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_reflectFee, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _rTotal without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _tTotal without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _tTotal without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _tTotal without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _devFee without any access control.}
+{Function:enableFees, Visibility:public, Explanation:Writes to variable _devFee without any access control.}
+{Function:disableFees, Visibility:public, Explanation:Writes to variable _devFee without any access control.}
+{Function:restoreAllFee, Visibility:private, Explanation:Writes to variable _devFee without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _devFee without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _taxFee without any access control.}
+{Function:enableFees, Visibility:public, Explanation:Writes to variable _taxFee without any access control.}
+{Function:disableFees, Visibility:public, Explanation:Writes to variable _taxFee without any access control.}
+{Function:restoreAllFee, Visibility:private, Explanation:Writes to variable _taxFee without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _taxFee without any access control.}
+
+=============Contract: DxBurnToken
+Sink:
+--Sink--:
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 6, "contracts_skipped_interface_abstract_library": 5, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 107.075, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 6, "total_token": 24861}
+==============End======================
+total time: 107.07472634315491
+total token: 24861

@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:increaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:approve, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:decreaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:quaker, Visibility:public, Explanation:Writes to variable owner without any access control.}
+{Function:quaker, Visibility:public, Explanation:Writes to variable tokenBalances without any access control.}
+
+=============Contract: BOMBBA
+Sink:
+Reasoning:
+- `approve`, `increaseApproval`, and `decreaseApproval` only update `allowed[msg.sender][_spender]`. They modify the caller’s own allowance state and follow standard ERC-20 authorization semantics, so they are not sinks.
+- `transfer` and `transferFrom` are standard token transfer flows. `transferFrom` requires allowance from `_from` to `msg.sender`, so it is not an access-control sink.
+- `mint` and `pullBack` are protected by `onlyOwner`, so they are not unguarded access-control sinks.
+- `quaker` is a public initializer-like function with no access control. It writes privileged ownership state and assigns token balances to an arbitrary wallet. These are access-control-sensitive sink operations.
+
+--Sink--:
+{Function: quaker, Sink: owner, Visibility: public, Explanation: Public initializer-like function with no access control writes owner = msg.sender, allowing any caller to become owner.}
+{Function: quaker, Sink: tokenBalances[wallet], Visibility: public, Explanation: Public initializer-like function with no access control sets an arbitrary wallet’s token balance to INITIAL_SUPPLY * 10 ** 18, allowing unauthorized token assignment/minting.}

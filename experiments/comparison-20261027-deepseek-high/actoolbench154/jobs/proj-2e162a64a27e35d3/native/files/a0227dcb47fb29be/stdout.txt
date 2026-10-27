@@ -1,0 +1,9 @@
+==============Start====================
+rules:
+{Function:_getSlotValue, Visibility:internal, Explanation:Uses assembly.}
+{Function:_setSlotValue, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: SlotManipulatable
+Sink:
+--Sink--:
+{Function: _setSlotValue, Sink: assembly sstore, Visibility: internal, Explanation: Writes an arbitrary storage slot with an arbitrary value via assembly sstore without validation or access control.}

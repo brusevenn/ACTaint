@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "45ec53a9f6066ba83dd1edcc55b5de4f5c2090f302998e28f2493699d11859c4",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.18+commit.9cf6e910",
+    "compiler_sha256": "898a5e05d3ac08d726b019d2415c1c087a9ae87866cdfa551c08b36b6b45321d",
+    "metadata": "v0.4.18+commit.9cf6e910",
+    "metadata_build": "9cf6e910",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.18"
+  },
+  "elapsed_seconds": 22.786,
+  "ended_utc": "2026-10-27T05:47:11.049708+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/cb44c21c40213e45/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-2ad5df198f0f9fcc/source_code/RobotBTC.sol",
+  "source_sha256": "45ec53a9f6066ba83dd1edcc55b5de4f5c2090f302998e28f2493699d11859c4",
+  "started_utc": "2026-10-27T05:47:01.011322+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-2ad5df198f0f9fcc/source_code/RobotBTC.sol"
+}

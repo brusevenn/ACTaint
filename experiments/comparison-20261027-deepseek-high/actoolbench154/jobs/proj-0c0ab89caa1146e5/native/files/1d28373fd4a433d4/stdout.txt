@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:_execute, Visibility:internal, Explanation:Uses assembly.}
+{Function:swapExactJarForJar, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: ControllerV4
+Sink:
+Reviewed the contract: standard admin setters are guarded by `governance`, `strategist`, or `timelock`; `withdraw` is guarded by `jars[_token]`; `yearn` and `inCase*` functions require strategist/governance; `earn` only transfers to the configured strategy and has no arbitrary recipient. The constructor is the actual constructor and is only callable at deployment.
+
+The security-sensitive sink operations are the delegatecall primitive in `_execute` and the externally callable `swapExactJarForJar`, which invokes `_execute` with user-supplied calldata and performs token transfers using user-supplied jar addresses without validating them against the `jars` mapping.
+
+--Sink--:
+{Function: _execute, Sink: delegatecall, Visibility:internal, Explanation: Executes delegatecall to _target with calldata _data, allowing external code to run in the ControllerV4 context.}
+{Function: swapExactJarForJar, Sink: delegatecall and token transfers, Visibility:external, Explanation: Publicly callable function calls _execute for each user-supplied _target/_data and performs token transfers using user-supplied _fromJar and _toJar addresses without checking them against the jars mapping.}

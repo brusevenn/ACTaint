@@ -1,0 +1,13 @@
+ERROR:ContractSolcParsing:Impossible to generate IR for Ladle._pour (datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code/JoinFactory.sol#2523-2548):
+ 'NoneType' object has no attribute 'parameters'
+ERROR:ContractSolcParsing:Impossible to generate IR for Ladle._roll (datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code/JoinFactory.sol#2637-2668):
+ 'NoneType' object has no attribute 'parameters'
+ERROR:ContractSolcParsing:Impossible to generate IR for Pool._mintInternal (datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code/JoinFactory.sol#5693-5760):
+ 'NoneType' object has no attribute 'parameters'
+Traceback (most recent call last):
+  File "$REPO_ROOT/src/analyze_smart_contract.py", line 210, in <module>
+    vulnerability_report += taint_agent.process() + "\n"
+                            ^^^^^^^^^^^^^^^^^^^^^
+  File "$REPO_ROOT/src/llm/taint_agent.py", line 22, in process
+    raise ValueError("ACTaint taint response is missing the --Vulnerability--: marker.")
+ValueError: ACTaint taint response is missing the --Vulnerability--: marker.

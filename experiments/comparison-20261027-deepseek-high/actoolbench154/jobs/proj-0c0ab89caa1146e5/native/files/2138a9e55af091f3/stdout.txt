@@ -1,0 +1,27 @@
+==============Start====================
+rules:
+{Function:emergencyWithdraw, Visibility:public, Explanation:Writes to variable userInfo without any access control.}
+{Function:massUpdatePools, Visibility:public, Explanation:Writes to variable poolInfo without any access control.}
+{Function:set, Visibility:public, Explanation:Writes to variable poolInfo without any access control.}
+{Function:setBonusEndBlock, Visibility:public, Explanation:Writes to variable bonusEndBlock without any access control.}
+{Function:safePickleTransfer, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: MasterChef
+Sink:
+Reasoning:
+- `emergencyWithdraw` is public and writes `userInfo`, but only for `userInfo[_pid][msg.sender]` and transfers `pool.lpToken` to `msg.sender`. It modifies only the caller’s own state/assets, so it is not an access-control sink.
+- `massUpdatePools` is public and updates `poolInfo` via `updatePool`, but it takes no caller-controlled authorization parameters and only triggers deterministic reward accounting. This is intended public behavior, not an access-control sink.
+- `set` is protected by `onlyOwner`, so it is not a sink.
+- `setBonusEndBlock` is protected by `onlyOwner`, so it is not a sink.
+- `safePickleTransfer` is internal and is only called with `msg.sender` as the recipient from `deposit` and `withdraw`; it does not enable unauthorized token transfer.
+- `updatePool`, `deposit`, and `withdraw` modify only caller-specific accounting or perform intended public reward updates; they do not introduce unauthorized access-control violations.
+- The actual constructor is the declared constructor `constructor(PickleToken,address,uint256,uint256,uint256)`, so it is not a wrong-constructor sink.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 10, "contracts_skipped_interface_abstract_library": 0, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 26.247, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 8066}
+==============End======================
+total time: 26.24709463119507
+total token: 8066

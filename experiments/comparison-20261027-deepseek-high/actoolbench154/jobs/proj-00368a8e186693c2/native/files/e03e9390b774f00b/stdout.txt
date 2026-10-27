@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:transferOwnership, Visibility:public, Explanation:Writes to variable _owner without any access control.}
+
+=============Contract: Ownable
+Sink:
+Reasoning:
+- `constructor()` writes `_owner`, but it is the actual constructor and runs only at deployment; it is not an externally callable initialization sink.
+- `renounceOwnership()` writes `_owner` but is guarded by `onlyOwner`.
+- `transferOwnership(address newOwner)` writes `_owner` and is `public` without `onlyOwner`; the only check is `newOwner != address(0)`, which does not restrict the caller. This is an access-control sink.
+- `lock(uint256 time)` writes ownership-related state but is guarded by `onlyOwner`.
+- `unlock()` writes `_owner` but requires `_previousOwner == msg.sender` and `block.timestamp > _lockTime`; this is explicit authorization logic.
+
+--Sink--:
+{Function: transferOwnership, Sink: _owner = newOwner, Visibility: public, Explanation: The function lacks caller authorization, so any account can overwrite `_owner` and emit `OwnershipTransferred`.}

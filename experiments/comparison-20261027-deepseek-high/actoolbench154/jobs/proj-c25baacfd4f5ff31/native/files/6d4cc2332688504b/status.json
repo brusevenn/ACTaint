@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "07ae1ac964ab74dedada999e2dfc642031a6495469cffc0bf715daa4f1e4f904",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.23+commit.f704f362",
+    "compiler_sha256": "28726a452290c70e1984f15c53ad3088e7d98783ee3070b11b3664da77415732",
+    "metadata": "v0.8.23+commit.f704f362",
+    "metadata_build": "f704f362",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 10 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-c25baacfd4f5ff31/source_code --evm-version istanbul",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.23"
+  },
+  "elapsed_seconds": 6.539,
+  "ended_utc": "2026-10-27T06:27:08.784475+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-c25baacfd4f5ff31/source_code/IERC165.sol",
+  "source_sha256": "07ae1ac964ab74dedada999e2dfc642031a6495469cffc0bf715daa4f1e4f904",
+  "started_utc": "2026-10-27T06:27:08.317628+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-c25baacfd4f5ff31/source_code/IERC165.sol"
+}

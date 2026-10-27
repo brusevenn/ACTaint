@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "86ebffcdc0a3e20eac32e6b6be4f0453249869c54a14d9580814d7e0d052793f",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.18+commit.87f61d96",
+    "compiler_sha256": "95e6ed4949a63ad89afb443ecba1fb8302dd2860ee5e9baace3e674a0f48aa77",
+    "metadata": "v0.8.18+commit.87f61d96",
+    "metadata_build": "87f61d96",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-591a2b83b81e22c6/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.18"
+  },
+  "elapsed_seconds": 18.712,
+  "ended_utc": "2026-10-27T05:53:22.986058+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-591a2b83b81e22c6/source_code/eigenlayer/interfaces/IDelegationManager.sol",
+  "source_sha256": "86ebffcdc0a3e20eac32e6b6be4f0453249869c54a14d9580814d7e0d052793f",
+  "started_utc": "2026-10-27T05:53:22.369801+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-591a2b83b81e22c6/source_code/eigenlayer/interfaces/IDelegationManager.sol"
+}

@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "787add22a59cd3bd26aad1f61342c099077f9cbb1b0e14522b91060eafb584ea",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.16+commit.9c3226ce",
+    "compiler_sha256": "a15f01700ec7e02f91bbdfd4b6ff4450b3c2decae173e4f41910a3cfbaf5d3d3",
+    "metadata": "v0.5.16+commit.9c3226ce",
+    "metadata_build": "9c3226ce",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.16"
+  },
+  "elapsed_seconds": 429.052,
+  "ended_utc": "2026-10-27T06:40:00.569811+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/fd050350ac25f7cf/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d7b4b2447ae086ce/source_code/contracts/CToken.sol",
+  "source_sha256": "787add22a59cd3bd26aad1f61342c099077f9cbb1b0e14522b91060eafb584ea",
+  "started_utc": "2026-10-27T06:37:30.177103+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-d7b4b2447ae086ce/source_code/contracts/CToken.sol"
+}

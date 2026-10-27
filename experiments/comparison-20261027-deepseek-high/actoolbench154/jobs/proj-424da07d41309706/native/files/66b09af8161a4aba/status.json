@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "442ae487f41c48892c361b9b224e0f39a542ec17aab5c2f26095b6153c4e7849",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.11+commit.d7f03943",
+    "compiler_sha256": "717c239f3a1dc3a4834c16046a0b4b9f46964665c8ffa82051a6d09fe741cd4f",
+    "metadata": "v0.8.11+commit.d7f03943",
+    "metadata_build": "d7f03943",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-424da07d41309706/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.11"
+  },
+  "elapsed_seconds": 14.158,
+  "ended_utc": "2026-10-27T05:48:48.485391+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-424da07d41309706/source_code/contracts/interfaces/IERC4626.sol",
+  "source_sha256": "442ae487f41c48892c361b9b224e0f39a542ec17aab5c2f26095b6153c4e7849",
+  "started_utc": "2026-10-27T05:48:47.868118+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-424da07d41309706/source_code/contracts/interfaces/IERC4626.sol"
+}

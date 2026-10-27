@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "2b6d969e5e91a97ccf12902cc174200b11f8f0671276da6a780b1fd4c371e965",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 10,
+    "contracts_skipped_interface_abstract_library": 8,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 1,
+    "elapsed_seconds": 24.484,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 10,
+    "total_token": 6899
+  },
+  "compiler": {
+    "actual_full_version": "0.8.0+commit.c7dfd78e",
+    "compiler_sha256": "64016310a57caf1af76a3610f1f94c8848c04c9673e7fa268492e608918a4bdc",
+    "metadata": "v0.8.0+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-c695ebe78e0b8349/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.0"
+  },
+  "elapsed_seconds": 25.122,
+  "ended_utc": "2026-10-27T05:23:58.486934+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/18938d53da78900d/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-c695ebe78e0b8349/source_code/YVault.sol",
+  "source_sha256": "2b6d969e5e91a97ccf12902cc174200b11f8f0671276da6a780b1fd4c371e965",
+  "started_utc": "2026-10-27T05:23:33.365987+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-c695ebe78e0b8349/source_code/YVault.sol"
+}

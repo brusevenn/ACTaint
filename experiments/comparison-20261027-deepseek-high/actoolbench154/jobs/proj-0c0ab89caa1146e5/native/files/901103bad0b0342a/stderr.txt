@@ -1,0 +1,56 @@
+Traceback (most recent call last):
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/crytic_compile/platform/solc.py", line 581, in _run_solc
+    ret: Dict = json.loads(stdout)
+                ^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/slither/slither.py", line 135, in __init__
+    crytic_compile = CryticCompile(target, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/crytic_compile/crytic_compile.py", line 211, in __init__
+    self._compile(**kwargs)
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/crytic_compile/crytic_compile.py", line 633, in _compile
+    self._platform.compile(self, **kwargs)
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/crytic_compile/platform/solc.py", line 150, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/crytic_compile/platform/solc.py", line 279, in _get_targets_json
+    return _run_solc(
+           ^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/crytic_compile/platform/solc.py", line 585, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source "$REPO_ROOT/datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/controller-v4.sol" not found: File not found.
+  --> $REPO_ROOT/datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/tests/lib/test-strategy-uni-farm-base.sol:13:1:
+   |
+13 | import "../../controller-v4.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "$REPO_ROOT/src/analyze_smart_contract.py", line 95, in <module>
+    slither = Slither(config.SOL_FILE_PATH, **slither_kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$HOME/anaconda3/envs/actaint-py312/lib/python3.12/site-packages/slither/slither.py", line 139, in __init__
+    raise SlitherError(f"Invalid compilation: \n{str(e)}")
+slither.exceptions.SlitherError: Invalid compilation: 
+Invalid solc compilation Error: Source "$REPO_ROOT/datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/controller-v4.sol" not found: File not found.
+  --> $REPO_ROOT/datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/tests/lib/test-strategy-uni-farm-base.sol:13:1:
+   |
+13 | import "../../controller-v4.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

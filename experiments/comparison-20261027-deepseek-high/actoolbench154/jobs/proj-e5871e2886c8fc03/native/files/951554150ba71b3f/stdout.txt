@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:setEnforcement, Visibility:public, Explanation:Writes to variable enforceLimitsActive without any access control.}
+{Function:withdrawGovernanceAsset, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: FlashGovernanceArbiter
+Sink:
+Reasoning:
+- `configureFlashGovernance`, `configureSecurityParameters`, and `burnFlashGovernanceAsset` are protected by `onlySuccessfulProposal`, which serves as access control from governance.
+- `assertGovernanceApproved` performs `transferFrom` using an allowance granted to the contract; this matches standard ERC-20 allowance behavior and was not identified as a sink in the provided static analysis.
+- `setEnforcement` is public and writes to `enforceLimitsActive[msg.sender]` without access control, which can affect governance limit enforcement.
+- `withdrawGovernanceAsset` is public and executes an external token transfer.
+- `enforceToleranceInt`, `enforceTolerance`, and the constructor do not contain sink operations requiring reporting.
+
+--Sink--:
+{Function: setEnforcement, Sink: write to enforceLimitsActive, Visibility: public, Explanation: Public function writes to the enforceLimitsActive mapping without access control, affecting the enforcement of governance change limits.}
+{Function: withdrawGovernanceAsset, Sink: token transfer, Visibility: public, Explanation: Public function calls IERC20.transfer to send tokens to msg.sender, which is a security-sensitive external transfer operation.}

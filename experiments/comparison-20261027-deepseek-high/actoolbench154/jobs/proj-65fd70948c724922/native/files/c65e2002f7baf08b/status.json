@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "45d878a5239108c77d4e8a6a3fc9dc401acbdd42250380db8083b1a9937901ef",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.19+commit.7dd6d404",
+    "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+    "metadata": "v0.8.19+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-65fd70948c724922/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.19"
+  },
+  "elapsed_seconds": 2.422,
+  "ended_utc": "2026-10-27T05:55:06.139846+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-65fd70948c724922/source_code/RngRelayAuction.sol",
+  "source_sha256": "45d878a5239108c77d4e8a6a3fc9dc401acbdd42250380db8083b1a9937901ef",
+  "started_utc": "2026-10-27T05:55:03.719068+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-65fd70948c724922/source_code/RngRelayAuction.sol"
+}

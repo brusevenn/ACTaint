@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:proposeStrat, Visibility:public, Explanation:Writes to variable stratCandidate without any access control.}
+
+=============Contract: GrimBoostVault
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 10, "contracts_skipped_interface_abstract_library": 6, "contracts_skipped_no_implementation": 1, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 2, "elapsed_seconds": 69.175, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 10, "total_token": 14963}
+==============End======================
+total time: 69.1752598285675
+total token: 14963

@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:UBSexToken, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: BAFCToken
+Sink:
+--Sink--:
+{Function: UBSexToken, Sink: owner assignment and totalSupply/balances initialization, Visibility: public, Explanation: This is a wrong constructor/initializer: the contract has no constructor and UBSexToken is public with no access control, so any caller can invoke it to set owner = msg.sender, set totalSupply, and assign balances[owner] = totalSupply.}

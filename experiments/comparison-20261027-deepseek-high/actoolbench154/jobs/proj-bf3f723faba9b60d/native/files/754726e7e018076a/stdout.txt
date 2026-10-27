@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:rescueToken, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: SpaceGodzilla
+Sink:
+Reasoning:
+- The static analysis result flags `rescueToken`, but the actual code contains `require(_tokenOwner == msg.sender)`. This provides access control, so only `_tokenOwner` can call it. Therefore, `rescueToken` is not an access control sink.
+- `swapAndLiquify`, `swapTokensForOther`, and `swapAndLiquifyStepv1` are all `public` and lack any access control modifier or `require`. They call Uniswap router functions and `warp.withdraw()` to move contract-held tokens and ETH. These are security-sensitive operations that any address can invoke, and they bypass the owner-controlled `swapAndLiquifyEnabled` flag and the `swapping` reentrancy guard. Thus, they are sinks.
+
+--Sink--:
+{Function: swapAndLiquify, Sink: swapTokensForOther(canswap) and addLiquidityUsdt(ethBalance, otherAmount) which execute token transfers, Visibility: public, Explanation: Public function lacks access control and allows any caller to trigger token swaps and liquidity additions using contract-held assets.}
+{Function: swapTokensForOther, Sink: uniswapV2Router.swapExactTokensForTokensSupportingFeeOnTransferTokens and warp.withdraw, Visibility: public, Explanation: Public function lacks access control and allows any caller to swap contract-held tokens to the warp contract and withdraw.}
+{Function: swapAndLiquifyStepv1, Sink: addLiquidityUsdt(tokenBalance, ethBalance) -> uniswapV2Router.addLiquidity, Visibility: public, Explanation: Public function lacks access control and allows any caller to add liquidity using all contract token and ETH balances, sending LP tokens to _tokenOwner.}

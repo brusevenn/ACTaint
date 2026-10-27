@@ -1,0 +1,10 @@
+==============Start====================
+rules:
+{Function:_transferQuad, Visibility:internal, Explanation:Writes to variable _owners without any access control.}
+{Function:_checkAndClear, Visibility:internal, Explanation:Writes to variable _owners without any access control.}
+
+=============Contract: LandBaseToken
+Sink:
+--Sink--:
+{Function: _transferQuad, Sink: Writes to _owners without access control, Visibility: internal, Explanation: _transferQuad directly updates the _owners ownership mapping for size-1 quads and performs no caller authorization check.}
+{Function: _checkAndClear, Sink: Writes to _owners without access control, Visibility: internal, Explanation: _checkAndClear directly clears _owners[id] and performs no caller authorization check.}

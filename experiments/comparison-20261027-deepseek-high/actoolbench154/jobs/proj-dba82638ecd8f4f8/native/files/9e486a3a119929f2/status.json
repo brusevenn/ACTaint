@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "d4a09ce0590b106c6cd6e14e41ac3e7c86fb98825e58ed8f3d19475ac098ad1a",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.19+commit.7dd6d404",
+    "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+    "metadata": "v0.8.19+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path /add/users/shanzy/ACTaint/datasets/actoolbench-cleaned-154/full/projects/proj-dba82638ecd8f4f8/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.19"
+  },
+  "elapsed_seconds": 2.673,
+  "ended_utc": "2026-10-27T06:37:45.458374+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-dba82638ecd8f4f8/source_code/VotiumStrategyCore.sol",
+  "source_sha256": "d4a09ce0590b106c6cd6e14e41ac3e7c86fb98825e58ed8f3d19475ac098ad1a",
+  "started_utc": "2026-10-27T06:37:42.786628+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-dba82638ecd8f4f8/source_code/VotiumStrategyCore.sol"
+}

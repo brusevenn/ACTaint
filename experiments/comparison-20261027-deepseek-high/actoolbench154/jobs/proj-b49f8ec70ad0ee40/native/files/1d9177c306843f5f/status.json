@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "3fc4b9bfa9f6d237270ae63b20a98c03aabe904738b48f5c5a40b8a6837a88d1",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 2,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 1,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 19.477,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 2,
+    "total_token": 5428
+  },
+  "compiler": {
+    "actual_full_version": "0.4.13+commit.0fb4cb1a",
+    "compiler_sha256": "791ee3a20adf6c5ab76cc889f13cca102f76eb0b7cf0da4a0b5b11dc46edf349",
+    "metadata": "v0.4.13+commit.fb4cb1a",
+    "metadata_build": "fb4cb1a",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.13"
+  },
+  "elapsed_seconds": 20.066,
+  "ended_utc": "2026-10-27T06:23:18.596810+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/1d9177c306843f5f/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b49f8ec70ad0ee40/source_code/Coinlancer.sol",
+  "source_sha256": "3fc4b9bfa9f6d237270ae63b20a98c03aabe904738b48f5c5a40b8a6837a88d1",
+  "started_utc": "2026-10-27T06:22:58.531634+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-b49f8ec70ad0ee40/source_code/Coinlancer.sol"
+}

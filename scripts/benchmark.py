@@ -59,7 +59,7 @@ def _sha256(path: Path) -> str:
 
 def _atomic_json(path: Path, value: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temp = path.with_name(path.name + ".tmp")
+    temp = path.with_name(path.name + f".tmp-{os.getpid()}")
     temp.write_text(
         json.dumps(value, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False) + "\n",
         encoding="utf-8",
@@ -418,6 +418,47 @@ def _summary_from_stdout(path: Path) -> dict[str, Any] | None:
     return None
 
 
+def _global_provider_stop_path() -> Path | None:
+    value = os.environ.get("EXPERIMENT_GLOBAL_STOP_FILE")
+    return Path(value) if value else None
+
+
+def _mark_global_provider_stop() -> None:
+    path = _global_provider_stop_path()
+    if path is None:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists():
+        temp = path.with_name(path.name + f".tmp-{os.getpid()}")
+        temp.write_text(json.dumps({"status": "STOPPED_AUTH_OR_PAYMENT_ERROR", "tool": "ACTaint"}) + "\n")
+        os.replace(temp, path)
+
+
+def _request_log_requires_provider_stop(path: Path) -> bool:
+    """Fail closed after authentication/payment errors; malformed logs are unsafe to continue."""
+    if not path.is_file():
+        return False
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        try:
+            row = json.loads(line)
+        except json.JSONDecodeError:
+            return True
+        if row.get("event") != "error":
+            continue
+        code = row.get("status_code", row.get("http_status"))
+        try:
+            code = int(code)
+        except (TypeError, ValueError):
+            code = None
+        body = row.get("error_body", {})
+        provider_code = body.get("error", {}).get("code") if isinstance(body, dict) else None
+        if code in (401, 402, 403) or provider_code in {
+            "insufficient_balance_error", "insufficient_quota", "payment_required", "billing_hard_limit_reached"
+        }:
+            return True
+    return False
+
+
 def run_project(
     plan: dict[str, Any], project_id: str, output_dir: Path,
     compiler_map: dict[str, dict[str, Any]], *, code_sha: str,
@@ -470,7 +511,11 @@ def run_project(
             "source_sha256": row["sha256"], "actual_source_sha256": _sha256(file_path),
             "status": "PENDING", "started_utc": None, "ended_utc": None,
         }
-        if file_result["actual_source_sha256"] != row["sha256"]:
+        request_log: Path | None = None
+        global_stop = _global_provider_stop_path()
+        if global_stop is not None and global_stop.exists():
+            file_result.update(status="NOT_RUN_GLOBAL_PROVIDER_STOP", ended_utc=_utc_now())
+        elif file_result["actual_source_sha256"] != row["sha256"]:
             file_result.update(status="ERROR_SOURCE_HASH_MISMATCH", ended_utc=_utc_now())
         elif compiler["status"] != "READY":
             file_result["compiler"] = result["compiler"]
@@ -538,6 +583,23 @@ def run_project(
         _atomic_json(file_dir / "status.json", file_result)
         result["file_results"].append(file_result)
         _atomic_json(output_dir / "project-result.json", result)
+        if request_log is not None and _request_log_requires_provider_stop(request_log):
+            result["provider_stop"] = True
+            _mark_global_provider_stop()
+            for pending in project["files"][len(result["file_results"]):]:
+                pending_dir = files_dir / hashlib.sha256(pending["tool_input_path"].encode("utf-8")).hexdigest()[:16]
+                pending_dir.mkdir(exist_ok=False)
+                pending_result = {
+                    "tool_input_path": pending["tool_input_path"],
+                    "source_repo_path": pending["source_repo_path"],
+                    "source_sha256": pending["sha256"],
+                    "status": "NOT_RUN_GLOBAL_PROVIDER_STOP",
+                    "started_utc": None, "ended_utc": _utc_now(),
+                }
+                result["file_results"].append(pending_result)
+                _atomic_json(pending_dir / "status.json", pending_result)
+            _atomic_json(output_dir / "project-result.json", result)
+            break
         if file_result["status"] == "TIMEOUT":
             for pending in project["files"][len(result["file_results"]):]:
                 pending_dir = files_dir / hashlib.sha256(pending["tool_input_path"].encode("utf-8")).hexdigest()[:16]

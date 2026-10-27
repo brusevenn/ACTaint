@@ -128,6 +128,15 @@ def build_plan():
   "created_utc":now(),"ground_truth_read":False,"labels_in_detector_input":False,"automatic_retries":0,
   "duplicate_samples_replayed":False,"execution_launched":False,"jobs":jobs,"case_records":cases,
   "disposition_counts":{s:sum(j["disposition"]==s for j in jobs) for s in sorted({j["disposition"] for j in jobs})}}
+def _global_stop_path():
+ value=os.environ.get("EXPERIMENT_GLOBAL_STOP_FILE")
+ return Path(value) if value else None
+def _mark_global_stop():
+ path=_global_stop_path()
+ if path is None:return
+ path.parent.mkdir(parents=True,exist_ok=True)
+ if not path.exists():
+  write(path,{"status":"STOPPED_AUTH_OR_PAYMENT_ERROR","tool":TOOL,"timestamp_utc":now()})
 def _stop_for_provider_error(job_dir):
  for log in Path(job_dir).rglob("requests.jsonl"):
   for line in log.read_text(errors="replace").splitlines():
@@ -139,7 +148,7 @@ def _stop_for_provider_error(job_dir):
     except (TypeError,ValueError):code=None
     body=r.get("error_body",{})
     provider_code=body.get("error",{}).get("code") if isinstance(body,dict) else None
-    if code in (401,402,403) or provider_code in ("insufficient_balance_error","insufficient_quota","payment_required"):return True
+    if code in (401,402,403) or provider_code in ("insufficient_balance_error","insufficient_quota","payment_required","billing_hard_limit_reached"):return True
  return False
 
 def _safe_text(path):
@@ -181,7 +190,8 @@ def execute(plan):
   if receipt.exists():return json.loads(receipt.read_text())
   if started.exists():
    return save_receipt(j,{"status":"INTERRUPTED_NOT_RETRIED","reason":"previous start marker without terminal result; do not replay physical request"})
-  if stop.is_set():
+  global_stop=_global_stop_path()
+  if stop.is_set() or (global_stop is not None and global_stop.exists()):
    return save_receipt(j,{"status":"NOT_RUN_PROVIDER_STOP"})
   write(started,{"tool":TOOL,"dataset":"ACToolBench154","project_id":j["project_id"],"case_ids":j["case_ids"],
    "input_identity":j["input_identity"],"source_hashes":j["source_hashes"],"compile_config_sha256":j["compile_config_sha256"],
@@ -193,7 +203,7 @@ def execute(plan):
   if TOOL=="ACTaint":cmd += ["--compiler-map","/add/users/shanzy/comparison-runs/comparison-20261027-deepseek-high/compiler-map.local.json","--code-sha",plan["code_sha"]]
   try:
    with (dest/"stdout.txt").open("xb") as so,(dest/"stderr.txt").open("xb") as se:
-    proc=subprocess.Popen(cmd,cwd=ROOT,stdout=so,stderr=se,start_new_session=True)
+    proc=subprocess.Popen(cmd,cwd=ROOT,stdout=so,stderr=se,start_new_session=True,env=os.environ.copy())
     try:rc=proc.wait(timeout=1200);outer="COMPLETED" if rc==0 else "TOOL_ERROR"
     except subprocess.TimeoutExpired:
      os.killpg(proc.pid,signal.SIGTERM)
@@ -204,11 +214,13 @@ def execute(plan):
    native=dest/"native/project-result.json";nr=json.loads(native.read_text()) if native.exists() else {}
    status=nr.get("status",outer)
    row=save_receipt(j,{"status":status,"exit_code":rc,"native_result_present":native.exists(),"native_output":"native/project-result.json" if native.exists() else None,"artifact":str(dest.relative_to(ROOT)),"native_execution_status":status})
-   if _stop_for_provider_error(dest):stop.set()
+   if _stop_for_provider_error(dest):
+    stop.set();_mark_global_stop()
    return row
   except Exception as e:
    row=save_receipt(j,{"status":"CONTROLLER_ERROR","error_type":type(e).__name__,"error_message":str(e).replace(str(ROOT),"[TOOL_ROOT]")[:1200]})
-   if _stop_for_provider_error(dest):stop.set()
+   if _stop_for_provider_error(dest):
+    stop.set();_mark_global_stop()
    return row
  # Per-job receipts are persisted as each future finishes; provider stop closes the queue.
  results=[]
@@ -235,7 +247,7 @@ def execute(plan):
  assert len(records)==154 and len({x["case_id"] for x in records})==154
  write(out/"case-records.json",{"schema":"NATIVE_LLM_RESUME_CASE_RECORDS_V1","tool":TOOL,"dataset":"ACToolBench154","case_count":154,"records":records,"ground_truth_read":False,"scoring_performed":False})
  write(out/"execution-summary.json",{"tool":TOOL,"code_sha":plan["code_sha"],"case_count":154,"project_group_count":121,
-  "resumed_project_count":len(results),"provider_stop":stop.is_set(),"status_counts":{st:sum(x["status"]==st for x in records) for st in sorted({x["status"] for x in records})},
+  "resumed_project_count":len(results),"provider_stop":stop.is_set() or bool(_global_stop_path() and _global_stop_path().exists()),"status_counts":{st:sum(x["status"]==st for x in records) for st in sorted({x["status"] for x in records})},
   "finished_utc":now(),"scoring_performed":False})
  files={str(p.relative_to(out)):sha(p) for p in out.rglob("*") if p.is_file() and p.name!="resume-seal.json"}
  seal={"schema":"NATIVE_LLM_RESUME_SEAL_V1","tool":TOOL,"dataset":"ACToolBench154","code_sha":plan["code_sha"],"manifest_sha256":plan["manifest_sha256"],

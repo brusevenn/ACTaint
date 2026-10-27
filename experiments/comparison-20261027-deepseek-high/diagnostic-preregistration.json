@@ -1,0 +1,109 @@
+{
+  "ACTaint": {
+    "global_concurrency": 2,
+    "layouts": [
+      "baseline",
+      "prefix_stable",
+      "prefix_stable"
+    ],
+    "rounds": [
+      [
+        "proj-8b65cfc4735dcd5e",
+        "proj-06e0b606c3789db5"
+      ],
+      [
+        "proj-c695ebe78e0b8349",
+        "proj-1342319724ccb055"
+      ],
+      [
+        "proj-3a5bc65f96317f51",
+        "proj-987bf9a24ec4e435"
+      ]
+    ],
+    "source_distinct": true
+  },
+  "GPTLens": {
+    "global_concurrency": 2,
+    "layouts": [
+      "baseline",
+      "prefix_stable",
+      "prefix_stable"
+    ],
+    "rounds": [
+      [
+        "proj-8b65cfc4735dcd5e",
+        "proj-06e0b606c3789db5"
+      ],
+      [
+        "proj-c695ebe78e0b8349",
+        "proj-1342319724ccb055"
+      ],
+      [
+        "proj-3a5bc65f96317f51",
+        "proj-987bf9a24ec4e435"
+      ]
+    ],
+    "source_distinct": true
+  },
+  "denominator": "sum provider prompt_cache_hit_tokens / sum provider prompt_tokens, separately by tool and round; any missing usage means exact rate UNKNOWN",
+  "diagnostic_outputs_reused_in_formal": true,
+  "max_rounds": 3,
+  "projects": [
+    {
+      "files": [
+        {
+          "bytes": 17675,
+          "sha256": "bb77aebb54b3e98fc705d1d1952ff1e13a7297e246eec4b8376da60b34b209c7"
+        }
+      ],
+      "project_id": "proj-8b65cfc4735dcd5e"
+    },
+    {
+      "files": [
+        {
+          "bytes": 34290,
+          "sha256": "54e88ef60ff604d0d416868e71d7c6bffbac73e594a3003948f67874d062e798"
+        }
+      ],
+      "project_id": "proj-06e0b606c3789db5"
+    },
+    {
+      "files": [
+        {
+          "bytes": 37917,
+          "sha256": "2b6d969e5e91a97ccf12902cc174200b11f8f0671276da6a780b1fd4c371e965"
+        }
+      ],
+      "project_id": "proj-c695ebe78e0b8349"
+    },
+    {
+      "files": [
+        {
+          "bytes": 45546,
+          "sha256": "6d64713fecde96a1e139f39f5e30525882cca7a3a744bd4458d1437767eb1fad"
+        }
+      ],
+      "project_id": "proj-1342319724ccb055"
+    },
+    {
+      "files": [
+        {
+          "bytes": 47840,
+          "sha256": "328f4f0f709d880db93fb936c0bb2d8306f1e39c25905bc4e52009e35178fd97"
+        }
+      ],
+      "project_id": "proj-3a5bc65f96317f51"
+    },
+    {
+      "files": [
+        {
+          "bytes": 57817,
+          "sha256": "192113b69fb1fb2cc2e7eed7e84f304951fb8a714813832271f2edd80d6b3f56"
+        }
+      ],
+      "project_id": "proj-987bf9a24ec4e435"
+    }
+  ],
+  "schema": "NATIVE_TOOL_CACHE_PREREGISTRATION_V1",
+  "selection_rule": "first6 distinct source SHA single-file projects sorted source_bytes then project_id; no labels read"
+}

@@ -1,0 +1,4 @@
+
+
+# Preserve native experiment/output bytes and SHA-256 seals
+experiments/** -text

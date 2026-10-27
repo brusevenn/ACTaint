@@ -14,6 +14,8 @@ from llm.taint_agent import TaintAgent
 from entities.message import Message
 import config
 import json
+import os
+from pathlib import Path
 import time
 
 # convert to source code
@@ -37,6 +39,32 @@ def parse_to_source(path_dict):
 
     return source_dict
 
+def _is_target_source(contract, target_path):
+    target = Path(target_path).resolve()
+    filename = getattr(getattr(contract, "source_mapping", None), "filename", None)
+    if filename is None:
+        return False
+    bases = [
+        Path(os.getenv("ACTAINT_COMPILATION_CWD", Path.cwd())),
+        Path.cwd(),
+    ]
+    for attribute in ("absolute", "short", "relative"):
+        value = getattr(filename, attribute, None)
+        if callable(value):
+            value = value()
+        if not value:
+            continue
+        candidate = Path(str(value))
+        candidates = [candidate] if candidate.is_absolute() else [base / candidate for base in bases]
+        for item in candidates:
+            try:
+                if item.resolve() == target:
+                    return True
+            except OSError:
+                continue
+    return False
+
+
 def get_unaffect_functions(nodes):
     functions = []
     for node in nodes:
@@ -49,25 +77,57 @@ if __name__ == "__main__":
     print("==============Start====================")
     config.total_token = 0
 
-    slither = Slither(config.SOL_FILE_PATH,solc_remaps=config.slither_library)
+    slither_kwargs = {"solc_remaps": config.slither_library}
+    compiler_binary = os.getenv("ACTAINT_SOLC_BINARY")
+    compilation_cwd = os.getenv("ACTAINT_COMPILATION_CWD")
+    if compiler_binary:
+        remappings = json.loads(os.getenv("ACTAINT_SOLC_REMAPPINGS_JSON", "[]"))
+        solc_args = json.loads(os.getenv("ACTAINT_SOLC_ARGS_JSON", "[]"))
+        if not isinstance(remappings, list) or not all(isinstance(item, str) for item in remappings):
+            raise ValueError("ACTAINT_SOLC_REMAPPINGS_JSON must be a list of strings")
+        if not isinstance(solc_args, list) or not all(isinstance(item, str) for item in solc_args):
+            raise ValueError("ACTAINT_SOLC_ARGS_JSON must be a list of strings")
+        slither_kwargs.update(solc=compiler_binary, solc_remaps=remappings)
+        if compilation_cwd:
+            slither_kwargs["cwd"] = compilation_cwd
+        if solc_args:
+            slither_kwargs["solc_args"] = " ".join(solc_args)
+    slither = Slither(config.SOL_FILE_PATH, **slither_kwargs)
+
+    analyzer_stats = {
+        "contracts_seen": 0,
+        "target_contracts": 0,
+        "contracts_analyzed": 0,
+        "contracts_skipped_interface_abstract_library": 0,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+    }
     # slither = Slither(config.SOL_FILE_PATH)
 
     summary_report = ""
     for contract in slither.contracts:
-        if contract.source_mapping.filename.short != config.SOL_FILE_PATH:
+        analyzer_stats["contracts_seen"] += 1
+        if not _is_target_source(contract, config.SOL_FILE_PATH):
             continue
+        analyzer_stats["target_contracts"] += 1
 
         # filter
         if contract.is_interface or contract.is_abstract or contract.is_library:
+            analyzer_stats["contracts_skipped_interface_abstract_library"] += 1
             continue
         has_impl = any(f.is_implemented for f in contract.functions_declared)
         if not has_impl:
+            analyzer_stats["contracts_skipped_no_implementation"] += 1
             continue
 
         # skip the contract which all pure or view
         all_pure_or_view = all((f.pure or f.view) for f in contract.functions_declared if f.is_implemented )
         # print(f"contract:{contract.name},pure:{all_pure_or_view}")
         if all_pure_or_view:
+            analyzer_stats["contracts_skipped_pure_view"] += 1
             continue
 
         focus_rules = ""
@@ -125,7 +185,10 @@ if __name__ == "__main__":
         # continue
         
         if focus_rules == "" and tx_report == "":
+            analyzer_stats["contracts_without_native_candidates"] += 1
             continue
+        analyzer_stats["contracts_analyzed"] += 1
+        analyzer_stats["sink_agent_calls"] += 1
         print("rules:")
         print(focus_rules)
         print(f"=============Contract: {contract.name}")
@@ -142,6 +205,7 @@ if __name__ == "__main__":
         else:
             # sinks exist, taint
             if "no sinks" not in sinks.strip().lower():
+                analyzer_stats["taint_agent_calls"] += 1
                 taint_agent = TaintAgent(sinks, constructor_function_name, read_source_code(str(contract.source_mapping)))
                 vulnerability_report += taint_agent.process() + "\n"
         
@@ -154,6 +218,9 @@ if __name__ == "__main__":
         print(vulnerability_report + tx_report)
     
     end_time = time.time()
+    analyzer_stats["total_token"] = config.total_token
+    analyzer_stats["elapsed_seconds"] = round(end_time - start_time, 3)
+    print("ACTAINT_ANALYZER_SUMMARY_JSON=" + json.dumps(analyzer_stats, sort_keys=True))
     print("==============End======================")
     print(f"total time: {end_time - start_time}")
     print(f"total token: {config.total_token}")

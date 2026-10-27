@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-10-27T03:47:31.850714+00:00",
+  "evaluation_labels_read": false,
+  "files": [
+    {
+      "bytes": 359741,
+      "location_id": "0",
+      "sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa"
+    },
+    {
+      "bytes": 359741,
+      "location_id": "1",
+      "sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa"
+    },
+    {
+      "bytes": 359741,
+      "location_id": "2",
+      "sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa"
+    },
+    {
+      "bytes": 359741,
+      "location_id": "3",
+      "sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa"
+    },
+    {
+      "bytes": 355536,
+      "location_id": "4",
+      "sha256": "4a2582f3407ea53536a8645b09b857d6ebe2614b667d2610656976bd8566cdcf"
+    }
+  ],
+  "forbidden_detector": "cadg_facts/R3",
+  "schema": "COMPARISON_INPUT_MANIFEST_FREEZE_V1",
+  "scope": {
+    "ACTaint_ACToolBench": 154,
+    "ASTRO_ACToolBench": 154,
+    "ASTRO_SmartBugs": 533,
+    "GPTLens_ACToolBench": 154
+  }
+}

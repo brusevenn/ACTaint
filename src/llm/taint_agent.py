@@ -1,5 +1,6 @@
 from llm.call_gpt import call_chatgpt
 # from before.call_deepseek import call_deepseek
+import os
 import re
 import config
 
@@ -17,6 +18,8 @@ class TaintAgent():
         # print("===============")
         result = ""
         result += call_chatgpt(prompt_message)
+        if re.search(r"--Vulnerability--\\s*:", result, re.IGNORECASE) is None:
+            raise ValueError("ACTaint taint response is missing the --Vulnerability--: marker.")
         # result += call_deepseek(prompt_message)
         # print(result)
         # pattern = r"--Vulnerability--:\s*\n(.*?)(?=\n\s*\n|$)"
@@ -63,7 +66,7 @@ class TaintAgent():
         5.Time- or state-based conditions (e.g., block number, balances) only limit when a function can be called, not who can call it.
         """
 
-        user_content = f"""Source code: ```{self.source_code}```.
+        baseline_user_content = f"""Source code: ```{self.source_code}```.
         Identified **Sinks**: {self.sinks}
         Step 1: **Taint Source**: For each sink, determine whether it can be influenced by untrusted input (e.g., msg.sender, tx.origin, function parameters). 
         Note: tx.origin must be treated separately from msg.sender. **Do not** consider msg.value as a taint source.
@@ -75,6 +78,22 @@ class TaintAgent():
         {taint_rules}
         Step 3: **Self-Evaluation**: Evaluate your reasoning. If a taint path exists and it affects access control logic, this is an access control vulnerability.
         """
+
+        user_content = baseline_user_content
+        if os.getenv("ACTAINT_PROMPT_LAYOUT", "baseline") == "prefix_stable":
+            _, tail = baseline_user_content.split("Source code: " + chr(96)*3, 1)
+            source_code, instructions = tail.split(chr(96)*3 + ".", 1)
+            instructions = instructions.replace(
+                f"Identified **Sinks**: {self.sinks}",
+                "Identified sinks are listed in the ACTaint context block at the end.",
+            )
+            instructions = instructions.replace(construct_str, "Constructor context is listed at the end.")
+            user_content = (
+                instructions.strip()
+                + "\n\n" + construct_str
+                + "\nIdentified **Sinks**:\n" + self.sinks
+                + "\nSource code: " + chr(96)*3 + source_code + chr(96)*3
+            )
 
         assistant_content = """
         If an access control vulnerability is detected, your conclusion must strictly follow this format (one line per vulnerability):

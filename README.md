@@ -4,15 +4,42 @@
 
 ## Quick Start
 
-Python 3.12.4
+Run on Ubuntu 22.04 with Python 3.12.4:
 
-```pip install -r requirements.txt```
+```bash
+python -m pip install -r requirements.txt
+```
 
-vim ```config.py```  
+Create a repository-local `.env` file (do not commit it):
 
-write *gpt_url, gpt_key*
+```dotenv
+DEEPSEEK_API_KEY=replace-with-your-api-key
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=replace-with-supported-model-name
+CADG_LLM_PROVIDER=deepseek
+LLM_REASONING_EFFORT=high
+LLM_THINKING_ENABLED=true
+LLM_TEMPERATURE=0
+LLM_TOP_P=0.9
 
-```sh start.sh```
+# Optional OpenAI-compatible fallback when no DeepSeek key is set:
+# OPENAI_API_KEY=replace-with-your-api-key
+# OPENAI_BASE_URL=https://your-openai-compatible-endpoint/v1
+# OPENAI_MODEL=replace-with-supported-model-name
+```
+
+For a single Solidity input, set these paths in `.env` (the source file is relative to the dataset directory):
+
+```dotenv
+ACTAINT_DATASET_PATH=path/to/dataset
+ACTAINT_SOL_FILE=path/relative/to/dataset/Contract.sol
+```
+
+Then start the tool:
+
+```bash
+sh start.sh
+```
 
 ## Organization:
 

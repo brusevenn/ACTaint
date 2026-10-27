@@ -1,5 +1,6 @@
 from llm.call_gpt import call_chatgpt
 # from before.call_deepseek import call_deepseek
+import os
 import re
 import config
 
@@ -19,6 +20,8 @@ class SinkAgent():
         print(result)  
         pattern = r"--Sink--:\s*\n(.*?)(?=\n\s*\n|$)"
         matches = re.search(pattern, result, re.DOTALL)
+        if matches is None:
+            raise ValueError("ACTaint sink response is missing the --Sink--: marker.")
         conclusion = ""
         if matches:
             conclusion = matches.group(1).strip()
@@ -74,7 +77,7 @@ class SinkAgent():
         - Modifier nonReentrant only prevents reentrancy, it does not enforce access control.
         """
     
-        user_content = f"""Source code: ```{self.source_code}```.
+        baseline_user_content = f"""Source code: ```{self.source_code}```.
         Step 1: **Reference**: Here is a static analysis result: {self.static_rules}.
         - Use this as a reference, but rely on the actual context. Be careful before marking functions not listed as sinks.
         - For selfdestruct instructions, if they are affected by other variables, this usually indicates some level of protection. Carefully consider before identifying them as sinks.
@@ -86,6 +89,22 @@ class SinkAgent():
         Step 3: **Self-Evaluate and Explain**: For each **Sink**, self-evaluate and then provide a formal explanation for it.
         """     
         
+        user_content = baseline_user_content
+        if os.getenv("ACTAINT_PROMPT_LAYOUT", "baseline") == "prefix_stable":
+            _, tail = baseline_user_content.split("Source code: " + chr(96)*3, 1)
+            source_code, instructions = tail.split(chr(96)*3 + ".", 1)
+            instructions = instructions.replace(
+                f"Here is a static analysis result: {self.static_rules}.",
+                "Here is the ACTaint static analysis context listed at the end.",
+            )
+            instructions = instructions.replace(construct_str, "Constructor context is listed at the end.")
+            user_content = (
+                instructions.strip()
+                + "\n\n" + construct_str
+                + "\nStatic analysis result:\n" + self.static_rules
+                + "\nSource code: " + chr(96)*3 + source_code + chr(96)*3
+            )
+
         assistant_content = """
         Finally, if any sinks are identified, your conclusion must strictly follow this format (one line per sink):
         --Sink--:

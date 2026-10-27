@@ -1,4 +1,5 @@
-import importlib.util, json, tempfile, unittest
+import importlib.util, json, os, tempfile, unittest
+from unittest.mock import patch
 from pathlib import Path
 
 MODULE_PATH=Path(__file__).resolve().parents[1]/"scripts/resume_benchmark.py"
@@ -23,6 +24,12 @@ class ResumePlanTests(unittest.TestCase):
    self.assertTrue(module._stop_for_provider_error(temp))
    log.write_text(json.dumps({"event":"error","status_code":"403"})+"\n")
    self.assertTrue(module._stop_for_provider_error(temp))
+
+ def test_tool_concurrency_override_is_bounded(self):
+  with patch.dict(os.environ,{"EXPERIMENT_RESUME_CONCURRENCY":"1"}):
+   self.assertEqual(module._execution_concurrency(),1)
+  with patch.dict(os.environ,{"EXPERIMENT_RESUME_CONCURRENCY":"3"}):
+   with self.assertRaises(ValueError):module._execution_concurrency()
 
  def test_corrupt_new_request_ledger_fails_closed(self):
   with tempfile.TemporaryDirectory() as temp:

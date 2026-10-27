@@ -158,6 +158,13 @@ def _safe_text(path):
   Path(str(path)+".path-normalization.json").write_text(json.dumps(side,sort_keys=True)+"\n")
   Path(path).write_bytes(clean)
 
+def _execution_concurrency():
+ raw=os.environ.get("EXPERIMENT_RESUME_CONCURRENCY","2")
+ try:value=int(raw)
+ except ValueError:raise ValueError("EXPERIMENT_RESUME_CONCURRENCY_MUST_BE_1_OR_2") from None
+ if value not in (1,2):raise ValueError("EXPERIMENT_RESUME_CONCURRENCY_MUST_BE_1_OR_2")
+ return value
+
 def execute(plan):
  out=ROOT/"experiments"/RUN
  out.mkdir(parents=True,exist_ok=True)
@@ -171,7 +178,8 @@ def execute(plan):
  launch=out/"launch-receipt.json"
  if launch.exists():raise FileExistsError("RESUME_ALREADY_LAUNCHED_NO_REPLAY")
  jobs=plan["jobs"]; eligible=[j for j in jobs if j["disposition"]=="ELIGIBLE_ZERO_REQUEST_RESUME"]
- write(launch,{"tool":TOOL,"code_sha":plan["code_sha"],"started_utc":now(),"concurrency":2,
+ concurrency=_execution_concurrency()
+ write(launch,{"tool":TOOL,"code_sha":plan["code_sha"],"started_utc":now(),"concurrency":concurrency,
   "eligible_project_count":len(eligible),"eligible_case_ids":[c for j in eligible for c in j["case_ids"]],
   "fixed_protocol":{"model":"deepseek-flash","reasoning_effort":"high","thinking":"enabled","max_tokens":65536,"request_timeout_seconds":300,"case_timeout_seconds":1200,"retries":0},"prompt_layout":"prefix_stable_v2"})
  import threading
@@ -226,7 +234,7 @@ def execute(plan):
    return row
  # Per-job receipts are persisted as each future finishes; provider stop closes the queue.
  results=[]
- with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+ with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as pool:
   pending={pool.submit(one,j):j for j in eligible}
   for f in concurrent.futures.as_completed(pending):
    try:r=f.result()

@@ -18,7 +18,7 @@ class TaintAgent():
         # print("===============")
         result = ""
         result += call_chatgpt(prompt_message)
-        if re.search(r"--Vulnerability--\\s*:", result, re.IGNORECASE) is None:
+        if re.search(r"(?im)^[ \t]*--Vulnerability--[ \t]*:", result) is None:
             raise ValueError("ACTaint taint response is missing the --Vulnerability--: marker.")
         # result += call_deepseek(prompt_message)
         # print(result)

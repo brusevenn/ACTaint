@@ -1,0 +1,9 @@
+==============Start====================
+rules:
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721Upgradeable
+Sink:
+--Sink--:
+{Function: __ERC721_init, Sink: Initializer, Visibility: internal, Explanation: The contract has no constructor; this initializer modifies contract state (_name and _symbol) and is only protected by onlyInitializing, which restricts call count but not caller authorization. Therefore it is a wrong constructor and a potential access-control sink.}
+{Function: __ERC721_init_unchained, Sink: Initializer, Visibility: internal, Explanation: The contract has no constructor; this initializer modifies contract state (_name and _symbol) and is only protected by onlyInitializing, which restricts call count but not caller authorization. Therefore it is a wrong constructor and a potential access-control sink.}

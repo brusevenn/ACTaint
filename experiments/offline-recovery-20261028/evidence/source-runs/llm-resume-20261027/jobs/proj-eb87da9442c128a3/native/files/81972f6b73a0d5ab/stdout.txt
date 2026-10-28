@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:getPoolState, Visibility:public, Explanation:Uses low level call.}
+
+=============Contract: V3Migrator
+Sink:
+--Sink--:
+{Function: mint, Sink: ILiquidityManager(liquidityManager).mint(mintParam), Visibility: external, Explanation: Any caller can invoke the liquidity manager's mint with arbitrary parameters while V3Migrator is the msg.sender/payer, potentially minting positions using V3Migrator's assets or permissions without authorization.}
+{Function: migrate, Sink: IBiswapPair(params.pair).transferFrom(params.recipient, params.pair, params.liquidityToMigrate), Visibility: external, Explanation: The function does not require params.recipient == msg.sender, so any caller can transfer and burn LP tokens from an arbitrary recipient who has approved this contract.}
+{Function: migrate, Sink: safeApprove(params.token0, liquidityManager, amount0V2ToMigrate), Visibility: external, Explanation: Approves a caller-specified token without validating it against the pair, allowing an attacker to create allowances from this contract for arbitrary tokens.}
+{Function: migrate, Sink: safeApprove(params.token1, liquidityManager, amount1V2ToMigrate), Visibility: external, Explanation: Approves a caller-specified token without validating it against the pair, allowing an attacker to create allowances from this contract for arbitrary tokens.}
+{Function: migrate, Sink: ILiquidityManager(liquidityManager).mint(...), Visibility: external, Explanation: Calls the liquidity manager with caller-controlled parameters and miner/recipient, using this contract as the payer, without validating the pair or tokens.}
+{Function: migrate, Sink: safeTransfer(params.token0, params.recipient, refund0), Visibility: external, Explanation: Transfers a caller-specified token to a caller-specified recipient without validating the token against the pair or the recipient against msg.sender.}
+{Function: migrate, Sink: safeTransfer(params.token1, params.recipient, refund1), Visibility: external, Explanation: Transfers a caller-specified token to a caller-specified recipient without validating the token against the pair or the recipient against msg.sender.}
+{Function: migrate, Sink: safeTransferETH(params.recipient, refund0), Visibility: external, Explanation: Sends ETH to a caller-specified recipient after unwrapping WETH based on caller-controlled parameters, without validating the token against the pair or the recipient against msg.sender.}
+{Function: migrate, Sink: safeTransferETH(params.recipient, refund1), Visibility: external, Explanation: Sends ETH to a caller-specified recipient after unwrapping WETH based on caller-controlled parameters, without validating the token against the pair or the recipient against msg.sender.}

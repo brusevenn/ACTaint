@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "41a5b0186080d83285d66d45579946864d2efb9f6b47932ee4a4314d40894bf4",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.15+commit.e14f2714",
+    "compiler_sha256": "5189155ce322d57fb75e8518d9b39139627edea4fb25b5f0ebed0391c52e74cc",
+    "metadata": "v0.8.15+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.15"
+  },
+  "elapsed_seconds": 3.444,
+  "ended_utc": "2026-10-27T05:49:30.348657+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code/RabbitHoleTickets.sol",
+  "source_sha256": "41a5b0186080d83285d66d45579946864d2efb9f6b47932ee4a4314d40894bf4",
+  "started_utc": "2026-10-27T05:49:28.678327+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-4681bde04cc701c1/source_code/RabbitHoleTickets.sol"
+}

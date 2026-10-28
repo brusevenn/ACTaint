@@ -1,0 +1,114 @@
+{
+  "case_ids": [
+    "acb-de916b76d1f0d4b9"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-de76140bb66a96d5/source_code/config.json",
+  "compile_config_sha256": "b1aaf49a3e08a024574b089de8e4c72e4fee5010bc368f9f207a0449aa3397e4",
+  "compiler": {
+    "actual_full_version": "0.8.0+commit.c7dfd78e",
+    "compiler_sha256": "64016310a57caf1af76a3610f1f94c8848c04c9673e7fa268492e608918a4bdc",
+    "metadata": "v0.8.0+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-de76140bb66a96d5/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.0"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 126.583,
+  "ended_utc": "2026-10-27T06:42:14.538771+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "4afbcca850c47ad56324ae4ec9f260b043050b3aa526804ee710832c076185e6",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.0+commit.c7dfd78e",
+        "compiler_sha256": "64016310a57caf1af76a3610f1f94c8848c04c9673e7fa268492e608918a4bdc",
+        "metadata": "v0.8.0+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-de76140bb66a96d5/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.0"
+      },
+      "elapsed_seconds": 63.261,
+      "ended_utc": "2026-10-27T06:41:11.216772+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/a9221642583ae0a9/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-de76140bb66a96d5/source_code/MainContractFlattened.sol",
+      "source_sha256": "4afbcca850c47ad56324ae4ec9f260b043050b3aa526804ee710832c076185e6",
+      "started_utc": "2026-10-27T06:40:07.956593+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-de76140bb66a96d5/source_code/MainContractFlattened.sol"
+    },
+    {
+      "actual_source_sha256": "7dafa940f94d6a7f2c70a03ab486dc2321e3278222ff8ee5e802e11b5eb0cb5c",
+      "analyzer_summary": {
+        "contracts_analyzed": 2,
+        "contracts_seen": 18,
+        "contracts_skipped_interface_abstract_library": 15,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 1,
+        "elapsed_seconds": 62.627,
+        "sink_agent_calls": 2,
+        "taint_agent_calls": 0,
+        "target_contracts": 18,
+        "total_token": 19864
+      },
+      "compiler": {
+        "actual_full_version": "0.8.0+commit.c7dfd78e",
+        "compiler_sha256": "64016310a57caf1af76a3610f1f94c8848c04c9673e7fa268492e608918a4bdc",
+        "metadata": "v0.8.0+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-de76140bb66a96d5/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.0"
+      },
+      "elapsed_seconds": 126.581,
+      "ended_utc": "2026-10-27T06:42:14.536650+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/e6431e995f916980/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-de76140bb66a96d5/source_code/landNFT.sol",
+      "source_sha256": "7dafa940f94d6a7f2c70a03ab486dc2321e3278222ff8ee5e802e11b5eb0cb5c",
+      "started_utc": "2026-10-27T06:41:11.218014+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-de76140bb66a96d5/source_code/landNFT.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-de76140bb66a96d5",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:40:07.955944+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

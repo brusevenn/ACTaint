@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "47c4e2096cbf21993fd52c017f0a1aee9050cfe5c25466fd2a8e657bc1477df5",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.19+commit.7dd6d404",
+    "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+    "metadata": "v0.8.19+commit.7dd6d404",
+    "metadata_build": "7dd6d404",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-b52c82706dcbf0ca/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.19"
+  },
+  "elapsed_seconds": 5.93,
+  "ended_utc": "2026-10-27T06:23:33.580464+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b52c82706dcbf0ca/source_code/contracts/interface/ILinearVesting.sol",
+  "source_sha256": "47c4e2096cbf21993fd52c017f0a1aee9050cfe5c25466fd2a8e657bc1477df5",
+  "started_utc": "2026-10-27T06:23:32.963214+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-b52c82706dcbf0ca/source_code/contracts/interface/ILinearVesting.sol"
+}

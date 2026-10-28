@@ -1,0 +1,34 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-8c5dd3ed5228bdf6",
+  "case_ids": [
+    "acb-66da2bfec581cfff"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "6cd3ea739a19ab1eae9b16c5d76d89d844c5ae5c48fc494f2e8dcca8e2ea5236",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:37:43.877123+00:00",
+  "exit_code": 4,
+  "input_identity": "dfe8cfe1a45e4b11fe9c4831c64ff9b38f223965844b5e5e6772f8f613334ff2",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-8c5dd3ed5228bdf6",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MainContractFlattened.sol",
+      "ee872f858ca29136517b0304c61f51c83177b0a5615392fba17f25f58292309a"
+    ],
+    [
+      "contracts/MinterProxyV2.sol",
+      "2ed7190c0ba9a604b70b66137dfb38ca1e13553a65055b67a25b2592bf15ace8"
+    ]
+  ],
+  "source_hashes": [
+    "2ed7190c0ba9a604b70b66137dfb38ca1e13553a65055b67a25b2592bf15ace8",
+    "ee872f858ca29136517b0304c61f51c83177b0a5615392fba17f25f58292309a"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

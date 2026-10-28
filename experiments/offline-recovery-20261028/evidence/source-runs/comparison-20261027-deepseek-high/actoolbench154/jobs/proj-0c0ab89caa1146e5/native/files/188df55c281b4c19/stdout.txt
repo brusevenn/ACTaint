@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:convert, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: UniCurveConverter
+Sink:
+--Sink--:
+{Function: convert, Sink: IERC20(scrv).transfer(msg.sender, IERC20(scrv).balanceOf(address(this))), Visibility: public, Explanation: The public function has no access control and transfers the contract's entire scrv balance to msg.sender, allowing any caller to receive scrv held by the contract.}

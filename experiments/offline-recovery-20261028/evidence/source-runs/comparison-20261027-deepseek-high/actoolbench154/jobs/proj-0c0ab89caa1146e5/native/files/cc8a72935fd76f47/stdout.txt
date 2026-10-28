@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:add_liquidity, Visibility:public, Explanation:Uses low level call.}
+
+=============Contract: CurveProxyLogic
+Sink:
+Reasoning:
+- The contract has no constructor or initializer.
+- Both `remove_liquidity_one_coin` and `add_liquidity` are `public` and have no access control.
+- `remove_liquidity_one_coin` reads the contract’s `curveLp` balance, approves an attacker-supplied `curve` to spend it, and calls that attacker-supplied `curve`.
+- `add_liquidity` reads the contract’s `underlying` balance, approves an attacker-supplied `curve` to spend it, and executes `curve.call(callData)` with attacker-controlled `curve` and `curveFunctionSig`.
+
+--Sink--:
+{Function: remove_liquidity_one_coin, Sink: safeApprove, Visibility:public, Explanation: Public function has no access control; it approves the contract's entire curveLp balance to an attacker-supplied curve address, allowing that spender to transfer contract-held LP tokens.}
+{Function: remove_liquidity_one_coin, Sink: external call to arbitrary curve, Visibility:public, Explanation: Public function has no access control; it calls ICurveZap(curve).remove_liquidity_one_coin on an attacker-supplied curve address, invoking attacker-controlled code that can use the granted allowance.}
+{Function: add_liquidity, Sink: safeApprove, Visibility:public, Explanation: Public function has no access control; it approves the contract's entire underlying token balance to an attacker-supplied curve address, allowing that spender to transfer contract-held underlying tokens.}
+{Function: add_liquidity, Sink: low-level call, Visibility:public, Explanation: Public function has no access control; it executes curve.call(callData) with an attacker-supplied curve address and attacker-controlled curveFunctionSig, allowing arbitrary external calls from the contract.}

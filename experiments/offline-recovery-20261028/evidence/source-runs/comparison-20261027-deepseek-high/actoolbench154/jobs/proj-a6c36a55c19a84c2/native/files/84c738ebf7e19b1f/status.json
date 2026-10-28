@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "2257799c2a006bed76255d0f72c74a53719db2c9187692d33e2458429d7613c7",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 8,
+    "contracts_skipped_interface_abstract_library": 7,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 56.657,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 8,
+    "total_token": 15593
+  },
+  "compiler": {
+    "actual_full_version": "0.8.1+commit.df193b15",
+    "compiler_sha256": "daa7f6d6cc0a316beb2607533183b64904798677b0cb99bda0549ea70e8de61a",
+    "metadata": "v0.8.1+commit.df193b15",
+    "metadata_build": "df193b15",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-a6c36a55c19a84c2/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.1"
+  },
+  "elapsed_seconds": 57.255,
+  "ended_utc": "2026-10-27T06:19:14.016635+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/84c738ebf7e19b1f/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a6c36a55c19a84c2/source_code/AnyswapV4Router.sol",
+  "source_sha256": "2257799c2a006bed76255d0f72c74a53719db2c9187692d33e2458429d7613c7",
+  "started_utc": "2026-10-27T06:18:16.762586+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-a6c36a55c19a84c2/source_code/AnyswapV4Router.sol"
+}

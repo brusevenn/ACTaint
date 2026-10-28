@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "10f643d4110d18f8b5765afaea22b76b443762e7d620b41f2461256ddf27c5b7",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.20+commit.a1b79de6",
+    "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+    "metadata": "v0.8.20+commit.a1b79de6",
+    "metadata_build": "a1b79de6",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-71cf2e6aa17c4f2f/source_code --evm-version paris",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.20"
+  },
+  "elapsed_seconds": 5.31,
+  "ended_utc": "2026-10-27T06:00:21.387847+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-71cf2e6aa17c4f2f/source_code/contracts/interfaces/IERC20.sol",
+  "source_sha256": "10f643d4110d18f8b5765afaea22b76b443762e7d620b41f2461256ddf27c5b7",
+  "started_utc": "2026-10-27T06:00:20.771050+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-71cf2e6aa17c4f2f/source_code/contracts/interfaces/IERC20.sol"
+}

@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "53672dc5a21a8fbe68da643b90b944ea0dcbfc6c0684b25d83fe930a3a836d6b",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.11+commit.68ef5810",
+    "compiler_sha256": "0a8d138ee245039e6f8312edc024ba3c4739cc3c013b47dc7fc9196a2e327fea",
+    "metadata": "v0.4.11+commit.68ef5810",
+    "metadata_build": "68ef5810",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.11"
+  },
+  "elapsed_seconds": 35.425,
+  "ended_utc": "2026-10-27T06:43:26.280528+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/cb5b7ebe621179e2/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-f1beb199e11bf697/source_code/UselessEthereumToken.sol",
+  "source_sha256": "53672dc5a21a8fbe68da643b90b944ea0dcbfc6c0684b25d83fe930a3a836d6b",
+  "started_utc": "2026-10-27T06:43:25.010991+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-f1beb199e11bf697/source_code/UselessEthereumToken.sol"
+}

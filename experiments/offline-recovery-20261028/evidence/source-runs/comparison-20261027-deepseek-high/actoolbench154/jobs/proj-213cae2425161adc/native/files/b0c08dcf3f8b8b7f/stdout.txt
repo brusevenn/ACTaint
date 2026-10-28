@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:execute, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: TokenHandler
+Sink:
+Reasoning:
+- No constructor or initializer functions are present.
+- `safeApprove`, `safeTransfer`, and `safeTransferFrom` are public wrappers that forward caller-controlled parameters into `execute`.
+- The security-sensitive operation is the assembly `call` inside `execute`: it calls an arbitrary `_token` address with arbitrary `_data` from the `TokenHandler` contract’s address.
+- Because the public wrappers lack access control, the private `execute` sink is reachable by any caller. This allows the caller to make `TokenHandler` perform token `approve`, `transfer`, or `transferFrom` calls from its own address.
+
+--Sink--:
+{Function: execute, Sink: assembly low-level call, Visibility: private, Explanation: The assembly `call` uses caller-controlled `_token` and `_data`; public `safeApprove`, `safeTransfer`, and `safeTransferFrom` forward caller-controlled parameters to it without access control, allowing any caller to make `TokenHandler` execute token approve/transfer/transferFrom operations from `TokenHandler`'s address.}

@@ -1,0 +1,77 @@
+{
+  "case_ids": [
+    "acb-93ad8a9c143d1cda"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_path": "projects/proj-dba82638ecd8f4f8/source_code/config.json",
+  "compile_config_sha256": "703c4206bf5b83a8b52d221f86e3a07dca0c51ce54e5869c4c35ce70e580592d",
+  "compiler": {
+    "actual_full_version": "0.8.19+commit.7dd6d404",
+    "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+    "metadata": "v0.8.19+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-dba82638ecd8f4f8/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.19"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 164.738,
+  "ended_utc": "2026-10-27T14:27:44.185418+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "d4a09ce0590b106c6cd6e14e41ac3e7c86fb98825e58ed8f3d19475ac098ad1a",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.19+commit.7dd6d404",
+        "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+        "metadata": "v0.8.19+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-dba82638ecd8f4f8/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.19"
+      },
+      "elapsed_seconds": 164.733,
+      "ended_utc": "2026-10-27T14:27:44.180433+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/9e486a3a119929f2/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-dba82638ecd8f4f8/source_code/VotiumStrategyCore.sol",
+      "source_sha256": "d4a09ce0590b106c6cd6e14e41ac3e7c86fb98825e58ed8f3d19475ac098ad1a",
+      "started_utc": "2026-10-27T14:24:59.448638+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-dba82638ecd8f4f8/source_code/VotiumStrategyCore.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-dba82638ecd8f4f8",
+  "prompt_layout": "prefix_stable_v2",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 1,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T14:24:59.447956+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

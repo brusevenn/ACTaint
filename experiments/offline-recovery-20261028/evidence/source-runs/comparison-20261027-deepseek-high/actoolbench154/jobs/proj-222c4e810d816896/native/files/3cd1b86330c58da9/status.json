@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "108cd482e5bb7c0108a520bf628d96e439bfdc0fb920bdbd33b632a7d1908f9d",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.3+commit.8d00100c",
+    "compiler_sha256": "fb33afd761d0d704671dad582d3b4a790d4d85a6370fe71b3f8935649681e292",
+    "metadata": "v0.8.3+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-222c4e810d816896/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.3"
+  },
+  "elapsed_seconds": 199.711,
+  "ended_utc": "2026-10-27T05:47:08.248021+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/3cd1b86330c58da9/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-222c4e810d816896/source_code/Dao.sol",
+  "source_sha256": "108cd482e5bb7c0108a520bf628d96e439bfdc0fb920bdbd33b632a7d1908f9d",
+  "started_utc": "2026-10-27T05:43:48.537765+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-222c4e810d816896/source_code/Dao.sol"
+}

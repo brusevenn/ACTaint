@@ -1,0 +1,31 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-64247d10a54e958a",
+  "case_ids": [
+    "acb-1058972b82ce7635",
+    "acb-823c1e39610cd0c8",
+    "acb-dd29066f36f4b59e"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "c39f2d02d952ee8eb0ddc23c01a7f2a732d00a424df4ab66f09131b4e408a0e3",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:17:35.735951+00:00",
+  "exit_code": 4,
+  "input_identity": "a2e4813090032911538c9ab439f480e732758ffc49675f7054b0de404f7dbcdb",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-64247d10a54e958a",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "BasePoolV2.sol",
+      "3d1b89a4481fa3d97709ffde3f3676931a02d1d15aa9b6a01bbe668ebede5e88"
+    ]
+  ],
+  "source_hashes": [
+    "3d1b89a4481fa3d97709ffde3f3676931a02d1d15aa9b6a01bbe668ebede5e88"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

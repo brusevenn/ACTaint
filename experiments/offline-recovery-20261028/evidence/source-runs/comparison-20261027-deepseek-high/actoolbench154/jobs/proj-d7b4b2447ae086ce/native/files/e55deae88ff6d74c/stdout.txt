@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:seizeInternal, Visibility:internal, Explanation:Writes to variable totalReserves without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable totalReserves without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:_setInterestRateModel, Visibility:public, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:balanceOfUnderlying, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+
+=============Contract: CToken
+Sink:
+--Sink--:
+{Function: initialize, Sink: initializer, Visibility:public, Explanation: Contract has no constructor; initialize is a wrong constructor and initializes critical state (comptroller, interestRateModel, accrualBlockNumber, borrowIndex, name, symbol, decimals, _notEntered).}

@@ -1,0 +1,71 @@
+{
+  "case_ids": [
+    "acb-e2793365ba6c9dbb",
+    "acb-e943b0306c83f892"
+  ],
+  "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-96a2da3138a76f96",
+  "files": [
+    {
+      "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-96a2da3138a76f96",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 29,
+        "contracts_skipped_interface_abstract_library": 27,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 2,
+        "elapsed_seconds": 1.357,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 29,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1520,
+          "sha256": "1ff160d90465b485dfe2e92a0955b9042dba7f93e9fb16a0674e86f12bbab779",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-96a2da3138a76f96/native/files/3853feaa15a612a8/status.json",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-96a2da3138a76f96/native/files/3853feaa15a612a8/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-96a2da3138a76f96/native/files/3853feaa15a612a8/stderr.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-96a2da3138a76f96/native/files/3853feaa15a612a8/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 488,
+          "sha256": "de823cf01aa66f9329333ea5d7755699ffd4fa3441e48d478c1c6eaafe0846af",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-96a2da3138a76f96/native/files/3853feaa15a612a8/stdout.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-96a2da3138a76f96/native/files/3853feaa15a612a8/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-96a2da3138a76f96/source_code/StakedUSDe.sol",
+      "source_sha256": "3dc555e85fcc1005a15a5459dc64947fe6ad8abfe4fcad8dd522c5749b41eaab",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_SKIPPED_NON_IMPLEMENTABLE_CONTRACTS",
+        "explanation": "Original analyzer summary records interface/abstract/library skips and no analyzed contract."
+      },
+      "tool_input_path": "projects/proj-96a2da3138a76f96/source_code/StakedUSDe.sol"
+    }
+  ],
+  "original_project_result_sha256": "b56618e9a90c9d818c263570efcf2f847c8e0fd72db2a838b9a0f588d8f57240",
+  "original_project_status": "PROJECT_COMPLETED",
+  "project_id": "proj-96a2da3138a76f96",
+  "source_artifact": "experiments/llm-resume-20261027/jobs/proj-96a2da3138a76f96",
+  "source_file_count": 1,
+  "status": "PROJECT_EVIDENCE_PRESERVED"
+}

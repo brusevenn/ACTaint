@@ -1,0 +1,11 @@
+==============Start====================
+rules:
+{Function:releaseCoin, Visibility:public, Explanation:Writes to variable waitRelease without any access control.}
+
+=============Contract: Reward
+Sink:
+--Sink--:
+{Function: init, Sink: unauthorized initialization, Visibility: public, Explanation: No access control; any caller can set _mineDaliyRatio, _decimals, and _mainPair, which control reward calculations.}
+{Function: setReward, Sink: arbitrary reward state update, Visibility: public, Explanation: No access control; any caller can add reward entries for an arbitrary rewardSender and increase _totalRemainCnt, modifying other accounts' reward state.}
+{Function: generateReward, Sink: arbitrary reward generation, Visibility: public, Explanation: No access control; any caller can supply coinPrice and update waitRelease, historyTotal, reward.remain, history, and _totalMineCnt for rewardKeys addresses, modifying other accounts' pending rewards.}
+{Function: releaseCoin, Sink: arbitrary pending-release reset, Visibility: public, Explanation: No access control; any caller can specify any sender, zero waitRelease[sender], and decrement _totalRemainCnt, modifying another account's pending release.}

@@ -1,0 +1,32 @@
+==============Start====================
+rules:
+{Function:unbondAndBreak, Visibility:external, Explanation:Writes to variable userState without any access control.}
+{Function:unbond, Visibility:external, Explanation:Writes to variable userState without any access control.}
+{Function:bond, Visibility:external, Explanation:Writes to variable userState without any access control.}
+{Function:_removeFromBonded, Visibility:internal, Explanation:Writes to variable userState without any access control.}
+{Function:_bond, Visibility:internal, Explanation:Writes to variable userState without any access control.}
+{Function:setCurrentEpoch, Visibility:public, Explanation:Writes to variable _currentEpoch without any access control.}
+{Function:unbondAndBreak, Visibility:external, Explanation:Writes to variable _currentEpoch without any access control.}
+{Function:unbond, Visibility:external, Explanation:Writes to variable _currentEpoch without any access control.}
+{Function:bond, Visibility:external, Explanation:Writes to variable _currentEpoch without any access control.}
+{Function:_removeFromBonded, Visibility:internal, Explanation:Writes to variable _currentEpoch without any access control.}
+{Function:_bond, Visibility:internal, Explanation:Writes to variable _currentEpoch without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable offering without any access control.}
+{Function:bond, Visibility:external, Explanation:Writes to variable lastBlock without any access control.}
+{Function:unbondAndBreak, Visibility:external, Explanation:Writes to variable lastBlock without any access control.}
+{Function:unbond, Visibility:external, Explanation:Writes to variable lastBlock without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable stakeToken without any access control.}
+
+=============Contract: Bonding
+Sink:
+Reasoning summary:
+- `initialize` is an unprotected initializer: its only guard is `initializer`, which restricts call count but not caller identity, so it can set admin roles and critical configuration.
+- `_bond` writes `userState[account]` and bonded/epoch accounting for an arbitrary `account`; it is reachable through public `bondToAccount(account, amount)` without enforcing `account == msg.sender` or offering authorization.
+- `bond` uses `msg.sender` only, so it is not a sink.
+- `unbond`, `unbondAndBreak`, and `_removeFromBonded` operate only on `msg.sender`; they are not unauthorized state writes.
+- `setCurrentEpoch` and other setters use `onlyRole(ADMIN_ROLE)`, so they are not sinks.
+- Epoch/accounting updates in `_updateEpochState` are internal accounting, not access-control sinks.
+
+--Sink--:
+{Function: initialize, Sink: critical configuration/admin setup (offering, stakeToken, roles), Visibility: external, Explanation: The function is protected only by the initializer modifier, which does not restrict the caller; any address can call it before initialization and set admin roles and critical contract addresses.}
+{Function: _bond, Sink: writes to userState[account] and bonded/epoch accounting, Visibility: internal, Explanation: The function is reachable through public bondToAccount(account, amount) and credits the arbitrary account parameter without enforcing account == msg.sender or offering authorization.}

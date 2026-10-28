@@ -1,0 +1,75 @@
+{
+  "full_run_resumed": false,
+  "rounds": [
+    {
+      "concurrency": 2,
+      "error_count": 0,
+      "exact_cache_rate": 0.2172883627429082,
+      "known_usage_totals": {
+        "completion_tokens": 35929,
+        "prompt_cache_hit_tokens": 4864,
+        "prompt_cache_miss_tokens": 17521,
+        "prompt_tokens": 22385
+      },
+      "missing_usage": 0,
+      "observed_cache_rate": 0.2172883627429082,
+      "physical_attempts": 5,
+      "project_ids": [
+        "proj-83d6a41518987deb",
+        "proj-a7b0bd2cc330617f"
+      ],
+      "provider_stop": false,
+      "responses": 5,
+      "round": 1,
+      "round_finished_utc": "2026-10-27T08:03:42.344664+00:00",
+      "target_met": false
+    },
+    {
+      "concurrency": 2,
+      "error_count": 0,
+      "exact_cache_rate": 0.2838557066824364,
+      "known_usage_totals": {
+        "completion_tokens": 40154,
+        "prompt_cache_hit_tokens": 3840,
+        "prompt_cache_miss_tokens": 9688,
+        "prompt_tokens": 13528
+      },
+      "missing_usage": 0,
+      "observed_cache_rate": 0.2838557066824364,
+      "physical_attempts": 4,
+      "project_ids": [
+        "proj-f7914576f27294c1",
+        "proj-1657ccfa72539c65"
+      ],
+      "provider_stop": false,
+      "responses": 4,
+      "round": 2,
+      "round_finished_utc": "2026-10-27T08:06:07.549854+00:00",
+      "target_met": false
+    },
+    {
+      "concurrency": 1,
+      "error_count": 0,
+      "exact_cache_rate": 0.2779861796643633,
+      "known_usage_totals": {
+        "completion_tokens": 29077,
+        "prompt_cache_hit_tokens": 4224,
+        "prompt_cache_miss_tokens": 10971,
+        "prompt_tokens": 15195
+      },
+      "missing_usage": 0,
+      "observed_cache_rate": 0.2779861796643633,
+      "physical_attempts": 4,
+      "project_ids": [
+        "proj-9f12868fb25f83ca",
+        "proj-100debc7453b0b1b"
+      ],
+      "provider_stop": false,
+      "responses": 4,
+      "round": 3,
+      "round_finished_utc": "2026-10-27T08:09:33.000683+00:00",
+      "target_met": false
+    }
+  ],
+  "status": "DIAGNOSTIC_COMPLETE"
+}

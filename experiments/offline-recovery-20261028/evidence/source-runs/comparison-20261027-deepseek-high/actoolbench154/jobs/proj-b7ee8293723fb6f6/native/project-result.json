@@ -1,0 +1,102 @@
+{
+  "case_ids": [
+    "acb-67cc607ff5d869bf"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-b7ee8293723fb6f6/source_code/config.json",
+  "compile_config_sha256": "7763d3f62ceaecd6a395047e70f180c28e289c1b07ba5d00fe80ca72404022d1",
+  "compiler": {
+    "actual_full_version": "0.4.16+commit.d7661dd9",
+    "compiler_sha256": "78e0da6cad24ab145a8d17420c4f094c8314418ca23cff4b050bb2bfd36f3af2",
+    "metadata": "v0.4.16+commit.d7661dd9",
+    "metadata_build": "d7661dd9",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.16"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 79.376,
+  "ended_utc": "2026-10-27T06:24:53.071726+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "c1b0c49f259fc6f468e6a9e3c44c13c4291d530da49c553bfbdab815c57b5eb7",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.16+commit.d7661dd9",
+        "compiler_sha256": "78e0da6cad24ab145a8d17420c4f094c8314418ca23cff4b050bb2bfd36f3af2",
+        "metadata": "v0.4.16+commit.d7661dd9",
+        "metadata_build": "d7661dd9",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.16"
+      },
+      "elapsed_seconds": 35.099,
+      "ended_utc": "2026-10-27T06:24:08.794884+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/73d0bfafd0ce8949/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b7ee8293723fb6f6/source_code/DimonCoin.sol",
+      "source_sha256": "c1b0c49f259fc6f468e6a9e3c44c13c4291d530da49c553bfbdab815c57b5eb7",
+      "started_utc": "2026-10-27T06:23:33.696713+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-b7ee8293723fb6f6/source_code/DimonCoin.sol"
+    },
+    {
+      "actual_source_sha256": "d01a276250ec6928369aeb76f18698d08f9edf52dcd9ffe2c35133e03c3a30c1",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.16+commit.d7661dd9",
+        "compiler_sha256": "78e0da6cad24ab145a8d17420c4f094c8314418ca23cff4b050bb2bfd36f3af2",
+        "metadata": "v0.4.16+commit.d7661dd9",
+        "metadata_build": "d7661dd9",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.16"
+      },
+      "elapsed_seconds": 79.374,
+      "ended_utc": "2026-10-27T06:24:53.069762+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/d4eb13299f7a2005/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b7ee8293723fb6f6/source_code/MainContractFlattened.sol",
+      "source_sha256": "d01a276250ec6928369aeb76f18698d08f9edf52dcd9ffe2c35133e03c3a30c1",
+      "started_utc": "2026-10-27T06:24:08.797806+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-b7ee8293723fb6f6/source_code/MainContractFlattened.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-b7ee8293723fb6f6",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:23:33.696039+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

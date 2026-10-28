@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:test_staking, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: StakngRewardsTest
+Sink:
+Reasoning:
+- The contract has no explicit constructor. `setUp` is a public initializer with no access control. It sets `owner`, deploys new token/staking contracts, and overwrites `stakingToken`, `rewardsToken`, and `stakingRewards`. Per the instructions, initializers/wrong constructors must be treated as sinks.
+- `test_staking` is public and performs token operations including minting, approving, staking, transferring reward tokens, notifying rewards, and claiming rewards. It contains no check that `msg.sender` is authorized (e.g., the owner/test runner), so any caller can trigger these operations and modify the contract’s token balances, allowances, and staking state.
+- No other functions are present.
+
+--Sink--:
+{Function: setUp, Sink: Wrong constructor/initializer, Visibility: public, Explanation: Public initializer without access control; any caller can invoke it to reset owner and replace stakingToken, rewardsToken, and stakingRewards.}
+{Function: test_staking, Sink: Transfers Ether or Token, Visibility: public, Explanation: Public function without access control; any caller can trigger token minting, approval, staking, reward transfer, and reward claiming on behalf of the contract, modifying its token balances and staking state.}

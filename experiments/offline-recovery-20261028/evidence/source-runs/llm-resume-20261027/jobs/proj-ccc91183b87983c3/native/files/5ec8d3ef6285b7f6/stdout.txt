@@ -1,0 +1,87 @@
+==============Start====================
+rules:
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721
+Sink:
+Reasoning:
+- The constructor only initializes `_name` and `_symbol`; it is deployment-time only and not an externally callable initializer.
+- `approve` is guarded by `_msgSender() == owner || isApprovedForAll(owner, _msgSender())`.
+- `setApprovalForAll` updates only `_operatorApprovals[_msgSender()][operator]`, i.e. the caller’s own approvals.
+- `transferFrom` and both `safeTransferFrom` overloads require `_isApprovedOrOwner(_msgSender(), tokenId)` before moving the token.
+- `_mint`, `_burn`, `_transfer`, `_approve`, `_setApprovalForAll`, and `__unsafe_increaseBalance` are internal/private helpers and are not externally callable in this contract; the externally reachable paths that use them are properly guarded.
+- `_checkOnERC721Received` uses assembly only to revert with returned data; it does not perform an access-control-sensitive state modification.
+- No public/external function modifies another user’s ownership, balance, or approval state without authorization.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:claim, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: Airdrop
+Sink:
+I reviewed each function in the `Airdrop` contract:
+
+- `setTraitToken`: `onlyOwner`, sets token address. No unauthorized state modification.
+- `startAirdrop`: `onlyOwner`, transfers tokens from `tx.origin` to the contract. Access is restricted to the owner; the token transfer requires prior allowance. Not an access control sink.
+- `airdropStarted`, `daoFundAllowed`: view functions. No sink.
+- `allowDaoFund`: `onlyOwner`, sets a flag. No unauthorized access.
+- `addUserAmount`, `subUserAmount`: `onlyOwner`, update user allocations. No unauthorized access.
+- `claim`: external, transfers tokens to `msg.sender`. It requires `userInfo[msg.sender] > 0` and zeroes the caller’s allocation after transfer. This only allows a caller to claim their own allocated share; it does not modify other users’ state without authorization. The transfer is intended and properly guarded by the allocation check and `nonReentrant`. Not an access control sink.
+
+No security-sensitive operation in the contract permits unauthorized modification of state or assets.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:claim, Visibility:external, Explanation:Writes to variable devInfo without any access control.}
+
+=============Contract: DevFund
+Sink:
+Reasoning:
+- `receive` accepts ETH, updates `totalRewardDebt`, and forwards Ether to `owner()`. It does not modify another user's state or grant unauthorized access.
+- `addDev`, `updateDev`, and `removeDev` modify arbitrary `devInfo[user]` entries but are protected by `onlyOwner`, which enforces access control.
+- `claim` modifies only `devInfo[msg.sender]` and transfers rewards to `msg.sender`. Modifying the caller's own state and assets is acceptable.
+- `safeRewardTransfer` is internal and is called only by `claim` with `msg.sender`; it is not externally callable.
+- `pendingRewards` is a view function and does not modify state.
+- No constructor or initializer sink is present in the provided source.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:_cancelListingForForging, Visibility:internal, Explanation:Writes to variable listings without any access control.}
+{Function:setMinimumListingFee, Visibility:external, Explanation:Writes to variable minimumListFee without any access control.}
+
+=============Contract: EntityForging
+Sink:
+The state-changing setters (`setNukeFundAddress`, `setTaxCut`, `setOneYearInDays`, `setMinimumListingFee`) are protected by `onlyOwner`.  
+`listForForging` requires the caller to own the token being listed.  
+`cancelListingForForging` requires the caller to own the token or be the NFT contract; `_cancelListingForForging` is internal and only reached through these guarded paths.  
+`forgeWithListed` enforces ownership of the merger token, listing existence, fee payment, generation matching, and forger owner separation; the forger-token state changes are authorized by the active listing.  
+The constructor is the actual constructor and is not externally re-invocable.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:buyNFT, Visibility:external, Explanation:Writes to variable listings without any access control.}
+{Function:setNukeFundAddress, Visibility:external, Explanation:Writes to variable nukeFundAddress without any access control.}
+
+=============Contract: EntityTrading
+Sink:
+Reasoning:
+- `constructor(address)` is the actual constructor, executed only at deployment; it is not an externally callable init function.
+- `setNukeFundAddress` and `setTaxCut` are protected by `onlyOwner`, which provides access control.
+- `listNFTForSale` requires the caller to be the NFT owner and approved; it transfers the caller’s own NFT into the contract and records a listing. No unauthorized state modification.
+- `buyNFT` is a permissionless purchase flow: exact payment is required, seller receives proceeds, NukeFund receives its cut, and the NFT is transferred to the buyer. This is intended sale logic, not an access-control violation.
+- `cancelListing` requires `listing.seller == msg.sender`, so only the seller can cancel.
+- `transferToNukeFund` is `private` and only called internally from `buyNFT`; it cannot be invoked externally.
+
+--Sink--: no sinks

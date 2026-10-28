@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "1f43b26e2d2cdf93b4b2e2d6bf5fd05a52cd846bcbba40a209e1fde4508348d6",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 3,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 1,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.429,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.5.16+commit.9c3226ce",
+    "compiler_sha256": "a15f01700ec7e02f91bbdfd4b6ff4450b3c2decae173e4f41910a3cfbaf5d3d3",
+    "metadata": "v0.5.16+commit.9c3226ce",
+    "metadata_build": "9c3226ce",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.16"
+  },
+  "elapsed_seconds": 115.305,
+  "ended_utc": "2026-10-27T06:33:21.807980+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d79ac252134863ee/source_code/contracts/Exponential.sol",
+  "source_sha256": "1f43b26e2d2cdf93b4b2e2d6bf5fd05a52cd846bcbba40a209e1fde4508348d6",
+  "started_utc": "2026-10-27T06:33:20.790127+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-d79ac252134863ee/source_code/contracts/Exponential.sol"
+}

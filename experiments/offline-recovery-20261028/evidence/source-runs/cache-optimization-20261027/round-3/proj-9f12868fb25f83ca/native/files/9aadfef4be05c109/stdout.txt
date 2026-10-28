@@ -1,0 +1,20 @@
+==============Start====================
+rules:
+{Function:_reconfigure, Visibility:internal, Explanation:Writes to variable blastPointsContract without any access control.}
+{Function:_reconfigure, Visibility:internal, Explanation:Writes to variable blastContract without any access control.}
+{Function:_reconfigure, Visibility:internal, Explanation:Writes to variable migrationManager without any access control.}
+{Function:_reconfigure, Visibility:internal, Explanation:Writes to variable WETH without any access control.}
+{Function:_reconfigure, Visibility:internal, Explanation:Writes to variable USDB without any access control.}
+{Function:_reconfigure, Visibility:internal, Explanation:Writes to variable _paused without any access control.}
+{Function:unlock, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: LockManager
+Sink:
+1. Reviewed all externally callable state-changing functions.
+2. `configureLockdrop`, `configureToken`, and `setUSDThresholds` are protected by `onlyAdmin`; `proposeUSDPrice`, `approveUSDPrice`, and `disapproveUSDPrice` are protected by `onlyOneOfRoles`; `configUpdated` is protected by `onlyConfigStorage`. These have caller authorization and are not sinks.
+3. `_reconfigure` is internal and is reached from the constructor and from `configUpdated`, which is access-controlled. It is not externally callable by arbitrary users, so its writes are not unprotected external sink operations.
+4. `setLockDuration`, `lock`, and `unlock` modify only `msg.sender`'s own lock/settings and transfer only to `msg.sender`. The `unlock` transfer is therefore not an access-control sink despite the static analysis flag.
+5. `lockOnBehalf` accepts `_onBehalfOf`, uses it as `_lockRecipient`, and reaches `_lock`. `_lock` updates `lockedTokens[_lockRecipient]` and `playerSettings[_lockRecipient]`, calls `accountManager.forceHarvest(_lockRecipient)`, and calls `nftOverlord.addReveal(_lockRecipient, ...)`. There is no check that `_onBehalfOf` equals `msg.sender` or has approved `msg.sender`. This modifies another account's state without authorization.
+
+--Sink--:
+{Function: lockOnBehalf, Sink: Calls _lock with caller-supplied _onBehalfOf, causing lockedTokens[_lockRecipient] and playerSettings[_lockRecipient] updates plus forceHarvest/addReveal for another account, Visibility: external, Explanation: The function is callable by any address and does not require _onBehalfOf to equal msg.sender or approve msg.sender; _lock modifies the recipient account's lock state and makes external calls for that account without authorization.}

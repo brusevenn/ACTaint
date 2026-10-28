@@ -1,0 +1,103 @@
+{
+  "case_ids": [
+    "acb-500791e3b6bb86ce",
+    "acb-a30d047dcbde9efd"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-4681bde04cc701c1/source_code/config.json",
+  "compile_config_sha256": "498c0c3d1bd3fdd80e24fd5057ddaaf0e0d0e73249bedd825bdff37c59f06397",
+  "compiler": {
+    "actual_full_version": "0.8.15+commit.e14f2714",
+    "compiler_sha256": "5189155ce322d57fb75e8518d9b39139627edea4fb25b5f0ebed0391c52e74cc",
+    "metadata": "v0.8.15+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.15"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 3.446,
+  "ended_utc": "2026-10-27T05:49:30.350240+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "e4f7b7ebd3b2c5a96af772e058aff177e0793fecd4e86d015d1f8ec979863fff",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.15+commit.e14f2714",
+        "compiler_sha256": "5189155ce322d57fb75e8518d9b39139627edea4fb25b5f0ebed0391c52e74cc",
+        "metadata": "v0.8.15+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.15"
+      },
+      "elapsed_seconds": 1.771,
+      "ended_utc": "2026-10-27T05:49:28.675492+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code/RabbitHoleReceipt.sol",
+      "source_sha256": "e4f7b7ebd3b2c5a96af772e058aff177e0793fecd4e86d015d1f8ec979863fff",
+      "started_utc": "2026-10-27T05:49:26.905672+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-4681bde04cc701c1/source_code/RabbitHoleReceipt.sol"
+    },
+    {
+      "actual_source_sha256": "41a5b0186080d83285d66d45579946864d2efb9f6b47932ee4a4314d40894bf4",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.15+commit.e14f2714",
+        "compiler_sha256": "5189155ce322d57fb75e8518d9b39139627edea4fb25b5f0ebed0391c52e74cc",
+        "metadata": "v0.8.15+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.15"
+      },
+      "elapsed_seconds": 3.444,
+      "ended_utc": "2026-10-27T05:49:30.348657+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code/RabbitHoleTickets.sol",
+      "source_sha256": "41a5b0186080d83285d66d45579946864d2efb9f6b47932ee4a4314d40894bf4",
+      "started_utc": "2026-10-27T05:49:28.678327+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-4681bde04cc701c1/source_code/RabbitHoleTickets.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-4681bde04cc701c1",
+  "prompt_layout": "prefix_stable",
+  "record_count": 2,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:49:26.904951+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

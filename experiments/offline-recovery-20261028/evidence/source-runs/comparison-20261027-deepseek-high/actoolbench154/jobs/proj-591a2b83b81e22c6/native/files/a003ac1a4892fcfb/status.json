@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "6d3fbd4566bc123db1ee6ba2a1b79544b572df9b9cc9be360ddb3244dd07c86b",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.18+commit.87f61d96",
+    "compiler_sha256": "95e6ed4949a63ad89afb443ecba1fb8302dd2860ee5e9baace3e674a0f48aa77",
+    "metadata": "v0.8.18+commit.87f61d96",
+    "metadata_build": "87f61d96",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-591a2b83b81e22c6/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.18"
+  },
+  "elapsed_seconds": 1.334,
+  "ended_utc": "2026-10-27T05:53:05.607889+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-591a2b83b81e22c6/source_code/@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol",
+  "source_sha256": "6d3fbd4566bc123db1ee6ba2a1b79544b572df9b9cc9be360ddb3244dd07c86b",
+  "started_utc": "2026-10-27T05:53:04.992028+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-591a2b83b81e22c6/source_code/@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol"
+}

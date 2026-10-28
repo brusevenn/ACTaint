@@ -1,0 +1,56 @@
+==============Start====================
+rules:
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable remainingTokens without any access control.}
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable soldTokens without any access control.}
+{Function:setTimeRC, Visibility:internal, Explanation:Writes to variable endTime without any access control.}
+{Function:setTimeRC, Visibility:internal, Explanation:Writes to variable startTime without any access control.}
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable tokenUser without any access control.}
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable pendingTokenUser without any access control.}
+{Function:refundEther, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:claimTokenBonus, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:giveToken, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:takeEther, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: RC
+Sink:
+The candidate operations were evaluated against the actual reachability and access-control context. Internal helpers such as `setTimeRC`, `releaseTokensTo`, `giveToken`, `takeEther`, and `claimTokenBonus` are either only reachable through the constructor or through the payable fallback with `msg.sender`, or are otherwise not externally invokable with an arbitrary beneficiary. The public `setTime`, `changeMinimum`, `refundEther`, and `withdraw` functions are guarded by `onlyTokenSaleOwner`. The payable fallback and its purchase/bonus paths modify only the caller’s own recorded assets or perform explicitly intended token-sale operations. Therefore, no valid access-control sink is identified.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:setTimeRC, Visibility:internal, Explanation:Writes to variable endTime without any access control.}
+{Function:setTimeRC, Visibility:internal, Explanation:Writes to variable startTime without any access control.}
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable pendingTokenUser without any access control.}
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable tokenUser without any access control.}
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable remainingTokens without any access control.}
+{Function:releaseTokensTo, Visibility:internal, Explanation:Writes to variable soldTokens without any access control.}
+{Function:takeEther, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:claimTokenBonus, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:giveToken, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:refundEther, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: RCpro
+Sink:
+Reasoning: The actual constructor is `RCpro(...)`, which is the only constructor and is not externally re-invocable. `setTimeRC` is internal and only called by the constructor. `releaseTokensTo` and `giveToken` are internal and not called by any exposed function. `takeEther` and `claimTokenBonus` are internal and reached from the payable fallback with `msg.sender`, so they operate on the caller’s own state/assets and implement intended ICO purchase/claim behavior. `withdraw` and `refundEther` are protected by `onlyTokenSaleOwner`. No public/external function without access control modifies another user’s state or transfers another user’s funds/tokens.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:buyFromRC, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdrawTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:claim, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:forward, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: TokenSale
+Sink:
+--Sink--:
+{Function: addMeByRC, Sink: rc[msg.sender] = true, Visibility: public, Explanation: Grants RC privileges based on tx.origin == owner; any contract called by the owner can satisfy this check and become an RC.}
+{Function: buyFromRC, Sink: tokenContract.transfer(_buyer, tokenAmount), Visibility: public, Explanation: Protected only by the insecure onlyRC modifier; since addMeByRC is insecure, unauthorized addresses can call buyFromRC and manipulate the caller-supplied _rcTokenValue to control tokenAmount and transfer tokens from the contract.}
+{Function: claim, Sink: tokenContract.transfer(_buyer, _amount), Visibility: public, Explanation: Protected only by the insecure onlyRC modifier; since addMeByRC is insecure, unauthorized addresses can call claim and transfer tokens from the contract to an arbitrary _buyer without payment.}

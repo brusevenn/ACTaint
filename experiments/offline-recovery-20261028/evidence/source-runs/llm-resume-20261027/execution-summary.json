@@ -1,0 +1,17 @@
+{
+  "case_count": 154,
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "finished_utc": "2026-10-27T14:56:41.935391+00:00",
+  "project_group_count": 121,
+  "provider_stop": false,
+  "resumed_project_count": 53,
+  "scoring_performed": false,
+  "status_counts": {
+    "PROJECT_COMPLETED": 16,
+    "PROJECT_WITH_ERRORS": 60,
+    "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY": 8,
+    "REUSE_PRIOR_COMPLETED": 3,
+    "REUSE_PRIOR_PAID_NO_REPLAY": 67
+  },
+  "tool": "ACTaint"
+}

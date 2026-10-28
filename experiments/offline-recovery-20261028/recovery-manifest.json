@@ -1,0 +1,1304 @@
+{
+  "case_count": 154,
+  "cases": [
+    {
+      "case_id": "acb-c48b8593fb4257cd",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-00368a8e186693c2",
+      "project_report": "projects/proj-00368a8e186693c2.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-00368a8e186693c2"
+    },
+    {
+      "case_id": "acb-da967e924bee328a",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-033997bd14a9a729",
+      "project_report": "projects/proj-033997bd14a9a729.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-033997bd14a9a729"
+    },
+    {
+      "case_id": "acb-5937ef9d4b854425",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-0593ebc5789e5fc9",
+      "project_report": "projects/proj-0593ebc5789e5fc9.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-0593ebc5789e5fc9"
+    },
+    {
+      "case_id": "acb-49369c8a71135fab",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-06e0b606c3789db5",
+      "project_report": "projects/proj-06e0b606c3789db5.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-06e0b606c3789db5"
+    },
+    {
+      "case_id": "acb-04489a8c0224171c",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-08fd7f9993492077",
+      "project_report": "projects/proj-08fd7f9993492077.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-08fd7f9993492077"
+    },
+    {
+      "case_id": "acb-3c45fab9049415d1",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-08fd7f9993492077",
+      "project_report": "projects/proj-08fd7f9993492077.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-08fd7f9993492077"
+    },
+    {
+      "case_id": "acb-5729a29c2ac944cf",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-08fd7f9993492077",
+      "project_report": "projects/proj-08fd7f9993492077.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-08fd7f9993492077"
+    },
+    {
+      "case_id": "acb-72a366fd0d1c5275",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-08fd7f9993492077",
+      "project_report": "projects/proj-08fd7f9993492077.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-08fd7f9993492077"
+    },
+    {
+      "case_id": "acb-ff9707e257136b42",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-08fd7f9993492077",
+      "project_report": "projects/proj-08fd7f9993492077.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-08fd7f9993492077"
+    },
+    {
+      "case_id": "acb-3bd4414e9220f782",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-0c0ab89caa1146e5",
+      "project_report": "projects/proj-0c0ab89caa1146e5.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-0c0ab89caa1146e5"
+    },
+    {
+      "case_id": "acb-e41e12f37ce8eb04",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-0d4dfd6b80de6f04",
+      "project_report": "projects/proj-0d4dfd6b80de6f04.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-0d4dfd6b80de6f04"
+    },
+    {
+      "case_id": "acb-22a75d69f1c00c11",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-0fe4b3faf45f3e29",
+      "project_report": "projects/proj-0fe4b3faf45f3e29.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-0fe4b3faf45f3e29"
+    },
+    {
+      "case_id": "acb-ed61f3b5f23eb606",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-0fe4b3faf45f3e29",
+      "project_report": "projects/proj-0fe4b3faf45f3e29.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-0fe4b3faf45f3e29"
+    },
+    {
+      "case_id": "acb-f16d2287950d3a28",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-0fe4b3faf45f3e29",
+      "project_report": "projects/proj-0fe4b3faf45f3e29.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-0fe4b3faf45f3e29"
+    },
+    {
+      "case_id": "acb-627da2f312d0081a",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-100debc7453b0b1b",
+      "project_report": "projects/proj-100debc7453b0b1b.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-3/proj-100debc7453b0b1b"
+    },
+    {
+      "case_id": "acb-d4064f3a4f52f9f5",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-100debc7453b0b1b",
+      "project_report": "projects/proj-100debc7453b0b1b.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-3/proj-100debc7453b0b1b"
+    },
+    {
+      "case_id": "acb-cb2bb912dfdc7aa1",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-132ee7f4a06db971",
+      "project_report": "projects/proj-132ee7f4a06db971.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-132ee7f4a06db971"
+    },
+    {
+      "case_id": "acb-68f88b36c23d2966",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-1342319724ccb055",
+      "project_report": "projects/proj-1342319724ccb055.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-1342319724ccb055"
+    },
+    {
+      "case_id": "acb-fb13695db433b651",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-1342319724ccb055",
+      "project_report": "projects/proj-1342319724ccb055.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-1342319724ccb055"
+    },
+    {
+      "case_id": "acb-6cb35396ed8ddbce",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_COMPLETED",
+      "project_id": "proj-1363b49f81543e3c",
+      "project_report": "projects/proj-1363b49f81543e3c.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-1363b49f81543e3c"
+    },
+    {
+      "case_id": "acb-5e779b1fc034f664",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-1657ccfa72539c65",
+      "project_report": "projects/proj-1657ccfa72539c65.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-2/proj-1657ccfa72539c65"
+    },
+    {
+      "case_id": "acb-7a46c5a963d98ebc",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-17083018925689a8",
+      "project_report": "projects/proj-17083018925689a8.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-17083018925689a8"
+    },
+    {
+      "case_id": "acb-67afad1d89a6f336",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-17ae9f448dadfaea",
+      "project_report": "projects/proj-17ae9f448dadfaea.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-17ae9f448dadfaea"
+    },
+    {
+      "case_id": "acb-dbe0e188412f0e76",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-17f0f6f9ddd1c92f",
+      "project_report": "projects/proj-17f0f6f9ddd1c92f.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-17f0f6f9ddd1c92f"
+    },
+    {
+      "case_id": "acb-af30f23fc7d93b64",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-1c93c7c977e5d611",
+      "project_report": "projects/proj-1c93c7c977e5d611.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-1c93c7c977e5d611"
+    },
+    {
+      "case_id": "acb-20596fd11fd6a394",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-1e8499a21723a585",
+      "project_report": "projects/proj-1e8499a21723a585.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-1e8499a21723a585"
+    },
+    {
+      "case_id": "acb-b3068721a5d0f50e",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-20074ab538b4ea55",
+      "project_report": "projects/proj-20074ab538b4ea55.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-20074ab538b4ea55"
+    },
+    {
+      "case_id": "acb-275ea6ddaa8fb3ec",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-213cae2425161adc",
+      "project_report": "projects/proj-213cae2425161adc.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-213cae2425161adc"
+    },
+    {
+      "case_id": "acb-c0b5572a7c1a1059",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-222c4e810d816896",
+      "project_report": "projects/proj-222c4e810d816896.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-222c4e810d816896"
+    },
+    {
+      "case_id": "acb-970582f592349726",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-2654ebef2486b850",
+      "project_report": "projects/proj-2654ebef2486b850.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-2654ebef2486b850"
+    },
+    {
+      "case_id": "acb-e2ef9605daf74987",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-2ad5df198f0f9fcc",
+      "project_report": "projects/proj-2ad5df198f0f9fcc.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-2ad5df198f0f9fcc"
+    },
+    {
+      "case_id": "acb-74bd087687516332",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-2c369ee1c0d61899",
+      "project_report": "projects/proj-2c369ee1c0d61899.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-2c369ee1c0d61899"
+    },
+    {
+      "case_id": "acb-7aa02142a5a9aac8",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-2c7d1c33471dbc56",
+      "project_report": "projects/proj-2c7d1c33471dbc56.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-2c7d1c33471dbc56"
+    },
+    {
+      "case_id": "acb-944a867f00ec5386",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-2e162a64a27e35d3",
+      "project_report": "projects/proj-2e162a64a27e35d3.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-2e162a64a27e35d3"
+    },
+    {
+      "case_id": "acb-c23ac114b447fcc2",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-36288b16bacd36ec",
+      "project_report": "projects/proj-36288b16bacd36ec.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-36288b16bacd36ec"
+    },
+    {
+      "case_id": "acb-6f4ec6eacf5a4436",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-3a5bc65f96317f51",
+      "project_report": "projects/proj-3a5bc65f96317f51.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-3a5bc65f96317f51"
+    },
+    {
+      "case_id": "acb-acbe2bf899120839",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-3a5bc65f96317f51",
+      "project_report": "projects/proj-3a5bc65f96317f51.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-3a5bc65f96317f51"
+    },
+    {
+      "case_id": "acb-6d2d1ac9798c0060",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-3b7a91c199533da7",
+      "project_report": "projects/proj-3b7a91c199533da7.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-3b7a91c199533da7"
+    },
+    {
+      "case_id": "acb-d2934f4b7d14df65",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-3b7a91c199533da7",
+      "project_report": "projects/proj-3b7a91c199533da7.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-3b7a91c199533da7"
+    },
+    {
+      "case_id": "acb-f0ed5c6d4149e180",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-3b7a91c199533da7",
+      "project_report": "projects/proj-3b7a91c199533da7.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-3b7a91c199533da7"
+    },
+    {
+      "case_id": "acb-9fda5c15bf2fef2f",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-424da07d41309706",
+      "project_report": "projects/proj-424da07d41309706.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-424da07d41309706"
+    },
+    {
+      "case_id": "acb-d47bb55bf0aa38f3",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-437508da06743c41",
+      "project_report": "projects/proj-437508da06743c41.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-437508da06743c41"
+    },
+    {
+      "case_id": "acb-a09ce990683a40b5",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_COMPLETED",
+      "project_id": "proj-43d618cac604b1a8",
+      "project_report": "projects/proj-43d618cac604b1a8.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8"
+    },
+    {
+      "case_id": "acb-500791e3b6bb86ce",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-4681bde04cc701c1",
+      "project_report": "projects/proj-4681bde04cc701c1.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-4681bde04cc701c1"
+    },
+    {
+      "case_id": "acb-a30d047dcbde9efd",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-4681bde04cc701c1",
+      "project_report": "projects/proj-4681bde04cc701c1.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-4681bde04cc701c1"
+    },
+    {
+      "case_id": "acb-567a1b71f00980b3",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-49ff192b5017d11c",
+      "project_report": "projects/proj-49ff192b5017d11c.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-49ff192b5017d11c"
+    },
+    {
+      "case_id": "acb-e63cbf4d02c20746",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-4c63965ec8e8b5b5",
+      "project_report": "projects/proj-4c63965ec8e8b5b5.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-4c63965ec8e8b5b5"
+    },
+    {
+      "case_id": "acb-cec677bffa08d029",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-4d1ada83c315edf0",
+      "project_report": "projects/proj-4d1ada83c315edf0.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-4d1ada83c315edf0"
+    },
+    {
+      "case_id": "acb-f2ddad9d23f303a0",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-4d1ada83c315edf0",
+      "project_report": "projects/proj-4d1ada83c315edf0.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-4d1ada83c315edf0"
+    },
+    {
+      "case_id": "acb-3197645d591c5a77",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-4e29a39431d1ab92",
+      "project_report": "projects/proj-4e29a39431d1ab92.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-4e29a39431d1ab92"
+    },
+    {
+      "case_id": "acb-2a0a92ea46ccdbb6",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-555818c7538bb012",
+      "project_report": "projects/proj-555818c7538bb012.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-555818c7538bb012"
+    },
+    {
+      "case_id": "acb-515a384ca14997db",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-555818c7538bb012",
+      "project_report": "projects/proj-555818c7538bb012.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-555818c7538bb012"
+    },
+    {
+      "case_id": "acb-3544f61d9c3158ca",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-591a2b83b81e22c6",
+      "project_report": "projects/proj-591a2b83b81e22c6.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-591a2b83b81e22c6"
+    },
+    {
+      "case_id": "acb-e6de7337fe4c5d46",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-5f0ba5b9496d4b88",
+      "project_report": "projects/proj-5f0ba5b9496d4b88.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-5f0ba5b9496d4b88"
+    },
+    {
+      "case_id": "acb-e4abdaf78ca84f40",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-613d2927aafd985e",
+      "project_report": "projects/proj-613d2927aafd985e.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-613d2927aafd985e"
+    },
+    {
+      "case_id": "acb-2d04e643a8fd0486",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-61c865b273102a93",
+      "project_report": "projects/proj-61c865b273102a93.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-61c865b273102a93"
+    },
+    {
+      "case_id": "acb-223f375a4994b2f7",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-63cbc2f9dbda2a46",
+      "project_report": "projects/proj-63cbc2f9dbda2a46.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-63cbc2f9dbda2a46"
+    },
+    {
+      "case_id": "acb-9c71014e20192220",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-63cbc2f9dbda2a46",
+      "project_report": "projects/proj-63cbc2f9dbda2a46.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-63cbc2f9dbda2a46"
+    },
+    {
+      "case_id": "acb-1058972b82ce7635",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-64247d10a54e958a",
+      "project_report": "projects/proj-64247d10a54e958a.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-64247d10a54e958a"
+    },
+    {
+      "case_id": "acb-823c1e39610cd0c8",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-64247d10a54e958a",
+      "project_report": "projects/proj-64247d10a54e958a.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-64247d10a54e958a"
+    },
+    {
+      "case_id": "acb-dd29066f36f4b59e",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-64247d10a54e958a",
+      "project_report": "projects/proj-64247d10a54e958a.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-64247d10a54e958a"
+    },
+    {
+      "case_id": "acb-ab82fcc111d9bcaf",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-65fd70948c724922",
+      "project_report": "projects/proj-65fd70948c724922.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-65fd70948c724922"
+    },
+    {
+      "case_id": "acb-744cdd02208a262f",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-6dbac1456fe465a2",
+      "project_report": "projects/proj-6dbac1456fe465a2.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-6dbac1456fe465a2"
+    },
+    {
+      "case_id": "acb-9835454d49e10a38",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-6dbac1456fe465a2",
+      "project_report": "projects/proj-6dbac1456fe465a2.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-6dbac1456fe465a2"
+    },
+    {
+      "case_id": "acb-fd7c41226af562e1",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-6e618d658e448260",
+      "project_report": "projects/proj-6e618d658e448260.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-6e618d658e448260"
+    },
+    {
+      "case_id": "acb-bc128ac601d99ea7",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-70aa153f642fae81",
+      "project_report": "projects/proj-70aa153f642fae81.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-70aa153f642fae81"
+    },
+    {
+      "case_id": "acb-ed91d999871cd8ae",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-71980e138b0c2109",
+      "project_report": "projects/proj-71980e138b0c2109.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-71980e138b0c2109"
+    },
+    {
+      "case_id": "acb-d803093a7656e8b4",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-71cf2e6aa17c4f2f",
+      "project_report": "projects/proj-71cf2e6aa17c4f2f.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-71cf2e6aa17c4f2f"
+    },
+    {
+      "case_id": "acb-0e1a4fe478896088",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-72984255e16aa0c1",
+      "project_report": "projects/proj-72984255e16aa0c1.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-72984255e16aa0c1"
+    },
+    {
+      "case_id": "acb-40cc8cc7c0543549",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-72984255e16aa0c1",
+      "project_report": "projects/proj-72984255e16aa0c1.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-72984255e16aa0c1"
+    },
+    {
+      "case_id": "acb-5f2e0a38886e48c7",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-72984255e16aa0c1",
+      "project_report": "projects/proj-72984255e16aa0c1.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-72984255e16aa0c1"
+    },
+    {
+      "case_id": "acb-793ca1309ed900be",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-72984255e16aa0c1",
+      "project_report": "projects/proj-72984255e16aa0c1.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-72984255e16aa0c1"
+    },
+    {
+      "case_id": "acb-d804748a463f1bd5",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-75f343bd40d4ce64",
+      "project_report": "projects/proj-75f343bd40d4ce64.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-75f343bd40d4ce64"
+    },
+    {
+      "case_id": "acb-13f5b3d9a5cf4fa8",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-7782e27ce595662c",
+      "project_report": "projects/proj-7782e27ce595662c.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-7782e27ce595662c"
+    },
+    {
+      "case_id": "acb-e654b6a24b2b608b",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-77b92bbe4ed51390",
+      "project_report": "projects/proj-77b92bbe4ed51390.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-77b92bbe4ed51390"
+    },
+    {
+      "case_id": "acb-211fb406a0478521",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-7d78840bc5ba304c",
+      "project_report": "projects/proj-7d78840bc5ba304c.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-7d78840bc5ba304c"
+    },
+    {
+      "case_id": "acb-3f8e2290a20abc91",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-7f2ca22ae99a0db3",
+      "project_report": "projects/proj-7f2ca22ae99a0db3.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-7f2ca22ae99a0db3"
+    },
+    {
+      "case_id": "acb-603d349961b799c0",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-82c8ff156ec8a48d",
+      "project_report": "projects/proj-82c8ff156ec8a48d.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-82c8ff156ec8a48d"
+    },
+    {
+      "case_id": "acb-9a0d67a95cd272e6",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-8318cf68f29753a5",
+      "project_report": "projects/proj-8318cf68f29753a5.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-8318cf68f29753a5"
+    },
+    {
+      "case_id": "acb-a4dc4c33d39cdbb4",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-83d6a41518987deb",
+      "project_report": "projects/proj-83d6a41518987deb.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-1/proj-83d6a41518987deb"
+    },
+    {
+      "case_id": "acb-aed0a1a7a36effec",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-83d6a41518987deb",
+      "project_report": "projects/proj-83d6a41518987deb.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-1/proj-83d6a41518987deb"
+    },
+    {
+      "case_id": "acb-4618f6b1df04d765",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-862052447925245a",
+      "project_report": "projects/proj-862052447925245a.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-862052447925245a"
+    },
+    {
+      "case_id": "acb-ca2f4543bc748244",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-862052447925245a",
+      "project_report": "projects/proj-862052447925245a.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-862052447925245a"
+    },
+    {
+      "case_id": "acb-9e2dd5b0aa10b416",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-8795f8d537023e0b",
+      "project_report": "projects/proj-8795f8d537023e0b.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-8795f8d537023e0b"
+    },
+    {
+      "case_id": "acb-b5d78316bf6fe1b6",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-88234ccc822eacc4",
+      "project_report": "projects/proj-88234ccc822eacc4.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-88234ccc822eacc4"
+    },
+    {
+      "case_id": "acb-39713acf018b62f8",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-8b65cfc4735dcd5e",
+      "project_report": "projects/proj-8b65cfc4735dcd5e.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-8b65cfc4735dcd5e"
+    },
+    {
+      "case_id": "acb-c44c9b12d5ad42ea",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-8b65cfc4735dcd5e",
+      "project_report": "projects/proj-8b65cfc4735dcd5e.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-8b65cfc4735dcd5e"
+    },
+    {
+      "case_id": "acb-66da2bfec581cfff",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-8c5dd3ed5228bdf6",
+      "project_report": "projects/proj-8c5dd3ed5228bdf6.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-8c5dd3ed5228bdf6"
+    },
+    {
+      "case_id": "acb-0a2dc32a391edaa2",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-8d20766fc732f7a9",
+      "project_report": "projects/proj-8d20766fc732f7a9.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-8d20766fc732f7a9"
+    },
+    {
+      "case_id": "acb-fcb2361a7db3f3b7",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-941690dc0d249fad",
+      "project_report": "projects/proj-941690dc0d249fad.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-941690dc0d249fad"
+    },
+    {
+      "case_id": "acb-3728bbb084117986",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-942af968b7bde846",
+      "project_report": "projects/proj-942af968b7bde846.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-942af968b7bde846"
+    },
+    {
+      "case_id": "acb-e2793365ba6c9dbb",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-96a2da3138a76f96",
+      "project_report": "projects/proj-96a2da3138a76f96.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-96a2da3138a76f96"
+    },
+    {
+      "case_id": "acb-e943b0306c83f892",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-96a2da3138a76f96",
+      "project_report": "projects/proj-96a2da3138a76f96.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-96a2da3138a76f96"
+    },
+    {
+      "case_id": "acb-73c8758464d9e257",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-97e5691b34335ab9",
+      "project_report": "projects/proj-97e5691b34335ab9.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-97e5691b34335ab9"
+    },
+    {
+      "case_id": "acb-6d0cf7429c660215",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-987bf9a24ec4e435",
+      "project_report": "projects/proj-987bf9a24ec4e435.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-987bf9a24ec4e435"
+    },
+    {
+      "case_id": "acb-b07c561da5bda09c",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-98b2c0e1dc60d5ec",
+      "project_report": "projects/proj-98b2c0e1dc60d5ec.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-98b2c0e1dc60d5ec"
+    },
+    {
+      "case_id": "acb-2fae63f613ba8e30",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-9cc8fc9183d71d44",
+      "project_report": "projects/proj-9cc8fc9183d71d44.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-9cc8fc9183d71d44"
+    },
+    {
+      "case_id": "acb-8dd32d781afbf913",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-9cc8fc9183d71d44",
+      "project_report": "projects/proj-9cc8fc9183d71d44.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-9cc8fc9183d71d44"
+    },
+    {
+      "case_id": "acb-b7771041bd1319ea",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-9cc8fc9183d71d44",
+      "project_report": "projects/proj-9cc8fc9183d71d44.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-9cc8fc9183d71d44"
+    },
+    {
+      "case_id": "acb-f5ceaa0f3257aac5",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-9cc8fc9183d71d44",
+      "project_report": "projects/proj-9cc8fc9183d71d44.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-9cc8fc9183d71d44"
+    },
+    {
+      "case_id": "acb-acd9628f154ba778",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-9f12868fb25f83ca",
+      "project_report": "projects/proj-9f12868fb25f83ca.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-3/proj-9f12868fb25f83ca"
+    },
+    {
+      "case_id": "acb-3213d973a5810875",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-a1c8b3309e53707c",
+      "project_report": "projects/proj-a1c8b3309e53707c.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-a1c8b3309e53707c"
+    },
+    {
+      "case_id": "acb-e2ac75ac36f53db5",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-a473b80203cb5a5d",
+      "project_report": "projects/proj-a473b80203cb5a5d.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-a473b80203cb5a5d"
+    },
+    {
+      "case_id": "acb-860337c836004529",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-a6c36a55c19a84c2",
+      "project_report": "projects/proj-a6c36a55c19a84c2.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-a6c36a55c19a84c2"
+    },
+    {
+      "case_id": "acb-285fa0640794830e",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-a7b0bd2cc330617f",
+      "project_report": "projects/proj-a7b0bd2cc330617f.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-1/proj-a7b0bd2cc330617f"
+    },
+    {
+      "case_id": "acb-7ac94fca37a77944",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-a82d932c4bdf06b7",
+      "project_report": "projects/proj-a82d932c4bdf06b7.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-a82d932c4bdf06b7"
+    },
+    {
+      "case_id": "acb-6fb316b58dca6dac",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-a8a183b4b30836d6",
+      "project_report": "projects/proj-a8a183b4b30836d6.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-a8a183b4b30836d6"
+    },
+    {
+      "case_id": "acb-6211080fc9b8efed",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-aab1c1c54a6396b0",
+      "project_report": "projects/proj-aab1c1c54a6396b0.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0"
+    },
+    {
+      "case_id": "acb-3b9e2aae018e8f06",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-aad2bbc711eb3f0a",
+      "project_report": "projects/proj-aad2bbc711eb3f0a.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aad2bbc711eb3f0a"
+    },
+    {
+      "case_id": "acb-1ea3c387ff706a34",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-aadb542e420965a2",
+      "project_report": "projects/proj-aadb542e420965a2.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-aadb542e420965a2"
+    },
+    {
+      "case_id": "acb-fb71d4c764829641",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-ad02c7ca4c6c80dd",
+      "project_report": "projects/proj-ad02c7ca4c6c80dd.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-ad02c7ca4c6c80dd"
+    },
+    {
+      "case_id": "acb-c7bc780df013c737",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-ae554f59459d23ae",
+      "project_report": "projects/proj-ae554f59459d23ae.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-ae554f59459d23ae"
+    },
+    {
+      "case_id": "acb-a7af120cb637fc4c",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-b49f8ec70ad0ee40",
+      "project_report": "projects/proj-b49f8ec70ad0ee40.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-b49f8ec70ad0ee40"
+    },
+    {
+      "case_id": "acb-93c781dc1720a7e1",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-b52c82706dcbf0ca",
+      "project_report": "projects/proj-b52c82706dcbf0ca.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-b52c82706dcbf0ca"
+    },
+    {
+      "case_id": "acb-67cc607ff5d869bf",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-b7ee8293723fb6f6",
+      "project_report": "projects/proj-b7ee8293723fb6f6.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-b7ee8293723fb6f6"
+    },
+    {
+      "case_id": "acb-40eb39be71cf0eb1",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-b98075e441e39427",
+      "project_report": "projects/proj-b98075e441e39427.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-b98075e441e39427"
+    },
+    {
+      "case_id": "acb-84ecdf17ef03534a",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-ba91e56e9f40f596",
+      "project_report": "projects/proj-ba91e56e9f40f596.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-ba91e56e9f40f596"
+    },
+    {
+      "case_id": "acb-69f0bc0ebcd2e6f6",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-bdc66e742af5991d",
+      "project_report": "projects/proj-bdc66e742af5991d.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-bdc66e742af5991d"
+    },
+    {
+      "case_id": "acb-111fb402424f7505",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-bf3f723faba9b60d",
+      "project_report": "projects/proj-bf3f723faba9b60d.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-bf3f723faba9b60d"
+    },
+    {
+      "case_id": "acb-56c867eaa5348422",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-c0cd3cd11af4edb7",
+      "project_report": "projects/proj-c0cd3cd11af4edb7.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-c0cd3cd11af4edb7"
+    },
+    {
+      "case_id": "acb-5cb60e3e1c7deb69",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-c25baacfd4f5ff31",
+      "project_report": "projects/proj-c25baacfd4f5ff31.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-c25baacfd4f5ff31"
+    },
+    {
+      "case_id": "acb-bf972ed885c29d51",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-c308ab5d03a974c9",
+      "project_report": "projects/proj-c308ab5d03a974c9.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-c308ab5d03a974c9"
+    },
+    {
+      "case_id": "acb-cf0df114e5efb9b2",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-c3aa14537df74a4c",
+      "project_report": "projects/proj-c3aa14537df74a4c.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-c3aa14537df74a4c"
+    },
+    {
+      "case_id": "acb-5816e25cdefae6b2",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-c695ebe78e0b8349",
+      "project_report": "projects/proj-c695ebe78e0b8349.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-c695ebe78e0b8349"
+    },
+    {
+      "case_id": "acb-91be67dc212021ee",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-cca706ad6e094509",
+      "project_report": "projects/proj-cca706ad6e094509.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-cca706ad6e094509"
+    },
+    {
+      "case_id": "acb-8a040b35b3b0bcbb",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-ccc91183b87983c3",
+      "project_report": "projects/proj-ccc91183b87983c3.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-ccc91183b87983c3"
+    },
+    {
+      "case_id": "acb-d8c1f12db7814708",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-ccc91183b87983c3",
+      "project_report": "projects/proj-ccc91183b87983c3.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-ccc91183b87983c3"
+    },
+    {
+      "case_id": "acb-fe2fba2d028aadb2",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-ccc91183b87983c3",
+      "project_report": "projects/proj-ccc91183b87983c3.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-ccc91183b87983c3"
+    },
+    {
+      "case_id": "acb-a742eece31ce41ca",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-cfdeedc6cb543e83",
+      "project_report": "projects/proj-cfdeedc6cb543e83.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-cfdeedc6cb543e83"
+    },
+    {
+      "case_id": "acb-dffcbc87bac7bb69",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-cfdeedc6cb543e83",
+      "project_report": "projects/proj-cfdeedc6cb543e83.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-cfdeedc6cb543e83"
+    },
+    {
+      "case_id": "acb-4b207274fefab4f1",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-d2b659b60ad6925d",
+      "project_report": "projects/proj-d2b659b60ad6925d.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-d2b659b60ad6925d"
+    },
+    {
+      "case_id": "acb-77baf2f28b341ece",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-d74473f5d860a396",
+      "project_report": "projects/proj-d74473f5d860a396.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396"
+    },
+    {
+      "case_id": "acb-a43fdb58953b12c5",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-d74473f5d860a396",
+      "project_report": "projects/proj-d74473f5d860a396.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396"
+    },
+    {
+      "case_id": "acb-682cf046c4180b69",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-d79ac252134863ee",
+      "project_report": "projects/proj-d79ac252134863ee.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-d79ac252134863ee"
+    },
+    {
+      "case_id": "acb-d08cac1b44a28bcf",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-d7b4b2447ae086ce",
+      "project_report": "projects/proj-d7b4b2447ae086ce.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-d7b4b2447ae086ce"
+    },
+    {
+      "case_id": "acb-4b459b5d523811e5",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-d82dfed006ac7c9c",
+      "project_report": "projects/proj-d82dfed006ac7c9c.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-d82dfed006ac7c9c"
+    },
+    {
+      "case_id": "acb-94ef67670a8d8da2",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-d92a4472b11f4077",
+      "project_report": "projects/proj-d92a4472b11f4077.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-d92a4472b11f4077"
+    },
+    {
+      "case_id": "acb-33156783587a82b7",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-d9e9659c8ed3965d",
+      "project_report": "projects/proj-d9e9659c8ed3965d.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d"
+    },
+    {
+      "case_id": "acb-93ad8a9c143d1cda",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-dba82638ecd8f4f8",
+      "project_report": "projects/proj-dba82638ecd8f4f8.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-dba82638ecd8f4f8"
+    },
+    {
+      "case_id": "acb-9bc960b8f4324b8d",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-dc34d69ba6042b80",
+      "project_report": "projects/proj-dc34d69ba6042b80.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-dc34d69ba6042b80"
+    },
+    {
+      "case_id": "acb-de916b76d1f0d4b9",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-de76140bb66a96d5",
+      "project_report": "projects/proj-de76140bb66a96d5.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-de76140bb66a96d5"
+    },
+    {
+      "case_id": "acb-4bfe56113f30f2d8",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_COMPLETED",
+      "project_id": "proj-e100094fbbf78280",
+      "project_report": "projects/proj-e100094fbbf78280.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280"
+    },
+    {
+      "case_id": "acb-90ff9cb9a3b3af83",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-e5871e2886c8fc03",
+      "project_report": "projects/proj-e5871e2886c8fc03.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e5871e2886c8fc03"
+    },
+    {
+      "case_id": "acb-dbc4a13462fe3d29",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-e5871e2886c8fc03",
+      "project_report": "projects/proj-e5871e2886c8fc03.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e5871e2886c8fc03"
+    },
+    {
+      "case_id": "acb-94c7c6096a94649f",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-e7864677dc9f4dcb",
+      "project_report": "projects/proj-e7864677dc9f4dcb.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-e7864677dc9f4dcb"
+    },
+    {
+      "case_id": "acb-9d41ca219bc63bb9",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-e7e868f7a11ae053",
+      "project_report": "projects/proj-e7e868f7a11ae053.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e7e868f7a11ae053"
+    },
+    {
+      "case_id": "acb-2f337eb8e44f5d4c",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-eb87da9442c128a3",
+      "project_report": "projects/proj-eb87da9442c128a3.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-eb87da9442c128a3"
+    },
+    {
+      "case_id": "acb-3b256af3da4fed89",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_PRIOR_PAID_NO_REPLAY",
+      "project_id": "proj-f1beb199e11bf697",
+      "project_report": "projects/proj-f1beb199e11bf697.json",
+      "source_execution_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-f1beb199e11bf697"
+    },
+    {
+      "case_id": "acb-dcb9ce1fd3da02c7",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_COMPLETED",
+      "project_id": "proj-f259e61da3fcf170",
+      "project_report": "projects/proj-f259e61da3fcf170.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-f259e61da3fcf170"
+    },
+    {
+      "case_id": "acb-379efbecdac46cbe",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-f5e36ac4bfa08f3f",
+      "project_report": "projects/proj-f5e36ac4bfa08f3f.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-f5e36ac4bfa08f3f"
+    },
+    {
+      "case_id": "acb-9e60087f826280b9",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-f5eef3ef9b168f63",
+      "project_report": "projects/proj-f5eef3ef9b168f63.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-f5eef3ef9b168f63"
+    },
+    {
+      "case_id": "acb-06ed4c3400700f77",
+      "case_project_mapping_validated": true,
+      "original_case_status": "REUSE_CACHE_DIAGNOSTIC_NO_REPLAY",
+      "project_id": "proj-f7914576f27294c1",
+      "project_report": "projects/proj-f7914576f27294c1.json",
+      "source_execution_artifact": "experiments/cache-optimization-20261027/round-2/proj-f7914576f27294c1"
+    },
+    {
+      "case_id": "acb-3571ac97d5e7d766",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-fba6e8b44a49ab3c",
+      "project_report": "projects/proj-fba6e8b44a49ab3c.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-fba6e8b44a49ab3c"
+    },
+    {
+      "case_id": "acb-adf2aefd6e40e71b",
+      "case_project_mapping_validated": true,
+      "original_case_status": "PROJECT_WITH_ERRORS",
+      "project_id": "proj-fd1d1ff90380fc2a",
+      "project_report": "projects/proj-fd1d1ff90380fc2a.json",
+      "source_execution_artifact": "experiments/llm-resume-20261027/jobs/proj-fd1d1ff90380fc2a"
+    }
+  ],
+  "counts": {
+    "CALL_STAGE_SINK": 250,
+    "CALL_STAGE_TAINT": 167,
+    "CALL_WITH_ERROR_EVENT": 3,
+    "FILE_RECOVERY_NO_MODEL_CALL_EVIDENCE": 482,
+    "FILE_RECOVERY_NO_TAINT_REQUEST_AFTER_EXPLICIT_NO_SINKS": 42,
+    "FILE_RECOVERY_TAINT_REPORTS_PRESERVED": 166,
+    "FILE_RECOVERY_TAINT_STAGE_NOT_REQUESTED": 3,
+    "FILE_RECOVERY_TAINT_STAGE_PARTIAL_OR_UNINTERPRETABLE": 1,
+    "PROJECT_PROJECT_EVIDENCE_PRESERVED": 121,
+    "SINK_CALL_NO_RESPONSE": 2,
+    "SINK_CALL_STAGE_RESPONSE": 248,
+    "TAINT_CALL_EXPLICIT_NEGATIVE": 21,
+    "TAINT_CALL_FINDINGS": 145,
+    "TAINT_CALL_NO_RESPONSE": 1
+  },
+  "dataset": "ACToolBench154",
+  "ground_truth_read": false,
+  "input_index_path": "datasets/actoolbench-cleaned-154/tools/actaint/input-index.json",
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "label_boundary": {
+    "case_count": 154,
+    "case_ids_exact_match": true,
+    "case_labels_included": false,
+    "case_project_mappings_validated": true,
+    "compile_config_paths_and_sha256_validated": true,
+    "project_count": 121,
+    "source_file_count": 694,
+    "source_paths_and_sha256_validated": true
+  },
+  "llm_requests_performed": 0,
+  "project_count": 121,
+  "schema": "ACTAINT_OFFLINE_RECOVERY_V2",
+  "scoring_performed": false,
+  "source_case_records_path": "experiments/llm-resume-20261027/case-records.json",
+  "source_case_records_sha256": "f937f12537250894fd9a4c31ba85e20577f04601fbb9602797edffbd581d96ac",
+  "source_evidence_file_count": 4464,
+  "source_evidence_manifest": "evidence/source-evidence-manifest.json",
+  "source_file_count": 694,
+  "source_run_seals": [
+    {
+      "inventory_exact": true,
+      "run_name": "comparison-20261027-deepseek-high",
+      "seal_self_hash": "133dcd9502e7c32ff46ed1518784e73acd401a6ab0dc36ab78d0b966f4a84dc7",
+      "seal_sha256": "cdc18cac57ef68cc998f626b3fc34a694a2de5c0ff2b9ce52cec3d4d0b1504e8",
+      "seal_source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/predictions-seal.json",
+      "sealed_file_count": 2684
+    },
+    {
+      "inventory_exact": true,
+      "run_name": "cache-optimization-20261027",
+      "seal_self_hash": null,
+      "seal_sha256": "36c81a086f7cfe62cf80eaa2694c484f72cd8bbd211c5f76132e86d46abfebed",
+      "seal_source_path": "experiments/cache-optimization-20261027/diagnostic-seal.json",
+      "sealed_file_count": 61
+    },
+    {
+      "inventory_exact": true,
+      "run_name": "llm-resume-20261027",
+      "seal_self_hash": "9606152b4a5982484306923ae78813e37edb29ba4e008410354c1abd3ba974f1",
+      "seal_sha256": "625962649165b3b7f747db7f10264ba5359f36f9f76f10917a5a469548f28ba9",
+      "seal_source_path": "experiments/llm-resume-20261027/resume-seal.json",
+      "sealed_file_count": 1401
+    }
+  ],
+  "tool": "ACTaint",
+  "tp_fp_fn_fail_computed": false
+}

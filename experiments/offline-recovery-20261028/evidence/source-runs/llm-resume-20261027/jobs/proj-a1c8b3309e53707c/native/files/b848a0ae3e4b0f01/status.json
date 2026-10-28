@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "fd84e5284eccc479268f0ef36b830019d4f7999ceb7959430d8d8d9e602dd4ef",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 4,
+    "contracts_skipped_interface_abstract_library": 1,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.129,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.8.19+commit.7dd6d404",
+    "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+    "metadata": "v0.8.19+commit.7dd6d404",
+    "metadata_build": "7dd6d404",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-a1c8b3309e53707c/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.19"
+  },
+  "elapsed_seconds": 7.827,
+  "ended_utc": "2026-10-27T13:47:02.295117+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a1c8b3309e53707c/source_code/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
+  "source_sha256": "fd84e5284eccc479268f0ef36b830019d4f7999ceb7959430d8d8d9e602dd4ef",
+  "started_utc": "2026-10-27T13:47:01.577615+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-a1c8b3309e53707c/source_code/@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol"
+}

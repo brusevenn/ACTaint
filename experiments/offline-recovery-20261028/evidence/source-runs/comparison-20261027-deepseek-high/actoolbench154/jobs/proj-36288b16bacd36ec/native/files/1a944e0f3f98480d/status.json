@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "0de9104a342b460a719d2e0a009402604f03eff1bcdec300b98a7e49142f5dd2",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.20+commit.a1b79de6",
+    "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+    "metadata": "v0.8.20+commit.a1b79de6",
+    "metadata_build": "a1b79de6",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-36288b16bacd36ec/source_code --evm-version paris",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.20"
+  },
+  "elapsed_seconds": 28.838,
+  "ended_utc": "2026-10-27T05:48:26.075425+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-36288b16bacd36ec/source_code/contracts/interfaces/AbstractVaultV2.sol",
+  "source_sha256": "0de9104a342b460a719d2e0a009402604f03eff1bcdec300b98a7e49142f5dd2",
+  "started_utc": "2026-10-27T05:48:25.057118+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-36288b16bacd36ec/source_code/contracts/interfaces/AbstractVaultV2.sol"
+}

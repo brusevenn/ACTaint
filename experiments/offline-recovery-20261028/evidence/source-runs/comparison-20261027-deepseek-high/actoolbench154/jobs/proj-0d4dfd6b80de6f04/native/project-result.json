@@ -1,0 +1,77 @@
+{
+  "case_ids": [
+    "acb-e41e12f37ce8eb04"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-0d4dfd6b80de6f04/source_code/config.json",
+  "compile_config_sha256": "0915e94133c77d97fe15f27f40dec5ab444bfd99cd0aa0350ed2c0a0af73d353",
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-0d4dfd6b80de6f04/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 142.397,
+  "ended_utc": "2026-10-27T05:30:45.325142+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "cb36c5c2fe1ae7c82dccd1a0c02e495e10f6d8c221e95d46553f895d7dead027",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.4+commit.c7e474f2",
+        "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+        "metadata": "v0.8.4+commit.8d00100c",
+        "metadata_build": "8d00100c",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-0d4dfd6b80de6f04/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.4"
+      },
+      "elapsed_seconds": 142.396,
+      "ended_utc": "2026-10-27T05:30:45.323296+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/b16abe745d0c4500/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0d4dfd6b80de6f04/source_code/TransactionManager.sol",
+      "source_sha256": "cb36c5c2fe1ae7c82dccd1a0c02e495e10f6d8c221e95d46553f895d7dead027",
+      "started_utc": "2026-10-27T05:28:22.928771+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-0d4dfd6b80de6f04/source_code/TransactionManager.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-0d4dfd6b80de6f04",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 1,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:28:22.928071+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

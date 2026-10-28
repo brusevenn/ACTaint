@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:_transferOwnership, Visibility:internal, Explanation:Writes to variable _owner without any access control.}
+
+=============Contract: Ownable
+Sink:
+--Sink--:
+{Function: _transferOwnership, Sink: _owner = newOwner (ownership state write), Visibility: internal, Explanation: Writes the ownership state variable _owner and emits OwnershipTransferred without any access-control check inside the function.}

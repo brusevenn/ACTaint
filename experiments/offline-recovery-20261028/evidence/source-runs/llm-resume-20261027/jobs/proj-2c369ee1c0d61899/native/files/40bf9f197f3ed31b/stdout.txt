@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+{Function:releaseCoin, Visibility:public, Explanation:Writes to variable waitRelease without any access control.}
+
+=============Contract: Reward
+Sink:
+Reasoning:
+- `init` is a public initializer-like function, not the constructor, and writes critical configuration state without access control.
+- `setReward` is public and writes reward data for an arbitrary `rewardSender` plus global counters without access control.
+- `generateReward` is public, accepts caller-supplied `coinPrice`, and mutates reward accounting for all `rewardKeys` without access control.
+- `releaseCoin` is public and writes `waitRelease[sender]` and `_totalRemainCnt` for an arbitrary `sender` without access control.
+- The view/external getter functions do not mutate state and are not sinks.
+
+--Sink--:
+{Function: init, Sink: writes _mineDaliyRatio, _decimals, _mainPair, Visibility: public, Explanation: No access control is present; any caller can reset the contract configuration variables.}
+{Function: setReward, Sink: writes reward[rewardSender], rewardKeys, and _totalRemainCnt for an arbitrary rewardSender, Visibility: public, Explanation: No access control is present; any caller can add or alter reward data for any address.}
+{Function: generateReward, Sink: mutates reward[rewardKeys], waitRelease, historyTotal, history, and _totalMineCnt with caller-supplied coinPrice, Visibility: public, Explanation: No access control is present; any caller can trigger and alter reward accounting for all reward addresses.}
+{Function: releaseCoin, Sink: writes waitRelease[sender] and _totalRemainCnt for an arbitrary sender, Visibility: public, Explanation: No access control is present; any caller can clear another address's pending release and receive the returned amount.}

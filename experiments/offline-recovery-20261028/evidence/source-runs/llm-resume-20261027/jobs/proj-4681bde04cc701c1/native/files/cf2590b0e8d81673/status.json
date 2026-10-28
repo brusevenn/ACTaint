@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "e4f7b7ebd3b2c5a96af772e058aff177e0793fecd4e86d015d1f8ec979863fff",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.15+commit.e14f2714",
+    "compiler_sha256": "5189155ce322d57fb75e8518d9b39139627edea4fb25b5f0ebed0391c52e74cc",
+    "metadata": "v0.8.15+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.15"
+  },
+  "elapsed_seconds": 84.856,
+  "ended_utc": "2026-10-27T13:09:24.713995+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/cf2590b0e8d81673/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-4681bde04cc701c1/source_code/RabbitHoleReceipt.sol",
+  "source_sha256": "e4f7b7ebd3b2c5a96af772e058aff177e0793fecd4e86d015d1f8ec979863fff",
+  "started_utc": "2026-10-27T13:07:59.858824+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-4681bde04cc701c1/source_code/RabbitHoleReceipt.sol"
+}

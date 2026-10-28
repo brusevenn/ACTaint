@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "a2c4e5c274a586f145d278293ae33198cd8f412ab7e6d26f2394c8949b32b24b",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.20+commit.a1b79de6",
+    "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+    "metadata": "v0.8.20+commit.a1b79de6",
+    "metadata_build": "a1b79de6",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-71cf2e6aa17c4f2f/source_code --evm-version paris",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.20"
+  },
+  "elapsed_seconds": 1.338,
+  "ended_utc": "2026-10-27T06:00:17.415958+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-71cf2e6aa17c4f2f/source_code/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+  "source_sha256": "a2c4e5c274a586f145d278293ae33198cd8f412ab7e6d26f2394c8949b32b24b",
+  "started_utc": "2026-10-27T06:00:16.748465+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-71cf2e6aa17c4f2f/source_code/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol"
+}

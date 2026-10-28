@@ -1,0 +1,37 @@
+{
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "datasets": [
+    {
+      "cache": {
+        "complete_token_weighted_cache_hit_rate": null,
+        "error_count": 3,
+        "inflight_or_missing_terminal_count": 0,
+        "invalid_log_rows": [],
+        "known_usage_totals": {
+          "completion_tokens": 1390104,
+          "prompt_cache_hit_tokens": 254077,
+          "prompt_cache_miss_tokens": 662888,
+          "prompt_tokens": 916965
+        },
+        "legacy_missing_start_count": 0,
+        "missing_usage_attempts": 3,
+        "observed_token_weighted_cache_hit_rate": 0.27708473060585737,
+        "physical_attempts": 233,
+        "response_count": 230,
+        "target_95_established": false,
+        "usage_complete": false
+      },
+      "case_count": 154,
+      "dataset": "actoolbench154",
+      "group_count": 121,
+      "statuses": {
+        "NOT_RUN_PROVIDER_STOP": 6,
+        "PROJECT_COMPLETED": 11,
+        "PROJECT_WITH_ERRORS": 137
+      }
+    }
+  ],
+  "finished_utc": "2026-10-27T06:43:26.767038+00:00",
+  "scoring_performed": false,
+  "tool": "ACTaint"
+}

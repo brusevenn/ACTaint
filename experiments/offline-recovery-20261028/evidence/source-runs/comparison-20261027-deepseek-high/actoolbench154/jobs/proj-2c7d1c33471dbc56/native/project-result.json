@@ -1,0 +1,77 @@
+{
+  "case_ids": [
+    "acb-7aa02142a5a9aac8"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-2c7d1c33471dbc56/source_code/config.json",
+  "compile_config_sha256": "810544d6bcbe2105691b556131516dfea04d9f8b09047e9a4fe279e5de4e73ef",
+  "compiler": {
+    "actual_full_version": "0.8.1+commit.df193b15",
+    "compiler_sha256": "daa7f6d6cc0a316beb2607533183b64904798677b0cb99bda0549ea70e8de61a",
+    "metadata": "v0.8.1+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.1"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 131.407,
+  "ended_utc": "2026-10-27T05:49:23.188875+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "714a051c3b1a639f45f0721664bc63842084f4fdfd51b208675da8d12a1cb510",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.1+commit.df193b15",
+        "compiler_sha256": "daa7f6d6cc0a316beb2607533183b64904798677b0cb99bda0549ea70e8de61a",
+        "metadata": "v0.8.1+commit.8d00100c",
+        "metadata_build": "8d00100c",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.1"
+      },
+      "elapsed_seconds": 131.405,
+      "ended_utc": "2026-10-27T05:49:23.186987+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/cd6050570bb4f7b0/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-2c7d1c33471dbc56/source_code/JoinFactory.sol",
+      "source_sha256": "714a051c3b1a639f45f0721664bc63842084f4fdfd51b208675da8d12a1cb510",
+      "started_utc": "2026-10-27T05:47:11.783304+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-2c7d1c33471dbc56/source_code/JoinFactory.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-2c7d1c33471dbc56",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 1,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:47:11.782347+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

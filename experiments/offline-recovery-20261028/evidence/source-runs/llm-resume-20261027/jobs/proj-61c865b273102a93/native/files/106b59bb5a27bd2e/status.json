@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "b29a5193bc1a5e9469f20139f7f6a096ab13988bda619894054947c3a24bfe4b",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 41,
+    "contracts_skipped_interface_abstract_library": 37,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 3,
+    "elapsed_seconds": 46.978,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 41,
+    "total_token": 17015
+  },
+  "compiler": {
+    "actual_full_version": "0.8.16+commit.07a7930e",
+    "compiler_sha256": "1632786c6c1f856a4a899232ec975a12f305118f43cce90e724ed0b2eebfeee1",
+    "metadata": "v0.8.16+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-61c865b273102a93/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.16"
+  },
+  "elapsed_seconds": 47.733,
+  "ended_utc": "2026-10-27T13:14:28.790171+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/106b59bb5a27bd2e/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-61c865b273102a93/source_code/CashManager.sol",
+  "source_sha256": "b29a5193bc1a5e9469f20139f7f6a096ab13988bda619894054947c3a24bfe4b",
+  "started_utc": "2026-10-27T13:13:41.058061+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-61c865b273102a93/source_code/CashManager.sol"
+}

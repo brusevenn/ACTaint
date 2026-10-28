@@ -1,0 +1,24 @@
+==============Start====================
+rules:
+{Function:unpause, Visibility:external, Explanation:Writes to variable _paused without any access control.}
+{Function:pause, Visibility:external, Explanation:Writes to variable _paused without any access control.}
+{Function:setLiquidpool, Visibility:external, Explanation:Writes to variable _liquidpool without any access control.}
+{Function:setWrapNative, Visibility:external, Explanation:Writes to variable wNATIVE without any access control.}
+{Function:_getMinter, Visibility:internal, Explanation:Uses low level call.}
+{Function:isMinterWithData, Visibility:external, Explanation:Uses low level call.}
+{Function:_isMinter, Visibility:internal, Explanation:Uses low level call.}
+{Function:bytesToAddress, Visibility:internal, Explanation:Uses assembly.}
+{Function:toUint, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: MinterProxyV2
+Sink:
+Reasoning:
+- `pause`, `unpause`, `setLiquidpool`, and `setWrapNative` are protected by `onlyOwner`; `vaultIn`, `vaultInAndCall`, and `mintTo` are protected by `onlyController`. These modifiers provide access control, so these functions are not sinks.
+- `_getMinter`, `isMinterWithData`, and `_isMinter` only perform `staticcall` in view/internal functions and do not modify state or assets; they are not access-control sinks.
+- `toUint`, `bytesToAddress`, and `bytesEqual` are pure helpers and do not perform security-sensitive state or asset operations.
+- `call` and `withdrawFee` are protected by `onlyOwner`; `vaultIn` and `vaultInAndCall` are protected by `onlyController`; thus they are not unauthenticated sinks.
+- `vaultOut` only moves or burns the caller’s own tokens, or requires `transferFrom` approval from the caller; it does not modify other users’ assets without authorization.
+- `swap` is externally callable without access control and performs an arbitrary external call to a user-supplied `target` with user-supplied `callData`. It may also call `safeApprove(target, MAX_UINT256)` for a user-supplied `tokenAddr`, granting an attacker-controlled spender unlimited allowance over the proxy’s token balance. This is an access-control sink.
+
+--Sink--:
+{Function: swap, Sink: Arbitrary external call and unlimited ERC20 approval to attacker-controlled target, Visibility: external, Explanation: No access control; any user can set target/callData/tokenAddr, causing MinterProxy to call arbitrary contracts and approve arbitrary spenders for MAX_UINT256, enabling unauthorized token transfers or privileged calls.}

@@ -1,0 +1,102 @@
+{
+  "case_ids": [
+    "acb-275ea6ddaa8fb3ec"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-213cae2425161adc/source_code/config.json",
+  "compile_config_sha256": "b3e579efe41ca56996c21178bc60e5f5ab92e1d20d51f0a0528d54aeef5f83d6",
+  "compiler": {
+    "actual_full_version": "0.4.26+commit.4563c3fc",
+    "compiler_sha256": "5d577b3f7918dd735ab157e2f37a21d06c90469f13868359874f15184f2fa4d0",
+    "metadata": "v0.4.26+commit.4563c3fc",
+    "metadata_build": "4563c3fc",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.26"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 117.015,
+  "ended_utc": "2026-10-27T05:44:36.926128+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "0fa4be519ace18de1a22f1b5bc6dc2983e4e9c5ba1e11c4c2d9dc5ed9033f2f0",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.26+commit.4563c3fc",
+        "compiler_sha256": "5d577b3f7918dd735ab157e2f37a21d06c90469f13868359874f15184f2fa4d0",
+        "metadata": "v0.4.26+commit.4563c3fc",
+        "metadata_build": "4563c3fc",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.26"
+      },
+      "elapsed_seconds": 52.992,
+      "ended_utc": "2026-10-27T05:43:32.903747+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/b0c08dcf3f8b8b7f/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-213cae2425161adc/source_code/BancorNetwork.sol",
+      "source_sha256": "0fa4be519ace18de1a22f1b5bc6dc2983e4e9c5ba1e11c4c2d9dc5ed9033f2f0",
+      "started_utc": "2026-10-27T05:42:39.912482+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-213cae2425161adc/source_code/BancorNetwork.sol"
+    },
+    {
+      "actual_source_sha256": "186fbd1e0065b3badfef00604396107e56ba71c782b961d36fb153c3506384a5",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.26+commit.4563c3fc",
+        "compiler_sha256": "5d577b3f7918dd735ab157e2f37a21d06c90469f13868359874f15184f2fa4d0",
+        "metadata": "v0.4.26+commit.4563c3fc",
+        "metadata_build": "4563c3fc",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.26"
+      },
+      "elapsed_seconds": 117.012,
+      "ended_utc": "2026-10-27T05:44:36.924016+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/a28ba8bc3d74dfa6/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-213cae2425161adc/source_code/MainContractFlattened.sol",
+      "source_sha256": "186fbd1e0065b3badfef00604396107e56ba71c782b961d36fb153c3506384a5",
+      "started_utc": "2026-10-27T05:43:32.907087+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-213cae2425161adc/source_code/MainContractFlattened.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-213cae2425161adc",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:42:39.911813+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

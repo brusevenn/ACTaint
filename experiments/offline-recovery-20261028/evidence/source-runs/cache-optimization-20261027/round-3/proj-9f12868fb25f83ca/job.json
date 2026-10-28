@@ -1,0 +1,25 @@
+{
+  "cache": {
+    "error_count": 0,
+    "exact_cache_rate": 0.18299656881433474,
+    "known_usage_totals": {
+      "completion_tokens": 20414,
+      "prompt_cache_hit_tokens": 1920,
+      "prompt_cache_miss_tokens": 8572,
+      "prompt_tokens": 10492
+    },
+    "missing_usage": 0,
+    "observed_cache_rate": 0.18299656881433474,
+    "physical_attempts": 2,
+    "provider_stop": false,
+    "responses": 2,
+    "target_met": false
+  },
+  "code_sha": "1d7dac8cc3fb2b6772622e7d14afe84ccd2b36c3",
+  "ended_utc": "2026-10-27T08:08:14.505437+00:00",
+  "exit_code": 4,
+  "project_id": "proj-9f12868fb25f83ca",
+  "round": 3,
+  "status": "FINISHED",
+  "tool": "ACTaint"
+}

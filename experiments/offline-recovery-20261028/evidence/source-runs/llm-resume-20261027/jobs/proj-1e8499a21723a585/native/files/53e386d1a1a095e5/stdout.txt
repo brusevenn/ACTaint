@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:setMaxNodes, Visibility:external, Explanation:Writes to variable maxNodes without any access control.}
+{Function:createNode, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimNodeReward, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimAllNodesReward, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: AurumNodePool
+Sink:
+Reasoning:
+- `constructor` only runs at deployment and is not callable by arbitrary users, so it is not a sink.
+- `createNode` is an intended user purchase path. It uses `transferFrom(account, address(this), price)` with `account = msg.sender` and sends the fee to `teamWallet` as part of contract logic. It does not modify another user’s assets without authorization.
+- `claimNodeReward` and `claimAllNodesReward` read and update only `_nodesOfUser[msg.sender]` and transfer rewards to `msg.sender`. These are intended claim operations and are not access-control sinks.
+- `setTeamWallet`, `setTeamFees`, and `setMaxNodes` are protected by `onlyOwner`, so they are not sinks.
+- `changeNodePrice` and `changeRewardPerNode` have no access-control modifier and write critical configuration state variables.
+
+--Sink--:
+{Function: changeNodePrice, Sink: write to state variable nodePrice, Visibility: external, Explanation: The function has no access-control modifier and allows any external caller to alter the node purchase price.}
+{Function: changeRewardPerNode, Sink: write to state variable rewardPerDay, Visibility: external, Explanation: The function has no access-control modifier and allows any external caller to alter the reward rate used for payouts.}

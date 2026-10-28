@@ -1,0 +1,84 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-8795f8d537023e0b",
+  "case_ids": [
+    "acb-9e2dd5b0aa10b416"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "718b85da1f61c241767d65784599b8118247a8c7db44769aeb4a15533f37161d",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:30:20.403600+00:00",
+  "exit_code": 4,
+  "input_identity": "b27e999f55738b2ebda0280a409008120c00cbd776a4460b6e3bf9f1db85791f",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-8795f8d537023e0b",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "Address.sol",
+      "d4d2431a565a1134cab60f94e857dcb565653b8efd202b3218879e3f4ea10d48"
+    ],
+    [
+      "Context.sol",
+      "f39dc802bf07eb2492c2d1bdb8acf28aac127b28f3e23dfda9e7172db9375054"
+    ],
+    [
+      "IERC20.sol",
+      "242538ebe1b297c090db53064f0eab34ba402e3fae9bc082129addf7fcc79735"
+    ],
+    [
+      "IPancakeLibrary.sol",
+      "c15fa157f80f62e953e510beb7bec1ca25254c0eb9521fca5bab9a6a3e2ec5c8"
+    ],
+    [
+      "IPancakePair.sol",
+      "f3e0e41c865a8647a7c6e124eaff8f6d79bcd1b2f47cc9c3e6380ff419767c35"
+    ],
+    [
+      "IPancakeRouter01.sol",
+      "a97efcd91dba325ed542d43ac31d40b1967d72209c538e2db51eb921d1a486f5"
+    ],
+    [
+      "IPancakeRouter02.sol",
+      "7c069a517381ba02456458d6420fb106c0da53fb85efa4523ee27ceb3f6ccbc3"
+    ],
+    [
+      "IUniswapV2Factory.sol",
+      "17bc6cf66511624bdbef226e509411e8ece1911116352d65a9c6723f5ef0328b"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "5f28051c464d0d737cafa100cf6e37477aabf773d3f3d536a85f352e836ef017"
+    ],
+    [
+      "NGFSToken.sol",
+      "d3cdae6ab425667a841512661e77b869fc337d96ebdc5df89dc1ef1285c12112"
+    ],
+    [
+      "Ownable.sol",
+      "f1c0326cbae4044568838b3225781d03ba9efb0dc62398769ff4eba18d16185d"
+    ],
+    [
+      "SafeMath.sol",
+      "8c8c705ca0019dafe27ec1b2e60e0de61f94eb1f50b4a430651820b7b2943bf1"
+    ]
+  ],
+  "source_hashes": [
+    "17bc6cf66511624bdbef226e509411e8ece1911116352d65a9c6723f5ef0328b",
+    "242538ebe1b297c090db53064f0eab34ba402e3fae9bc082129addf7fcc79735",
+    "5f28051c464d0d737cafa100cf6e37477aabf773d3f3d536a85f352e836ef017",
+    "7c069a517381ba02456458d6420fb106c0da53fb85efa4523ee27ceb3f6ccbc3",
+    "8c8c705ca0019dafe27ec1b2e60e0de61f94eb1f50b4a430651820b7b2943bf1",
+    "a97efcd91dba325ed542d43ac31d40b1967d72209c538e2db51eb921d1a486f5",
+    "c15fa157f80f62e953e510beb7bec1ca25254c0eb9521fca5bab9a6a3e2ec5c8",
+    "d3cdae6ab425667a841512661e77b869fc337d96ebdc5df89dc1ef1285c12112",
+    "d4d2431a565a1134cab60f94e857dcb565653b8efd202b3218879e3f4ea10d48",
+    "f1c0326cbae4044568838b3225781d03ba9efb0dc62398769ff4eba18d16185d",
+    "f39dc802bf07eb2492c2d1bdb8acf28aac127b28f3e23dfda9e7172db9375054",
+    "f3e0e41c865a8647a7c6e124eaff8f6d79bcd1b2f47cc9c3e6380ff419767c35"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

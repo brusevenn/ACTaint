@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "87949226d695b62bbfcf5357e8fc14798f5ffd112f5374af06f4324b790bf6a9",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.6.12+commit.27d51765",
+    "compiler_sha256": "f6cb519b01dabc61cab4c184a3db11aa591d18151e362fcae850e42cffdfb09a",
+    "metadata": "v0.6.12+commit.27d51765",
+    "metadata_build": "27d51765",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-77b92bbe4ed51390/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.12"
+  },
+  "elapsed_seconds": 99.501,
+  "ended_utc": "2026-10-27T06:03:44.278605+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/b6fe492e0a9d9e17/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-77b92bbe4ed51390/source_code/GrimBoostVault.sol",
+  "source_sha256": "87949226d695b62bbfcf5357e8fc14798f5ffd112f5374af06f4324b790bf6a9",
+  "started_utc": "2026-10-27T06:02:04.778609+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-77b92bbe4ed51390/source_code/GrimBoostVault.sol"
+}

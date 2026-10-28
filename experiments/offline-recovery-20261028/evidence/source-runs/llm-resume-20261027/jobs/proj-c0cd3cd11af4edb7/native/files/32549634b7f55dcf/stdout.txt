@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:_addBalance, Visibility:internal, Explanation:Writes to variable balanceOf without any access control.}
+
+=============Contract: LiquidXv2Zap
+Sink:
+Reasoning:
+- `deposit` is public and does not verify that `msg.sender` is `account` or an authorized operator. When `token != address(0)`, it executes `IERC20(token).safeTransferFrom(account, address(this), amount[0])`, allowing any caller to pull approved tokens from an arbitrary `account`.
+- `withdraw` is public and, when `basketId == 0`, does not verify that `msg.sender` is `account` or an authorized operator. It executes `IERC20(pair).safeTransferFrom(account, address(this), amount)`, allowing any caller to pull approved LP tokens from an arbitrary `account`.
+- `_addBalance` writes to `balanceOf[account][pair][basketId]` for an arbitrary `account`. It is called from public `deposit` without checking caller authorization for `account`, so this state write is also a sink.
+- The `basketId != 0` branch in `withdraw` is protected by `require(account == msg.sender || operators[msg.sender], "LiquidXv2Zap: no access")`. `withdrawToken` is protected by `onlyOpertaor`. All setter functions are protected by `msg.sender == operatorSetter`. These are not treated as sinks.
+
+--Sink--:
+{Function: deposit, Sink: IERC20(token).safeTransferFrom(account, address(this), amount[0]), Visibility: public, Explanation: Pulls tokens from an arbitrary `account` when `token != address(0)` without verifying `msg.sender == account` or an authorized operator, allowing any caller to use another account's approved tokens.}
+{Function: withdraw, Sink: IERC20(pair).safeTransferFrom(account, address(this), amount), Visibility: public, Explanation: When `basketId == 0`, pulls LP tokens from an arbitrary `account` without verifying `msg.sender == account` or an authorized operator.}
+{Function: _addBalance, Sink: balanceOf[account][pair][basketId] += amount, Visibility: internal, Explanation: Writes to `balanceOf` for an arbitrary `account` without access control; reachable from public `deposit` which does not check caller authorization for `account`.}

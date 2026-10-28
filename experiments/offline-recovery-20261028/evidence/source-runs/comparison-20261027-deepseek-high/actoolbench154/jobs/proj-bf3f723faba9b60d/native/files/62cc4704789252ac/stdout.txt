@@ -1,0 +1,12 @@
+==============Start====================
+rules:
+{Function:rescueToken, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: SpaceGodzilla
+Sink:
+The constructor is the actual deployment constructor and is not externally callable. Functions using `onlyOwner` are access-controlled. `rescueToken` is also access-controlled by `require(_tokenOwner == msg.sender)`, so it is not an unauthorized sink. The unprotected public functions that move contract-held assets are the sinks.
+
+--Sink--:
+{Function: swapAndLiquify, Sink: swapTokensForOther(canswap) and addLiquidityUsdt(ethBalance, otherAmount) move contract-held tokens/USDT, Visibility: public, Explanation: No access control; any caller can trigger contract token swaps and liquidity addition.}
+{Function: swapTokensForOther, Sink: uniswapV2Router.swapExactTokensForTokensSupportingFeeOnTransferTokens(...) and warp.withdraw() transfer contract-held tokens and withdraw USDT, Visibility: public, Explanation: No access control; caller controls tokenAmount and can trigger contract asset movement.}
+{Function: swapAndLiquifyStepv1, Sink: addLiquidityUsdt(tokenBalance, ethBalance) adds all contract token/USDT balances to liquidity with LP to _tokenOwner, Visibility: public, Explanation: No access control; any caller can trigger movement of contract-held assets into liquidity.}

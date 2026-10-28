@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "3d577da05d65320466c9ed566a5c23b7637ab58c10afd6110f7bb67687fedc43",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.20+commit.a1b79de6",
+    "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+    "metadata": "v0.8.20+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-100debc7453b0b1b/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.20"
+  },
+  "elapsed_seconds": 18.611,
+  "ended_utc": "2026-10-27T05:31:08.971730+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-100debc7453b0b1b/source_code/WildcatMarketConfig.sol",
+  "source_sha256": "3d577da05d65320466c9ed566a5c23b7637ab58c10afd6110f7bb67687fedc43",
+  "started_utc": "2026-10-27T05:30:50.362222+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-100debc7453b0b1b/source_code/WildcatMarketConfig.sol"
+}

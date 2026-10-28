@@ -1,0 +1,9 @@
+ERROR:ContractSolcParsing:Impossible to generate IR for Strings.base64Decode (datasets/actoolbench-cleaned-154/full/projects/proj-437508da06743c41/source_code/NOVO.sol#2089-2113):
+ 'list' object has no attribute 'type'
+Traceback (most recent call last):
+  File "$REPO_ROOT/src/analyze_smart_contract.py", line 210, in <module>
+    vulnerability_report += taint_agent.process() + "\n"
+                            ^^^^^^^^^^^^^^^^^^^^^
+  File "$REPO_ROOT/src/llm/taint_agent.py", line 22, in process
+    raise ValueError("ACTaint taint response is missing the --Vulnerability--: marker.")
+ValueError: ACTaint taint response is missing the --Vulnerability--: marker.

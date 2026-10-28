@@ -1,0 +1,35 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-63cbc2f9dbda2a46",
+  "case_ids": [
+    "acb-223f375a4994b2f7",
+    "acb-9c71014e20192220"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "0546941426f4bc9c385368f7962e798dfcb9666826a4ccfa3452f2a4db118be5",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:14:41.676413+00:00",
+  "exit_code": 0,
+  "input_identity": "32fb36c6b7c9cc9c5ffda80c6d16ef522cbe74a0a4068f13d473ccfa0d8959e4",
+  "native_execution_status": "PROJECT_COMPLETED",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-63cbc2f9dbda2a46",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "LiquidationDistributor.sol",
+      "cec552c574cca1e7dae01bce2891f33be157046cf1b83cf1137362c4649822ff"
+    ],
+    [
+      "Pool.sol",
+      "37c23748654f66cf9adb8302461bca50737dd68a3e2295fc32188b5d796f5bf3"
+    ]
+  ],
+  "source_hashes": [
+    "37c23748654f66cf9adb8302461bca50737dd68a3e2295fc32188b5d796f5bf3",
+    "cec552c574cca1e7dae01bce2891f33be157046cf1b83cf1137362c4649822ff"
+  ],
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

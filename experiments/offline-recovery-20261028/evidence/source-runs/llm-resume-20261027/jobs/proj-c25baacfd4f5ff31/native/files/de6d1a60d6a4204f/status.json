@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "cfbd8a35009f2d43e19b785e0f128f73b3f1334a69317e2182a2d50e6a7a049b",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 25,
+    "contracts_skipped_interface_abstract_library": 24,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 60.907,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 25,
+    "total_token": 17594
+  },
+  "compiler": {
+    "actual_full_version": "0.8.23+commit.f704f362",
+    "compiler_sha256": "28726a452290c70e1984f15c53ad3088e7d98783ee3070b11b3664da77415732",
+    "metadata": "v0.8.23+commit.f704f362",
+    "metadata_build": "f704f362",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 10 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-c25baacfd4f5ff31/source_code --evm-version istanbul",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.23"
+  },
+  "elapsed_seconds": 71.952,
+  "ended_utc": "2026-10-27T14:13:24.342480+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/de6d1a60d6a4204f/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-c25baacfd4f5ff31/source_code/MainContractFlattened.sol",
+  "source_sha256": "cfbd8a35009f2d43e19b785e0f128f73b3f1334a69317e2182a2d50e6a7a049b",
+  "started_utc": "2026-10-27T14:12:22.774987+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-c25baacfd4f5ff31/source_code/MainContractFlattened.sol"
+}

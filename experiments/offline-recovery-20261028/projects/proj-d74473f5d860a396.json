@@ -1,0 +1,127 @@
+{
+  "case_ids": [
+    "acb-77baf2f28b341ece",
+    "acb-a43fdb58953b12c5"
+  ],
+  "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396",
+  "files": [
+    {
+      "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 2,
+        "contracts_skipped_interface_abstract_library": 1,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 1,
+        "elapsed_seconds": 0.245,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 2,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1529,
+          "sha256": "33661a1f3e2b93ddc830c279be18899640de38b2e983f1e6a8fc2c0d4479dbc1",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/084da4af4d0a1a94/status.json",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/084da4af4d0a1a94/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/084da4af4d0a1a94/stderr.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/084da4af4d0a1a94/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 486,
+          "sha256": "8be44e7a30c176ec1b0de1a658e61530bfeb1894ac262992c275289013cf8e0c",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/084da4af4d0a1a94/stdout.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/084da4af4d0a1a94/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code/MultisigBase.sol",
+      "source_sha256": "d23874e6794fb39b4f0d7e34a7aae70caf242bbbd3f7986f442c6600dc1ac02a",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_SKIPPED_NON_IMPLEMENTABLE_CONTRACTS",
+        "explanation": "Original analyzer summary records interface/abstract/library skips and no analyzed contract."
+      },
+      "tool_input_path": "projects/proj-d74473f5d860a396/source_code/MultisigBase.sol"
+    },
+    {
+      "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 8,
+        "contracts_skipped_interface_abstract_library": 7,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 1,
+        "elapsed_seconds": 0.412,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 8,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1549,
+          "sha256": "631c83a310a9b29166c1d8136465087c64ac2f67cb18e9cbd13f9c721daf7dc7",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/d16b08a5d41fce53/status.json",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/d16b08a5d41fce53/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/d16b08a5d41fce53/stderr.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/d16b08a5d41fce53/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 487,
+          "sha256": "de7b8958e77bfed9eedc4bee7c8c4395e9ad549521b30ab33d25873a1eefe1a7",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/d16b08a5d41fce53/stdout.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396/native/files/d16b08a5d41fce53/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code/RemoteAddressValidator.sol",
+      "source_sha256": "f4493ecede0c80bdcb25279fdf17919bd7b1dd2bce2764c5699538112b3148dc",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_SKIPPED_NON_IMPLEMENTABLE_CONTRACTS",
+        "explanation": "Original analyzer summary records interface/abstract/library skips and no analyzed contract."
+      },
+      "tool_input_path": "projects/proj-d74473f5d860a396/source_code/RemoteAddressValidator.sol"
+    }
+  ],
+  "original_project_result_sha256": "66dd3c4239820902fbdbe7d10812cbd4b1b491b95dc164e3dd867e28f013402a",
+  "original_project_status": "PROJECT_COMPLETED",
+  "project_id": "proj-d74473f5d860a396",
+  "source_artifact": "experiments/llm-resume-20261027/jobs/proj-d74473f5d860a396",
+  "source_file_count": 2,
+  "status": "PROJECT_EVIDENCE_PRESERVED"
+}

@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:initialize, Visibility:public, Explanation:Writes to variable vaults without any access control.}
+
+=============Contract: StableCoinVault
+Sink:
+--Sink--:
+{Function: initialize, Sink: Writes to state variable vaults, Visibility: public, Explanation: The public initialize function is guarded only by initializer, which limits repeated initialization but does not restrict who can call it. Any caller can set vaults to an arbitrary nonzero ApolloXBscVault address, allowing unauthorized control over the vault configuration.}

@@ -1,0 +1,44 @@
+==============Start====================
+rules:
+{Function:claim, Visibility:external, Explanation:Writes to variable userInfo without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable userInfo without any access control.}
+{Function:_claim, Visibility:private, Explanation:Writes to variable userInfo without any access control.}
+{Function:claimAll, Visibility:public, Explanation:Writes to variable userInfo without any access control.}
+{Function:_autoDeposit, Visibility:private, Explanation:Writes to variable userInfo without any access control.}
+{Function:setVaultContractAddress, Visibility:external, Explanation:Writes to variable vaultContractAddress without any access control.}
+{Function:setPoolInfo, Visibility:external, Explanation:Writes to variable poolInfo without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable poolInfo without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable poolInfo without any access control.}
+{Function:claim, Visibility:external, Explanation:Writes to variable poolInfo without any access control.}
+{Function:claimAll, Visibility:public, Explanation:Writes to variable poolInfo without any access control.}
+{Function:_autoDeposit, Visibility:private, Explanation:Writes to variable poolInfo without any access control.}
+{Function:setUnlockedTimestampQualification, Visibility:external, Explanation:Writes to variable unlockedTimestampQualification without any access control.}
+{Function:setLevels, Visibility:external, Explanation:Writes to variable levels without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable levels without any access control.}
+{Function:setIsInMigrationToVTwo, Visibility:external, Explanation:Writes to variable isInMigrationToVTwo without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable isInMigrationToVTwo without any access control.}
+{Function:setIsPoolActive, Visibility:external, Explanation:Writes to variable isPoolActive without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable isPoolActive without any access control.}
+{Function:setOnlyRunnerScript, Visibility:external, Explanation:Writes to variable runnerScriptAddress without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable runnerScriptAddress without any access control.}
+{Function:setHolderRewardContractAddress, Visibility:external, Explanation:Writes to variable holderRewardContractAddress without any access control.}
+{Function:claim, Visibility:external, Explanation:Writes to variable user_deposits without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable user_deposits without any access control.}
+{Function:_claim, Visibility:private, Explanation:Writes to variable user_deposits without any access control.}
+{Function:claimAll, Visibility:public, Explanation:Writes to variable user_deposits without any access control.}
+{Function:_autoDeposit, Visibility:private, Explanation:Writes to variable user_deposits without any access control.}
+{Function:safeRewardTransfer, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: GymSinglePool
+Sink:
+Reasoning:
+- The contract has no constructor. `initialize(...)` is external and guarded only by `initializer`; `initializer` limits repeated calls but does not restrict the caller identity. It calls `__Ownable_init()` and writes privileged state such as `runnerScriptAddress`, `relationship`, `tokenAddress`, router/pair arrays, `poolInfo`, `levels`, and flags. This is a wrong-constructor/access-control sink.
+- `depositFromOtherContract(...)` is external without access control and forwards an arbitrary `_from` to `_autoDeposit`. `_autoDeposit` writes `userInfo[_from]`, `user_deposits[_from]`, `totalGymnetLocked`, and possibly `totalGymnetUnlocked` without checking that `_from` is authorized or collecting tokens from `_from`. This is a sink.
+- `refreshMyLevel(address _user)` is public and writes `userInfo[_user].level` for any `_user`; it does not require `_user == msg.sender` or owner authorization. This is a sink.
+- `claim`, `withdraw`, `_claim`, `claimAll`, `_deposit`, and `switchToUnlocked` operate on `msg.sender` and caller-owned deposits; they do not modify other users’ records without authorization.
+- `set*` functions with `onlyOwner` are access-controlled; `transferPoolRewards` is `onlyRunnerScript`; `updatePool` is permissionless by design; `safeRewardTransfer` is internal and called with `msg.sender` as recipient. These are not sinks.
+
+--Sink--:
+{Function: initialize, Sink: Unprotected initializer / wrong constructor writes owner and privileged state, Visibility: external, Explanation: The contract has no constructor. `initialize` is protected only by `initializer`, which does not restrict the caller. The first caller becomes owner via `__Ownable_init()` and sets `runnerScriptAddress = msg.sender` plus privileged protocol addresses and pool state.}
+{Function: _autoDeposit, Sink: Writes userInfo[_from], user_deposits[_from], totalGymnetLocked, and totalGymnetUnlocked using arbitrary `_from`, Visibility: private, Explanation: `depositFromOtherContract` is external without access control and passes an arbitrary `_from` to `_autoDeposit`. `_autoDeposit` credits `_from`’s deposit records and global locked totals without verifying authorization or collecting tokens from `_from`.}
+{Function: refreshMyLevel, Sink: Writes userInfo[_user].level for arbitrary `_user`, Visibility: public, Explanation: `refreshMyLevel` is public and lacks a `_user == msg.sender` or owner check. It writes the stored level for any address supplied as `_user`, modifying another user’s state without authorization.}

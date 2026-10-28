@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "36058fb9cf49d08ff991449812946357d421c76cb4f2b1d40f61dbe688143c50",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.18+commit.9cf6e910",
+    "compiler_sha256": "898a5e05d3ac08d726b019d2415c1c087a9ae87866cdfa551c08b36b6b45321d",
+    "metadata": "v0.4.18+commit.9cf6e910",
+    "metadata_build": "9cf6e910",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.18"
+  },
+  "elapsed_seconds": 18.631,
+  "ended_utc": "2026-10-27T06:11:11.018372+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/611a532bbace2d9f/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-941690dc0d249fad/source_code/MorphToken.sol",
+  "source_sha256": "36058fb9cf49d08ff991449812946357d421c76cb4f2b1d40f61dbe688143c50",
+  "started_utc": "2026-10-27T06:11:03.534026+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-941690dc0d249fad/source_code/MorphToken.sol"
+}

@@ -1,0 +1,12 @@
+==============Start====================
+rules:
+{Function:swap, Visibility:public, Explanation:Uses low level call.}
+
+=============Contract: ZeroXStargateLPSwapper
+Sink:
+The constructor only sets immutable addresses and initializes approvals at deployment time; it is not externally callable after deployment and does not introduce an access-control sink.
+
+In `swap`, the call to `zeroXExchangeProxy.call(swapData)` is a security-sensitive low-level call. `swap` is public with no caller restriction, and `swapData` is fully caller-controlled. Since the contract has approved `underlyingToken` to `zeroXExchangeProxy` for `type(uint256).max`, arbitrary calldata can be used to invoke proxy functionality that moves the swapper contract’s approved tokens to an attacker-controlled destination. The other external calls (`bentoBox.withdraw`, `stargateRouter.instantRedeemLocal`, `bentoBox.deposit`) operate on fixed trusted contracts and the contract’s own transient balances, and are not access-control sinks in this context.
+
+--Sink--:
+{Function: swap, Sink: low-level call to zeroXExchangeProxy with user-controlled swapData, Visibility: public, Explanation: The public swap function has no access control and forwards arbitrary calldata to zeroXExchangeProxy. Because underlyingToken is approved to zeroXExchangeProxy with max allowance, a caller can craft swapData to invoke proxy operations that transfer the swapper contract’s tokens to an arbitrary recipient, causing unauthorized asset movement.}

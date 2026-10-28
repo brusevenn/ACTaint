@@ -1,0 +1,115 @@
+{
+  "case_ids": [
+    "acb-4618f6b1df04d765",
+    "acb-ca2f4543bc748244"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_path": "projects/proj-862052447925245a/source_code/config.json",
+  "compile_config_sha256": "0b213ef3782221a410b3e908cd52822b947d94c0a9c95d5ab6b4bcd80374f248",
+  "compiler": {
+    "actual_full_version": "0.8.20+commit.a1b79de6",
+    "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+    "metadata": "v0.8.20+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-862052447925245a/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.20"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 96.865,
+  "ended_utc": "2026-10-27T13:27:59.443555+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "363a4859ec5688bcc354e41bdf51b3c78619a6be81cf6170b7fc4dae372b91bb",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.20+commit.a1b79de6",
+        "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+        "metadata": "v0.8.20+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-862052447925245a/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.20"
+      },
+      "elapsed_seconds": 34.099,
+      "ended_utc": "2026-10-27T13:26:56.677499+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/e2acd557e56aaea0/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-862052447925245a/source_code/DcntEth.sol",
+      "source_sha256": "363a4859ec5688bcc354e41bdf51b3c78619a6be81cf6170b7fc4dae372b91bb",
+      "started_utc": "2026-10-27T13:26:22.579161+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-862052447925245a/source_code/DcntEth.sol"
+    },
+    {
+      "actual_source_sha256": "77fc214e4daaa52985efeea8458e6aa1a705d111f5c9a8f5a5b32e613924a324",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 11,
+        "contracts_skipped_interface_abstract_library": 10,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "elapsed_seconds": 62.167,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 11,
+        "total_token": 14059
+      },
+      "compiler": {
+        "actual_full_version": "0.8.20+commit.a1b79de6",
+        "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+        "metadata": "v0.8.20+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-862052447925245a/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.20"
+      },
+      "elapsed_seconds": 96.864,
+      "ended_utc": "2026-10-27T13:27:59.441941+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/47d056e1831856cb/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-862052447925245a/source_code/DecentEthRouter.sol",
+      "source_sha256": "77fc214e4daaa52985efeea8458e6aa1a705d111f5c9a8f5a5b32e613924a324",
+      "started_utc": "2026-10-27T13:26:56.681502+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-862052447925245a/source_code/DecentEthRouter.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-862052447925245a",
+  "prompt_layout": "prefix_stable_v2",
+  "record_count": 2,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T13:26:22.578440+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

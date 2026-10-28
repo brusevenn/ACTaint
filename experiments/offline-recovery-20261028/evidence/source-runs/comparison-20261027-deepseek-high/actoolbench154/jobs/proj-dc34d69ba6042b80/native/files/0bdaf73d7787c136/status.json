@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "05abfd5a8ea56fea4cff30afff41d5e5cdb1ff6a0fdff72e9c7fd24a534a7cdb",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.6.12+commit.27d51765",
+    "compiler_sha256": "f6cb519b01dabc61cab4c184a3db11aa591d18151e362fcae850e42cffdfb09a",
+    "metadata": "v0.6.12+commit.27d51765",
+    "metadata_build": "27d51765",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 0 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-dc34d69ba6042b80/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.12"
+  },
+  "elapsed_seconds": 207.643,
+  "ended_utc": "2026-10-27T06:41:14.163038+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/0bdaf73d7787c136/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-dc34d69ba6042b80/source_code/Safemoon.sol",
+  "source_sha256": "05abfd5a8ea56fea4cff30afff41d5e5cdb1ff6a0fdff72e9c7fd24a534a7cdb",
+  "started_utc": "2026-10-27T06:39:34.760318+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-dc34d69ba6042b80/source_code/Safemoon.sol"
+}

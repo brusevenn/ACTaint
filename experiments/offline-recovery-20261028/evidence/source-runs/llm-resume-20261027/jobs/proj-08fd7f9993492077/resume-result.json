@@ -1,0 +1,53 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-08fd7f9993492077",
+  "case_ids": [
+    "acb-04489a8c0224171c",
+    "acb-3c45fab9049415d1",
+    "acb-5729a29c2ac944cf",
+    "acb-72a366fd0d1c5275",
+    "acb-ff9707e257136b42"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "b452fd44ee13d7420f7ba990b27fe4f4f76e35c9fd07c8fd7c9ef81894c01e95",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T12:48:02.115660+00:00",
+  "exit_code": 4,
+  "input_identity": "b8a3ce3b01847cbe97ce7ead4978419f40b4645d483876e56d5a29695b64bd9a",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-08fd7f9993492077",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "BranchPort.sol",
+      "19b8152470505b1ad7e971d8f55b13233b4826f8a17b67f6ec2a3690c9a5ed9c"
+    ],
+    [
+      "CoreBranchRouter.sol",
+      "c7e11ca4bfd0c2abb4584ea60b127181fcf9308a20f01eafad4f621c6e01ff8f"
+    ],
+    [
+      "RootBridgeAgent.sol",
+      "fe52027e65951067ac5b768c628f2ac3279366acf0e53a429310216bd7d2f1d3"
+    ],
+    [
+      "UlyssesRouter.sol",
+      "1839ff55167f7628f89b039f4a4f5bf1796d82bbfd4373049f57f782efe5d8bb"
+    ],
+    [
+      "UniswapV3Staker.sol",
+      "3147b05e79defb1c2d0ee5c37e4f7e6c84ffdfeabad0ebe49922b5a719988c8b"
+    ]
+  ],
+  "source_hashes": [
+    "1839ff55167f7628f89b039f4a4f5bf1796d82bbfd4373049f57f782efe5d8bb",
+    "19b8152470505b1ad7e971d8f55b13233b4826f8a17b67f6ec2a3690c9a5ed9c",
+    "3147b05e79defb1c2d0ee5c37e4f7e6c84ffdfeabad0ebe49922b5a719988c8b",
+    "c7e11ca4bfd0c2abb4584ea60b127181fcf9308a20f01eafad4f621c6e01ff8f",
+    "fe52027e65951067ac5b768c628f2ac3279366acf0e53a429310216bd7d2f1d3"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:_burn, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+{Function:burn, Visibility:external, Explanation:Writes to variable _totalSupply without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable _totalSupply without any access control.}
+{Function:_burn, Visibility:internal, Explanation:Writes to variable creditBalances without any access control.}
+{Function:burn, Visibility:external, Explanation:Writes to variable creditBalances without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable creditBalances without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable rebasingCreditsPerToken without any access control.}
+
+=============Contract: Yieldy
+Sink:
+Reasoning:
+- `initialize` is external and protected only by `initializer`. The `initializer` modifier limits repeat calls but does not restrict the caller. It assigns `ADMIN_ROLE` to `msg.sender`, sets role admins, and writes rebasing initialization state. This is an unrestricted initialization/access-control sink.
+- `initializeStakingContract` is guarded by `onlyRole(ADMIN_ROLE)`, so it is not a sink.
+- `rebase` is guarded by `onlyRole(REBASE_ROLE)`, so it is not a sink.
+- `mint` and `burn` are guarded by `onlyRole(MINTER_BURNER_ROLE)`, so they are not sinks. Their internal `_mint` and `_burn` helpers are reachable through those guarded functions.
+- `transfer` only modifies the caller’s own credits plus the recipient. `transferFrom` checks allowance before moving credits. These are standard token operations and are not sinks.
+- No `selfdestruct` operation is present.
+
+--Sink--:
+{Function: initialize, Sink: unrestricted initialization and role assignment, Visibility: external, Explanation: The function is external and protected only by initializer, which limits repeat calls but does not restrict the caller. It assigns ADMIN_ROLE to msg.sender and sets role admins and rebasing initialization state, allowing any caller to invoke it first and become admin.}

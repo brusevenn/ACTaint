@@ -1,0 +1,36 @@
+==============Start====================
+rules:
+{Function:_mint, Visibility:internal, Explanation:Writes to variable balanceOf without any access control.}
+{Function:claimOutstanding, Visibility:public, Explanation:Writes to variable userClaimedBoost without any access control.}
+{Function:claimOutstanding, Visibility:public, Explanation:Writes to variable userClaimedWeight without any access control.}
+{Function:claimOutstanding, Visibility:public, Explanation:Writes to variable userClaimedGovernance without any access control.}
+
+=============Contract: bHermes
+Sink:
+The static-analysis candidates were reviewed against the actual contract logic.
+
+- `_mint` is `internal` and is the ERC4626 share-minting hook. It increases the receiver’s balance as part of the deposit/mint flow and is not externally callable. It does not modify another account’s existing balance without authorization.
+- `claimOutstanding` is `public`, but it only claims and updates `userClaimedWeight`, `userClaimedBoost`, and `userClaimedGovernance` for `msg.sender`. Modifying only the caller’s own accounting is not a sink.
+- `transfer` and `transferFrom` are standard ERC20 operations with additional claimed-balance checks; `transferFrom` authorization is enforced by the inherited ERC20 allowance logic.
+- The constructor is the actual deployment constructor and does not create a publicly callable initialization sink.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:onERC721Received, Visibility:external, Explanation:Writes to variable stakedIncentiveKey without any access control.}
+{Function:unstakeToken, Visibility:external, Explanation:Writes to variable stakedIncentiveKey without any access control.}
+{Function:onERC721Received, Visibility:external, Explanation:Writes to variable _userAttachements without any access control.}
+{Function:unstakeToken, Visibility:external, Explanation:Writes to variable _userAttachements without any access control.}
+{Function:onERC721Received, Visibility:external, Explanation:Writes to variable deposits without any access control.}
+{Function:unstakeToken, Visibility:external, Explanation:Writes to variable deposits without any access control.}
+{Function:createIncentiveFromGauge, Visibility:external, Explanation:Writes to variable incentives without any access control.}
+{Function:onERC721Received, Visibility:external, Explanation:Writes to variable incentives without any access control.}
+{Function:unstakeToken, Visibility:external, Explanation:Writes to variable incentives without any access control.}
+
+=============Contract: UniswapV3Staker
+Sink:
+--Sink--:
+{Function: stakeToken, Sink: Writes deposits[tokenId].stakedTimestamp, stakedIncentiveKey[tokenId], _userAttachements[tokenOwner][pool], incentives[incentiveId].numberOfStakes and calls gauge.attachUser(tokenOwner) without checking deposits[tokenId].owner == msg.sender, Visibility:external, Explanation: Any external caller can stake another user's deposited and unstaked token, modifying that owner's deposit, gauge attachment, and incentive stake count without authorization.}
+{Function: restakeToken, Sink: Writes deposits[tokenId].stakedTimestamp, stakedIncentiveKey[tokenId], _userAttachements[tokenOwner][pool], incentives[incentiveId].numberOfStakes and calls gauge.attachUser(tokenOwner) without checking deposits[tokenId].owner == msg.sender when stakedIncentiveKey[tokenId].startTime == 0, Visibility:external, Explanation: For a deposited but unstaked token, any external caller can restake it on behalf of the owner, modifying the owner's deposit, gauge attachment, and incentive stake count without authorization.}

@@ -1,0 +1,102 @@
+{
+  "case_ids": [
+    "acb-970582f592349726"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-2654ebef2486b850/source_code/config.json",
+  "compile_config_sha256": "d8fcb0d1f89aa2110ebc2cf36d01a413d28c139c3a35544a4772b8954df2f97c",
+  "compiler": {
+    "actual_full_version": "0.4.21+commit.dfe3193c",
+    "compiler_sha256": "905228505420cd31e6393e09ea685b87585b62c4339d3addc0a3049bebbc4332",
+    "metadata": "v0.4.21+commit.dfe3193c",
+    "metadata_build": "dfe3193c",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.21"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 129.181,
+  "ended_utc": "2026-10-27T05:46:47.177017+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "af674351f90aeb8a8dd2d70ebf5c8cde1de33b84b957fd84e2178a5a3349bbac",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.21+commit.dfe3193c",
+        "compiler_sha256": "905228505420cd31e6393e09ea685b87585b62c4339d3addc0a3049bebbc4332",
+        "metadata": "v0.4.21+commit.dfe3193c",
+        "metadata_build": "dfe3193c",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.21"
+      },
+      "elapsed_seconds": 75.995,
+      "ended_utc": "2026-10-27T05:45:53.991511+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/97ebd47808302458/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-2654ebef2486b850/source_code/MainContractFlattened.sol",
+      "source_sha256": "af674351f90aeb8a8dd2d70ebf5c8cde1de33b84b957fd84e2178a5a3349bbac",
+      "started_utc": "2026-10-27T05:44:37.996982+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-2654ebef2486b850/source_code/MainContractFlattened.sol"
+    },
+    {
+      "actual_source_sha256": "5f8a401c349bf1d1d4b42499f9d24569222f923295b4c886f250fb72c1735a6e",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.4.21+commit.dfe3193c",
+        "compiler_sha256": "905228505420cd31e6393e09ea685b87585b62c4339d3addc0a3049bebbc4332",
+        "metadata": "v0.4.21+commit.dfe3193c",
+        "metadata_build": "dfe3193c",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.21"
+      },
+      "elapsed_seconds": 129.179,
+      "ended_utc": "2026-10-27T05:46:47.175046+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/275a1aa2b7246fda/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-2654ebef2486b850/source_code/Virgo_ZodiacToken.sol",
+      "source_sha256": "5f8a401c349bf1d1d4b42499f9d24569222f923295b4c886f250fb72c1735a6e",
+      "started_utc": "2026-10-27T05:45:53.994481+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-2654ebef2486b850/source_code/Virgo_ZodiacToken.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-2654ebef2486b850",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:44:37.996351+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

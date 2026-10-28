@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "b2a7ea12d5c0e49a311d0d8b61391a7d138d6565eb409debe5f769f65519cc79",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 1,
+    "contracts_skipped_interface_abstract_library": 1,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.045,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.8.15+commit.e14f2714",
+    "compiler_sha256": "5189155ce322d57fb75e8518d9b39139627edea4fb25b5f0ebed0391c52e74cc",
+    "metadata": "v0.8.15+commit.e14f2714",
+    "metadata_build": "e14f2714",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-f259e61da3fcf170/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.15"
+  },
+  "elapsed_seconds": 1.438,
+  "ended_utc": "2026-10-27T14:40:21.468527+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-f259e61da3fcf170/source_code/contracts/Adminable.sol",
+  "source_sha256": "b2a7ea12d5c0e49a311d0d8b61391a7d138d6565eb409debe5f769f65519cc79",
+  "started_utc": "2026-10-27T14:40:20.851108+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-f259e61da3fcf170/source_code/contracts/Adminable.sol"
+}

@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "0c3c8f0e880bfb11298ab86b2863e7a6ce8c85e443fbf4998b8ed3b32739c853",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 1,
+    "contracts_skipped_interface_abstract_library": 1,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.053,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.7.6+commit.7338295f",
+    "compiler_sha256": "bd69ea85427bf2f4da74cb426ad951dd78db9dfdd01d791208eccc2d4958a6bb",
+    "metadata": "v0.7.6+commit.7338295f",
+    "metadata_build": "7338295f",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 800 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-b98075e441e39427/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.7.6"
+  },
+  "elapsed_seconds": 1.187,
+  "ended_utc": "2026-10-27T06:23:35.882776+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b98075e441e39427/source_code/@openzeppelin/contracts/cryptography/ECDSA.sol",
+  "source_sha256": "0c3c8f0e880bfb11298ab86b2863e7a6ce8c85e443fbf4998b8ed3b32739c853",
+  "started_utc": "2026-10-27T06:23:35.265670+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-b98075e441e39427/source_code/@openzeppelin/contracts/cryptography/ECDSA.sol"
+}

@@ -1,0 +1,42 @@
+==============Start====================
+rules:
+{Function:_mint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_mint, Visibility:internal, Explanation:Writes to variable _currentIndex without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _currentIndex without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _currentIndex without any access control.}
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721A
+Sink:
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:flipPauseMinting, Visibility:public, Explanation:Writes to variable isPaused without any access control.}
+{Function:setRootHash, Visibility:public, Explanation:Writes to variable rootHash without any access control.}
+{Function:reveal, Visibility:public, Explanation:Writes to variable revealed without any access control.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: Bad_Guys_by_RPF
+Sink:
+Reasoning:
+- The constructor initializes `rootHash` and calls `setNotRevealedURI`. It is executed only at deployment and is not a publicly invokable initializer; therefore it is not a sink.
+- `flipPauseMinting`, `setRootHash`, `setBaseURI`, `setReserve`, `setNotRevealedURI`, `reveal`, `mintReservedTokens`, and `withdraw` are all protected by `onlyOwner`. `onlyOwner` enforces access control, so these functions are not sinks.
+- `WhiteListMint` is public, but it requires a valid Merkle proof for `msg.sender` and mints only to `msg.sender`. It does not modify another user’s assets without authorization.
+- `tokenURI` and `_baseURI` are view/internal functions and do not perform security-sensitive state-changing operations.
+- No other constructor-like or initializer functions exist.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 2, "contracts_seen": 13, "contracts_skipped_interface_abstract_library": 11, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 72.444, "sink_agent_calls": 2, "taint_agent_calls": 0, "target_contracts": 13, "total_token": 20131}
+==============End======================
+total time: 72.44380283355713
+total token: 20131

@@ -1,0 +1,209 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-aadb542e420965a2",
+  "case_ids": [
+    "acb-1ea3c387ff706a34"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "abe506047e6887a60f6880b670f6edeafd3035a17cdde90050bd100ab9d16aa4",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:02:31.905951+00:00",
+  "exit_code": 4,
+  "input_identity": "44cc37d2cb76cd665b91e2dd334669d7a61e2ac5ba749591259b59e7606885dc",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-aadb542e420965a2",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol",
+      "5175174aa735fe7802c78bae4f784e967d51410d6b4d1ea09effa70a5fd2ce9c"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/access/IAccessControlUpgradeable.sol",
+      "6d3fbd4566bc123db1ee6ba2a1b79544b572df9b9cc9be360ddb3244dd07c86b"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+      "a6a7c58897c25b3b89527d5768f9288100789231ead6519d2287ca646396d94a"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "085f49f105f0702069c1f652227eac0c20a4995e8a40e3d4aca2d593bed61e6e"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "784d6adcebb5eb4bc13a91533c9c7c26d3d76d4ae6f147013aa5dfe0f38f3b6b"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "20168c0af1d055db673f2e0382a23cd66f32e4a93fd7a257d22ee90811850e39"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol",
+      "16a0e36f8dc6a83df3fec4344a11ad166ba99649d1cc52613c7ebe8015bd81a3"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol",
+      "f9073a771cb0e5b34b64053c4909099e41823960670062867f12f1876fe6e1a0"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/introspection/IERC165Upgradeable.sol",
+      "a39bc026ad6214e9ecd526bd4a1ddf9862d80bd4a9d0d031d9bafa4c3c147c0b"
+    ],
+    [
+      "@openzeppelin/contracts/access/AccessControl.sol",
+      "6385dc61482d7019508a1076d7a87874e258d18aebac63a59b4dc9dd5d58effc"
+    ],
+    [
+      "@openzeppelin/contracts/access/AccessControlEnumerable.sol",
+      "69797a1354b990e0d54f70b60ad71825a697141bba3e90f78908c166f30d0b7f"
+    ],
+    [
+      "@openzeppelin/contracts/access/IAccessControl.sol",
+      "d03c1257f2094da6c86efa7aa09c1c07ebd33dd31046480c5097bc2542140e45"
+    ],
+    [
+      "@openzeppelin/contracts/access/IAccessControlEnumerable.sol",
+      "655ab8dc2a9617376734d04ca293e099cc24f8ce893997e68c29cfebc4a61d39"
+    ],
+    [
+      "@openzeppelin/contracts/security/Pausable.sol",
+      "5b6abc290190f46b9941c674594eee083a3fe6b92d1828d0cfefacc94d1cac9a"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "bea6ecb4a800d648b1f77708cbb12a7e86a5547965a0a4e041925dbff07d13e9"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "6eacf8ca56b41b7636489c0996d8f9608b4d298879a1fd5d876f21ad7a6711f1"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
+      "046d05ab1bd0452f2a5abed929383c4b29e0b69fda9e1f1c4d5e7d31ccf99637"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol",
+      "ee84c2ac4bc96c21df80a3c39e38d508d658cbe386ec1ec7c04011d9925470f8"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "af5c8a77965cc82c33b7ff844deb9826166689e55dc037a7f2f790d057811990"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/presets/ERC20PresetMinterPauser.sol",
+      "b96a28514b7b3d583e3fd9c0c6ec2c573bdb217f1013669c5ca79ec463318f80"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "b5a1340c5232f387b15592574f27eef78f6017bdc66542a1cea512ad4f78a0d2"
+    ],
+    [
+      "@openzeppelin/contracts/utils/Address.sol",
+      "0228dd7c0a0d1342b88eab6e5a4a07ae4350818ba1650be0a374064b02218f37"
+    ],
+    [
+      "@openzeppelin/contracts/utils/Context.sol",
+      "1458c260d010a08e4c20a4a517882259a23a4baa0b5bd9add9fb6d6a1549814a"
+    ],
+    [
+      "@openzeppelin/contracts/utils/Strings.sol",
+      "8597c62818dcbc6cf85c21179b90b714fb4f70a4347ca2eed23e88c87b08b8a1"
+    ],
+    [
+      "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+      "8806a632d7b656cadb8133ff8f2acae4405b3a64d8709d93b0fa6a216a8a6154"
+    ],
+    [
+      "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "701e025d13ec6be09ae892eb029cd83b3064325801d73654847a5fb11c58b1e5"
+    ],
+    [
+      "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
+      "42a618e7d36efd2319d1bf05fedb31f3042baf535cfb97e783128cc1fe326686"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "a9136c475af172d443a0152eb39f4ba2deebd37266109eb8debc89288b00854e"
+    ],
+    [
+      "contracts/autocompound/AutocompundStaking.sol",
+      "b3d1cdb3e39bf5384c27b622fb2fce46da947a80ebeb450df1241a99e58b1fc6"
+    ],
+    [
+      "contracts/base/BaseStaking.sol",
+      "cb8d62ab95d1eb4e512023d73aea91540c54ce5f3e02a32eb1f531812e353e9e"
+    ],
+    [
+      "contracts/base/MintableSupplyStaking.sol",
+      "f62792ee27046238579f5bcf216256c5af9ee6f040b4a3cfff46587e48f565c0"
+    ],
+    [
+      "contracts/base/TaxedStaking.sol",
+      "503cdf07e3b6e043c905525b0cd2ff4f999f2589c03f1754fc810066025649dd"
+    ],
+    [
+      "contracts/lib/StakingUtils.sol",
+      "039f59cf2ffab52556cd81850cc5a97d9253ce4ebb28f4f6eb9478ac307589a6"
+    ],
+    [
+      "contracts/presets/MintableAutoCompundRelockBonus.sol",
+      "e890be7e768e533bbc48d89ff539fd8b0ac4d67bd203e9c554fa1c0be68ae9cc"
+    ],
+    [
+      "contracts/timelock/FixedTimeLockStaking.sol",
+      "59f4dad2b4d24c367744f80dce6fb5dc19fb591fe25bfe4373dce7ed9a17b054"
+    ],
+    [
+      "contracts/timelock/RelockBonusStaking.sol",
+      "96f075bc69965a25a2e9fdede9b77006bb52adcfa867989cb43201393e203bda"
+    ],
+    [
+      "contracts/timelock/StaticFixedTimeLockStaking.sol",
+      "fa463d52fc8069b0c2d9bd28bce68daa479609ef532affece43be921284b3bc0"
+    ]
+  ],
+  "source_hashes": [
+    "0228dd7c0a0d1342b88eab6e5a4a07ae4350818ba1650be0a374064b02218f37",
+    "039f59cf2ffab52556cd81850cc5a97d9253ce4ebb28f4f6eb9478ac307589a6",
+    "046d05ab1bd0452f2a5abed929383c4b29e0b69fda9e1f1c4d5e7d31ccf99637",
+    "085f49f105f0702069c1f652227eac0c20a4995e8a40e3d4aca2d593bed61e6e",
+    "1458c260d010a08e4c20a4a517882259a23a4baa0b5bd9add9fb6d6a1549814a",
+    "16a0e36f8dc6a83df3fec4344a11ad166ba99649d1cc52613c7ebe8015bd81a3",
+    "20168c0af1d055db673f2e0382a23cd66f32e4a93fd7a257d22ee90811850e39",
+    "42a618e7d36efd2319d1bf05fedb31f3042baf535cfb97e783128cc1fe326686",
+    "503cdf07e3b6e043c905525b0cd2ff4f999f2589c03f1754fc810066025649dd",
+    "5175174aa735fe7802c78bae4f784e967d51410d6b4d1ea09effa70a5fd2ce9c",
+    "59f4dad2b4d24c367744f80dce6fb5dc19fb591fe25bfe4373dce7ed9a17b054",
+    "5b6abc290190f46b9941c674594eee083a3fe6b92d1828d0cfefacc94d1cac9a",
+    "6385dc61482d7019508a1076d7a87874e258d18aebac63a59b4dc9dd5d58effc",
+    "655ab8dc2a9617376734d04ca293e099cc24f8ce893997e68c29cfebc4a61d39",
+    "69797a1354b990e0d54f70b60ad71825a697141bba3e90f78908c166f30d0b7f",
+    "6d3fbd4566bc123db1ee6ba2a1b79544b572df9b9cc9be360ddb3244dd07c86b",
+    "6eacf8ca56b41b7636489c0996d8f9608b4d298879a1fd5d876f21ad7a6711f1",
+    "701e025d13ec6be09ae892eb029cd83b3064325801d73654847a5fb11c58b1e5",
+    "784d6adcebb5eb4bc13a91533c9c7c26d3d76d4ae6f147013aa5dfe0f38f3b6b",
+    "8597c62818dcbc6cf85c21179b90b714fb4f70a4347ca2eed23e88c87b08b8a1",
+    "8806a632d7b656cadb8133ff8f2acae4405b3a64d8709d93b0fa6a216a8a6154",
+    "96f075bc69965a25a2e9fdede9b77006bb52adcfa867989cb43201393e203bda",
+    "a39bc026ad6214e9ecd526bd4a1ddf9862d80bd4a9d0d031d9bafa4c3c147c0b",
+    "a6a7c58897c25b3b89527d5768f9288100789231ead6519d2287ca646396d94a",
+    "a9136c475af172d443a0152eb39f4ba2deebd37266109eb8debc89288b00854e",
+    "af5c8a77965cc82c33b7ff844deb9826166689e55dc037a7f2f790d057811990",
+    "b3d1cdb3e39bf5384c27b622fb2fce46da947a80ebeb450df1241a99e58b1fc6",
+    "b5a1340c5232f387b15592574f27eef78f6017bdc66542a1cea512ad4f78a0d2",
+    "b96a28514b7b3d583e3fd9c0c6ec2c573bdb217f1013669c5ca79ec463318f80",
+    "bea6ecb4a800d648b1f77708cbb12a7e86a5547965a0a4e041925dbff07d13e9",
+    "cb8d62ab95d1eb4e512023d73aea91540c54ce5f3e02a32eb1f531812e353e9e",
+    "d03c1257f2094da6c86efa7aa09c1c07ebd33dd31046480c5097bc2542140e45",
+    "e890be7e768e533bbc48d89ff539fd8b0ac4d67bd203e9c554fa1c0be68ae9cc",
+    "ee84c2ac4bc96c21df80a3c39e38d508d658cbe386ec1ec7c04011d9925470f8",
+    "f62792ee27046238579f5bcf216256c5af9ee6f040b4a3cfff46587e48f565c0",
+    "f9073a771cb0e5b34b64053c4909099e41823960670062867f12f1876fe6e1a0",
+    "fa463d52fc8069b0c2d9bd28bce68daa479609ef532affece43be921284b3bc0"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

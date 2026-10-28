@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:initialize, Visibility:external, Explanation:Writes to variable bridgeAgentExecutorAddress without any access control.}
+
+=============Contract: BaseBranchRouter
+Sink:
+Reviewed all state-changing and authorization-sensitive operations:
+
+- `initialize` is `external onlyOwner`; the constructor initializes ownership to `msg.sender`. The write to `bridgeAgentExecutorAddress` is therefore owner-gated, so it is not an unauthenticated init sink.
+- `callOut`, `callOutAndBridge`, and `callOutAndBridgeMultiple` pass `msg.sender` into the bridge agent, so they act only on behalf of the caller.
+- `retrySettlement` and `redeemDeposit` forward nonce parameters to the bridge agent but do not modify router-owned authorization state or redirect assets in this contract.
+- `anyExecuteNoSettlement`, `anyExecuteSettlement`, and `anyExecuteSettlementMultiple` are guarded by `requiresAgentExecutor`.
+- No `selfdestruct`, `delegatecall`, or unprotected ownership/state mutation exists in the provided source.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 13, "contracts_skipped_interface_abstract_library": 10, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 2, "elapsed_seconds": 22.874, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 13, "total_token": 5178}
+==============End======================
+total time: 22.873937368392944
+total token: 5178

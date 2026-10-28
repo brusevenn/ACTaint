@@ -1,0 +1,1 @@
+Controller integration preflight failure: compiler map entries were strings but ACTaint required path/SHA objects. No LLM requests were sent. These attempts are preserved as setup provenance, not formal predictions. ASTRO concurrent static jobs interrupted to repair controller input; no paid retry.

@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "4122f48ac8201df66e8ff1f32edeb61637b198ca7dfcd96848588c517bc3c433",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.0+commit.1d4f565a",
+    "compiler_sha256": "c1bb15b520f5076aebd7aa9ef4ce5fa245b6f210a91cbd2064b9e383e6510e08",
+    "metadata": "v0.5.0+commit.1d4f565a",
+    "metadata_build": "1d4f565a",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.0"
+  },
+  "elapsed_seconds": 164.267,
+  "ended_utc": "2026-10-27T06:16:06.015696+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/4c0453f23623dddf/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-97e5691b34335ab9/source_code/EthVault.sol",
+  "source_sha256": "4122f48ac8201df66e8ff1f32edeb61637b198ca7dfcd96848588c517bc3c433",
+  "started_utc": "2026-10-27T06:14:53.483370+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-97e5691b34335ab9/source_code/EthVault.sol"
+}

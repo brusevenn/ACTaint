@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:fallback, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: UselessEthereumToken
+Sink:

@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+{Function:sellDrugs, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:buyDrugs, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: EtherCartel
+Sink:
+Reasoning:
+- `DrugDealer` is not a constructor because the contract is named `EtherCartel`; it is a public initializer-like function with no access control and directly sets the privileged `ceoAddress`.
+- `seedMarket` is an initializer-like function. The `require(marketDrugs==0)` check only limits it to the first successful call; it does not restrict the caller. It sets critical market state.
+- `sellDrugs` performs `ceoAddress.transfer(fee)`. Since `ceoAddress` is set by the unprotected `DrugDealer` function, this Ether transfer to the privileged address is a sink. The `msg.sender.transfer` pays the caller itself and is not a sink.
+- `buyDrugs` performs `ceoAddress.transfer(devFee(msg.value))`. For the same reason, this Ether transfer to the privileged address is a sink.
+
+--Sink--:
+{Function: DrugDealer, Sink: ceoAddress=msg.sender, Visibility:public, Explanation: Wrong constructor/initializer with no access control; any caller can set or overwrite the privileged ceoAddress.}
+{Function: seedMarket, Sink: initialized=true; marketDrugs=drugs, Visibility:public, Explanation: Initializer with no caller access control; require(marketDrugs==0) only limits to the first call, so any caller can initialize critical market state.}
+{Function: sellDrugs, Sink: ceoAddress.transfer(fee), Visibility:public, Explanation: Transfers Ether to ceoAddress, which is set by the unprotected DrugDealer initializer.}
+{Function: buyDrugs, Sink: ceoAddress.transfer(devFee(msg.value)), Visibility:public, Explanation: Transfers Ether to ceoAddress, which is set by the unprotected DrugDealer initializer.}

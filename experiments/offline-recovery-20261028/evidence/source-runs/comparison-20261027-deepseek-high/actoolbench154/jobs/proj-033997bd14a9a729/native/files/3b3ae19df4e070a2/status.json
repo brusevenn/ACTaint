@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "d610cceae156861882459939958020b1b5afdf9c5a2e5e00dd27911fe38f3290",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.c7e474f2",
+    "metadata_build": "c7e474f2",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 999999 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-033997bd14a9a729/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "elapsed_seconds": 100.81,
+  "ended_utc": "2026-10-27T05:26:21.789178+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-033997bd14a9a729/source_code/contracts/StaxLPStaking.sol",
+  "source_sha256": "d610cceae156861882459939958020b1b5afdf9c5a2e5e00dd27911fe38f3290",
+  "started_utc": "2026-10-27T05:26:20.869970+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-033997bd14a9a729/source_code/contracts/StaxLPStaking.sol"
+}

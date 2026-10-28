@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "4cea52f226db72295a46cc8839ce08c3d5377114087719a8a8a42f3b4f662c58",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.17+commit.8df45f5f",
+    "compiler_sha256": "99f2070b776e9714f1f76c43c229cf99b8978a92938ee8d2364c6de11c1a03d4",
+    "metadata": "v0.8.17+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-88234ccc822eacc4/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.17"
+  },
+  "elapsed_seconds": 68.082,
+  "ended_utc": "2026-10-27T13:31:29.527748+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/10865befc889f66e/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-88234ccc822eacc4/source_code/PublicVault.sol",
+  "source_sha256": "4cea52f226db72295a46cc8839ce08c3d5377114087719a8a8a42f3b4f662c58",
+  "started_utc": "2026-10-27T13:30:21.447504+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-88234ccc822eacc4/source_code/PublicVault.sol"
+}

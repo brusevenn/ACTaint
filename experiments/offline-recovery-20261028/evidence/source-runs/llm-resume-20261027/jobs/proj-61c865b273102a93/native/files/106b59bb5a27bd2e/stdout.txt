@@ -1,0 +1,49 @@
+==============Start====================
+rules:
+{Function:transitionEpoch, Visibility:public, Explanation:Writes to variable currentEpoch without any access control.}
+{Function:transitionEpoch, Visibility:public, Explanation:Writes to variable currentRedeemAmount without any access control.}
+{Function:setRedeemLimit, Visibility:external, Explanation:Writes to variable redeemLimit without any access control.}
+{Function:transitionEpoch, Visibility:public, Explanation:Writes to variable currentMintAmount without any access control.}
+{Function:setMintLimit, Visibility:external, Explanation:Writes to variable mintLimit without any access control.}
+{Function:setRedeemMinimum, Visibility:external, Explanation:Writes to variable minimumRedeemAmount without any access control.}
+
+=============Contract: CashManager
+Sink:
+Review of externally callable functions:
+
+- `constructor`: deployment-only; initializes roles and addresses. Not a sink.
+- `requestMint`: caller deposits its own collateral via `safeTransferFrom(msg.sender, ...)`; updates only `mintRequestsPerEpoch[currentEpoch][msg.sender]`. No unauthorized state modification.
+- `claimMint`: permissionless claim for `user`; mints CASH only for previously deposited collateral recorded under `user`, checks KYC on `user`, and zeros `user`’s pending mint before minting. No caller-directed theft or unauthorized recipient.
+- `setMintExchangeRate`: protected by `onlyRole(SETTER_ADMIN)`.
+- `setPendingMintBalance`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `overrideExchangeRate`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setMintExchangeRateDeltaLimit`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setMintFee`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setMinimumDepositAmount`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setFeeRecipient`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setAssetRecipient`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `pause`: protected by `onlyRole(PAUSER_ADMIN)`.
+- `unpause`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setEpochDuration`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `transitionEpoch`: public, but only advances epoch when the time-based epoch difference is greater than zero; it does not accept arbitrary parameters and cannot transition early. Not an access-control sink.
+- `setMintLimit`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setRedeemLimit`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `requestRedemption`: caller burns its own CASH via `cash.burnFrom(msg.sender, ...)`; updates only caller’s redemption record. No unauthorized state modification.
+- `completeRedemptions`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setAssetSender`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setRedeemMinimum`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setPendingRedemptionBalance`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setKYCRequirementGroup`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `setKYCRegistry`: protected by `onlyRole(MANAGER_ADMIN)`.
+- `multiexcall`: protected by `onlyRole(MANAGER_ADMIN)` and `whenPaused`.
+
+Private helpers `_processRedemption`, `_processRefund`, and internal limit/KYC helpers are not externally callable and are reached only through guarded flows.
+
+--Sink--:
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 41, "contracts_skipped_interface_abstract_library": 37, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 3, "elapsed_seconds": 46.978, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 41, "total_token": 17015}
+==============End======================
+total time: 46.97799110412598
+total token: 17015

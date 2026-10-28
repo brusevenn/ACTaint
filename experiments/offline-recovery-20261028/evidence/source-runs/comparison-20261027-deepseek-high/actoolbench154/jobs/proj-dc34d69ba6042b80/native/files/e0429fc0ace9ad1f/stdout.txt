@@ -1,0 +1,120 @@
+==============Start====================
+rules:
+{Function:updateBurnAddress, Visibility:external, Explanation:Writes to variable _burnAddress without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _burnAddress without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _burnAddress without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:includeInFee, Visibility:public, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:excludeFromFee, Visibility:public, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:setSwapAndEvolveEnabled, Visibility:public, Explanation:Writes to variable swapAndEvolveEnabled without any access control.}
+{Function:setDefaultSettings, Visibility:external, Explanation:Writes to variable swapAndEvolveEnabled without any access control.}
+{Function:setWhitelistMint, Visibility:public, Explanation:Writes to variable whitelistMint without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable inSwapAndLiquify without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable inSwapAndLiquify without any access control.}
+{Function:collectBNB, Visibility:private, Explanation:Writes to variable inSwapAndLiquify without any access control.}
+{Function:updateBurnAddress, Visibility:external, Explanation:Writes to variable _isExcluded without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _isExcluded without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _isExcluded without any access control.}
+{Function:__Safemoon_tiers_init, Visibility:internal, Explanation:Writes to variable _isExcluded without any access control.}
+{Function:_addTier, Visibility:internal, Explanation:Writes to variable _isExcluded without any access control.}
+{Function:addTier, Visibility:public, Explanation:Writes to variable _isExcluded without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_migrate, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_takeFees, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _rOwned without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _rOwned without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _rOwned without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _tTotal without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _tTotal without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable feeTiers without any access control.}
+{Function:_migrate, Visibility:private, Explanation:Writes to variable feeTiers without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable feeTiers without any access control.}
+{Function:restoreAllFee, Visibility:private, Explanation:Writes to variable feeTiers without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable feeTiers without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable feeTiers without any access control.}
+{Function:__Safemoon_tiers_init, Visibility:internal, Explanation:Writes to variable feeTiers without any access control.}
+{Function:_addTier, Visibility:internal, Explanation:Writes to variable feeTiers without any access control.}
+{Function:removeAllFee, Visibility:private, Explanation:Writes to variable feeTiers without any access control.}
+{Function:addTier, Visibility:public, Explanation:Writes to variable feeTiers without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable feeTiers without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _accountsTier without any access control.}
+{Function:blacklistAddress, Visibility:public, Explanation:Writes to variable _accountsTier without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _accountsTier without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:_migrate, Visibility:private, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:updateBurnAddress, Visibility:external, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:_takeFees, Visibility:private, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:__Safemoon_tiers_init, Visibility:internal, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:_addTier, Visibility:internal, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:addTier, Visibility:public, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _rTotalExcluded without any access control.}
+{Function:setMigrationAddress, Visibility:public, Explanation:Writes to variable migration without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_migrate, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _rTotal without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _rTotal without any access control.}
+{Function:_reflectFee, Visibility:private, Explanation:Writes to variable _rTotal without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _rTotal without any access control.}
+{Function:setNumOfBnbToSwapAndEvolve, Visibility:public, Explanation:Writes to variable numOfBnbToSwapAndEvolve without any access control.}
+{Function:setNumberOfTokenToCollectBNB, Visibility:public, Explanation:Writes to variable numTokensToCollectBNB without any access control.}
+{Function:updateBurnAddress, Visibility:external, Explanation:Writes to variable _excluded without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _excluded without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _excluded without any access control.}
+{Function:__Safemoon_tiers_init, Visibility:internal, Explanation:Writes to variable _excluded without any access control.}
+{Function:_addTier, Visibility:internal, Explanation:Writes to variable _excluded without any access control.}
+{Function:addTier, Visibility:public, Explanation:Writes to variable _excluded without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _maxTxAmount without any access control.}
+{Function:setMaxTxPercent, Visibility:external, Explanation:Writes to variable _maxTxAmount without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _maxTxAmount without any access control.}
+{Function:unBlacklistAddress, Visibility:public, Explanation:Writes to variable _isBlacklisted without any access control.}
+{Function:blacklistAddress, Visibility:public, Explanation:Writes to variable _isBlacklisted without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:_migrate, Visibility:private, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:updateBurnAddress, Visibility:external, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:_takeFees, Visibility:private, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:_transferFromExcluded, Visibility:private, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:_transferToExcluded, Visibility:private, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:_transferStandard, Visibility:private, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:_transferBothExcluded, Visibility:private, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:__Safemoon_tiers_init, Visibility:internal, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:_addTier, Visibility:internal, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:addTier, Visibility:public, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _tTotalExcluded without any access control.}
+{Function:__Safemoon_v2_init_unchained, Visibility:internal, Explanation:Writes to variable _maxFee without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _maxFee without any access control.}
+{Function:withdrawToken, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdrawBnb, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: Safemoon
+Sink:
+Reasoning:
+1. I reviewed all externally callable state-changing functions and filtered out functions guarded by `onlyOwner`, `onlyWhitelistMint`, or an equivalent authorization check such as `require(_msgSender() == migration)`.
+2. Standard ERC-20 `approve`, `transfer`, and `transferFrom` operations are either caller-authorized or allowance-checked. The `isRouter` write only updates the caller’s own `_accountsTier`, so it is not treated as an access-control sink.
+3. `initialize()` is `public` and only protected by `initializer`, which restricts call count but not caller identity. Since there is no constructor, anyone can call it before initialization and set ownership and initial token state. This is a sink.
+4. `burn(address from, uint256 amount)` is `public` with no access control. It calls `_tokenTransfer(from, bridgeBurnAddress, amount, 0, false)` without checking `from == msg.sender` or allowance, allowing any caller to burn/transfer tokens from an arbitrary address. This is a sink.
+5. The internal initializer helpers are reachable through `initialize`; the externally exploitable sink is the unguarded public `initialize` entry point.
+
+--Sink--:
+{Function: initialize, Sink: unguarded initialization / ownership and balance initialization, Visibility:public, Explanation: public initializer with no caller access control; anyone can call it before initialization and set owner, _initializerAccount, and initial token balance.}
+{Function: burn, Sink: _tokenTransfer(from, bridgeBurnAddress, amount, 0, false), Visibility:public, Explanation: no access control and no check that from equals msg.sender or has allowance; any caller can burn/transfer tokens from an arbitrary account.}

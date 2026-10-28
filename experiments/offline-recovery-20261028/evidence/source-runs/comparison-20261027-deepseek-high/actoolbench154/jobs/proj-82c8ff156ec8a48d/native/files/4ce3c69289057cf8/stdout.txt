@@ -1,0 +1,54 @@
+==============Start====================
+rules:
+{Function:_mint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_mint, Visibility:internal, Explanation:Writes to variable _currentIndex without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _currentIndex without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _currentIndex without any access control.}
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721A
+Sink:
+The actual constructor `constructor(string,string)` only initializes `_name` and `_symbol` at deployment and is not an externally callable access-control sink.
+
+`_mint` and `_safeMint` are `internal` functions. They are not directly callable by external accounts, and no `public`/`external` function in this contract invokes them. Therefore they do not form an access-control sink in this source.
+
+`transferFrom` and `safeTransferFrom` are public state-changing functions, but they call `_transfer`, which enforces authorization: the caller must be the token owner, an approved address for the token, or an operator approved by the owner. `_transfer` also verifies that `from` matches the current owner and rejects the zero address. These are properly guarded standard ERC721 transfers, not sinks.
+
+`_checkOnERC721Received` uses assembly only to revert with a provided reason. It does not perform an unauthorized access-control-sensitive state change.
+
+`approve` and `setApprovalForAll` enforce caller authorization or modify only the caller’s own approvals.
+
+No other externally callable state-changing function in this contract lacks access control.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:reveal, Visibility:public, Explanation:Writes to variable revealed without any access control.}
+{Function:setRootHash, Visibility:public, Explanation:Writes to variable rootHash without any access control.}
+{Function:flipPauseMinting, Visibility:public, Explanation:Writes to variable isPaused without any access control.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: Bad_Guys_by_RPF
+Sink:
+Reasoning:
+- The constructor sets `rootHash` and calls `setNotRevealedURI`. It executes at deployment and is not an externally callable initializer sink.
+- `flipPauseMinting`, `setRootHash`, `setBaseURI`, `setReserve`, `setNotRevealedURI`, `reveal`, `mintReservedTokens`, and `withdraw` all use the `onlyOwner` modifier from `Ownable`. This restricts execution to the contract owner, so these are not unguarded access-control sinks. The static analysis flags for `reveal`, `setRootHash`, `flipPauseMinting`, and `withdraw` are false positives in the provided source.
+- `WhiteListMint` is public, but it verifies a Merkle proof for `msg.sender`, checks minting pause status, requires a positive amount, enforces the supply limit, and mints only to `msg.sender`. This is an authorized whitelist mint operation, not an unauthorized modification of another account’s assets.
+- `tokenURI` is view-only. `keccak256` is used as part of Merkle proof verification and does not constitute an unprotected access-control sink here.
+- No other initializer, wrong constructor, or unguarded state-changing sink is present.
+
+--Sink--:
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 2, "contracts_seen": 13, "contracts_skipped_interface_abstract_library": 11, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 71.845, "sink_agent_calls": 2, "taint_agent_calls": 0, "target_contracts": 13, "total_token": 19387}
+==============End======================
+total time: 71.84521818161011
+total token: 19387

@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:transferOwnership, Visibility:public, Explanation:Writes to variable _owner without any access control.}
+
+=============Contract: Ownable
+Sink:
+Reasoning:
+- `constructor()` is the actual constructor; it initializes `_owner` during deployment and is not externally re-invocable after deployment.
+- `renounceOwnership()` modifies `_owner` but is protected by `onlyOwner`.
+- `lock()` modifies `_owner` and `_previousOwner` but is protected by `onlyOwner`.
+- `unlock()` modifies `_owner` but is protected by `require(_previousOwner == msg.sender)` and the timelock condition.
+- `transferOwnership()` is `public`, writes `_owner`, and has no access-control check such as `onlyOwner`. Any caller can reassign ownership.
+
+--Sink--:
+{Function: transferOwnership, Sink: _owner = newOwner, Visibility:public, Explanation: Public function lacks access control and allows any caller to reassign contract ownership.}

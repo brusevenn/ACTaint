@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "171b21b0ff597b63ba4d718812a1e09f1cf436d42231bf219b6800ba89b92b40",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.13+commit.abaa5c0e",
+    "compiler_sha256": "a805dffa86ccd8ed5c9cd18ffcfcca6ff46f635216aa7fc0246546f7be413d62",
+    "metadata": "v0.8.13+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-a8a183b4b30836d6/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.13"
+  },
+  "elapsed_seconds": 31.145,
+  "ended_utc": "2026-10-27T13:51:55.631029+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/4e6ee020ad9d4cb4/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a8a183b4b30836d6/source_code/ERC721H.sol",
+  "source_sha256": "171b21b0ff597b63ba4d718812a1e09f1cf436d42231bf219b6800ba89b92b40",
+  "started_utc": "2026-10-27T13:51:24.488354+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-a8a183b4b30836d6/source_code/ERC721H.sol"
+}

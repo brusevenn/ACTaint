@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "9dadde414e8244cae5088ce7f6883a47868ba79c61c3f780f8abeabf019ad3fe",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.16+commit.9c3226ce",
+    "compiler_sha256": "a15f01700ec7e02f91bbdfd4b6ff4450b3c2decae173e4f41910a3cfbaf5d3d3",
+    "metadata": "v0.5.16+commit.9c3226ce",
+    "metadata_build": "9c3226ce",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.16"
+  },
+  "elapsed_seconds": 194.96,
+  "ended_utc": "2026-10-27T06:34:41.463153+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/c50b475defd5bd2f/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d79ac252134863ee/source_code/contracts/RBep20.sol",
+  "source_sha256": "9dadde414e8244cae5088ce7f6883a47868ba79c61c3f780f8abeabf019ad3fe",
+  "started_utc": "2026-10-27T06:33:33.897672+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-d79ac252134863ee/source_code/contracts/RBep20.sol"
+}

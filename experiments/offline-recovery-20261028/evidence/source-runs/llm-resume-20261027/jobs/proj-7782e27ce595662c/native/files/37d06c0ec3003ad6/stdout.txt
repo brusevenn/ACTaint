@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:increaseReserve, Visibility:external, Explanation:Writes to variable _reserve without any access control.}
+
+=============Contract: PrizePool
+Sink:
+Reasoning:
+- `setDrawManager` is an external state-changing initializer. It only checks that `drawManager` is currently unset. If the constructor leaves `drawManager` as `address(0)`, any caller can set it to an arbitrary address and gain draw-manager privileges over `withdrawReserve` and `closeDraw`. This is a valid access-control sink.
+- `increaseReserve` has no access control, but its documented behavior explicitly allows anyone to deposit tokens into the reserve; it only increases `_reserve` using the caller’s own tokens. This is intended behavior, not an access-control sink.
+- `contributePrizeTokens` is permissionless by design and only adds contributions after checking unaccounted token balance. It does not authorize transfers of existing funds by itself.
+- `withdrawReserve` and `closeDraw` are protected by `onlyDrawManager`.
+- `claimPrize` verifies the winner for `msg.sender` as the vault and transfers according to claim logic; it is not an unauthenticated privileged state change in this contract.
+- `withdrawClaimRewards` only spends `claimerRewards[msg.sender]`.
+
+--Sink--:
+{Function: setDrawManager, Sink: drawManager assignment, Visibility: external, Explanation: No access control beyond the unset check; if drawManager is address(0), any caller can set it and gain draw-manager privileges to call onlyDrawManager functions such as withdrawReserve and closeDraw.}

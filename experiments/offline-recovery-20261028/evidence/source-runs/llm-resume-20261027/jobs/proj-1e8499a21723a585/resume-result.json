@@ -1,0 +1,34 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-1e8499a21723a585",
+  "case_ids": [
+    "acb-20596fd11fd6a394"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "7ccf46361214283388f49b2ca92846f06a1f0e55d0df069e36a35bb028e40b7a",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:01:28.437966+00:00",
+  "exit_code": 4,
+  "input_identity": "19de9fad6cb9cddf98f4fbbd78acddceb372037504e7967454a0838370e96beb",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-1e8499a21723a585",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "AurumNodePool.sol",
+      "c83fb12c6960e087c9dd17aa47009426ae49f94565a37e263b8495099d8da673"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "a4264fddd202e30e45cb89bc69647a66048191df0885e00e9236fa72e31ef80a"
+    ]
+  ],
+  "source_hashes": [
+    "a4264fddd202e30e45cb89bc69647a66048191df0885e00e9236fa72e31ef80a",
+    "c83fb12c6960e087c9dd17aa47009426ae49f94565a37e263b8495099d8da673"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:__StaticFixedTimeLockStaking_init, Visibility:public, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:_start, Visibility:internal, Explanation:Writes to variable started without any access control.}
+{Function:__StaticFixedTimeLockStaking_init, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:__StaticFixedTimeLockStaking_init, Visibility:public, Explanation:Writes to variable earlyUnlockPenalty without any access control.}
+
+=============Contract: StaticFixedTimeLockStaking
+Sink:
+The contract has no constructor, so the public initializer is treated as a wrong constructor and is a sink. `__StaticFixedTimeLockStaking_init` is public and guarded only by `onlyInitializing`, which does not restrict the caller. It writes inherited configuration state. The `_start` function is identified by the provided static analysis as writing the inherited `started` state without access control. `_stake` only modifies `locks[msg.sender]`, so it is not a sink. `updateLock` is protected by `onlyRole(DEFAULT_ADMIN_ROLE)`, so it is not a sink.
+
+--Sink--:
+{Function: __StaticFixedTimeLockStaking_init, Sink: write taxConfiguration, Visibility: public, Explanation: The public initializer uses onlyInitializing, which does not restrict the caller, and writes the inherited taxConfiguration state without an access-control check.}
+{Function: _start, Sink: write started, Visibility: internal, Explanation: The _start hook calls BaseStaking._start(), writing the inherited started state without an access-control check.}
+{Function: __StaticFixedTimeLockStaking_init, Sink: write configuration, Visibility: public, Explanation: The public initializer uses onlyInitializing, which does not restrict the caller, and writes the inherited configuration state without an access-control check.}
+{Function: __StaticFixedTimeLockStaking_init, Sink: write earlyUnlockPenalty, Visibility: public, Explanation: The public initializer uses onlyInitializing, which does not restrict the caller, and writes the inherited earlyUnlockPenalty state without an access-control check.}

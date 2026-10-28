@@ -1,0 +1,79 @@
+{
+  "case_ids": [
+    "acb-1058972b82ce7635",
+    "acb-823c1e39610cd0c8",
+    "acb-dd29066f36f4b59e"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-64247d10a54e958a/source_code/config.json",
+  "compile_config_sha256": "c39f2d02d952ee8eb0ddc23c01a7f2a732d00a424df4ab66f09131b4e408a0e3",
+  "compiler": {
+    "actual_full_version": "0.8.9+commit.e5eed63a",
+    "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+    "metadata": "v0.8.9+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-64247d10a54e958a/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.9"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 8.287,
+  "ended_utc": "2026-10-27T05:55:02.611481+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "3d1b89a4481fa3d97709ffde3f3676931a02d1d15aa9b6a01bbe668ebede5e88",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.9+commit.e5eed63a",
+        "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+        "metadata": "v0.8.9+commit.8d00100c",
+        "metadata_build": "8d00100c",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-64247d10a54e958a/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.9"
+      },
+      "elapsed_seconds": 8.285,
+      "ended_utc": "2026-10-27T05:55:02.609819+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-64247d10a54e958a/source_code/BasePoolV2.sol",
+      "source_sha256": "3d1b89a4481fa3d97709ffde3f3676931a02d1d15aa9b6a01bbe668ebede5e88",
+      "started_utc": "2026-10-27T05:54:54.326504+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-64247d10a54e958a/source_code/BasePoolV2.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-64247d10a54e958a",
+  "prompt_layout": "prefix_stable",
+  "record_count": 3,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 1,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:54:54.325253+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:owned, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: Owned
+Sink:
+--Sink--:
+{Function: owned, Sink: owner = msg.sender, Visibility: public, Explanation: Public function lacking access control lets any caller set owner to msg.sender; it is a wrong constructor/initializer that grants ownership.}

@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:addLiquidity, Visibility:external, Explanation:Writes to variable routerBalances without any access control.}
+
+=============Contract: TransactionManager
+Sink:
+--Sink--:
+{Function: prepare, Sink: activeTransactionBlocks[invariantData.user].push(block.number), Visibility: external, Explanation: Writes to activeTransactionBlocks for an arbitrary invariantData.user without verifying msg.sender == invariantData.user on the sending chain, allowing unauthorized users to bloat another user's active transaction blocks and potentially cause denial of service when removeUserActiveBlocks loops over the array.}

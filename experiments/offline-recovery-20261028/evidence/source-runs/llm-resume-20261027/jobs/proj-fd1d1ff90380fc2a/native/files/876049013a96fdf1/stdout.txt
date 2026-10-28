@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:close, Visibility:external, Explanation:Writes to variable _opened without any access control.}
+{Function:open, Visibility:external, Explanation:Writes to variable _opened without any access control.}
+
+=============Contract: TSURUWrapper
+Sink:
+Reasoning:
+- `open` and `close` are `external` but guarded by `onlyOwner` in the actual source. The static analysis note is not consistent with the provided code.
+- `onERC721Received` checks `msg.sender == erc721Contract` and mints to the ERC721 depositor `from`. No unauthorized account modification is present.
+- `onERC1155Received` has no authentication that `msg.sender` is the ERC1155 contract before minting. The check returns for the expected ERC1155 contract caller and allows all other callers to reach `_safeMint(from, amount * ERC1155_RATIO)`, with caller-controlled `from` and `amount`.
+- `unwrap` burns `msg.sender`’s own ERC20 balance and transfers ERC1155 to `msg.sender`; it does not modify another account without authorization.
+- Internal mint/burn helpers are reached through the above paths; the vulnerable external path is `onERC1155Received`.
+
+--Sink--:
+{Function: onERC1155Received, Sink: _safeMint(from, amount * ERC1155_RATIO), Visibility: external, Explanation: The function returns when msg.sender is erc1155Contract; for every other external caller it mints ERC20 to the caller-supplied from address without authentication, allowing unauthorized minting.}

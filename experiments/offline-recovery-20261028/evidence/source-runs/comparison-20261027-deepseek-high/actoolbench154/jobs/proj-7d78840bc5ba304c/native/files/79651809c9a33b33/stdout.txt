@@ -1,0 +1,38 @@
+==============Start====================
+rules:
+{Function:updateUser, Visibility:public, Explanation:Writes to variable stakedOfTime without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable stakedOf without any access control.}
+{Function:setStartTime, Visibility:public, Explanation:Writes to variable startTime without any access control.}
+{Function:setListToken, Visibility:public, Explanation:Writes to variable listToken without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable users without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable upaddress without any access control.}
+{Function:setEx, Visibility:public, Explanation:Writes to variable myReward without any access control.}
+{Function:updateUser, Visibility:public, Explanation:Writes to variable stakedOfTimeSum without any access control.}
+{Function:updateU, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:stake, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claim, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:getToken, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:sell, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: StakingRewards
+Sink:
+Reasoning:
+- Functions protected by `onlyOwner` (`updateUser`, `setListToken`, `setStartTime`, `setEx`, `getToken`) are excluded because they have access control.
+- The constructor is not treated as a sink because it executes only at deployment.
+- Standard user operations that only modify the caller’s own state or assets (e.g., `claim` transferring to `msg.sender`) are excluded.
+- The following operations are security-sensitive and lack proper access control, allowing unauthorized state changes or asset transfers.
+
+--Sink--:
+{Function: addLiquidity, Sink: listToken[_token] = true, Visibility: public, Explanation: Writes to the global token whitelist without access control, allowing any caller to whitelist arbitrary tokens.}
+{Function: addLiquidity, Sink: myReward[_token] = token1, Visibility: public, Explanation: Writes to the reward token mapping without access control.}
+{Function: addLiquidity, Sink: users[_token][0x2F98Fa813Ced7Aa9Fd6788aB624b2F3F292B9239].tz += 100 ether, Visibility: public, Explanation: Increases the staking balance of a fixed address for an arbitrary token without access control.}
+{Function: addLiquidity, Sink: IERC20(_token).approve(address(IRouters), 2**256-1), Visibility: public, Explanation: Grants unlimited allowance for an arbitrary token to the router without access control.}
+{Function: addLiquidity, Sink: IRouters.addLiquidity(_token, token1, lp, amount1, 0, 0, address(this), block.timestamp+100), Visibility: public, Explanation: Uses contract tokens to add liquidity for an arbitrary token pair without access control.}
+{Function: sell, Sink: IERC20(token1).transfer(msg.sender, _sellc), Visibility: public, Explanation: Transfers the contract’s token1 balance to the caller based on an AMM price and a whitelist that any caller can set via addLiquidity.}
+{Function: sell, Sink: IERC20(token).transfer(msg.sender, coin), Visibility: public, Explanation: Transfers the contract’s token balance to the caller without proper access control over the token whitelist.}
+{Function: sell, Sink: IERC20(pair).approve(address(IRouters), 2**256-1), Visibility: public, Explanation: Grants unlimited allowance for the pair token to the router without access control.}
+{Function: swapSell, Sink: IRouters.swapExactTokensForETHSupportingFeeOnTransferTokens(tokenAmount, 0, path, address(0x2F98Fa813Ced7Aa9Fd6788aB624b2F3F292B9239), block.timestamp), Visibility: public, Explanation: Swaps the contract’s SELLC tokens to ETH and sends the output to a fixed address without access control.}
+{Function: setUPs, Sink: upaddress[to] = newAddr, Visibility: public, Explanation: Modifies another user’s upaddress; the function only checks that the caller is the current upline, not that the affected user authorized the change.}
+{Function: stake, Sink: users[token][up].arrs.push(msg.sender), Visibility: external, Explanation: Modifies another user’s array; any caller can select any existing staker as up without that user’s authorization.}
+{Function: removeLiquidity, Sink: IRouters.removeLiquidity(token, token1, lp, 0, 0, address(this), block.timestamp+100), Visibility: public, Explanation: Removes the contract’s liquidity without access control.}
+{Function: removeLiquidity, Sink: startTime += 86400, Visibility: public, Explanation: Modifies the startTime state variable without access control.}

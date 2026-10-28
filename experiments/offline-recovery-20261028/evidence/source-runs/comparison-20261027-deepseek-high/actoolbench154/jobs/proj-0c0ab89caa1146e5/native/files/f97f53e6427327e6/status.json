@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "c246dcb1b7c0d24ab58226aab14dbc7987b489e98c4b2ad379e89e4faf3858a0",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 1,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 1,
+    "elapsed_seconds": 0.024,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.6.7+commit.b8d736ae",
+    "compiler_sha256": "20263aa17c2e7ca8c10ecd3d4242df61db9d549bc1ddb72b9a387c0c1136c1cf",
+    "metadata": "v0.6.7+commit.b8d736ae",
+    "metadata_build": "b8d736ae",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.7"
+  },
+  "elapsed_seconds": 287.055,
+  "ended_utc": "2026-10-27T05:32:19.629905+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/lib/reentrancy-guard.sol",
+  "source_sha256": "c246dcb1b7c0d24ab58226aab14dbc7987b489e98c4b2ad379e89e4faf3858a0",
+  "started_utc": "2026-10-27T05:32:19.012516+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-0c0ab89caa1146e5/source_code/src/lib/reentrancy-guard.sol"
+}

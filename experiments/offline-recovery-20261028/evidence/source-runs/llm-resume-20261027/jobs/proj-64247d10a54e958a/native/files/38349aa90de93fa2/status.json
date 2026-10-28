@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "3d1b89a4481fa3d97709ffde3f3676931a02d1d15aa9b6a01bbe668ebede5e88",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.9+commit.e5eed63a",
+    "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+    "metadata": "v0.8.9+commit.8d00100c",
+    "metadata_build": "8d00100c",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-64247d10a54e958a/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.9"
+  },
+  "elapsed_seconds": 172.974,
+  "ended_utc": "2026-10-27T13:17:35.689935+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/38349aa90de93fa2/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-64247d10a54e958a/source_code/BasePoolV2.sol",
+  "source_sha256": "3d1b89a4481fa3d97709ffde3f3676931a02d1d15aa9b6a01bbe668ebede5e88",
+  "started_utc": "2026-10-27T13:14:42.717149+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-64247d10a54e958a/source_code/BasePoolV2.sol"
+}

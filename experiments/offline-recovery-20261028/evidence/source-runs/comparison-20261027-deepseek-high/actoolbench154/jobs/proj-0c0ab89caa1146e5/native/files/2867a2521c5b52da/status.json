@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "3cf7d72acc541b875da0a1a6cc4222c87512898fdfadc88731c0f5cf65928c54",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 7,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 1,
+    "elapsed_seconds": 0.298,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.6.7+commit.b8d736ae",
+    "compiler_sha256": "20263aa17c2e7ca8c10ecd3d4242df61db9d549bc1ddb72b9a387c0c1136c1cf",
+    "metadata": "v0.6.7+commit.b8d736ae",
+    "metadata_build": "b8d736ae",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.7"
+  },
+  "elapsed_seconds": 745.45,
+  "ended_utc": "2026-10-27T05:39:58.025315+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/tests/lib/mock-erc20.sol",
+  "source_sha256": "3cf7d72acc541b875da0a1a6cc4222c87512898fdfadc88731c0f5cf65928c54",
+  "started_utc": "2026-10-27T05:39:57.157789+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-0c0ab89caa1146e5/source_code/src/tests/lib/mock-erc20.sol"
+}

@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:updateMaxAssets, Visibility:external, Explanation:Writes to variable maxAssets without any access control.}
+{Function:updateOracle, Visibility:external, Explanation:Writes to variable oracle without any access control.}
+
+=============Contract: SpotVault
+Sink:
+Reasoning:
+1. `updateMaxAssets` is external and writes `maxAssets`, but it is guarded by `onlyRole(OPERATOR)`. This is role-based access control, so it is not an unguarded sink.
+2. `updateOracle` is external and writes `oracle`, but it is guarded by `onlyRole(ORACLE_MGR)`. This is role-based access control, so it is not an unguarded sink.
+3. The constructor is the only initialization function. It is not callable after deployment and sets initial roles and fee configuration.
+4. Role-restricted functions `rotationSwaps`, `collectFee`, `approveAsset`, `updateDiscountPolicy`, `updateFeeDetails`, `updateSlippageTolerance`, `addDepositableAsset`, and `removeDepositableAsset` all have role modifiers.
+5. User functions `deposit`, `depositNative`, and `redeem` modify the caller’s own shares or require caller approvals, and transfer assets according to redemption/deposit logic. These are standard user operations, not unauthorized writes to another user’s state.
+6. No unguarded privileged state write or unauthorized asset transfer sink is present.
+
+--Sink--:
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 25, "contracts_skipped_interface_abstract_library": 24, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 60.907, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 25, "total_token": 17594}
+==============End======================
+total time: 60.90682506561279
+total token: 17594

@@ -1,0 +1,84 @@
+{
+  "ACTaint": {
+    "rounds": [
+      [
+        "proj-83d6a41518987deb",
+        "proj-a7b0bd2cc330617f"
+      ],
+      [
+        "proj-f7914576f27294c1",
+        "proj-1657ccfa72539c65"
+      ],
+      [
+        "proj-9f12868fb25f83ca",
+        "proj-100debc7453b0b1b"
+      ]
+    ],
+    "sources": {
+      "proj-100debc7453b0b1b": [
+        "3d577da05d65320466c9ed566a5c23b7637ab58c10afd6110f7bb67687fedc43"
+      ],
+      "proj-1657ccfa72539c65": [
+        "fba169bc6b1e48abe0e5d2b1b8eb867abe569fb39abe11abfce0b4dcc328ea1f"
+      ],
+      "proj-83d6a41518987deb": [
+        "1ec68fce302cb61fb57bfe285da6c40a0f2557f130a655e12e94b0f87ac9d9be"
+      ],
+      "proj-9f12868fb25f83ca": [
+        "8c9e777bd3fa9d8f80283e0d378c2a2d2a7a15e5ffbb54d74b2ace2178418e88"
+      ],
+      "proj-a7b0bd2cc330617f": [
+        "f303f1e9038ef3871a3817ef6b5c7986cbfd4ecad605a47ecf834375493e54a7"
+      ],
+      "proj-f7914576f27294c1": [
+        "cfc4a08d8aa6636b23aa0695a666c46fb658b71858343b486293d80fce4d925b"
+      ]
+    }
+  },
+  "GPTLens": {
+    "rounds": [
+      [
+        "proj-8b65cfc4735dcd5e",
+        "proj-06e0b606c3789db5"
+      ],
+      [
+        "proj-c695ebe78e0b8349",
+        "proj-1342319724ccb055"
+      ],
+      [
+        "proj-3a5bc65f96317f51",
+        "proj-987bf9a24ec4e435"
+      ]
+    ],
+    "sources": {
+      "proj-06e0b606c3789db5": [
+        "54e88ef60ff604d0d416868e71d7c6bffbac73e594a3003948f67874d062e798"
+      ],
+      "proj-1342319724ccb055": [
+        "6d64713fecde96a1e139f39f5e30525882cca7a3a744bd4458d1437767eb1fad"
+      ],
+      "proj-3a5bc65f96317f51": [
+        "328f4f0f709d880db93fb936c0bb2d8306f1e39c25905bc4e52009e35178fd97"
+      ],
+      "proj-8b65cfc4735dcd5e": [
+        "bb77aebb54b3e98fc705d1d1952ff1e13a7297e246eec4b8376da60b34b209c7"
+      ],
+      "proj-987bf9a24ec4e435": [
+        "192113b69fb1fb2cc2e7eed7e84f304951fb8a714813832271f2edd80d6b3f56"
+      ],
+      "proj-c695ebe78e0b8349": [
+        "2b6d969e5e91a97ccf12902cc174200b11f8f0671276da6a780b1fd4c371e965"
+      ]
+    }
+  },
+  "layout": "prefix_stable_v2",
+  "max_new_rounds": 3,
+  "no_replayed_paid_sources": true,
+  "prior_ACTaint_observed_cache_rate": 0.27708473060585737,
+  "prior_exact_rate": "UNKNOWN_3_USAGE_MISSING",
+  "schema": "POST_PAYMENT_CACHE_OPTIMIZATION_V1",
+  "scope": "diagnostics_only_no_full_run",
+  "selection_rule": "distinct single-file projects sorted source bytes; ACTaint excludes ALL previously paid project source hashes and prior diagnostic project ids; GPTLens had0 calls",
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "target": 0.95
+}

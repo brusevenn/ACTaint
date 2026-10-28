@@ -1,0 +1,79 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-17ae9f448dadfaea",
+  "case_ids": [
+    "acb-67afad1d89a6f336"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "209b2cc308aedda17295fcd0be18c3ce9077dca10e4833cdeb1f49f9df3f5408",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T12:59:38.804754+00:00",
+  "exit_code": 4,
+  "input_identity": "70fbd69ea131f41e91ab6308e36b6d6337e8120b268887b882a160e98f2ed265",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-17ae9f448dadfaea",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "Context.sol",
+      "847fda5460fee70f56f4200f59b82ae622bb03c79c77e67af010e31b7e2cc5b6"
+    ],
+    [
+      "ERC20.sol",
+      "ba0dc6fd21ea73fec63d82c48aa8d78f570e5257f085a9ba1dd5f46772faf6f8"
+    ],
+    [
+      "IERC165.sol",
+      "975048a32a485a4a67a9dd51afa92c003712d35e7f9ee08e84b14c1d4ad8dfb1"
+    ],
+    [
+      "IERC20.sol",
+      "21927550be6f72f1c4f498dfecceb1800613c3d55dc8638d838449f076d36ae3"
+    ],
+    [
+      "IERC20Metadata.sol",
+      "1d6e6dc2dea7a5bc2cf89264bac3c3b0409bf897c52e35b1f92c723c28bc52f8"
+    ],
+    [
+      "IERC721.sol",
+      "2845943b835df8e7be856bcbf58087e104cc3bcd137c72238138406b42fa252d"
+    ],
+    [
+      "IERC721Metadata.sol",
+      "778e4f7c2ed88b779cd34b33fdb42e59399dfa7b79ff7168b7002ea0b3c48f5f"
+    ],
+    [
+      "IERC721Receiver.sol",
+      "cfd84d44f16f21017ff19201630a60750524e9ddef2594c8efa9a64bcdca2655"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "64fc5736fd6de77f1df6cc97f49d8d31ffe52a39664cda6f1e10e41f5e22a5dc"
+    ],
+    [
+      "P404Token.sol",
+      "cf0b153feb4d39e87722c972e20cb0b2c9f6ed14b82192a3d0390f012f1c1a8f"
+    ],
+    [
+      "draft-IERC6093.sol",
+      "fea1df641a9850183aa730b624d57f49b91a60b7b791a579ffdc12f8956a7505"
+    ]
+  ],
+  "source_hashes": [
+    "1d6e6dc2dea7a5bc2cf89264bac3c3b0409bf897c52e35b1f92c723c28bc52f8",
+    "21927550be6f72f1c4f498dfecceb1800613c3d55dc8638d838449f076d36ae3",
+    "2845943b835df8e7be856bcbf58087e104cc3bcd137c72238138406b42fa252d",
+    "64fc5736fd6de77f1df6cc97f49d8d31ffe52a39664cda6f1e10e41f5e22a5dc",
+    "778e4f7c2ed88b779cd34b33fdb42e59399dfa7b79ff7168b7002ea0b3c48f5f",
+    "847fda5460fee70f56f4200f59b82ae622bb03c79c77e67af010e31b7e2cc5b6",
+    "975048a32a485a4a67a9dd51afa92c003712d35e7f9ee08e84b14c1d4ad8dfb1",
+    "ba0dc6fd21ea73fec63d82c48aa8d78f570e5257f085a9ba1dd5f46772faf6f8",
+    "cf0b153feb4d39e87722c972e20cb0b2c9f6ed14b82192a3d0390f012f1c1a8f",
+    "cfd84d44f16f21017ff19201630a60750524e9ddef2594c8efa9a64bcdca2655",
+    "fea1df641a9850183aa730b624d57f49b91a60b7b791a579ffdc12f8956a7505"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

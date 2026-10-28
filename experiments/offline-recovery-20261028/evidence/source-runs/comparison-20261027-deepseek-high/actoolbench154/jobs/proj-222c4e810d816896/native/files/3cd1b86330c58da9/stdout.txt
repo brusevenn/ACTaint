@@ -1,0 +1,80 @@
+==============Start====================
+rules:
+{Function:decreaseWeight, Visibility:internal, Explanation:Writes to variable mapMember_weight without any access control.}
+{Function:decreaseWeight, Visibility:internal, Explanation:Writes to variable mapMemberPool_weight without any access control.}
+{Function:claimForMember, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: BondVault
+Sink:
+Reasoning:
+- The actual constructor `constructor(address _base)` is the legitimate constructor and only initializes deployment state (`BASE`, `DEPLOYER`, `bondRelease`). It is not a wrong constructor/initializer and does not constitute an access-control sink.
+- `onlyDAO()` enforces `msg.sender == _DAO().DAO() || msg.sender == DEPLOYER`, so functions guarded by it are access-controlled.
+- `depositForMember`, `claimForMember`, `purgeDeployer`, and `release` are all protected by `onlyDAO`.
+- `increaseWeight` and `decreaseWeight` are `internal`; they are only invoked from the guarded functions `depositForMember` and `claimForMember`, respectively. They cannot be called externally.
+- The token transfer in `claimForMember` is performed only after the `onlyDAO` check, so it is authorized by the contract’s access-control logic.
+- No initializer-like function, wrong constructor, or unprotected state-changing function exists.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:changeCooloff, Visibility:internal, Explanation:Writes to variable coolOffPeriod without any access control.}
+{Function:moveRouter, Visibility:internal, Explanation:Writes to variable _ROUTER without any access control.}
+{Function:newAddressProposal, Visibility:external, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:newParamProposal, Visibility:external, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:_increaseSpartaAllocation, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:moveReserve, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:_addCuratedPool, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:newActionProposal, Visibility:external, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:_delistBondingAsset, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:completeProposal, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:flipEmissions, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:moveUtils, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:_removeCuratedPool, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:grantFunds, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:newGrantProposal, Visibility:external, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:moveDao, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:changeEras, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:changeCooloff, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:moveRouter, Visibility:internal, Explanation:Writes to variable mapPID_open without any access control.}
+{Function:newParamProposal, Visibility:external, Explanation:Writes to variable currentProposal without any access control.}
+{Function:newActionProposal, Visibility:external, Explanation:Writes to variable currentProposal without any access control.}
+{Function:newGrantProposal, Visibility:external, Explanation:Writes to variable currentProposal without any access control.}
+{Function:newAddressProposal, Visibility:external, Explanation:Writes to variable currentProposal without any access control.}
+{Function:newParamProposal, Visibility:external, Explanation:Writes to variable mapPID_startTime without any access control.}
+{Function:newActionProposal, Visibility:external, Explanation:Writes to variable mapPID_startTime without any access control.}
+{Function:newGrantProposal, Visibility:external, Explanation:Writes to variable mapPID_startTime without any access control.}
+{Function:newAddressProposal, Visibility:external, Explanation:Writes to variable mapPID_startTime without any access control.}
+{Function:_finalise, Visibility:internal, Explanation:Writes to variable mapPID_coolOffTime without any access control.}
+{Function:moveReserve, Visibility:internal, Explanation:Writes to variable _RESERVE without any access control.}
+{Function:deposit, Visibility:external, Explanation:Writes to variable isMember without any access control.}
+{Function:moveDao, Visibility:internal, Explanation:Writes to variable daoHasMoved without any access control.}
+{Function:moveReserve, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_increaseSpartaAllocation, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:completeProposal, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_addCuratedPool, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_finalise, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_delistBondingAsset, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:flipEmissions, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:moveUtils, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_removeCuratedPool, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:grantFunds, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:changeEras, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:moveDao, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:changeCooloff, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:moveRouter, Visibility:internal, Explanation:Writes to variable mapPID_finalising without any access control.}
+{Function:_delistBondingAsset, Visibility:internal, Explanation:Writes to variable isListed without any access control.}
+{Function:moveBASEBalance, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: Dao
+Sink:
+Reasoning:
+- The constructor only initializes contract state and is the recognized constructor.
+- Functions with `onlyDAO` are access-controlled by `DEPLOYER`.
+- Internal governance action functions are reached only through `finaliseProposal`, which checks finalising status, cool-off time, and quorum.
+- Proposal creation and stale-proposal cancellation are permissionless by the contract’s explicit fee/timeout logic.
+- `depositLPForMember` is externally callable with an arbitrary `member` and updates that member’s membership and harvest timestamp without authorization.
+
+--Sink--:
+{Function: depositLPForMember, Sink: writes mapMember_lastTime[member] and isMember[member], Visibility:public, Explanation: The function accepts an arbitrary member address and updates that member's membership and last harvest timestamp without requiring member == msg.sender or approval.}

@@ -1,0 +1,19 @@
+{
+  "case_ids": [
+    "acb-2fae63f613ba8e30",
+    "acb-8dd32d781afbf913",
+    "acb-b7771041bd1319ea",
+    "acb-f5ceaa0f3257aac5"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "dataset": "actoolbench154",
+  "file_count": 1,
+  "id": "proj-9cc8fc9183d71d44",
+  "input_identity": "489d25335127457273b5e11d55a5e4bc582da201721ced54783442fd1a88e488",
+  "manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "phase": "formal",
+  "prompt_layout": "prefix_stable",
+  "started_utc": "2026-10-27T06:16:38.342569+00:00",
+  "timeout_seconds": 1200,
+  "tool": "ACTaint"
+}

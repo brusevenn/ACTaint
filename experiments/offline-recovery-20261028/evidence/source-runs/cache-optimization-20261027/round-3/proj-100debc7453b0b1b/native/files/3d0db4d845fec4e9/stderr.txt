@@ -1,0 +1,4 @@
+ERROR:ContractSolcParsing:Impossible to generate IR for FeeMath.applyProtocolFee (WildcatMarketConfig.sol#1522-1533):
+ 'NoneType' object has no attribute 'parameters'
+ERROR:ContractSolcParsing:Impossible to generate IR for MarketStateLib.liquidityRequired (WildcatMarketConfig.sol#1738-1749):
+ 'NoneType' object has no attribute 'parameters'

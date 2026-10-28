@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:requestWithdraw, Visibility:external, Explanation:Writes to variable withdrawalReq without any access control.}
+
+=============Contract: CDSTemplate
+Sink:
+Reasoning:
+- `initialize` is an external initializer that writes critical storage (`parameters`, `vault`, `registry`, `metadata`) and calls `initializeToken`. It has no caller access control; the `initialized` check only limits call count, not who can call it. Per the instructions, initializer functions without caller access control are treated as sinks.
+- `requestWithdraw` writes only to `withdrawalReq[msg.sender]`, which is the caller’s own withdrawal request state. It does not modify other users’ state or assets without authorization, so it is not a sink.
+- `deposit`, `fund`, `withdraw`, and `compensate` either modify only the caller’s own assets in exchange for tokens, are standard deposit/withdraw operations, or have access control (`registry.isListed(msg.sender)` for `compensate`).
+- `defund`, `changeMetadata`, and `setPaused` are protected by `onlyOwner`.
+- `_beforeTokenTransfer` is internal token-transfer logic and only adjusts the sender’s withdrawal request as part of an authorized token transfer.
+
+--Sink--:
+{Function: initialize, Sink: writes to parameters, vault, registry, metadata and calls initializeToken, Visibility: external, Explanation: External initializer without caller access control can set critical contract addresses and metadata; the initialized flag only restricts call count, not the caller.}

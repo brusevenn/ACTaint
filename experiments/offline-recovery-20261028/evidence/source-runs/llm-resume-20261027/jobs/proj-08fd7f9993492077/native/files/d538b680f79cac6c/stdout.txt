@@ -1,0 +1,34 @@
+==============Start====================
+rules:
+{Function:removeAsset, Visibility:external, Explanation:Writes to variable assets without any access control.}
+{Function:removeAsset, Visibility:external, Explanation:Writes to variable assetId without any access control.}
+
+=============Contract: UlyssesToken
+Sink:
+The only externally callable state-changing functions in the provided contract are `addAsset`, `removeAsset`, and `setWeights`. Each includes the `onlyOwner` modifier, which enforces access control. `updateAssetBalances` is internal and is only called by those owner-protected functions. The constructor initializes ownership during deployment and is not a callable initializer. Although the static analysis flags `removeAsset`, the actual source shows it is protected by `onlyOwner`, so it is not an access-control sink. No unprotected sink operations are present.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:ulyssesRemoveLP, Visibility:private, Explanation:Uses assembly.}
+{Function:calcFee, Visibility:private, Explanation:Uses assembly.}
+{Function:getBandwidthUpdateAmounts, Visibility:private, Explanation:Uses assembly.}
+{Function:swapFromPool, Visibility:external, Explanation:Uses assembly.}
+{Function:ulyssesAddLP, Visibility:private, Explanation:Uses assembly.}
+{Function:_calculateRebalancingFee, Visibility:internal, Explanation:Uses assembly.}
+{Function:swapIn, Visibility:external, Explanation:Uses assembly.}
+{Function:ulyssesSwap, Visibility:private, Explanation:Uses assembly.}
+{Function:updateBandwidth, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: UlyssesPool
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 2, "contracts_seen": 19, "contracts_skipped_interface_abstract_library": 15, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 2, "elapsed_seconds": 129.437, "sink_agent_calls": 2, "taint_agent_calls": 0, "target_contracts": 19, "total_token": 33600}
+==============End======================
+total time: 129.43664264678955
+total token: 33600

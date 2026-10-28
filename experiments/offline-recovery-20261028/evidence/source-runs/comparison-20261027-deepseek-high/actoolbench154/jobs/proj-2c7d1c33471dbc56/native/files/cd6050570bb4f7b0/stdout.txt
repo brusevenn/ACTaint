@@ -1,0 +1,26 @@
+==============Start====================
+rules:
+{Function:_give, Visibility:internal, Explanation:Writes to variable vaults without any access control.}
+{Function:tweak, Visibility:external, Explanation:Writes to variable vaults without any access control.}
+{Function:destroy, Visibility:external, Explanation:Writes to variable vaults without any access control.}
+{Function:roll, Visibility:external, Explanation:Writes to variable vaults without any access control.}
+{Function:give, Visibility:external, Explanation:Writes to variable vaults without any access control.}
+{Function:setAuctionInterval, Visibility:external, Explanation:Writes to variable auctionInterval without any access control.}
+{Function:_accrual, Visibility:private, Explanation:Writes to variable ratesAtMaturity without any access control.}
+{Function:level, Visibility:public, Explanation:Writes to variable ratesAtMaturity without any access control.}
+{Function:roll, Visibility:external, Explanation:Writes to variable ratesAtMaturity without any access control.}
+{Function:accrual, Visibility:public, Explanation:Writes to variable ratesAtMaturity without any access control.}
+{Function:_mature, Visibility:internal, Explanation:Writes to variable ratesAtMaturity without any access control.}
+{Function:pour, Visibility:external, Explanation:Writes to variable ratesAtMaturity without any access control.}
+{Function:_level, Visibility:internal, Explanation:Writes to variable ratesAtMaturity without any access control.}
+{Function:destroy, Visibility:external, Explanation:Writes to variable auctions without any access control.}
+
+=============Contract: Cauldron
+Sink:
+--Sink--:
+{Function: level, Sink: Writes to ratesAtMaturity, Visibility: public, Explanation: Public function without access control calls _level; _level calls _accrual in the branch where block.timestamp >= series_.maturity; _accrual calls _mature in the branch where ratesAtMaturity[seriesId] == 0; _mature writes ratesAtMaturity[seriesId] = rateAtMaturity.}
+{Function: mature, Sink: Writes to ratesAtMaturity, Visibility: public, Explanation: Public function without access control calls _mature; _mature writes ratesAtMaturity[seriesId] = rateAtMaturity.}
+{Function: _mature, Sink: Writes to ratesAtMaturity, Visibility: internal, Explanation: Internal function writes ratesAtMaturity[seriesId] = rateAtMaturity without access control.}
+{Function: accrual, Sink: Writes to ratesAtMaturity, Visibility: public, Explanation: Public function without access control calls _accrual; _accrual calls _mature in the branch where ratesAtMaturity[seriesId] == 0; _mature writes ratesAtMaturity[seriesId] = rateAtMaturity.}
+{Function: _accrual, Sink: Writes to ratesAtMaturity, Visibility: private, Explanation: Private function calls _mature in the branch where ratesAtMaturity[seriesId] == 0; _mature writes ratesAtMaturity[seriesId] = rateAtMaturity.}
+{Function: _level, Sink: Writes to ratesAtMaturity, Visibility: internal, Explanation: Internal function calls _accrual in the branch where block.timestamp >= series_.maturity; _accrual calls _mature in the branch where ratesAtMaturity[seriesId] == 0; _mature writes ratesAtMaturity[seriesId] = rateAtMaturity.}

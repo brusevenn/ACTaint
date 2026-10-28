@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:initialize, Visibility:external, Explanation:Writes to variable manager without any access control.}
+{Function:setRewarder, Visibility:external, Explanation:Writes to variable rewarder without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable rewarder without any access control.}
+{Function:applyRewards, Visibility:public, Explanation:Uses low level call.}
+{Function:withdrawStuckTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: VotiumStrategyCore
+Sink:
+Reasoning:
+- `initialize` is `external` with the `initializer` modifier. The modifier only prevents repeat initialization; it does not restrict who can call it. It writes ownership, `rewarder`, `manager`, and the Chainlink feed.
+- `setRewarder` writes `rewarder`, which controls the `onlyRewarder` modifier. It is `onlyOwner`, but `owner` is assigned in the unprotected `initialize`.
+- `depositRewards` is `public payable` with no access control. It calls `buyCvx(_amount)`, which sends `_amount` ETH from the contract to the Curve pool and locks the resulting CVX. There is no check that `_amount == msg.value`, so contract ETH can be spent.
+- `applyRewards` is `public onlyRewarder`. It performs max token approvals to user-supplied spenders and executes a low-level call to a user-supplied `swapTarget` with user-supplied calldata. The `rewarder` is assigned in the unprotected `initialize`.
+- `withdrawStuckTokens` is `public onlyOwner`. It transfers the contract’s entire balance of any token to `msg.sender`. The `owner` is assigned in the unprotected `initialize`.
+
+--Sink--:
+{Function: initialize, Sink: Unprotected initialization of owner, rewarder, manager, and oracle, Visibility: external, Explanation: The initializer modifier only prevents repeat calls; it does not restrict the caller, so critical state and ownership can be set by any address.}
+{Function: setRewarder, Sink: Writes rewarder, Visibility: external, Explanation: The onlyOwner guard depends on owner, which unprotected initialize can assign; setRewarder changes the rewarder used by onlyRewarder.}
+{Function: depositRewards, Sink: Spends contract ETH and locks CVX, Visibility: public, Explanation: The function has no access control and calls buyCvx(_amount) with _amount as the ETH value without requiring _amount == msg.value, allowing contract ETH to be spent and CVX to be locked.}
+{Function: applyRewards, Sink: Arbitrary low-level call and token approvals, Visibility: public, Explanation: The onlyRewarder guard depends on rewarder, which unprotected initialize can assign; the function approves user-supplied spenders and executes user-supplied calldata on user-supplied targets.}
+{Function: withdrawStuckTokens, Sink: Transfers token balance, Visibility: public, Explanation: The onlyOwner guard depends on owner, which unprotected initialize can assign; the function transfers the contract's entire balance of any token to msg.sender.}

@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:fallback, Visibility:external, Explanation:Uses low level call.}
+
+=============Contract: VaultProxy
+Sink:
+Reasoning:
+- `initialise` is an external initializer with no caller authorization. The `isInitialized` check restricts call count, not caller identity. The first caller assigns `owner` from an arbitrary `_staderConfig` and updates `staderConfig`. This is a sink.
+- `fallback` is external and performs `delegatecall` to the implementation address returned by `staderConfig`, using caller-supplied `_input`. No caller authorization is enforced in the proxy fallback. This is a sink.
+- `updateStaderConfig` and `updateOwner` are external but guarded by `onlyOwner`, which checks `msg.sender == owner`. These are not sinks.
+- The constructor is empty and does not perform sink operations.
+
+--Sink--:
+{Function: initialise, Sink: initializer without access control (sets owner and staderConfig), Visibility: external, Explanation: The function has no caller authorization and only checks isInitialized; the first external caller sets isInitialized, poolId, id, staderConfig, and owner to staderConfig.getAdmin(), so ownership and configuration are assigned by an arbitrary caller.}
+{Function: fallback, Sink: delegatecall, Visibility: external, Explanation: The function forwards caller-supplied _input with delegatecall to the implementation address from staderConfig and enforces no caller authorization at the proxy level.}

@@ -1,0 +1,149 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-f5eef3ef9b168f63",
+  "case_ids": [
+    "acb-9e60087f826280b9"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "c80f444ed3115f5252c6a91cf2053ecd0708eddbd0c90f5aef10942f1ae1a78e",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:50:38.953160+00:00",
+  "exit_code": 4,
+  "input_identity": "9ace5bfc74e791af4fb72e4f42e4f96754bddedd0e854edc6179fe18cd9e9ae0",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-f5eef3ef9b168f63",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "98ce2984e449716f24043a8c11bbe969a6d34878b1d522b92c88d62708ba3376"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "1d7d481b79fd54d957c9a0696f6227f7799fec01d8ba41f5c130a7cc6b4eddc9"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "a940b4d4998f7d5081c77e0bdc8e5433adfef611ff4f616916f958aaab5ea0a0"
+    ],
+    [
+      "contracts/CurveContractInterface.sol",
+      "a120d78bc0653cfa05a5aeaef90a0c497f301ebcd537f2a9b15ff9f0d157a812"
+    ],
+    [
+      "contracts/CurveSwap.sol",
+      "e81846d9d3f8f5c9e8f7ee24f4aae05d3557c2a28141179aef09b67cccfabfa3"
+    ],
+    [
+      "contracts/DepTokenInterfaces.sol",
+      "7a0ce2b184b2efad9a26c39d9ad679e30f05790be2b40741e7b864876901a659"
+    ],
+    [
+      "contracts/DepositWithdraw.sol",
+      "cc45a27918c9abbe6b6a8cf72b6f2a32fb85f69f5cc75dbfc81c036547ec1e5f"
+    ],
+    [
+      "contracts/DepositWithdrawInterface.sol",
+      "3c9c70c664c78e159df3d9ee73dacacb5946f7165bf8b6d9d2fc8ad892df7098"
+    ],
+    [
+      "contracts/EIP20Interface.sol",
+      "a6417e2f1b068faed454627d277dea622483c66d7a863ea7866be80aa979aa70"
+    ],
+    [
+      "contracts/EIP20NonStandardInterface.sol",
+      "426b23167d8399e5cd8c209147ba3f1492cea11fe4eb5b813b39b8204b3d2c56"
+    ],
+    [
+      "contracts/ErrorReporter.sol",
+      "59341efe9dddc152958730a6cef086ce0e5d9cbbd191d9850175273a2b3f218d"
+    ],
+    [
+      "contracts/ExponentialNoError.sol",
+      "dd272760b2d9082db9c94f6198896402fe3681bf41fc3f9d8bba31ada290c3c5"
+    ],
+    [
+      "contracts/InterestRateModel.sol",
+      "4a7bbf4f6d457072ed84bbbe482a3e5b2b1c2fc424946e905cd76a2244d800f8"
+    ],
+    [
+      "contracts/LevErc20.sol",
+      "68102f7d12e9b689e53dbc6cf4e44943ef50b923bece98ba1c92a808997c1e05"
+    ],
+    [
+      "contracts/LevToken.sol",
+      "b52f6b267d05f26a49ae5faf3203d9eb3115e39af13e51f371402a8bb0937f66"
+    ],
+    [
+      "contracts/LevTokenInterfaces.sol",
+      "70bf0976a132c0bbd5e789cee3ff93cedaa0287bc3f8b2d3d86ca4c4bb8e15c3"
+    ],
+    [
+      "contracts/MatrixpricerInterface.sol",
+      "8bdbccf66766e9abd0fe0dcc0381e547b6c603cb92e8de0b8d2edc0256e5fa9e"
+    ],
+    [
+      "contracts/TensorpricerInterface.sol",
+      "d80dd4ae228af1fd292fd03cd2d757661854d61121e3b92f70c9fb1068f2cd5d"
+    ],
+    [
+      "contracts/vendor/interfaces/Address.sol",
+      "b0d5c8ab8d8ffc4b181335be42d0d98602427e753698c682a3d729c719e68fc1"
+    ],
+    [
+      "contracts/vendor/interfaces/IAddressProvider.sol",
+      "4e4d9aa9ffb734d54996b1f1f79f6f1708a6e690777fabb5f9d5528874635739"
+    ],
+    [
+      "contracts/vendor/interfaces/ICurveFi.sol",
+      "ef75b1f7256a38ae5da861b58ec95e6a4a493da958d5fe1debe0ce45065aee08"
+    ],
+    [
+      "contracts/vendor/interfaces/IERC20.sol",
+      "6654ca211d7ed22937fae539bcf24e0bda89ba7489d4a2f439cc52f53db6ec4d"
+    ],
+    [
+      "contracts/vendor/interfaces/IRegistry.sol",
+      "6035568568d518d3658e2459eb9265b032ed3ace5efadd6997ba76a7abb6eb2c"
+    ],
+    [
+      "contracts/vendor/interfaces/SafeERC20.sol",
+      "939b67fae114e7c1386bcd5f95321c4ea8b8ab8ba4b295445074a394b3e4eea4"
+    ],
+    [
+      "hardhat/console.sol",
+      "47a72fddde001a2977f460b759ce035f9788daa34c186ce1f9a10066236b3f75"
+    ]
+  ],
+  "source_hashes": [
+    "1d7d481b79fd54d957c9a0696f6227f7799fec01d8ba41f5c130a7cc6b4eddc9",
+    "3c9c70c664c78e159df3d9ee73dacacb5946f7165bf8b6d9d2fc8ad892df7098",
+    "426b23167d8399e5cd8c209147ba3f1492cea11fe4eb5b813b39b8204b3d2c56",
+    "47a72fddde001a2977f460b759ce035f9788daa34c186ce1f9a10066236b3f75",
+    "4a7bbf4f6d457072ed84bbbe482a3e5b2b1c2fc424946e905cd76a2244d800f8",
+    "4e4d9aa9ffb734d54996b1f1f79f6f1708a6e690777fabb5f9d5528874635739",
+    "59341efe9dddc152958730a6cef086ce0e5d9cbbd191d9850175273a2b3f218d",
+    "6035568568d518d3658e2459eb9265b032ed3ace5efadd6997ba76a7abb6eb2c",
+    "6654ca211d7ed22937fae539bcf24e0bda89ba7489d4a2f439cc52f53db6ec4d",
+    "68102f7d12e9b689e53dbc6cf4e44943ef50b923bece98ba1c92a808997c1e05",
+    "70bf0976a132c0bbd5e789cee3ff93cedaa0287bc3f8b2d3d86ca4c4bb8e15c3",
+    "7a0ce2b184b2efad9a26c39d9ad679e30f05790be2b40741e7b864876901a659",
+    "8bdbccf66766e9abd0fe0dcc0381e547b6c603cb92e8de0b8d2edc0256e5fa9e",
+    "939b67fae114e7c1386bcd5f95321c4ea8b8ab8ba4b295445074a394b3e4eea4",
+    "98ce2984e449716f24043a8c11bbe969a6d34878b1d522b92c88d62708ba3376",
+    "a120d78bc0653cfa05a5aeaef90a0c497f301ebcd537f2a9b15ff9f0d157a812",
+    "a6417e2f1b068faed454627d277dea622483c66d7a863ea7866be80aa979aa70",
+    "a940b4d4998f7d5081c77e0bdc8e5433adfef611ff4f616916f958aaab5ea0a0",
+    "b0d5c8ab8d8ffc4b181335be42d0d98602427e753698c682a3d729c719e68fc1",
+    "b52f6b267d05f26a49ae5faf3203d9eb3115e39af13e51f371402a8bb0937f66",
+    "cc45a27918c9abbe6b6a8cf72b6f2a32fb85f69f5cc75dbfc81c036547ec1e5f",
+    "d80dd4ae228af1fd292fd03cd2d757661854d61121e3b92f70c9fb1068f2cd5d",
+    "dd272760b2d9082db9c94f6198896402fe3681bf41fc3f9d8bba31ada290c3c5",
+    "e81846d9d3f8f5c9e8f7ee24f4aae05d3557c2a28141179aef09b67cccfabfa3",
+    "ef75b1f7256a38ae5da861b58ec95e6a4a493da958d5fe1debe0ce45065aee08"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "60e1c016c6f6b5b67c5562ec1d9306e58d62ba34856eac17145466078016c0b1",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.6.9+commit.3e3065ac",
+    "compiler_sha256": "eb42bef5784a0dec0f1b54c260b376deb0495940bfd474c44b5be31c0b634603",
+    "metadata": "v0.6.9+commit.3e3065ac",
+    "metadata_build": "3e3065ac",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-0593ebc5789e5fc9/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.9"
+  },
+  "elapsed_seconds": 189.129,
+  "ended_utc": "2026-10-27T05:28:21.864610+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/fed4de10568aa982/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0593ebc5789e5fc9/source_code/MainContractFlattened.sol",
+  "source_sha256": "60e1c016c6f6b5b67c5562ec1d9306e58d62ba34856eac17145466078016c0b1",
+  "started_utc": "2026-10-27T05:26:52.235883+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-0593ebc5789e5fc9/source_code/MainContractFlattened.sol"
+}

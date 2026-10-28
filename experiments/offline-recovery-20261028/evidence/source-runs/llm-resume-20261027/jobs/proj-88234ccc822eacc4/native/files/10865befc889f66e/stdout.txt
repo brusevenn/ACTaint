@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:_getStorage, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: ClearingHouse
+Sink:
+Enumerated the externally callable functions and their guards:
+
+- `setAuctionData` writes auction data but requires `msg.sender == LIEN_TOKEN()`.
+- `validateOrder`, `transferUnderlying`, and `settleLiquidatorNFTClaim` require `msg.sender == COLLATERAL_TOKEN()`.
+- View/pure functions and empty functions do not perform sensitive asset/state operations.
+- `safeTransferFrom` is public with no caller access control and calls `_execute`, which performs ERC20 transfers, ERC20 approval, debt repayment, and auction settlement using caller-supplied metadata.
+- No constructor/initializer-like function is present to mark as a wrong constructor sink.
+- `_getStorage` uses assembly internally but is not itself an access-control-sensitive sink.
+
+--Sink--:
+{Function: safeTransferFrom, Sink: _execute / ERC20.safeTransfer, ERC20.safeApprove, payDebtViaClearingHouse, settleAuction, Visibility: public, Explanation: Public function has no caller access control and directly invokes _execute, allowing any caller to trigger ERC20 transfers, token approval, debt payment, and auction settlement using funds held by the contract.}

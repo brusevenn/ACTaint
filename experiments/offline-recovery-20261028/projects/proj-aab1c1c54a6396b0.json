@@ -1,0 +1,638 @@
+{
+  "case_ids": [
+    "acb-6211080fc9b8efed"
+  ],
+  "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0",
+  "files": [
+    {
+      "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0",
+      "missing_stages": [
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 9,
+        "contracts_skipped_interface_abstract_library": 1,
+        "contracts_skipped_no_implementation": 2,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 5,
+        "elapsed_seconds": 8.146,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 9,
+        "total_token": 3307
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1500,
+          "sha256": "b033c1925a8a8c4589b0febdcab024b130d4c7c1cc4d28b3e1024b39e0d8dfc8",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/status.json",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/stderr.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 906,
+          "sha256": "77fa16580649638fd87affb6389948b3bec4b7bb75f7afed02e8e40f5d0d84f8",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/stdout.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_TAINT_REQUEST_AFTER_EXPLICIT_NO_SINKS",
+      "request_evidence": {
+        "entries": [
+          {
+            "call_id": "9f71c346-12cb-4018-a762-525e64af437f",
+            "error_events": [],
+            "error_line_numbers": [],
+            "finish_reason": "stop",
+            "functions": [],
+            "has_error_event": false,
+            "has_response": true,
+            "raw_findings": [],
+            "request_event": {
+              "call_id": "9f71c346-12cb-4018-a762-525e64af437f",
+              "case_id": "acb-6211080fc9b8efed",
+              "case_ids": [
+                "acb-6211080fc9b8efed"
+              ],
+              "dataset": "actoolbench-cleaned-154",
+              "event": "request",
+              "model": "deepseek-flash",
+              "project_id": "proj-aab1c1c54a6396b0",
+              "prompt_layout": "prefix_stable",
+              "request_body": {
+                "max_tokens": 65536,
+                "messages": [
+                  {
+                    "content": "You are a smart contract auditing expert skilled in taint analysis.\n        You task is to identify all **Sink** operations.\n        A **Sink** is a security-sensitive operation that may cause access control vulnerabilities.\n        Output your reasoning steps. Be precise and factual, avoid hypothetical reasoning.\n        Please ensure the output is complete and not truncated.\n        ",
+                    "role": "system"
+                  },
+                  {
+                    "content": "Step 1: **Reference**: Here is the ACTaint static analysis context listed at the end.\n        - Use this as a reference, but rely on the actual context. Be careful before marking functions not listed as sinks.\n        - For selfdestruct instructions, if they are affected by other variables, this usually indicates some level of protection. Carefully consider before identifying them as sinks.\n        Step 2: **Identify Sink**: Identify all **Sink** operations in the source code.\n        Constructor context is listed at the end.\n        - Do NOT rely on assumptions, hypothetical branches, or conditional speculation. Avoid using phrases such as \"if\", \"might\", \"could\", or any uncertain language.\n        - Treat init functions as potential sinks. Although they are intended to be called only once, without proper access control they can be invoked by anyone.\n        \n        To help you better identify sinks, here are some examples for you to learn from.\n        1.Carefully evaluate standard ERC-20 operations such as approve, transfer, transferFrom, _transfer, balance/allowance updates, and properly guarded minting/burning before labeling them as sinks.\n        - Standard approve function, sets allowance of _spender: \n            function approve(address _spender, uint256 _value) public returns (bool success) {\n        allowed[msg.sender][_spender] = _value;\n        emit Approval(msg.sender, _spender, _value);\n        return true;\n    }\n        - Standard transfer function, moves tokens from sender (msg.sender) to recipient (to): \n            function transfer(address _to, uint256 _value) public returns (bool success) {\n        require(balances[msg.sender] >= _value);\n        balances[msg.sender] -= _value;\n        balances[_to] += _value;\n        emit Transfer(msg.sender, _to, _value);\n        return true;\n    }\n        - Standard transferFrom function, moves tokens from _from to _to using allowance: \n            function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {\n        uint256 allowance = allowed[_from][msg.sender];\n        require(balances[_from] >= _value && allowance >= _value);\n        balances[_to] += _value;\n        balances[_from] -= _value;\n        if (allowance < MAX_UINT256) {\n            allowed[_from][msg.sender] -= _value;\n        }\n        emit Transfer(_from, _to, _value); \n        return true;\n    }\n        - Standard mint function, mint new tokens:\n            function mint(uint256 _value) public returns (bool success) {\n               balanceOf[msg.sender] += _value;\n               totalSupply += _value;\n               emit Mint(msg.sender, _value);\n               return true;\n           }\n        - Standard burn function:\n            function burn(uint256 _value) public returns (bool success) {\n                require(balances[msg.sender] >= _value);\n                balances[msg.sender] -= _value;\n                totalSupply -= _value;\n                emit Burn(msg.sender, _value);\n                return true;\n            }\n        - **Notice**:  \n            Check whether `from` equals `msg.sender` or has approval, and whether `to`/`recipient` equals `msg.sender`.  \n            Modifying only the caller’s (`msg.sender`) own state/assets is acceptable, but modifying others’ without authorization is a sink.\n        2. Cryptographic functions that can be used to indirectly enforce access control:\n        - keccak256(bytes memory) returns (bytes32): compute the Keccak-256 hash of the input\n        - sha256(bytes memory) returns (bytes32): compute the SHA-256 hash of the input\n        - ripemd160(bytes memory) returns (bytes20): compute RIPEMD-160 hash of the input\n        - ecrecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) returns (address): recover the address associated with the public key from elliptic curve signature or return zero on error.\n        3. This is intended behavior: any user can purchase the contract’s ownership by paying the required amount in Wei. \n        - Example:uint256 public constant howManyEtherInWeiToBecomeOwner=1000 ether;\n        function changeOwner (address _newowner) payable {\n            if (msg.value>=howManyEtherInWeiToBecomeOwner){\n                owner.transfer(msg.value);\n                owner.transfer(this.balance);\n                owner=_newowner;\n            }\n        }\n        - **Do Not** classify such functions as sinks, because the access is explicitly granted by the contract logic.\n        4. Some modifiers or require conditions **do not provide access control**.  \n        - If a function is only protected by them, it cannot be excluded from sink consideration. Do not treat them as safety checks.  \n        - Modifiers initializer, onlyInitializing, onlyNotInitializing only restrict the number of times a function can be called, **but do not restrict who can call it**.  \n        - Modifier nonReentrant only prevents reentrancy, it does not enforce access control.\n        \n        Step 3: **Self-Evaluate and Explain**: For each **Sink**, self-evaluate and then provide a formal explanation for it.\n\n- The contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\nStatic analysis result:\n{Function:decreaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:increaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:approve, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n\nSource code: ```contract StandardToken is ERC20, BasicToken {\n\n  mapping (address => mapping (address => uint256)) internal allowed;\n\n\n  /**\n   * @dev Transfer tokens from one address to another\n   * @param _from address The address which you want to send tokens from\n   * @param _to address The address which you want to transfer to\n   * @param _value uint256 the amount of tokens to be transferred\n   */\n  function transferFrom(address _from, address _to, uint256 _value) public {\n    require(_to != address(0));\n    require(_value <= balances[_from]);\n    require(_value <= allowed[_from][msg.sender]);\n\n    balances[_from] = balances[_from].sub(_value);\n    balances[_to] = balances[_to].add(_value);\n    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);\n    Transfer(_from, _to, _value);\n  }\n\n  /**\n   * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.\n   *\n   * Beware that changing an allowance with this method brings the risk that someone may use both the old\n   * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this\n   * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:\n   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n   * @param _spender The address which will spend the funds.\n   * @param _value The amount of tokens to be spent.\n   */\n  function approve(address _spender, uint256 _value) public {\n    allowed[msg.sender][_spender] = _value;\n    Approval(msg.sender, _spender, _value);\n  }\n\n  /**\n   * @dev Function to check the amount of tokens that an owner allowed to a spender.\n   * @param _owner address The address which owns the funds.\n   * @param _spender address The address which will spend the funds.\n   * @return A uint256 specifying the amount of tokens still available for the spender.\n   */\n  function allowance(address _owner, address _spender) public view returns (uint256) {\n    return allowed[_owner][_spender];\n  }\n\n  /**\n   * @dev Increase the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To increment\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _addedValue The amount of tokens to increase the allowance by.\n   */\n  function increaseApproval(address _spender, uint _addedValue) public {\n    allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n  /**\n   * @dev Decrease the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To decrement\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _subtractedValue The amount of tokens to decrease the allowance by.\n   */\n  function decreaseApproval(address _spender, uint _subtractedValue) public {\n    uint oldValue = allowed[msg.sender][_spender];\n    if (_subtractedValue > oldValue) {\n      allowed[msg.sender][_spender] = 0;\n    } else {\n      allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);\n    }\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n}\n```",
+                    "role": "user"
+                  },
+                  {
+                    "content": "\n        Finally, if any sinks are identified, your conclusion must strictly follow this format (one line per sink):\n        --Sink--:\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        If no valid sinks are found, output:\n        --Sink--: \n        no sinks\n        ",
+                    "role": "assistant"
+                  }
+                ],
+                "model": "deepseek-flash",
+                "n": 1,
+                "reasoning_effort": "high",
+                "stop": null,
+                "thinking": {
+                  "type": "enabled"
+                }
+              },
+              "source_file": "projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol",
+              "started_utc": "2026-10-27T06:21:01.864344+00:00",
+              "timestamp_utc": "2026-10-27T06:21:01.864324+00:00",
+              "tool": "actaint"
+            },
+            "request_events": [
+              {
+                "call_id": "9f71c346-12cb-4018-a762-525e64af437f",
+                "case_id": "acb-6211080fc9b8efed",
+                "case_ids": [
+                  "acb-6211080fc9b8efed"
+                ],
+                "dataset": "actoolbench-cleaned-154",
+                "event": "request",
+                "model": "deepseek-flash",
+                "project_id": "proj-aab1c1c54a6396b0",
+                "prompt_layout": "prefix_stable",
+                "request_body": {
+                  "max_tokens": 65536,
+                  "messages": [
+                    {
+                      "content": "You are a smart contract auditing expert skilled in taint analysis.\n        You task is to identify all **Sink** operations.\n        A **Sink** is a security-sensitive operation that may cause access control vulnerabilities.\n        Output your reasoning steps. Be precise and factual, avoid hypothetical reasoning.\n        Please ensure the output is complete and not truncated.\n        ",
+                      "role": "system"
+                    },
+                    {
+                      "content": "Step 1: **Reference**: Here is the ACTaint static analysis context listed at the end.\n        - Use this as a reference, but rely on the actual context. Be careful before marking functions not listed as sinks.\n        - For selfdestruct instructions, if they are affected by other variables, this usually indicates some level of protection. Carefully consider before identifying them as sinks.\n        Step 2: **Identify Sink**: Identify all **Sink** operations in the source code.\n        Constructor context is listed at the end.\n        - Do NOT rely on assumptions, hypothetical branches, or conditional speculation. Avoid using phrases such as \"if\", \"might\", \"could\", or any uncertain language.\n        - Treat init functions as potential sinks. Although they are intended to be called only once, without proper access control they can be invoked by anyone.\n        \n        To help you better identify sinks, here are some examples for you to learn from.\n        1.Carefully evaluate standard ERC-20 operations such as approve, transfer, transferFrom, _transfer, balance/allowance updates, and properly guarded minting/burning before labeling them as sinks.\n        - Standard approve function, sets allowance of _spender: \n            function approve(address _spender, uint256 _value) public returns (bool success) {\n        allowed[msg.sender][_spender] = _value;\n        emit Approval(msg.sender, _spender, _value);\n        return true;\n    }\n        - Standard transfer function, moves tokens from sender (msg.sender) to recipient (to): \n            function transfer(address _to, uint256 _value) public returns (bool success) {\n        require(balances[msg.sender] >= _value);\n        balances[msg.sender] -= _value;\n        balances[_to] += _value;\n        emit Transfer(msg.sender, _to, _value);\n        return true;\n    }\n        - Standard transferFrom function, moves tokens from _from to _to using allowance: \n            function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {\n        uint256 allowance = allowed[_from][msg.sender];\n        require(balances[_from] >= _value && allowance >= _value);\n        balances[_to] += _value;\n        balances[_from] -= _value;\n        if (allowance < MAX_UINT256) {\n            allowed[_from][msg.sender] -= _value;\n        }\n        emit Transfer(_from, _to, _value); \n        return true;\n    }\n        - Standard mint function, mint new tokens:\n            function mint(uint256 _value) public returns (bool success) {\n               balanceOf[msg.sender] += _value;\n               totalSupply += _value;\n               emit Mint(msg.sender, _value);\n               return true;\n           }\n        - Standard burn function:\n            function burn(uint256 _value) public returns (bool success) {\n                require(balances[msg.sender] >= _value);\n                balances[msg.sender] -= _value;\n                totalSupply -= _value;\n                emit Burn(msg.sender, _value);\n                return true;\n            }\n        - **Notice**:  \n            Check whether `from` equals `msg.sender` or has approval, and whether `to`/`recipient` equals `msg.sender`.  \n            Modifying only the caller’s (`msg.sender`) own state/assets is acceptable, but modifying others’ without authorization is a sink.\n        2. Cryptographic functions that can be used to indirectly enforce access control:\n        - keccak256(bytes memory) returns (bytes32): compute the Keccak-256 hash of the input\n        - sha256(bytes memory) returns (bytes32): compute the SHA-256 hash of the input\n        - ripemd160(bytes memory) returns (bytes20): compute RIPEMD-160 hash of the input\n        - ecrecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) returns (address): recover the address associated with the public key from elliptic curve signature or return zero on error.\n        3. This is intended behavior: any user can purchase the contract’s ownership by paying the required amount in Wei. \n        - Example:uint256 public constant howManyEtherInWeiToBecomeOwner=1000 ether;\n        function changeOwner (address _newowner) payable {\n            if (msg.value>=howManyEtherInWeiToBecomeOwner){\n                owner.transfer(msg.value);\n                owner.transfer(this.balance);\n                owner=_newowner;\n            }\n        }\n        - **Do Not** classify such functions as sinks, because the access is explicitly granted by the contract logic.\n        4. Some modifiers or require conditions **do not provide access control**.  \n        - If a function is only protected by them, it cannot be excluded from sink consideration. Do not treat them as safety checks.  \n        - Modifiers initializer, onlyInitializing, onlyNotInitializing only restrict the number of times a function can be called, **but do not restrict who can call it**.  \n        - Modifier nonReentrant only prevents reentrancy, it does not enforce access control.\n        \n        Step 3: **Self-Evaluate and Explain**: For each **Sink**, self-evaluate and then provide a formal explanation for it.\n\n- The contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\nStatic analysis result:\n{Function:decreaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:increaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:approve, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n\nSource code: ```contract StandardToken is ERC20, BasicToken {\n\n  mapping (address => mapping (address => uint256)) internal allowed;\n\n\n  /**\n   * @dev Transfer tokens from one address to another\n   * @param _from address The address which you want to send tokens from\n   * @param _to address The address which you want to transfer to\n   * @param _value uint256 the amount of tokens to be transferred\n   */\n  function transferFrom(address _from, address _to, uint256 _value) public {\n    require(_to != address(0));\n    require(_value <= balances[_from]);\n    require(_value <= allowed[_from][msg.sender]);\n\n    balances[_from] = balances[_from].sub(_value);\n    balances[_to] = balances[_to].add(_value);\n    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);\n    Transfer(_from, _to, _value);\n  }\n\n  /**\n   * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.\n   *\n   * Beware that changing an allowance with this method brings the risk that someone may use both the old\n   * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this\n   * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:\n   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n   * @param _spender The address which will spend the funds.\n   * @param _value The amount of tokens to be spent.\n   */\n  function approve(address _spender, uint256 _value) public {\n    allowed[msg.sender][_spender] = _value;\n    Approval(msg.sender, _spender, _value);\n  }\n\n  /**\n   * @dev Function to check the amount of tokens that an owner allowed to a spender.\n   * @param _owner address The address which owns the funds.\n   * @param _spender address The address which will spend the funds.\n   * @return A uint256 specifying the amount of tokens still available for the spender.\n   */\n  function allowance(address _owner, address _spender) public view returns (uint256) {\n    return allowed[_owner][_spender];\n  }\n\n  /**\n   * @dev Increase the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To increment\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _addedValue The amount of tokens to increase the allowance by.\n   */\n  function increaseApproval(address _spender, uint _addedValue) public {\n    allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n  /**\n   * @dev Decrease the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To decrement\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _subtractedValue The amount of tokens to decrease the allowance by.\n   */\n  function decreaseApproval(address _spender, uint _subtractedValue) public {\n    uint oldValue = allowed[msg.sender][_spender];\n    if (_subtractedValue > oldValue) {\n      allowed[msg.sender][_spender] = 0;\n    } else {\n      allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);\n    }\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n}\n```",
+                      "role": "user"
+                    },
+                    {
+                      "content": "\n        Finally, if any sinks are identified, your conclusion must strictly follow this format (one line per sink):\n        --Sink--:\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        If no valid sinks are found, output:\n        --Sink--: \n        no sinks\n        ",
+                      "role": "assistant"
+                    }
+                  ],
+                  "model": "deepseek-flash",
+                  "n": 1,
+                  "reasoning_effort": "high",
+                  "stop": null,
+                  "thinking": {
+                    "type": "enabled"
+                  }
+                },
+                "source_file": "projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol",
+                "started_utc": "2026-10-27T06:21:01.864344+00:00",
+                "timestamp_utc": "2026-10-27T06:21:01.864324+00:00",
+                "tool": "actaint"
+              }
+            ],
+            "request_line_numbers": [
+              1
+            ],
+            "response_complete": true,
+            "response_event": {
+              "call_id": "9f71c346-12cb-4018-a762-525e64af437f",
+              "case_id": "acb-6211080fc9b8efed",
+              "case_ids": [
+                "acb-6211080fc9b8efed"
+              ],
+              "completion_tokens": 978,
+              "dataset": "actoolbench-cleaned-154",
+              "ended_utc": "2026-10-27T06:21:09.704515+00:00",
+              "event": "response",
+              "finish_reason": "stop",
+              "latency_seconds": 7.839689282234758,
+              "model": "deepseek-flash",
+              "project_id": "proj-aab1c1c54a6396b0",
+              "prompt_cache_hit_tokens": 1024,
+              "prompt_cache_miss_tokens": 1305,
+              "prompt_layout": "prefix_stable",
+              "prompt_tokens": 2329,
+              "raw_response": {
+                "choices": [
+                  {
+                    "finish_reason": "stop",
+                    "index": 0,
+                    "logprobs": null,
+                    "message": {
+                      "content": "--Sink--:\nno sinks",
+                      "reasoning_content": "We need answer user. Need perform taint/sink identification. Need identify all Sink operations in given source code, using context, avoid hypothetical. We need output reasoning steps? They say \"Output your reasoning steps. Be precise...\" But final strict format if sinks. Need maybe provide explanation before? They demand conclusion strictly format. We need determine sinks.\n\nWe have contract StandardToken is ERC20, BasicToken. Source code only StandardToken. Static analysis result flags decreaseApproval, increaseApproval, approve writes allowed without access control. Need evaluate if these are sinks? Standard ERC20 approve modifies allowance of msg.sender only (allowed[msg.sender][_spender]), so caller authorizes spender to spend caller's tokens. This is standard approve and not access control vuln per examples. increaseApproval/decreaseApproval also modify allowed[msg.sender][_spender], only caller's own allowance. Standard ERC20 operations; should not classify as sinks. transferFrom: modifies balances[_from] and balances[_to], but requires allowed[_from][msg.sender] >= _value. It reduces allowance and transfers from _from authorized by msg.sender. Standard transferFrom. Not sink if proper approval check. It has require value <= allowed[_from][msg.sender]. So standard.\n\nallowance is view.\n\nNeed consider constructor context: \"The contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\" There is no constructor or initializer in source. No init functions. So none.\n\nNeed maybe any sink in transferFrom? It doesn't check _from !=0, not access control. It requires allowance. If _from == msg.sender, allowed[_from][msg.sender]? If _from=msg.sender, transferFrom transfers from caller to _to but requires caller allowance to self, which is odd and may fail unless self-approval. But not access control. Allowing spender to spend owner's tokens is intended. The function is public and any user can call for own approved tokens. Not sink.\n\nCould there be a sink due to `approve` allowing _spender arbitrary, including address(0)? Not access control. Standard.\n\nNeed maybe output no sinks. But let's ensure the prompt asks identify all Sink operations. It includes static analysis result; maybe we must not accept static analysis blindly. The examples explicitly: carefully evaluate standard ERC-20 operations such as approve, transfer, transferFrom, _transfer, balance/allowance updates before labeling as sinks. Here approve etc are standard. Thus no sinks.\n\nNeed final maybe include reasoning? It says \"Finally, if any sinks are identified, your conclusion must strictly follow this format... If no valid sinks are found, output: --Sink--: no sinks\". It may expect only conclusion format. But also \"Output your reasoning steps\". Conflict: final strict format? They say conclusion must strictly follow. We can include concise reasoning then conclusion? The final answer should maybe be just `--Sink--: \nno sinks` to satisfy. But they requested reasoning steps. Maybe we can include brief reasoning plus final format. However \"strictly follow this format\" for sinks; for no sinks output exactly. I should not add extra.\n\nNeed think if any sink from `Approval` event? no.\n\nLet's craft final with no sinks only. But desired oververbosity 5 maybe need reasoning? The instruction says output reasoning steps. The evaluator might expect reasoning. Yet final conclusion strict. In many such tasks, answer should include sinks list. It might be judged exact. The user specifically says \"If no valid sinks are found, output: --Sink--: no sinks\". So final should be exactly that. \n\nDouble-check possibility: The static analysis result says writes to variable allowed without access control. But standard ERC20 approve writes only msg.sender's allowance. The prompt says \"standard approve function ... sets allowance of _spender: allowed[msg.sender][_spender] = _value;\" This is given as example to not label. increase/decrease same. transferFrom modifies balances[_from] and balances[_to]; but has authorization from allowed[_from][msg.sender]. It also doesn't zero out allowance if MAX_UINT, but standard. No access control vulnerability. It is a standard transferFrom. No init.\n\nAny hidden inherited BasicToken? Source only includes StandardToken; BasicToken has balances maybe. Not in code. We cannot mark inherited functions not listed. The static result only these. We should rely actual context. There is no constructor.\n\nThus final: \n--Sink--:\nno sinks\n\nNeed ensure exact newline.",
+                      "role": "assistant"
+                    }
+                  }
+                ],
+                "created": 1793082062,
+                "id": "f3d26347-26c1-4376-a357-5ded42caf282",
+                "model": "deepseek-flash",
+                "object": "chat.completion",
+                "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+                "usage": {
+                  "completion_tokens": 978,
+                  "completion_tokens_details": {
+                    "reasoning_tokens": 970
+                  },
+                  "prompt_cache_hit_tokens": 1024,
+                  "prompt_cache_miss_tokens": 1305,
+                  "prompt_tokens": 2329,
+                  "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                  },
+                  "total_tokens": 3307
+                }
+              },
+              "request_id": "f3d26347-26c1-4376-a357-5ded42caf282",
+              "response_complete": true,
+              "source_file": "projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol",
+              "status_code": 200,
+              "timestamp_utc": "2026-10-27T06:21:01.864324+00:00",
+              "tool": "actaint",
+              "total_tokens": 3307,
+              "visible_output": "--Sink--:\nno sinks"
+            },
+            "response_events": [
+              {
+                "call_id": "9f71c346-12cb-4018-a762-525e64af437f",
+                "case_id": "acb-6211080fc9b8efed",
+                "case_ids": [
+                  "acb-6211080fc9b8efed"
+                ],
+                "completion_tokens": 978,
+                "dataset": "actoolbench-cleaned-154",
+                "ended_utc": "2026-10-27T06:21:09.704515+00:00",
+                "event": "response",
+                "finish_reason": "stop",
+                "latency_seconds": 7.839689282234758,
+                "model": "deepseek-flash",
+                "project_id": "proj-aab1c1c54a6396b0",
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1305,
+                "prompt_layout": "prefix_stable",
+                "prompt_tokens": 2329,
+                "raw_response": {
+                  "choices": [
+                    {
+                      "finish_reason": "stop",
+                      "index": 0,
+                      "logprobs": null,
+                      "message": {
+                        "content": "--Sink--:\nno sinks",
+                        "reasoning_content": "We need answer user. Need perform taint/sink identification. Need identify all Sink operations in given source code, using context, avoid hypothetical. We need output reasoning steps? They say \"Output your reasoning steps. Be precise...\" But final strict format if sinks. Need maybe provide explanation before? They demand conclusion strictly format. We need determine sinks.\n\nWe have contract StandardToken is ERC20, BasicToken. Source code only StandardToken. Static analysis result flags decreaseApproval, increaseApproval, approve writes allowed without access control. Need evaluate if these are sinks? Standard ERC20 approve modifies allowance of msg.sender only (allowed[msg.sender][_spender]), so caller authorizes spender to spend caller's tokens. This is standard approve and not access control vuln per examples. increaseApproval/decreaseApproval also modify allowed[msg.sender][_spender], only caller's own allowance. Standard ERC20 operations; should not classify as sinks. transferFrom: modifies balances[_from] and balances[_to], but requires allowed[_from][msg.sender] >= _value. It reduces allowance and transfers from _from authorized by msg.sender. Standard transferFrom. Not sink if proper approval check. It has require value <= allowed[_from][msg.sender]. So standard.\n\nallowance is view.\n\nNeed consider constructor context: \"The contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\" There is no constructor or initializer in source. No init functions. So none.\n\nNeed maybe any sink in transferFrom? It doesn't check _from !=0, not access control. It requires allowance. If _from == msg.sender, allowed[_from][msg.sender]? If _from=msg.sender, transferFrom transfers from caller to _to but requires caller allowance to self, which is odd and may fail unless self-approval. But not access control. Allowing spender to spend owner's tokens is intended. The function is public and any user can call for own approved tokens. Not sink.\n\nCould there be a sink due to `approve` allowing _spender arbitrary, including address(0)? Not access control. Standard.\n\nNeed maybe output no sinks. But let's ensure the prompt asks identify all Sink operations. It includes static analysis result; maybe we must not accept static analysis blindly. The examples explicitly: carefully evaluate standard ERC-20 operations such as approve, transfer, transferFrom, _transfer, balance/allowance updates before labeling as sinks. Here approve etc are standard. Thus no sinks.\n\nNeed final maybe include reasoning? It says \"Finally, if any sinks are identified, your conclusion must strictly follow this format... If no valid sinks are found, output: --Sink--: no sinks\". It may expect only conclusion format. But also \"Output your reasoning steps\". Conflict: final strict format? They say conclusion must strictly follow. We can include concise reasoning then conclusion? The final answer should maybe be just `--Sink--: \nno sinks` to satisfy. But they requested reasoning steps. Maybe we can include brief reasoning plus final format. However \"strictly follow this format\" for sinks; for no sinks output exactly. I should not add extra.\n\nNeed think if any sink from `Approval` event? no.\n\nLet's craft final with no sinks only. But desired oververbosity 5 maybe need reasoning? The instruction says output reasoning steps. The evaluator might expect reasoning. Yet final conclusion strict. In many such tasks, answer should include sinks list. It might be judged exact. The user specifically says \"If no valid sinks are found, output: --Sink--: no sinks\". So final should be exactly that. \n\nDouble-check possibility: The static analysis result says writes to variable allowed without access control. But standard ERC20 approve writes only msg.sender's allowance. The prompt says \"standard approve function ... sets allowance of _spender: allowed[msg.sender][_spender] = _value;\" This is given as example to not label. increase/decrease same. transferFrom modifies balances[_from] and balances[_to]; but has authorization from allowed[_from][msg.sender]. It also doesn't zero out allowance if MAX_UINT, but standard. No access control vulnerability. It is a standard transferFrom. No init.\n\nAny hidden inherited BasicToken? Source only includes StandardToken; BasicToken has balances maybe. Not in code. We cannot mark inherited functions not listed. The static result only these. We should rely actual context. There is no constructor.\n\nThus final: \n--Sink--:\nno sinks\n\nNeed ensure exact newline.",
+                        "role": "assistant"
+                      }
+                    }
+                  ],
+                  "created": 1793082062,
+                  "id": "f3d26347-26c1-4376-a357-5ded42caf282",
+                  "model": "deepseek-flash",
+                  "object": "chat.completion",
+                  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+                  "usage": {
+                    "completion_tokens": 978,
+                    "completion_tokens_details": {
+                      "reasoning_tokens": 970
+                    },
+                    "prompt_cache_hit_tokens": 1024,
+                    "prompt_cache_miss_tokens": 1305,
+                    "prompt_tokens": 2329,
+                    "prompt_tokens_details": {
+                      "cached_tokens": 1024
+                    },
+                    "total_tokens": 3307
+                  }
+                },
+                "request_id": "f3d26347-26c1-4376-a357-5ded42caf282",
+                "response_complete": true,
+                "source_file": "projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol",
+                "status_code": 200,
+                "timestamp_utc": "2026-10-27T06:21:01.864324+00:00",
+                "tool": "actaint",
+                "total_tokens": 3307,
+                "visible_output": "--Sink--:\nno sinks"
+              }
+            ],
+            "response_line_numbers": [
+              2
+            ],
+            "response_metadata": {
+              "case_id": "acb-6211080fc9b8efed",
+              "case_ids": [
+                "acb-6211080fc9b8efed"
+              ],
+              "completion_tokens": 978,
+              "dataset": "actoolbench-cleaned-154",
+              "ended_utc": "2026-10-27T06:21:09.704515+00:00",
+              "finish_reason": "stop",
+              "latency_seconds": 7.839689282234758,
+              "model": "deepseek-flash",
+              "project_id": "proj-aab1c1c54a6396b0",
+              "prompt_cache_hit_tokens": 1024,
+              "prompt_cache_miss_tokens": 1305,
+              "prompt_layout": "prefix_stable",
+              "prompt_tokens": 2329,
+              "request_id": "f3d26347-26c1-4376-a357-5ded42caf282",
+              "response_complete": true,
+              "source_file": "projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol",
+              "status_code": 200,
+              "timestamp_utc": "2026-10-27T06:21:01.864324+00:00",
+              "tool": "actaint",
+              "total_tokens": 3307
+            },
+            "stage": "SINK",
+            "status": "STAGE_RESPONSE",
+            "visible_output": "--Sink--:\nno sinks"
+          }
+        ],
+        "invalid_lines": [],
+        "orphan_error_call_ids": [],
+        "orphan_error_events": [],
+        "orphan_response_call_ids": [],
+        "orphan_response_events": [],
+        "request_log_sha256": "9e5d3420d2347edce2f55f80af7bff13d06f7f9db97e0e94c46505790f1133b0",
+        "source_log_copy_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/requests.jsonl",
+        "source_log_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/04219ecf2b00882e/requests.jsonl",
+        "unknown_event_lines": []
+      },
+      "request_log_path": "files/04219ecf2b00882e/requests.jsonl",
+      "sink_stage_evidence_status": "SINK_STAGE_EXPLICIT_NO_SINKS",
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol",
+      "source_sha256": "dc094ed4d2c24aa12a99ff6441f7766bcc2485fe22ccc06db35b24cf4d11dcce",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_REPORTED_NO_NATIVE_CANDIDATE",
+        "explanation": "Original analyzer summary records contracts_without_native_candidates."
+      },
+      "tool_input_path": "projects/proj-aab1c1c54a6396b0/source_code/MainContractFlattened.sol"
+    },
+    {
+      "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0",
+      "missing_stages": [
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 9,
+        "contracts_skipped_interface_abstract_library": 1,
+        "contracts_skipped_no_implementation": 2,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 5,
+        "elapsed_seconds": 4.276,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 9,
+        "total_token": 2848
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1493,
+          "sha256": "c2ea2fd148cc0f0e82ed34dbaa114ddfa6aa2b29631406d417a5a2bdd56a7a6e",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/status.json",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/stderr.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 907,
+          "sha256": "bc96bbce8d05f2e5e859cdd50771d1ce0df870c39c4e4a06a0feaa456008782a",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/stdout.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_TAINT_REQUEST_AFTER_EXPLICIT_NO_SINKS",
+      "request_evidence": {
+        "entries": [
+          {
+            "call_id": "9bab2cf6-b3f5-455c-b5ae-0bd56b8003af",
+            "error_events": [],
+            "error_line_numbers": [],
+            "finish_reason": "stop",
+            "functions": [],
+            "has_error_event": false,
+            "has_response": true,
+            "raw_findings": [],
+            "request_event": {
+              "call_id": "9bab2cf6-b3f5-455c-b5ae-0bd56b8003af",
+              "case_id": "acb-6211080fc9b8efed",
+              "case_ids": [
+                "acb-6211080fc9b8efed"
+              ],
+              "dataset": "actoolbench-cleaned-154",
+              "event": "request",
+              "model": "deepseek-flash",
+              "project_id": "proj-aab1c1c54a6396b0",
+              "prompt_layout": "prefix_stable",
+              "request_body": {
+                "max_tokens": 65536,
+                "messages": [
+                  {
+                    "content": "You are a smart contract auditing expert skilled in taint analysis.\n        You task is to identify all **Sink** operations.\n        A **Sink** is a security-sensitive operation that may cause access control vulnerabilities.\n        Output your reasoning steps. Be precise and factual, avoid hypothetical reasoning.\n        Please ensure the output is complete and not truncated.\n        ",
+                    "role": "system"
+                  },
+                  {
+                    "content": "Step 1: **Reference**: Here is the ACTaint static analysis context listed at the end.\n        - Use this as a reference, but rely on the actual context. Be careful before marking functions not listed as sinks.\n        - For selfdestruct instructions, if they are affected by other variables, this usually indicates some level of protection. Carefully consider before identifying them as sinks.\n        Step 2: **Identify Sink**: Identify all **Sink** operations in the source code.\n        Constructor context is listed at the end.\n        - Do NOT rely on assumptions, hypothetical branches, or conditional speculation. Avoid using phrases such as \"if\", \"might\", \"could\", or any uncertain language.\n        - Treat init functions as potential sinks. Although they are intended to be called only once, without proper access control they can be invoked by anyone.\n        \n        To help you better identify sinks, here are some examples for you to learn from.\n        1.Carefully evaluate standard ERC-20 operations such as approve, transfer, transferFrom, _transfer, balance/allowance updates, and properly guarded minting/burning before labeling them as sinks.\n        - Standard approve function, sets allowance of _spender: \n            function approve(address _spender, uint256 _value) public returns (bool success) {\n        allowed[msg.sender][_spender] = _value;\n        emit Approval(msg.sender, _spender, _value);\n        return true;\n    }\n        - Standard transfer function, moves tokens from sender (msg.sender) to recipient (to): \n            function transfer(address _to, uint256 _value) public returns (bool success) {\n        require(balances[msg.sender] >= _value);\n        balances[msg.sender] -= _value;\n        balances[_to] += _value;\n        emit Transfer(msg.sender, _to, _value);\n        return true;\n    }\n        - Standard transferFrom function, moves tokens from _from to _to using allowance: \n            function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {\n        uint256 allowance = allowed[_from][msg.sender];\n        require(balances[_from] >= _value && allowance >= _value);\n        balances[_to] += _value;\n        balances[_from] -= _value;\n        if (allowance < MAX_UINT256) {\n            allowed[_from][msg.sender] -= _value;\n        }\n        emit Transfer(_from, _to, _value); \n        return true;\n    }\n        - Standard mint function, mint new tokens:\n            function mint(uint256 _value) public returns (bool success) {\n               balanceOf[msg.sender] += _value;\n               totalSupply += _value;\n               emit Mint(msg.sender, _value);\n               return true;\n           }\n        - Standard burn function:\n            function burn(uint256 _value) public returns (bool success) {\n                require(balances[msg.sender] >= _value);\n                balances[msg.sender] -= _value;\n                totalSupply -= _value;\n                emit Burn(msg.sender, _value);\n                return true;\n            }\n        - **Notice**:  \n            Check whether `from` equals `msg.sender` or has approval, and whether `to`/`recipient` equals `msg.sender`.  \n            Modifying only the caller’s (`msg.sender`) own state/assets is acceptable, but modifying others’ without authorization is a sink.\n        2. Cryptographic functions that can be used to indirectly enforce access control:\n        - keccak256(bytes memory) returns (bytes32): compute the Keccak-256 hash of the input\n        - sha256(bytes memory) returns (bytes32): compute the SHA-256 hash of the input\n        - ripemd160(bytes memory) returns (bytes20): compute RIPEMD-160 hash of the input\n        - ecrecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) returns (address): recover the address associated with the public key from elliptic curve signature or return zero on error.\n        3. This is intended behavior: any user can purchase the contract’s ownership by paying the required amount in Wei. \n        - Example:uint256 public constant howManyEtherInWeiToBecomeOwner=1000 ether;\n        function changeOwner (address _newowner) payable {\n            if (msg.value>=howManyEtherInWeiToBecomeOwner){\n                owner.transfer(msg.value);\n                owner.transfer(this.balance);\n                owner=_newowner;\n            }\n        }\n        - **Do Not** classify such functions as sinks, because the access is explicitly granted by the contract logic.\n        4. Some modifiers or require conditions **do not provide access control**.  \n        - If a function is only protected by them, it cannot be excluded from sink consideration. Do not treat them as safety checks.  \n        - Modifiers initializer, onlyInitializing, onlyNotInitializing only restrict the number of times a function can be called, **but do not restrict who can call it**.  \n        - Modifier nonReentrant only prevents reentrancy, it does not enforce access control.\n        \n        Step 3: **Self-Evaluate and Explain**: For each **Sink**, self-evaluate and then provide a formal explanation for it.\n\n- The contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\nStatic analysis result:\n{Function:approve, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:decreaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:increaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n\nSource code: ```contract StandardToken is ERC20, BasicToken {\n\n  mapping (address => mapping (address => uint256)) internal allowed;\n\n\n  /**\n   * @dev Transfer tokens from one address to another\n   * @param _from address The address which you want to send tokens from\n   * @param _to address The address which you want to transfer to\n   * @param _value uint256 the amount of tokens to be transferred\n   */\n  function transferFrom(address _from, address _to, uint256 _value) public {\n    require(_to != address(0));\n    require(_value <= balances[_from]);\n    require(_value <= allowed[_from][msg.sender]);\n\n    balances[_from] = balances[_from].sub(_value);\n    balances[_to] = balances[_to].add(_value);\n    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);\n    Transfer(_from, _to, _value);\n  }\n\n  /**\n   * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.\n   *\n   * Beware that changing an allowance with this method brings the risk that someone may use both the old\n   * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this\n   * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:\n   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n   * @param _spender The address which will spend the funds.\n   * @param _value The amount of tokens to be spent.\n   */\n  function approve(address _spender, uint256 _value) public {\n    allowed[msg.sender][_spender] = _value;\n    Approval(msg.sender, _spender, _value);\n  }\n\n  /**\n   * @dev Function to check the amount of tokens that an owner allowed to a spender.\n   * @param _owner address The address which owns the funds.\n   * @param _spender address The address which will spend the funds.\n   * @return A uint256 specifying the amount of tokens still available for the spender.\n   */\n  function allowance(address _owner, address _spender) public view returns (uint256) {\n    return allowed[_owner][_spender];\n  }\n\n  /**\n   * @dev Increase the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To increment\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _addedValue The amount of tokens to increase the allowance by.\n   */\n  function increaseApproval(address _spender, uint _addedValue) public {\n    allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n  /**\n   * @dev Decrease the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To decrement\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _subtractedValue The amount of tokens to decrease the allowance by.\n   */\n  function decreaseApproval(address _spender, uint _subtractedValue) public {\n    uint oldValue = allowed[msg.sender][_spender];\n    if (_subtractedValue > oldValue) {\n      allowed[msg.sender][_spender] = 0;\n    } else {\n      allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);\n    }\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n}\n```",
+                    "role": "user"
+                  },
+                  {
+                    "content": "\n        Finally, if any sinks are identified, your conclusion must strictly follow this format (one line per sink):\n        --Sink--:\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        If no valid sinks are found, output:\n        --Sink--: \n        no sinks\n        ",
+                    "role": "assistant"
+                  }
+                ],
+                "model": "deepseek-flash",
+                "n": 1,
+                "reasoning_effort": "high",
+                "stop": null,
+                "thinking": {
+                  "type": "enabled"
+                }
+              },
+              "source_file": "projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol",
+              "started_utc": "2026-10-27T06:21:10.594239+00:00",
+              "timestamp_utc": "2026-10-27T06:21:10.594226+00:00",
+              "tool": "actaint"
+            },
+            "request_events": [
+              {
+                "call_id": "9bab2cf6-b3f5-455c-b5ae-0bd56b8003af",
+                "case_id": "acb-6211080fc9b8efed",
+                "case_ids": [
+                  "acb-6211080fc9b8efed"
+                ],
+                "dataset": "actoolbench-cleaned-154",
+                "event": "request",
+                "model": "deepseek-flash",
+                "project_id": "proj-aab1c1c54a6396b0",
+                "prompt_layout": "prefix_stable",
+                "request_body": {
+                  "max_tokens": 65536,
+                  "messages": [
+                    {
+                      "content": "You are a smart contract auditing expert skilled in taint analysis.\n        You task is to identify all **Sink** operations.\n        A **Sink** is a security-sensitive operation that may cause access control vulnerabilities.\n        Output your reasoning steps. Be precise and factual, avoid hypothetical reasoning.\n        Please ensure the output is complete and not truncated.\n        ",
+                      "role": "system"
+                    },
+                    {
+                      "content": "Step 1: **Reference**: Here is the ACTaint static analysis context listed at the end.\n        - Use this as a reference, but rely on the actual context. Be careful before marking functions not listed as sinks.\n        - For selfdestruct instructions, if they are affected by other variables, this usually indicates some level of protection. Carefully consider before identifying them as sinks.\n        Step 2: **Identify Sink**: Identify all **Sink** operations in the source code.\n        Constructor context is listed at the end.\n        - Do NOT rely on assumptions, hypothetical branches, or conditional speculation. Avoid using phrases such as \"if\", \"might\", \"could\", or any uncertain language.\n        - Treat init functions as potential sinks. Although they are intended to be called only once, without proper access control they can be invoked by anyone.\n        \n        To help you better identify sinks, here are some examples for you to learn from.\n        1.Carefully evaluate standard ERC-20 operations such as approve, transfer, transferFrom, _transfer, balance/allowance updates, and properly guarded minting/burning before labeling them as sinks.\n        - Standard approve function, sets allowance of _spender: \n            function approve(address _spender, uint256 _value) public returns (bool success) {\n        allowed[msg.sender][_spender] = _value;\n        emit Approval(msg.sender, _spender, _value);\n        return true;\n    }\n        - Standard transfer function, moves tokens from sender (msg.sender) to recipient (to): \n            function transfer(address _to, uint256 _value) public returns (bool success) {\n        require(balances[msg.sender] >= _value);\n        balances[msg.sender] -= _value;\n        balances[_to] += _value;\n        emit Transfer(msg.sender, _to, _value);\n        return true;\n    }\n        - Standard transferFrom function, moves tokens from _from to _to using allowance: \n            function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {\n        uint256 allowance = allowed[_from][msg.sender];\n        require(balances[_from] >= _value && allowance >= _value);\n        balances[_to] += _value;\n        balances[_from] -= _value;\n        if (allowance < MAX_UINT256) {\n            allowed[_from][msg.sender] -= _value;\n        }\n        emit Transfer(_from, _to, _value); \n        return true;\n    }\n        - Standard mint function, mint new tokens:\n            function mint(uint256 _value) public returns (bool success) {\n               balanceOf[msg.sender] += _value;\n               totalSupply += _value;\n               emit Mint(msg.sender, _value);\n               return true;\n           }\n        - Standard burn function:\n            function burn(uint256 _value) public returns (bool success) {\n                require(balances[msg.sender] >= _value);\n                balances[msg.sender] -= _value;\n                totalSupply -= _value;\n                emit Burn(msg.sender, _value);\n                return true;\n            }\n        - **Notice**:  \n            Check whether `from` equals `msg.sender` or has approval, and whether `to`/`recipient` equals `msg.sender`.  \n            Modifying only the caller’s (`msg.sender`) own state/assets is acceptable, but modifying others’ without authorization is a sink.\n        2. Cryptographic functions that can be used to indirectly enforce access control:\n        - keccak256(bytes memory) returns (bytes32): compute the Keccak-256 hash of the input\n        - sha256(bytes memory) returns (bytes32): compute the SHA-256 hash of the input\n        - ripemd160(bytes memory) returns (bytes20): compute RIPEMD-160 hash of the input\n        - ecrecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) returns (address): recover the address associated with the public key from elliptic curve signature or return zero on error.\n        3. This is intended behavior: any user can purchase the contract’s ownership by paying the required amount in Wei. \n        - Example:uint256 public constant howManyEtherInWeiToBecomeOwner=1000 ether;\n        function changeOwner (address _newowner) payable {\n            if (msg.value>=howManyEtherInWeiToBecomeOwner){\n                owner.transfer(msg.value);\n                owner.transfer(this.balance);\n                owner=_newowner;\n            }\n        }\n        - **Do Not** classify such functions as sinks, because the access is explicitly granted by the contract logic.\n        4. Some modifiers or require conditions **do not provide access control**.  \n        - If a function is only protected by them, it cannot be excluded from sink consideration. Do not treat them as safety checks.  \n        - Modifiers initializer, onlyInitializing, onlyNotInitializing only restrict the number of times a function can be called, **but do not restrict who can call it**.  \n        - Modifier nonReentrant only prevents reentrancy, it does not enforce access control.\n        \n        Step 3: **Self-Evaluate and Explain**: For each **Sink**, self-evaluate and then provide a formal explanation for it.\n\n- The contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\nStatic analysis result:\n{Function:approve, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:decreaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n{Function:increaseApproval, Visibility:public, Explanation:Writes to variable allowed without any access control.}\n\nSource code: ```contract StandardToken is ERC20, BasicToken {\n\n  mapping (address => mapping (address => uint256)) internal allowed;\n\n\n  /**\n   * @dev Transfer tokens from one address to another\n   * @param _from address The address which you want to send tokens from\n   * @param _to address The address which you want to transfer to\n   * @param _value uint256 the amount of tokens to be transferred\n   */\n  function transferFrom(address _from, address _to, uint256 _value) public {\n    require(_to != address(0));\n    require(_value <= balances[_from]);\n    require(_value <= allowed[_from][msg.sender]);\n\n    balances[_from] = balances[_from].sub(_value);\n    balances[_to] = balances[_to].add(_value);\n    allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);\n    Transfer(_from, _to, _value);\n  }\n\n  /**\n   * @dev Approve the passed address to spend the specified amount of tokens on behalf of msg.sender.\n   *\n   * Beware that changing an allowance with this method brings the risk that someone may use both the old\n   * and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this\n   * race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards:\n   * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\n   * @param _spender The address which will spend the funds.\n   * @param _value The amount of tokens to be spent.\n   */\n  function approve(address _spender, uint256 _value) public {\n    allowed[msg.sender][_spender] = _value;\n    Approval(msg.sender, _spender, _value);\n  }\n\n  /**\n   * @dev Function to check the amount of tokens that an owner allowed to a spender.\n   * @param _owner address The address which owns the funds.\n   * @param _spender address The address which will spend the funds.\n   * @return A uint256 specifying the amount of tokens still available for the spender.\n   */\n  function allowance(address _owner, address _spender) public view returns (uint256) {\n    return allowed[_owner][_spender];\n  }\n\n  /**\n   * @dev Increase the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To increment\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _addedValue The amount of tokens to increase the allowance by.\n   */\n  function increaseApproval(address _spender, uint _addedValue) public {\n    allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n  /**\n   * @dev Decrease the amount of tokens that an owner allowed to a spender.\n   *\n   * approve should be called when allowed[_spender] == 0. To decrement\n   * allowed value is better to use this function to avoid 2 calls (and wait until\n   * the first transaction is mined)\n   * From MonolithDAO Token.sol\n   * @param _spender The address which will spend the funds.\n   * @param _subtractedValue The amount of tokens to decrease the allowance by.\n   */\n  function decreaseApproval(address _spender, uint _subtractedValue) public {\n    uint oldValue = allowed[msg.sender][_spender];\n    if (_subtractedValue > oldValue) {\n      allowed[msg.sender][_spender] = 0;\n    } else {\n      allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);\n    }\n    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);\n  }\n\n}\n```",
+                      "role": "user"
+                    },
+                    {
+                      "content": "\n        Finally, if any sinks are identified, your conclusion must strictly follow this format (one line per sink):\n        --Sink--:\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        {Function: XXX, Sink: XXX, Visibility:XXX, Explanation: XXX}\n        If no valid sinks are found, output:\n        --Sink--: \n        no sinks\n        ",
+                      "role": "assistant"
+                    }
+                  ],
+                  "model": "deepseek-flash",
+                  "n": 1,
+                  "reasoning_effort": "high",
+                  "stop": null,
+                  "thinking": {
+                    "type": "enabled"
+                  }
+                },
+                "source_file": "projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol",
+                "started_utc": "2026-10-27T06:21:10.594239+00:00",
+                "timestamp_utc": "2026-10-27T06:21:10.594226+00:00",
+                "tool": "actaint"
+              }
+            ],
+            "request_line_numbers": [
+              1
+            ],
+            "response_complete": true,
+            "response_event": {
+              "call_id": "9bab2cf6-b3f5-455c-b5ae-0bd56b8003af",
+              "case_id": "acb-6211080fc9b8efed",
+              "case_ids": [
+                "acb-6211080fc9b8efed"
+              ],
+              "completion_tokens": 519,
+              "dataset": "actoolbench-cleaned-154",
+              "ended_utc": "2026-10-27T06:21:14.567947+00:00",
+              "event": "response",
+              "finish_reason": "stop",
+              "latency_seconds": 3.9732345547527075,
+              "model": "deepseek-flash",
+              "project_id": "proj-aab1c1c54a6396b0",
+              "prompt_cache_hit_tokens": 1024,
+              "prompt_cache_miss_tokens": 1305,
+              "prompt_layout": "prefix_stable",
+              "prompt_tokens": 2329,
+              "raw_response": {
+                "choices": [
+                  {
+                    "finish_reason": "stop",
+                    "index": 0,
+                    "logprobs": null,
+                    "message": {
+                      "content": "--Sink--: \nno sinks",
+                      "reasoning_content": "We need answer only final. Need identify sinks in provided source code. Need be careful: static analysis result mentions approve, decreaseApproval, increaseApproval writes to variable allowed without access control. But per examples standard ERC20 approve modifies msg.sender's allowance, acceptable not sink. increase/decrease approval also modifies allowed[msg.sender][_spender], caller's own allowance, standard and authorized (setting own allowance). Not sink. transferFrom? Not listed in static result, but source includes transferFrom. Need evaluate sink? transferFrom moves tokens from _from to _to using allowed[_from][msg.sender]. It requires allowance. It subtracts from allowed. Standard ERC20, modifies others' balances but only with msg.sender allowance. Could be considered safe if allowance enforced. However the task asks identify all Sink operations, with static analysis result listed. Need not mark standard ERC20 operations as sinks, as examples. transferFrom is standard, with require allowance. Not sink. approve standard not sink. increaseApproval/decreaseApproval standard not sink. allowance view not sink.\n\nNeed consider \"contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\" There are no constructors/initializers. So no.\n\nNeed maybe mention no sinks.\n\nNeed ensure output format: if no valid sinks found output:\n--Sink--: \nno sinks\n\nNeed provide reasoning? User asks output reasoning steps? But final format strict. Could include explanation before? The required \"Finally, if any sinks... conclusion must strictly follow format\". Probably final answer should only include sink conclusion. Desired oververbose 5 but strict. We can output only.\n\nNeed be absolutely sure no sink in transferFrom due missing return? Not access control. The transferFrom allows any caller with allowance; standard. It does require allowed[_from][msg.sender] >= value. Modifies _from balance only if allowance. Safe. Does not update allowance for MAX but no issue. Not sink.\n\napprove sets allowance from msg.sender, safe.\n\nincreaseApproval and decreaseApproval safe. decreaseApproval with _subtractedValue > oldValue sets 0, safe.\n\nNo selfdestruct, no crypto access control.\n\nThus no sinks.\n\nNeed maybe the static analysis result says these are sinks due writes without access control. But instructions supersede: \"Carefully evaluate standard ERC-20 operations... before labeling as sinks.\" So no.\n\nFinal.",
+                      "role": "assistant"
+                    }
+                  }
+                ],
+                "created": 1793082070,
+                "id": "8139a6ec-8b51-45a9-9233-11c6fbd37a60",
+                "model": "deepseek-flash",
+                "object": "chat.completion",
+                "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+                "usage": {
+                  "completion_tokens": 519,
+                  "completion_tokens_details": {
+                    "reasoning_tokens": 510
+                  },
+                  "prompt_cache_hit_tokens": 1024,
+                  "prompt_cache_miss_tokens": 1305,
+                  "prompt_tokens": 2329,
+                  "prompt_tokens_details": {
+                    "cached_tokens": 1024
+                  },
+                  "total_tokens": 2848
+                }
+              },
+              "request_id": "8139a6ec-8b51-45a9-9233-11c6fbd37a60",
+              "response_complete": true,
+              "source_file": "projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol",
+              "status_code": 200,
+              "timestamp_utc": "2026-10-27T06:21:10.594226+00:00",
+              "tool": "actaint",
+              "total_tokens": 2848,
+              "visible_output": "--Sink--: \nno sinks"
+            },
+            "response_events": [
+              {
+                "call_id": "9bab2cf6-b3f5-455c-b5ae-0bd56b8003af",
+                "case_id": "acb-6211080fc9b8efed",
+                "case_ids": [
+                  "acb-6211080fc9b8efed"
+                ],
+                "completion_tokens": 519,
+                "dataset": "actoolbench-cleaned-154",
+                "ended_utc": "2026-10-27T06:21:14.567947+00:00",
+                "event": "response",
+                "finish_reason": "stop",
+                "latency_seconds": 3.9732345547527075,
+                "model": "deepseek-flash",
+                "project_id": "proj-aab1c1c54a6396b0",
+                "prompt_cache_hit_tokens": 1024,
+                "prompt_cache_miss_tokens": 1305,
+                "prompt_layout": "prefix_stable",
+                "prompt_tokens": 2329,
+                "raw_response": {
+                  "choices": [
+                    {
+                      "finish_reason": "stop",
+                      "index": 0,
+                      "logprobs": null,
+                      "message": {
+                        "content": "--Sink--: \nno sinks",
+                        "reasoning_content": "We need answer only final. Need identify sinks in provided source code. Need be careful: static analysis result mentions approve, decreaseApproval, increaseApproval writes to variable allowed without access control. But per examples standard ERC20 approve modifies msg.sender's allowance, acceptable not sink. increase/decrease approval also modifies allowed[msg.sender][_spender], caller's own allowance, standard and authorized (setting own allowance). Not sink. transferFrom? Not listed in static result, but source includes transferFrom. Need evaluate sink? transferFrom moves tokens from _from to _to using allowed[_from][msg.sender]. It requires allowance. It subtracts from allowed. Standard ERC20, modifies others' balances but only with msg.sender allowance. Could be considered safe if allowance enforced. However the task asks identify all Sink operations, with static analysis result listed. Need not mark standard ERC20 operations as sinks, as examples. transferFrom is standard, with require allowance. Not sink. approve standard not sink. increaseApproval/decreaseApproval standard not sink. allowance view not sink.\n\nNeed consider \"contract has no constructor, then treat all functions that look like constructors or initializers as wrong constructors and mark them as sinks.\" There are no constructors/initializers. So no.\n\nNeed maybe mention no sinks.\n\nNeed ensure output format: if no valid sinks found output:\n--Sink--: \nno sinks\n\nNeed provide reasoning? User asks output reasoning steps? But final format strict. Could include explanation before? The required \"Finally, if any sinks... conclusion must strictly follow format\". Probably final answer should only include sink conclusion. Desired oververbose 5 but strict. We can output only.\n\nNeed be absolutely sure no sink in transferFrom due missing return? Not access control. The transferFrom allows any caller with allowance; standard. It does require allowed[_from][msg.sender] >= value. Modifies _from balance only if allowance. Safe. Does not update allowance for MAX but no issue. Not sink.\n\napprove sets allowance from msg.sender, safe.\n\nincreaseApproval and decreaseApproval safe. decreaseApproval with _subtractedValue > oldValue sets 0, safe.\n\nNo selfdestruct, no crypto access control.\n\nThus no sinks.\n\nNeed maybe the static analysis result says these are sinks due writes without access control. But instructions supersede: \"Carefully evaluate standard ERC-20 operations... before labeling as sinks.\" So no.\n\nFinal.",
+                        "role": "assistant"
+                      }
+                    }
+                  ],
+                  "created": 1793082070,
+                  "id": "8139a6ec-8b51-45a9-9233-11c6fbd37a60",
+                  "model": "deepseek-flash",
+                  "object": "chat.completion",
+                  "system_fingerprint": "e72d3c7f663d3e1383b00b3884cb4501",
+                  "usage": {
+                    "completion_tokens": 519,
+                    "completion_tokens_details": {
+                      "reasoning_tokens": 510
+                    },
+                    "prompt_cache_hit_tokens": 1024,
+                    "prompt_cache_miss_tokens": 1305,
+                    "prompt_tokens": 2329,
+                    "prompt_tokens_details": {
+                      "cached_tokens": 1024
+                    },
+                    "total_tokens": 2848
+                  }
+                },
+                "request_id": "8139a6ec-8b51-45a9-9233-11c6fbd37a60",
+                "response_complete": true,
+                "source_file": "projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol",
+                "status_code": 200,
+                "timestamp_utc": "2026-10-27T06:21:10.594226+00:00",
+                "tool": "actaint",
+                "total_tokens": 2848,
+                "visible_output": "--Sink--: \nno sinks"
+              }
+            ],
+            "response_line_numbers": [
+              2
+            ],
+            "response_metadata": {
+              "case_id": "acb-6211080fc9b8efed",
+              "case_ids": [
+                "acb-6211080fc9b8efed"
+              ],
+              "completion_tokens": 519,
+              "dataset": "actoolbench-cleaned-154",
+              "ended_utc": "2026-10-27T06:21:14.567947+00:00",
+              "finish_reason": "stop",
+              "latency_seconds": 3.9732345547527075,
+              "model": "deepseek-flash",
+              "project_id": "proj-aab1c1c54a6396b0",
+              "prompt_cache_hit_tokens": 1024,
+              "prompt_cache_miss_tokens": 1305,
+              "prompt_layout": "prefix_stable",
+              "prompt_tokens": 2329,
+              "request_id": "8139a6ec-8b51-45a9-9233-11c6fbd37a60",
+              "response_complete": true,
+              "source_file": "projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol",
+              "status_code": 200,
+              "timestamp_utc": "2026-10-27T06:21:10.594226+00:00",
+              "tool": "actaint",
+              "total_tokens": 2848
+            },
+            "stage": "SINK",
+            "status": "STAGE_RESPONSE",
+            "visible_output": "--Sink--: \nno sinks"
+          }
+        ],
+        "invalid_lines": [],
+        "orphan_error_call_ids": [],
+        "orphan_error_events": [],
+        "orphan_response_call_ids": [],
+        "orphan_response_events": [],
+        "request_log_sha256": "76db2658300d926625625af29607d8b8807ebc330d8fe67e6d02f97896786314",
+        "source_log_copy_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/requests.jsonl",
+        "source_log_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0/native/files/fe47bdb15ff03aa1/requests.jsonl",
+        "unknown_event_lines": []
+      },
+      "request_log_path": "files/fe47bdb15ff03aa1/requests.jsonl",
+      "sink_stage_evidence_status": "SINK_STAGE_EXPLICIT_NO_SINKS",
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol",
+      "source_sha256": "5bb829f9fcae4b16eeed1749413bea0e7a14ca4d85f4f41c59e6536f2c7a7686",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_REPORTED_NO_NATIVE_CANDIDATE",
+        "explanation": "Original analyzer summary records contracts_without_native_candidates."
+      },
+      "tool_input_path": "projects/proj-aab1c1c54a6396b0/source_code/NewIntelTechMedia.sol"
+    }
+  ],
+  "original_project_result_sha256": "070d6f2b081333518e71c6bc3109d6af5a4e0484d33f7aeb13e6227d77d2bb01",
+  "original_project_status": "PROJECT_COMPLETED",
+  "project_id": "proj-aab1c1c54a6396b0",
+  "source_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-aab1c1c54a6396b0",
+  "source_file_count": 2,
+  "status": "PROJECT_EVIDENCE_PRESERVED"
+}

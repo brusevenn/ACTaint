@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "b460ca8db0ba7b755689d684938406548fd725af66b166269579a746f00b6c29",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.6+commit.11564f7e",
+    "compiler_sha256": "abd5c4f3f262bc3ed7951b968c63f98e83f66d9a5c3568ab306eac49250aec3e",
+    "metadata": "v0.8.6+commit.11564f7e",
+    "metadata_build": "11564f7e",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-132ee7f4a06db971/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.6"
+  },
+  "elapsed_seconds": 220.897,
+  "ended_utc": "2026-10-27T05:34:51.025155+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/963b9bae45b05015/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-132ee7f4a06db971/source_code/token.sol",
+  "source_sha256": "b460ca8db0ba7b755689d684938406548fd725af66b166269579a746f00b6c29",
+  "started_utc": "2026-10-27T05:33:00.054789+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-132ee7f4a06db971/source_code/token.sol"
+}

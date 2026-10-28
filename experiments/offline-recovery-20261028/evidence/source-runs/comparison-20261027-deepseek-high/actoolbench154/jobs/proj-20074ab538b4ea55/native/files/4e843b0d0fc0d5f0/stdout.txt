@@ -1,0 +1,21 @@
+==============Start====================
+rules:
+{Function:Mining24, Visibility:public, Explanation:Writes to variable minReq without any access control.}
+{Function:fallback, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:Mining24, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:ToOwner, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:Mining24, Visibility:public, Explanation:Writes to variable value without any access control.}
+{Function:Mining24, Visibility:public, Explanation:Writes to variable owner without any access control.}
+{Function:ToOwner, Visibility:public, Explanation:Writes to variable owner without any access control.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: Cryptbond
+Sink:
+--Sink--:
+{Function: ToOwner, Sink: owner, Visibility: public, Explanation: Public initializer-like function lacks access control; any caller can set themselves as owner.}
+{Function: ToOwner, Sink: balances[msg.sender], Visibility: public, Explanation: Public initializer-like function lacks access control; any caller can assign totalSupply to their own balance.}
+{Function: Mining24, Sink: owner, Visibility: public, Explanation: Public initializer-like function lacks access control; any caller can set themselves as owner.}
+{Function: Mining24, Sink: value, Visibility: public, Explanation: Public initializer-like function lacks access control; any caller can set the global value parameter.}
+{Function: Mining24, Sink: minReq, Visibility: public, Explanation: Public initializer-like function lacks access control; any caller can set the global minReq parameter.}
+{Function: Mining24, Sink: balances[msg.sender], Visibility: public, Explanation: Public initializer-like function lacks access control; any caller can assign totalDistributed to their own balance.}

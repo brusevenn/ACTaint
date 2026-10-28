@@ -1,0 +1,126 @@
+{
+  "case_ids": [
+    "acb-4bfe56113f30f2d8"
+  ],
+  "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280",
+  "files": [
+    {
+      "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 4,
+        "contracts_skipped_interface_abstract_library": 0,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "elapsed_seconds": 0.278,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 0,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1463,
+          "sha256": "90eabcf8112dbd744eb04d189145bdc694453025a4590bdf08d8972cab926369",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/d32acb3fa86735e8/status.json",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/d32acb3fa86735e8/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/d32acb3fa86735e8/stderr.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/d32acb3fa86735e8/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 486,
+          "sha256": "5c43895a1a5ed7d192dde459491bb50505b9ce28cf26b55cbc5cd943be83e9f9",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/d32acb3fa86735e8/stdout.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/d32acb3fa86735e8/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-e100094fbbf78280/source_code/MainContractFlattened.sol",
+      "source_sha256": "8d8fe9ace5e7b84294e54f579972ba036cddbe5c4b9ec8f5fffef89f88b62761",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_REPORTED_NO_ANALYZED_CONTRACT",
+        "explanation": "Original analyzer summary records zero analyzed contracts."
+      },
+      "tool_input_path": "projects/proj-e100094fbbf78280/source_code/MainContractFlattened.sol"
+    },
+    {
+      "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 4,
+        "contracts_skipped_interface_abstract_library": 0,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "elapsed_seconds": 0.272,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 0,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1447,
+          "sha256": "4eac028de85301fae6a0cd91cc81e8685ca0444dbdd92d8360b94aafd0b70369",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/ec2ce338fb1ecb9e/status.json",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/ec2ce338fb1ecb9e/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/ec2ce338fb1ecb9e/stderr.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/ec2ce338fb1ecb9e/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 487,
+          "sha256": "021ffb526adabaa8da08b7d900ba1f05b7cdff527e4d10084d1cdda820701456",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/ec2ce338fb1ecb9e/stdout.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280/native/files/ec2ce338fb1ecb9e/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-e100094fbbf78280/source_code/WalletLibrary.sol",
+      "source_sha256": "dedb7a47a4a37cf61689e8f655beb58b4fe0e026ef591a93ccb62be4041b2e42",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_REPORTED_NO_ANALYZED_CONTRACT",
+        "explanation": "Original analyzer summary records zero analyzed contracts."
+      },
+      "tool_input_path": "projects/proj-e100094fbbf78280/source_code/WalletLibrary.sol"
+    }
+  ],
+  "original_project_result_sha256": "17d9527f810c2b628f06c110bcaf59547d446d131c0162180a676abd2a8e0f4f",
+  "original_project_status": "PROJECT_COMPLETED",
+  "project_id": "proj-e100094fbbf78280",
+  "source_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-e100094fbbf78280",
+  "source_file_count": 2,
+  "status": "PROJECT_EVIDENCE_PRESERVED"
+}

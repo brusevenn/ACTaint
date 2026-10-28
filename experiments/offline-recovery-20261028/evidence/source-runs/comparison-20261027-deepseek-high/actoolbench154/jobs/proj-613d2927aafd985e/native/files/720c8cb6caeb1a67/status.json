@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "fef23c4e12d21b81bc92e05a1d2ba4bc2813d56912269754997e6b4e9331bc14",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.24+commit.e67f0147",
+    "compiler_sha256": "665675b9e0431c2572d59d6a7112afbdc752732ea0ce9aecf1a1855f28e02a09",
+    "metadata": "v0.4.24+commit.e67f0147",
+    "metadata_build": "e67f0147",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.24"
+  },
+  "elapsed_seconds": 463.489,
+  "ended_utc": "2026-10-27T06:02:16.852366+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/720c8cb6caeb1a67/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-613d2927aafd985e/source_code/RC.sol",
+  "source_sha256": "fef23c4e12d21b81bc92e05a1d2ba4bc2813d56912269754997e6b4e9331bc14",
+  "started_utc": "2026-10-27T05:58:22.132533+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-613d2927aafd985e/source_code/RC.sol"
+}

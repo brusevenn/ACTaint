@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "dd2481c373c1638767325712b1f29e67a641d9a212da3f44c49d4dec56e3b0eb",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.7+commit.e28d00a7",
+    "compiler_sha256": "003d75383e45212f9812d0b6add90329fd3b239e6c378d2882f61f9345896d99",
+    "metadata": "v0.8.7+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-6dbac1456fe465a2/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.7"
+  },
+  "elapsed_seconds": 69.117,
+  "ended_utc": "2026-10-27T05:56:16.356548+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/dbc88d264e392248/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-6dbac1456fe465a2/source_code/Registry.sol",
+  "source_sha256": "dd2481c373c1638767325712b1f29e67a641d9a212da3f44c49d4dec56e3b0eb",
+  "started_utc": "2026-10-27T05:55:07.241088+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-6dbac1456fe465a2/source_code/Registry.sol"
+}

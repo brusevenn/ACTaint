@@ -1,0 +1,75 @@
+==============Start====================
+rules:
+{Function:getValue, Visibility:internal, Explanation:Uses assembly.}
+{Function:saveValue, Visibility:internal, Explanation:Uses assembly.}
+{Function:checkMultiSignature, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: multiSignatureClient
+Sink:
+Reasoning:
+- The constructor is the actual constructor and executes only at deployment. Its call to `saveValue` writes a fixed storage slot with the deployer-supplied `multiSignature` address. This is not externally invokable after deployment and does not constitute an access-control sink.
+- `getMultiSignatureAddress` is a public view function. It only reads the fixed storage slot via `getValue`; it performs no state-changing or security-sensitive operation.
+- `checkMultiSignature` is internal and is not invoked by any public/external function in this contract. The `validCall` modifier is declared but unused. It validates signatures and updates a nonce; no privileged operation is protected by it in this source.
+- `saveValue` is internal and uses `sstore`. It is called only by the constructor (fixed slot, deployment-only) and by `checkMultiSignature` (internal, not externally reachable in this contract). No externally callable function allows an arbitrary caller to control the position/value to overwrite critical storage.
+- `getValue` is internal view and uses `sload`. It is a read-only operation and does not modify access-control state.
+
+Therefore, no valid sink operations are present in the given source code.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:ownerExpiredTime, Visibility:public, Explanation:Uses assembly.}
+{Function:version, Visibility:public, Explanation:Uses assembly.}
+{Function:owner, Visibility:public, Explanation:Uses assembly.}
+{Function:txOrigin, Visibility:public, Explanation:Uses assembly.}
+{Function:_setVersion, Visibility:internal, Explanation:Uses assembly.}
+{Function:_setProxyOwner, Visibility:internal, Explanation:Uses assembly.}
+{Function:_setProxyOrigin, Visibility:internal, Explanation:Uses assembly.}
+{Function:isContract, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: proxyOwner
+Sink:
+Reasoning:
+- `transferOwnership` writes proxy owner storage through `_setProxyOwner`, and `onlyOwner` enforces `isOwner()`, which requires `msg.sender == owner()` and `isContract(msg.sender)`. This is access-controlled.
+- `transferOrigin` writes proxy origin storage through `_setProxyOrigin`, and `onlyOrigin` enforces `msg.sender == txOrigin()` plus `checkMultiSignature()`. This is access-controlled.
+- `_setProxyOwner` and `_setProxyOrigin` are internal and are only called from the constructor and the access-controlled public functions above.
+- `_setVersion` is internal, writes version storage, and has no external caller in this source. It is not externally reachable.
+- `owner`, `txOrigin`, `ownerExpiredTime`, and `version` are `view` functions using `sload`; they do not modify state.
+- `isContract` is an internal `view` function using `extcodesize`; it does not modify state.
+- The constructor sets owner and origin at deployment and is not externally callable after deployment.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:_setOperator, Visibility:internal, Explanation:Writes to variable _operators without any access control.}
+{Function:setOperator, Visibility:public, Explanation:Writes to variable _operators without any access control.}
+{Function:setManager, Visibility:public, Explanation:Writes to variable _operators without any access control.}
+
+=============Contract: proxyOperator
+Sink:
+Step 1: The static analysis result lists `_setOperator`, `setOperator`, and `setManager` as writing to `_operators` without access control.
+
+Step 2: In the source, the only writes to the security-sensitive `_operators` mapping occur in `_setOperator` at `_operators[index] = newAddress;`. `_setOperator` is an internal function. It is invoked by `setManager`, which is guarded by the `onlyOwner` modifier, and by `setOperator`, which is guarded by the `OwnerOrOrigin` modifier. The `getOperator` function is a view function and does not write state. No other functions write to `_operators`.
+
+Step 3: `setManager` has the `onlyOwner` access control modifier. `setOperator` has the `OwnerOrOrigin` access control modifier. `_setOperator` is internal and only called by these guarded functions. Therefore, the writes to `_operators` are not unauthenticated sink operations. The static analysis result is a reference that did not account for the access control modifiers defined in the parent contract.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:_redeem, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: safeTransfer
+Sink:
+Reasoning:
+- `getPayableAmount` is internal. The `token == address(0)` branch sets `amount = msg.value`; the ERC20 branch calls `safeTransferFrom(msg.sender, address(this), amount)`, which pulls from the caller’s own account and requires ERC20 allowance. This is standard ERC20 behavior and does not modify another user’s funds without authorization.
+- `_redeem` is internal. It transfers contract-held Ether via `recieptor.transfer(amount)` or contract-held ERC20 tokens via `oToken.safeTransfer(recieptor, amount)` to a caller-supplied `recieptor`. No access-control check restricts `recieptor` or `amount` inside `_redeem`.
+- No constructor or initializer is present.
+
+--Sink--:
+{Function: _redeem, Sink: Ether/token transfer to arbitrary recieptor, Visibility: internal, Explanation: _redeem transfers contract-held Ether via recieptor.transfer(amount) or ERC20 tokens via oToken.safeTransfer(recieptor, amount) to a caller-supplied recipient; no access-control check restricts the recipient or amount.}

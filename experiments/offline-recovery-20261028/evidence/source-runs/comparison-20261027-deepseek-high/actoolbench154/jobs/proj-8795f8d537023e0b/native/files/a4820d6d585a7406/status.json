@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "8c8c705ca0019dafe27ec1b2e60e0de61f94eb1f50b4a430651820b7b2943bf1",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.24+commit.e11b9ed9",
+    "compiler_sha256": "fb03a29a517452b9f12bcf459ef37d0a543765bb3bbc911e70a87d6a37c30d5f",
+    "metadata": "v0.8.24+commit.e11b9ed9",
+    "metadata_build": "e11b9ed9",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-8795f8d537023e0b/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.24"
+  },
+  "elapsed_seconds": 8.542,
+  "ended_utc": "2026-10-27T06:10:31.510729+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-8795f8d537023e0b/source_code/SafeMath.sol",
+  "source_sha256": "8c8c705ca0019dafe27ec1b2e60e0de61f94eb1f50b4a430651820b7b2943bf1",
+  "started_utc": "2026-10-27T06:10:30.893690+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-8795f8d537023e0b/source_code/SafeMath.sol"
+}

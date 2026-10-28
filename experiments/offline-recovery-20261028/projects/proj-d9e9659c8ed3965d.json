@@ -1,0 +1,70 @@
+{
+  "case_ids": [
+    "acb-33156783587a82b7"
+  ],
+  "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d",
+  "files": [
+    {
+      "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 37,
+        "contracts_skipped_interface_abstract_library": 32,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 2,
+        "contracts_without_native_candidates": 3,
+        "elapsed_seconds": 4.993,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 37,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1540,
+          "sha256": "c02af7b2480b5c2a92c29058b5419517d6c6647cd01718fecfd54d4b7848616b",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d/native/files/b4df8a89b55f91d3/status.json",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d/native/files/b4df8a89b55f91d3/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d/native/files/b4df8a89b55f91d3/stderr.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d/native/files/b4df8a89b55f91d3/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 487,
+          "sha256": "d973eac55b88dacdf4e2ce13c4d5920d4bdbd51ff71b19718c8c1e09c078c929",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d/native/files/b4df8a89b55f91d3/stdout.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d/native/files/b4df8a89b55f91d3/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d9e9659c8ed3965d/source_code/WellUpgradeable.sol",
+      "source_sha256": "f1dfdd1f29d5ceba6ae13c1f9aee75da790d59d01fcf29a046d2f9cd902dbea9",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_SKIPPED_NON_IMPLEMENTABLE_CONTRACTS",
+        "explanation": "Original analyzer summary records interface/abstract/library skips and no analyzed contract."
+      },
+      "tool_input_path": "projects/proj-d9e9659c8ed3965d/source_code/WellUpgradeable.sol"
+    }
+  ],
+  "original_project_result_sha256": "55e4801800f514efd33291f4a69cfdab4ea6657acfc272f5be7c351931dbf180",
+  "original_project_status": "PROJECT_COMPLETED",
+  "project_id": "proj-d9e9659c8ed3965d",
+  "source_artifact": "experiments/llm-resume-20261027/jobs/proj-d9e9659c8ed3965d",
+  "source_file_count": 1,
+  "status": "PROJECT_EVIDENCE_PRESERVED"
+}

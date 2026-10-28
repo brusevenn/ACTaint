@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "2a717cd56c8a3f562015bacb0ab7b6d93cb639d64221728520bf3f40217c8957",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 1,
+    "contracts_skipped_interface_abstract_library": 1,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.027,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.5.9+commit.c68bc34e",
+    "compiler_sha256": "390d14ac47b4a01e4f804a57159ffa526c2329a0eb08b9e20dee00649efb3461",
+    "metadata": "v0.5.9+commit.e560f70d",
+    "metadata_build": "e560f70d",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 2000 --evm-version petersburg",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.9"
+  },
+  "elapsed_seconds": 82.337,
+  "ended_utc": "2026-10-27T06:12:34.445540+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-942af968b7bde846/source_code/contracts_common/src/Libraries/AddressUtils.sol",
+  "source_sha256": "2a717cd56c8a3f562015bacb0ab7b6d93cb639d64221728520bf3f40217c8957",
+  "started_utc": "2026-10-27T06:12:33.878655+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-942af968b7bde846/source_code/contracts_common/src/Libraries/AddressUtils.sol"
+}

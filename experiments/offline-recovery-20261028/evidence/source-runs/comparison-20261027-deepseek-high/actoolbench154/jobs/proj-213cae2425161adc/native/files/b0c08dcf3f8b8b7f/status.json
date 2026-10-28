@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "0fa4be519ace18de1a22f1b5bc6dc2983e4e9c5ba1e11c4c2d9dc5ed9033f2f0",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.26+commit.4563c3fc",
+    "compiler_sha256": "5d577b3f7918dd735ab157e2f37a21d06c90469f13868359874f15184f2fa4d0",
+    "metadata": "v0.4.26+commit.4563c3fc",
+    "metadata_build": "4563c3fc",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.26"
+  },
+  "elapsed_seconds": 52.992,
+  "ended_utc": "2026-10-27T05:43:32.903747+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/b0c08dcf3f8b8b7f/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-213cae2425161adc/source_code/BancorNetwork.sol",
+  "source_sha256": "0fa4be519ace18de1a22f1b5bc6dc2983e4e9c5ba1e11c4c2d9dc5ed9033f2f0",
+  "started_utc": "2026-10-27T05:42:39.912482+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-213cae2425161adc/source_code/BancorNetwork.sol"
+}

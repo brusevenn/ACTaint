@@ -1,0 +1,29 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-88234ccc822eacc4",
+  "case_ids": [
+    "acb-b5d78316bf6fe1b6"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "89c6e4a854563773822854d8fae97da43ba6912853f7f431defd93e0407f6990",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:31:29.594659+00:00",
+  "exit_code": 4,
+  "input_identity": "42f6707244e949ebdd818d3b32dfb713f33e35e508393c8bad5cffcf678068f0",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-88234ccc822eacc4",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "PublicVault.sol",
+      "4cea52f226db72295a46cc8839ce08c3d5377114087719a8a8a42f3b4f662c58"
+    ]
+  ],
+  "source_hashes": [
+    "4cea52f226db72295a46cc8839ce08c3d5377114087719a8a8a42f3b4f662c58"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

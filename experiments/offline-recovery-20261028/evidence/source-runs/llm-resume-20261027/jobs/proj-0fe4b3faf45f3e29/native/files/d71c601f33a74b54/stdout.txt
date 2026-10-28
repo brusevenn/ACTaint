@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:updateMinWithdrawAmount, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateMaxDepositAmount, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateMinDepositAmount, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:setVariable, Visibility:internal, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateRewardsThreshold, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateSocializingPoolOptInCoolingPeriod, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateWithdrawnKeysBatchSize, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateSocializingPoolCycleDuration, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateMinBlockDelayToFinalizeWithdrawRequest, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+{Function:updateMaxWithdrawAmount, Visibility:external, Explanation:Writes to variable variablesMap without any access control.}
+
+=============Contract: StaderConfig
+Sink:
+Evaluation:
+- The static-analysis candidates `updateMinWithdrawAmount`, `updateMaxDepositAmount`, `updateMinDepositAmount`, `updateRewardsThreshold`, `updateSocializingPoolOptInCoolingPeriod`, `updateWithdrawnKeysBatchSize`, `updateSocializingPoolCycleDuration`, `updateMinBlockDelayToFinalizeWithdrawRequest`, and `updateMaxWithdrawAmount` are protected by `onlyRole(...)` in the actual source. They are not sinks.
+- `setVariable` is `internal`; it is not externally callable and is reached through role-protected setters or `initialize`. It is not a standalone externally reachable sink.
+- `initialize` is an external initializer without role-based access control. The `initializer` modifier only limits repeat initialization; it does not restrict who may call it first. It grants `DEFAULT_ADMIN_ROLE` to an arbitrary `_admin` and configures `ETH_DEPOSIT_CONTRACT`, so it is a sink.
+
+--Sink--:
+{Function: initialize, Sink: _grantRole(DEFAULT_ADMIN_ROLE, _admin) and setContract(ETH_DEPOSIT_CONTRACT, _ethDepositContract), Visibility: external, Explanation: The initializer is externally callable and not role-protected; the initializer modifier only prevents multiple initialization, not unauthorized first-call access, allowing the first caller to grant admin role to an arbitrary address and set a privileged contract address.}

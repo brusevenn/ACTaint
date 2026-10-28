@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "86ebb5abcbfaf0c43101e0bbb6bc66fe639a9e978d1eabac72f628680ed83fd7",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.25+commit.b61c2a91",
+    "compiler_sha256": "c42aada7a52057ddbed93ec011235e256c564c440b68dbaac5ae482babbb3d6d",
+    "metadata": "v0.8.25+commit.b61c2a91",
+    "metadata_build": "b61c2a91",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-fd1d1ff90380fc2a/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.25"
+  },
+  "elapsed_seconds": 87.396,
+  "ended_utc": "2026-10-27T14:56:41.884035+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/7b56ef4fc7ccfc16/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-fd1d1ff90380fc2a/source_code/TSURUWrapper.sol",
+  "source_sha256": "86ebb5abcbfaf0c43101e0bbb6bc66fe639a9e978d1eabac72f628680ed83fd7",
+  "started_utc": "2026-10-27T14:56:00.772699+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-fd1d1ff90380fc2a/source_code/TSURUWrapper.sol"
+}

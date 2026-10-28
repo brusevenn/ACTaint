@@ -1,0 +1,21 @@
+==============Start====================
+rules:
+{Function:transfer, Visibility:public, Explanation:Writes to variable PendingMint without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable PendingMint without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable PendingBrun without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable PendingBrun without any access control.}
+{Function:setSwapPairs, Visibility:public, Explanation:Writes to variable Pairs without any access control.}
+
+=============Contract: AISPACE
+Sink:
+Reasoning:
+- `setSwapPairs` is public and writes `Pairs` with the `onlyOwner` restriction commented out.
+- `transfer` and `transferFrom` are public and call `_transferAIS`, which writes `PendingMint` and `PendingBrun` in the pair-marked branches. Since `setSwapPairs` is public, an unprivileged caller can enable those branches and cause these writes. `_spendAllowance` only checks token allowance and does not authorize these additional state modifications.
+- Other functions are owner-restricted, constructor logic, view-only, internal, or do not accept caller-controlled arguments for the sensitive operation.
+
+--Sink--:
+{Function: transfer, Sink: PendingMint, Visibility:public, Explanation: `transfer` is public and calls `_transferAIS`, which executes `PendingMint += value*4/100` or `PendingMint += value*8/100` in the pair-marked branches. Because `setSwapPairs` is public, an unprivileged caller can set `Pairs` and cause caller-controlled updates to `PendingMint` without access control.}
+{Function: transferFrom, Sink: PendingMint, Visibility:public, Explanation: `transferFrom` is public and calls `_transferAIS` with caller-supplied `from`, `to`, and `value`, reaching the same `PendingMint += ...` writes. `_spendAllowance` does not authorize modification of `PendingMint`, and public `setSwapPairs` allows callers to enable the pair branches.}
+{Function: transfer, Sink: PendingBrun, Visibility:public, Explanation: `transfer` calls `_transferAIS`, which writes `PendingBrun[to] = value*5/100` when `Pairs[from]` is true and `PendingBrun[from] = value*10/100` when `Pairs[to]` is true. Public `setSwapPairs` lets an unprivileged caller enable these branches and modify `PendingBrun` for addresses without their authorization.}
+{Function: transferFrom, Sink: PendingBrun, Visibility:public, Explanation: `transferFrom` calls `_transferAIS`, which writes `PendingBrun[to]` or `PendingBrun[from]` in the pair branches. `_spendAllowance` authorizes only spending `value`; it does not authorize writing `PendingBrun` for `from` or `to`. Public `setSwapPairs` allows callers to enable these pair branches.}
+{Function: setSwapPairs, Sink: Pairs, Visibility:public, Explanation: `setSwapPairs` writes `Pairs[_address] = true` with no access control; the `onlyOwner` restriction is commented out. Any caller can mark any address as a swap pair and control the fee/burn/mint branches in `_transferAIS`.}

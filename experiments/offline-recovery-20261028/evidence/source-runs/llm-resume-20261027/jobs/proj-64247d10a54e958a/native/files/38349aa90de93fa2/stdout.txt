@@ -1,0 +1,48 @@
+==============Start====================
+rules:
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721
+Sink:
+Reasoning:
+- The public state-changing functions are `approve`, `setApprovalForAll`, `transferFrom`, and `safeTransferFrom`. Each either checks that the caller is the token owner/approved operator or modifies only the caller’s own operator approvals.
+- The internal state-changing functions `_mint`, `_burn`, `_transfer`, `_approve`, `_setApprovalForAll`, and `__unsafe_increaseBalance` are not externally callable in this contract. The externally reachable wrappers enforce the required authorization checks.
+- The constructor only initializes `_name` and `_symbol`.
+- The static-analysis candidate `_checkOnERC721Received` is `private`. Its assembly block only reverts with a provided reason. Its external call is the standard ERC721 receiver callback executed after ownership state has been updated. It does not modify ownership, balances, or approvals without authorization.
+- No valid access-control sink is present.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:_approve, Visibility:private, Explanation:Writes to variable allowance without any access control.}
+{Function:approve, Visibility:external, Explanation:Writes to variable allowance without any access control.}
+{Function:permit, Visibility:external, Explanation:Writes to variable allowance without any access control.}
+
+=============Contract: UniswapV2ERC20
+Sink:
+Reasoning:
+- Constructor only initializes `DOMAIN_SEPARATOR` at deployment; it does not modify token balances or allowances, so it is not an access-control sink.
+- `_mint` and `_burn` are `internal` and are not externally callable in this contract; they are not exposed through any public/external wrapper here.
+- `_approve` is `private` and only writes `allowance[owner][spender]`. It is called by `approve` with `owner = msg.sender` and by `permit` after signature verification. It is not externally callable.
+- `_transfer` is `private` and only moves balances through the public wrappers. It is not externally callable.
+- `approve` is the standard ERC-20 approve pattern: the caller can only set its own allowance via `allowance[msg.sender][spender]`. This is not an access-control sink.
+- `transfer` is the standard ERC-20 transfer pattern: the caller moves only its own balance via `_transfer(msg.sender, to, value)`. This is not an access-control sink.
+- `transferFrom` follows the standard ERC-20 allowance pattern: the spender consumes `allowance[from][msg.sender]` unless it is `type(uint256).max`, then transfers `from`'s tokens. This is not an access-control sink.
+- `permit` verifies an EIP-712 signature with `ecrecover` and requires `recoveredAddress == owner` before calling `_approve(owner, spender, value)`. The allowance modification is signature-authorized, so this is not an access-control sink.
+- The static-analysis flags for `_approve`, `approve`, and `permit` are false positives under the given sink criteria.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:_safeTransfer, Visibility:private, Explanation:Uses low level call.}
+
+=============Contract: UniswapV2Pair
+Sink:
+Reasoning: The low-level external call in `_safeTransfer` is a security-sensitive operation: it executes `token.call(...)` to transfer tokens to a caller-supplied recipient and has no internal access control. `initialize` is protected by `require(msg.sender == factory)`, and the constructor correctly sets `factory`. Other functions are standard Uniswap pair operations and do not introduce additional sink operations beyond the underlying safe-transfer call.
+
+--Sink--:
+{Function: _safeTransfer, Sink: Low-level external call (token.call) with transfer selector, Visibility: private, Explanation: Executes token.call(abi.encodeWithSelector(SELECTOR, to, value)) to transfer tokens to a caller-supplied recipient; the helper itself has no access control and is reachable from external functions burn, swap, and skim.}

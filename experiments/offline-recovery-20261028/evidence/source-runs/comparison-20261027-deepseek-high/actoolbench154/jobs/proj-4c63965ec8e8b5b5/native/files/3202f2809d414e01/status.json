@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "14ab42693863290cc667032a0465176a6192bd676590bcc7ba9dd60820c90da5",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4c63965ec8e8b5b5/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "elapsed_seconds": 129.455,
+  "ended_utc": "2026-10-27T05:53:03.206494+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/3202f2809d414e01/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-4c63965ec8e8b5b5/source_code/NFTXVaultFactoryUpgradeable.sol",
+  "source_sha256": "14ab42693863290cc667032a0465176a6192bd676590bcc7ba9dd60820c90da5",
+  "started_utc": "2026-10-27T05:50:53.752285+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-4c63965ec8e8b5b5/source_code/NFTXVaultFactoryUpgradeable.sol"
+}

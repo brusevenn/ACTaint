@@ -1,0 +1,25 @@
+==============Start====================
+rules:
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:fallback, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: Virgo_ZodiacToken
+Sink:
+Reasoning:
+1. The contract has no constructor function and no callable initializer/constructor-like function. The state variable `owner` is initialized at declaration, so no wrong-constructor sink is present.
+2. `transfer` is a standard ERC-20 transfer that debits only `msg.sender`; it does not modify another account without authorization.
+3. `transferFrom` is public and uses reversed checks: `fromBalance <= _value` and `allowance <= _value`. These checks do not require sufficient balance or allowance, so the function writes `balances[_from]`, `balances[_to]`, and `allowed[_from][msg.sender]` for an arbitrary `_from` without sufficient funds or approval. This is a sink.
+4. `approve` is standard and only updates `allowed[msg.sender][_spender]`.
+5. `enablePurchasing`, `disablePurchasing`, `withdrawForeignTokens`, `setAIRDROPBounce`, `setICORatio`, and `setMINfinney` contain explicit owner checks, so they are not sinks.
+6. The fallback function is an open token-purchase function: it accepts `msg.value`, forwards it to `owner`, and credits tokens to `msg.sender`. This is intended behavior, not a sink.
+7. `withdraw` has no access control and transfers the entire contract Ether balance to `owner`. Any caller can invoke this privileged transfer, so it is a sink.
+8. `burn` only burns the caller’s own balance and reduces `totalSupply`; it is a standard burn and not a sink.
+
+--Sink--:
+{Function: transferFrom, Sink: allowed, Visibility: public, Explanation: The function uses the reversed allowance condition (`allowance <= _value`) and writes `allowed[_from][msg.sender]` without sufficient allowance.}
+{Function: transferFrom, Sink: balances, Visibility: public, Explanation: The function uses reversed balance and allowance conditions (`fromBalance <= _value`, `allowance <= _value`) and writes `balances[_from]` and `balances[_to]` for an arbitrary `_from` without sufficient funds or approval.}
+{Function: withdraw, Sink: owner.transfer, Visibility: public, Explanation: No access control restricts the caller to owner; any caller can transfer the contract's entire Ether balance to owner.}

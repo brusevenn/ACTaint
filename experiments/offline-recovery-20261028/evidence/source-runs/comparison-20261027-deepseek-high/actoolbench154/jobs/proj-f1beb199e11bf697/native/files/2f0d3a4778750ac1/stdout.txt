@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:fallback, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: UselessEthereumToken
+Sink:
+Reasoning:
+- `transferFrom` is public. It writes `balances[_to]`, `balances[_from]`, and `allowed[_from][msg.sender]`. The balance and allowance checks use `<=` instead of `>=`, so the requirements are inverted. A caller can modify the allowance and balances of an arbitrary `_from` without sufficient authorization. This is a sink.
+- `transfer` only decreases `balances[msg.sender]` and increases `balances[_to]` as part of a caller-initiated transfer. It is a standard token transfer and is not a sink.
+- `approve` only writes `allowed[msg.sender][_spender]`, modifying the caller’s own allowance. It is a standard approval and is not a sink.
+- `enablePurchasing` and `disablePurchasing` contain explicit `msg.sender != owner` checks. They are owner-restricted and are not sinks.
+- `withdrawForeignTokens` contains an explicit `msg.sender != owner` check and transfers foreign tokens to the owner. The caller is authorized, so it is not a sink.
+- The fallback function mints tokens to `msg.sender` and forwards the caller’s `msg.value` to the owner. The caller pays and receives its own tokens; this is intended purchase behavior and is not an access-control sink.
+- `ripemd160` is used for bonus calculation, not for access control, and is not a sink.
+
+--Sink--:
+{Function: transferFrom, Sink: writes to balances and allowed without authorization, Visibility:public, Explanation: The function uses inverted balance and allowance comparisons (`<=` instead of `>=`), so a caller can modify `balances[_from]`, `balances[_to]`, and `allowed[_from][msg.sender]` for an arbitrary `_from` without sufficient allowance or balance.}

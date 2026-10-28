@@ -1,0 +1,41 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-3b7a91c199533da7",
+  "case_ids": [
+    "acb-6d2d1ac9798c0060",
+    "acb-d2934f4b7d14df65",
+    "acb-f0ed5c6d4149e180"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "d79d20e318c8e20f3d006735bac0c7669703903779f0d007840e347997b398cb",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:05:56.123207+00:00",
+  "exit_code": 4,
+  "input_identity": "564bd2631b92b9058c08f6b8d40c4fa74f2adaa72fc3fd6edb43197ac28d30a2",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-3b7a91c199533da7",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MIMOAutoAction.sol",
+      "97e43abacdd7e8546d97aa2cf173f45165cad738a8863959ea66e7c66a20876b"
+    ],
+    [
+      "MIMOProxy.sol",
+      "bf6239cb7bfc7630c00bc57238045bde869430b4f1cdcc5600915ffea542b1e0"
+    ],
+    [
+      "MIMOProxyFactory.sol",
+      "114ed4ee8f801a68c4bf0abc5e56f084bba294dfba79b491814075f8c62ede94"
+    ]
+  ],
+  "source_hashes": [
+    "114ed4ee8f801a68c4bf0abc5e56f084bba294dfba79b491814075f8c62ede94",
+    "97e43abacdd7e8546d97aa2cf173f45165cad738a8863959ea66e7c66a20876b",
+    "bf6239cb7bfc7630c00bc57238045bde869430b4f1cdcc5600915ffea542b1e0"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

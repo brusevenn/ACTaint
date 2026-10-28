@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "006520d047cd5872350e98cca88e492de2563bdec50800a2f020fb1bd76cff7b",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-e5871e2886c8fc03/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "elapsed_seconds": 88.357,
+  "ended_utc": "2026-10-27T06:42:46.419438+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/951554150ba71b3f/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-e5871e2886c8fc03/source_code/FlashGovernanceArbiter.sol",
+  "source_sha256": "006520d047cd5872350e98cca88e492de2563bdec50800a2f020fb1bd76cff7b",
+  "started_utc": "2026-10-27T06:41:18.833470+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-e5871e2886c8fc03/source_code/FlashGovernanceArbiter.sol"
+}

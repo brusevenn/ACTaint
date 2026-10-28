@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: DimonCoin
+Sink:
+Reasoning:
+- `DimonCoin()` is the constructor, so it executes at deployment and is not externally callable afterward.
+- `transferOwnership` and `distributeFUD` are protected by `onlyOwner`.
+- `transfer` only updates the caller’s own balance and recipient balance after a sufficient-funds check.
+- `approve` only updates the caller’s own allowance mapping.
+- `withdrawForeignTokens` has `require(msg.sender == owner)`, which provides access control.
+- `transferFrom` lacks a valid allowance/funds check. Its comparisons are reversed (`fromBalance <= _value`, `allowance <= _value`), allowing a caller to modify `balances[_from]`, `balances[_to]`, and `allowed[_from][msg.sender]` without proper authorization.
+
+--Sink--:
+{Function: transferFrom, Sink: balances and allowed state updates, Visibility: public, Explanation: transferFrom updates balances[_from], balances[_to], and allowed[_from][msg.sender] without valid allowance/funds checks because the comparison operators are reversed, allowing unauthorized modification of other accounts' balances and allowances.}

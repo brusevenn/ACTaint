@@ -1,0 +1,50 @@
+==============Start====================
+rules:
+{Function:make, Visibility:external, Explanation:Writes to variable locked without any access control.}
+{Function:kill, Visibility:external, Explanation:Writes to variable locked without any access control.}
+{Function:take, Visibility:external, Explanation:Writes to variable locked without any access control.}
+{Function:make, Visibility:external, Explanation:Writes to variable offers without any access control.}
+{Function:kill, Visibility:external, Explanation:Writes to variable offers without any access control.}
+{Function:take, Visibility:external, Explanation:Writes to variable offers without any access control.}
+{Function:cancel, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:buy, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: SimpleMarket
+Sink:
+Reviewed all state-changing operations and token transfers:
+
+- `offer` / `make`: Creates offers with `info.owner = msg.sender` and transfers `pay_gem` from `msg.sender`. No unauthorized state or asset modification.
+- `buy` / `take`: Permissionless order fulfillment by contract design. The caller pays via `transferFrom(msg.sender, ...)`, and escrowed maker funds are released according to the active offer terms. This access is explicitly granted by the market logic.
+- `cancel` / `kill`: `cancel` enforces `getOwner(id) == msg.sender` through `can_cancel`. `kill` delegates to `cancel`, so the same owner restriction applies.
+- `bump`: Emits an event only.
+- Writes to `locked` are synchronization guard updates, not access-control-sensitive state changes.
+- There is no constructor or initializer-like function to classify as a wrong constructor sink.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:kill, Visibility:external, Explanation:Writes to variable _head without any access control.}
+{Function:kill, Visibility:external, Explanation:Writes to variable locked without any access control.}
+{Function:offer, Visibility:external, Explanation:Writes to variable locked without any access control.}
+{Function:kill, Visibility:external, Explanation:Writes to variable offers without any access control.}
+{Function:offer, Visibility:external, Explanation:Writes to variable offers without any access control.}
+{Function:kill, Visibility:external, Explanation:Writes to variable _span without any access control.}
+{Function:offer, Visibility:external, Explanation:Writes to variable _span without any access control.}
+{Function:kill, Visibility:external, Explanation:Writes to variable _best without any access control.}
+{Function:offer, Visibility:external, Explanation:Writes to variable _best without any access control.}
+{Function:kill, Visibility:external, Explanation:Writes to variable _rank without any access control.}
+{Function:offer, Visibility:external, Explanation:Writes to variable _rank without any access control.}
+
+=============Contract: RubiconMarket
+Sink:
+Reasoning:
+1. `initialize(bool,address)` is a public initializer with no constructor in the contract. Its only guard is `require(!initialized)`, which restricts repeated calls but not the caller. It sets `owner = msg.sender` and other privileged state (`feeTo`, `feeBPS`, market flags). This allows any caller to initialize first and become owner, so it is a sink.
+2. `kill(bytes32)` calls `cancel(uint256(id))`, and `cancel` is protected by `can_cancel(id)`. That modifier enforces `isClosed() || msg.sender == getOwner(id) || id == dustId`. Therefore `kill` does not allow arbitrary unauthorized cancellation of active offers. The `dustId` path is set during internal dust cancellation and the offer is cancelled in that same flow, so it is not a sink.
+3. `offer` overloads are intended permissionless market entry points. They allow users to create orders and update the global order book using their own funds. They do not let a caller modify another user’s ownership or privileged contract state without authorization. The writes to `_head`, `_near`, `_rank`, `_best`, `_span`, and `offers` are part of intended order creation/matching, so they are not sinks.
+4. `setMinSell`, `setBuyEnabled`, `setMatchingEnabled`, `setFeeBPS`, `setAqueductDistributionLive`, `setAqueductAddress`, and `setFeeTo` are protected by `auth`.
+5. `insert` and `del_rank` are permissionless keeper/cleanup operations that do not change ownership or user funds. `buy`, `take`, `sellAllAmount`, `buyAllAmount`, `make`, and `cancel` are standard trading/cancellation paths with appropriate offer/caller constraints. View functions do not change state.
+
+--Sink--:
+{Function: initialize, Sink: sets owner, feeTo, feeBPS, initialized, matchingEnabled, buyEnabled, and AqueductDistributionLive, Visibility: public, Explanation: Public initializer lacks access control; require(!initialized) only prevents re-initialization, so any caller can initialize first and become owner with auth privileges.}

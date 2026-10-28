@@ -1,0 +1,49 @@
+==============Start====================
+rules:
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable _ownerships without any access control.}
+{Function:transferFrom, Visibility:external, Explanation:Writes to variable _ownerships without any access control.}
+{Function:safeTransferFrom, Visibility:public, Explanation:Writes to variable _ownerships without any access control.}
+{Function:_safeMint, Visibility:internal, Explanation:Writes to variable currentIndex without any access control.}
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721A
+Sink:
+Reasoning:
+- The constructor `constructor(string,string,uint256,uint256)` is valid and only initializes contract state/immutables.
+- `transferFrom` and both `safeTransferFrom` overloads delegate to `_transfer`, which enforces `isApprovedOrOwner` and checks `prevOwnership.addr == from`. These are standard ERC721 transfer operations with proper authorization.
+- `approve` and `setApprovalForAll` are standard ERC721 approval functions. `approve` requires owner or operator approval, and `setApprovalForAll` only modifies the caller’s own operator approvals.
+- `_safeMint` is `internal` and is only callable from within this contract or derived contracts. There is no externally reachable public/external mint function in this source that calls it without access control.
+- `_setOwnersExplicit` is `internal` and not externally reachable in this contract.
+- `_checkOnERC721Received` uses assembly only to bubble up a revert reason; it does not perform access-control-sensitive state changes.
+- No wrong constructor or initializer-like function is present.
+
+Conclusion:
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:setMiner, Visibility:public, Explanation:Writes to variable miner without any access control.}
+{Function:base64, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: landNFT
+Sink:
+Reasoning:
+- The actual constructor `constructor()` initializes state at deployment and is not callable by arbitrary users.
+- `setMiner`, `setBaseURI`, `setsoilAddress`, `setGSDAddress`, `setLFTAddress`, `setExtension`, and `setPaused` are protected by `onlyOwner`.
+- `mint` is protected by `onlyMiner`, and `miner` is controlled through the `onlyOwner`-protected `setMiner`.
+- `upgrade` requires `ownerOf(_tokenId) == msg.sender`; it modifies the caller’s own token state and caller history, and transfers only from `msg.sender`.
+- `base64` is an `internal pure` assembly routine operating on memory; it does not modify storage or access-control state.
+- The remaining functions are view/pure helpers or standard overrides with no sensitive state-changing access-control operation.
+
+--Sink--: 
+no sinks
+Report:
+--Tx.origin Vulnerability--:
+{Function: upgrade, Explanation: Uses tx.origin as condition.}
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 2, "contracts_seen": 18, "contracts_skipped_interface_abstract_library": 15, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 1, "elapsed_seconds": 62.627, "sink_agent_calls": 2, "taint_agent_calls": 0, "target_contracts": 18, "total_token": 19864}
+==============End======================
+total time: 62.62651991844177
+total token: 19864

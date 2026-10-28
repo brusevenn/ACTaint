@@ -1,0 +1,126 @@
+{
+  "case_ids": [
+    "acb-a09ce990683a40b5"
+  ],
+  "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8",
+  "files": [
+    {
+      "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 5,
+        "contracts_skipped_interface_abstract_library": 3,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 2,
+        "elapsed_seconds": 0.177,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 5,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1547,
+          "sha256": "de3cd0a2ee7ce640d40463d00e13496a02e90184d9cbec904495a120d40e386f",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/f0a028574f9c63a3/status.json",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/f0a028574f9c63a3/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/f0a028574f9c63a3/stderr.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/f0a028574f9c63a3/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 487,
+          "sha256": "f00c535b704010f059bb2ac233cadfe86de914fbb62eacf135cf864c08f9e4c2",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/f0a028574f9c63a3/stdout.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/f0a028574f9c63a3/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-43d618cac604b1a8/source_code/MainContractFlattened.sol",
+      "source_sha256": "6d1a95086e726264bca68cb1b7c9eb6c0eaa36dc489bf6642e4c07fae308a1c2",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_SKIPPED_NON_IMPLEMENTABLE_CONTRACTS",
+        "explanation": "Original analyzer summary records interface/abstract/library skips and no analyzed contract."
+      },
+      "tool_input_path": "projects/proj-43d618cac604b1a8/source_code/MainContractFlattened.sol"
+    },
+    {
+      "evidence_artifact_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 5,
+        "contracts_skipped_interface_abstract_library": 3,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 2,
+        "elapsed_seconds": 0.178,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 5,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1515,
+          "sha256": "1c434311389f2d22ec03d547098fafbe85af9f6200e7d9dc884d0062c6585ce1",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/768d066b2d91fc16/status.json",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/768d066b2d91fc16/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/768d066b2d91fc16/stderr.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/768d066b2d91fc16/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 487,
+          "sha256": "d69114d7eda87dee517006ba41b89c3b0168c9bfa4357834149c6a5f37eb4ac8",
+          "snapshot_path": "evidence/source-runs/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/768d066b2d91fc16/stdout.txt",
+          "source_path": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8/native/files/768d066b2d91fc16/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-43d618cac604b1a8/source_code/Token.sol",
+      "source_sha256": "c11e4908ec21c06e2e967cde3b9f376e7952805b23bb61fe43d7036857e7bc85",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_SKIPPED_NON_IMPLEMENTABLE_CONTRACTS",
+        "explanation": "Original analyzer summary records interface/abstract/library skips and no analyzed contract."
+      },
+      "tool_input_path": "projects/proj-43d618cac604b1a8/source_code/Token.sol"
+    }
+  ],
+  "original_project_result_sha256": "b279160cbb29ebd7f76b36a331027c8024d563181821c03958c54a55ea0c43a7",
+  "original_project_status": "PROJECT_COMPLETED",
+  "project_id": "proj-43d618cac604b1a8",
+  "source_artifact": "experiments/comparison-20261027-deepseek-high/actoolbench154/jobs/proj-43d618cac604b1a8",
+  "source_file_count": 2,
+  "status": "PROJECT_EVIDENCE_PRESERVED"
+}

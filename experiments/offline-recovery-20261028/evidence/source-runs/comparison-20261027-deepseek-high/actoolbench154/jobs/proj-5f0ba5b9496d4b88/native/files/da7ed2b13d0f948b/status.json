@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "889c653818d5a8737509e1b3595b44b78b76dab0ff21c857e75b81ed96faee15",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.24+commit.e67f0147",
+    "compiler_sha256": "665675b9e0431c2572d59d6a7112afbdc752732ea0ce9aecf1a1855f28e02a09",
+    "metadata": "v0.4.24+commit.e67f0147",
+    "metadata_build": "e67f0147",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.24"
+  },
+  "elapsed_seconds": 31.934,
+  "ended_utc": "2026-10-27T05:54:00.587098+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/da7ed2b13d0f948b/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-5f0ba5b9496d4b88/source_code/BOMBBA.sol",
+  "source_sha256": "889c653818d5a8737509e1b3595b44b78b76dab0ff21c857e75b81ed96faee15",
+  "started_utc": "2026-10-27T05:53:28.653616+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-5f0ba5b9496d4b88/source_code/BOMBBA.sol"
+}

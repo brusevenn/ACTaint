@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "75e3c97011e75627ffb36f4a2799a4e887e1a3e27ed427490e82d7b6f51cc5c9",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.c7e474f2",
+    "metadata_build": "c7e474f2",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 999999 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-033997bd14a9a729/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "elapsed_seconds": 0.617,
+  "ended_utc": "2026-10-27T05:24:41.596769+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-033997bd14a9a729/source_code/@openzeppelin/contracts/access/Ownable.sol",
+  "source_sha256": "75e3c97011e75627ffb36f4a2799a4e887e1a3e27ed427490e82d7b6f51cc5c9",
+  "started_utc": "2026-10-27T05:24:40.980612+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-033997bd14a9a729/source_code/@openzeppelin/contracts/access/Ownable.sol"
+}

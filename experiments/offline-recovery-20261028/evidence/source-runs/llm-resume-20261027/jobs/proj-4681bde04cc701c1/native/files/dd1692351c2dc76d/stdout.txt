@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:setMinterAddress, Visibility:public, Explanation:Writes to variable minterAddress without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable minterAddress without any access control.}
+
+=============Contract: RabbitHoleTickets
+Sink:
+Reasoning:
+- `initialize` is public and uses `initializer`, which only limits repeated calls and does not restrict the caller. It writes `royaltyRecipient`, `minterAddress`, `royaltyFee`, `TicketRendererContract`, and calls `__Ownable_init()`, which sets ownership to `msg.sender`. This is a sink.
+- `mint` is public and uses `onlyMinter`. The modifier body is only `msg.sender == minterAddress;` with no `require` or revert, so it enforces no access control. It calls `_mint` and can mint tokens to arbitrary addresses. This is a sink.
+- `mintBatch` is public and uses the same broken `onlyMinter` modifier. It calls `_mintBatch` and can batch-mint tokens to arbitrary addresses. This is a sink.
+- `setMinterAddress`, `setTicketRenderer`, `setRoyaltyRecipient`, and `setRoyaltyFee` are protected by `onlyOwner`, which enforces owner access control. They are not sinks.
+- `royaltyInfo`, `uri`, and `supportsInterface` are view functions and do not modify state. They are not sinks.
+- Although the static analysis result lists `setMinterAddress`, the actual source has `onlyOwner`, so it is not a sink.
+
+--Sink--:
+{Function: initialize, Sink: initialization of ownership and critical addresses, Visibility: public, Explanation: The public initializer function only prevents repeated initialization and has no caller access control; it writes minterAddress, royaltyRecipient, royaltyFee, TicketRendererContract and calls __Ownable_init, so an arbitrary caller can set ownership and critical addresses.}
+{Function: mint, Sink: arbitrary token minting via _mint, Visibility: public, Explanation: The onlyMinter modifier contains only the expression msg.sender == minterAddress without require or revert, so it enforces no access control; any caller can call _mint and mint tickets to an arbitrary to_ address.}
+{Function: mintBatch, Sink: arbitrary token minting via _mintBatch, Visibility: public, Explanation: The onlyMinter modifier contains only the expression msg.sender == minterAddress without require or revert, so it enforces no access control; any caller can call _mintBatch and mint tickets to an arbitrary to_ address.}

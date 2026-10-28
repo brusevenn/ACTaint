@@ -1,0 +1,34 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-c0cd3cd11af4edb7",
+  "case_ids": [
+    "acb-56c867eaa5348422"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "62028ff5c656c97ec1439ca18aa45747ce9c44aeba308bbb45c6b2f6818fa14a",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:12:11.358281+00:00",
+  "exit_code": 4,
+  "input_identity": "ab9fe4846416b4cb1024875787701567530f7e90f5e17c5d45f71bb17164b701",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-c0cd3cd11af4edb7",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MainContractFlattened.sol",
+      "60c58c6618f9d353cfe8f83e4825cc9f26348b7385aaab037c5d07ecf40d70e5"
+    ],
+    [
+      "contracts/LiquidXv2Zap.sol",
+      "65764da01cd50cd6c73f0be5c7357cc323b0abb1488840af1e41a352f3596127"
+    ]
+  ],
+  "source_hashes": [
+    "60c58c6618f9d353cfe8f83e4825cc9f26348b7385aaab037c5d07ecf40d70e5",
+    "65764da01cd50cd6c73f0be5c7357cc323b0abb1488840af1e41a352f3596127"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

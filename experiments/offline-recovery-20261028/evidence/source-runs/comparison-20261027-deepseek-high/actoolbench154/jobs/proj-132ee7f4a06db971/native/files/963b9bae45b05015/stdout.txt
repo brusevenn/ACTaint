@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:_splitOtherToken, Visibility:public, Explanation:Writes to variable ldxindex without any access control.}
+{Function:quitShare, Visibility:private, Explanation:Writes to variable _updated without any access control.}
+{Function:_splitOtherTokenSecond, Visibility:private, Explanation:Transfers Ether or Token.}
+{Function:rescueEth, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:rescueToken, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: token
+Sink:
+--Sink--:
+{Function: _splitOtherToken, Sink: writes ldxindex and triggers _splitOtherTokenSecond, Visibility: public, Explanation: Public function with no access control; any caller can advance the reward distribution index and cause RewardToken transfers via _splitOtherTokenSecond.}
+{Function: _splitOtherTokenSecond, Sink: RewardToken.transfer(user, amountReward), Visibility: private, Explanation: Performs RewardToken transfers to shareholders based on pair balances; reachable through public _splitOtherToken without caller authorization.}
+{Function: transReward, Sink: pool.functionCall(data), Visibility: public, Explanation: Public function with no access control; any caller can execute arbitrary calldata on the pool contract as this contract.}

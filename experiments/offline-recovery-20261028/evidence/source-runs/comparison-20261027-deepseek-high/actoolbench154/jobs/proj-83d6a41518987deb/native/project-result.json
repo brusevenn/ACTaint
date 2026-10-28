@@ -1,0 +1,78 @@
+{
+  "case_ids": [
+    "acb-a4dc4c33d39cdbb4",
+    "acb-aed0a1a7a36effec"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-83d6a41518987deb/source_code/config.json",
+  "compile_config_sha256": "e316edc73fefd214b762a862e19344d5eda41355f48fb0cd222df230e6055037",
+  "compiler": {
+    "actual_full_version": "0.8.17+commit.8df45f5f",
+    "compiler_sha256": "99f2070b776e9714f1f76c43c229cf99b8978a92938ee8d2364c6de11c1a03d4",
+    "metadata": "v0.8.17+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-83d6a41518987deb/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.17"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 5.982,
+  "ended_utc": "2026-10-27T06:10:19.089967+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "1ec68fce302cb61fb57bfe285da6c40a0f2557f130a655e12e94b0f87ac9d9be",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.17+commit.8df45f5f",
+        "compiler_sha256": "99f2070b776e9714f1f76c43c229cf99b8978a92938ee8d2364c6de11c1a03d4",
+        "metadata": "v0.8.17+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-83d6a41518987deb/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.17"
+      },
+      "elapsed_seconds": 5.981,
+      "ended_utc": "2026-10-27T06:10:19.088410+00:00",
+      "exit_code": 1,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-83d6a41518987deb/source_code/LendingLedger.sol",
+      "source_sha256": "1ec68fce302cb61fb57bfe285da6c40a0f2557f130a655e12e94b0f87ac9d9be",
+      "started_utc": "2026-10-27T06:10:13.108707+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-83d6a41518987deb/source_code/LendingLedger.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-83d6a41518987deb",
+  "prompt_layout": "prefix_stable",
+  "record_count": 2,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 1,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:10:13.108009+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

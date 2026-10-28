@@ -1,0 +1,69 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-98b2c0e1dc60d5ec",
+  "case_ids": [
+    "acb-b07c561da5bda09c"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "8e6a2622102c3987bf90731752b6f52466ba364fe3c09b10b5424083e8baa98f",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:46:53.416202+00:00",
+  "exit_code": 4,
+  "input_identity": "c328644ecd9eccdeaf97f9de0bc15339a73651fb3c541cb7ba358066276070f4",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-98b2c0e1dc60d5ec",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "IERC20.sol",
+      "7ebde70853ccafcf1876900dad458f46eb9444d591d39bfc58e952e2582f5587"
+    ],
+    [
+      "IERC20Metadata.sol",
+      "b10e2f8bcc3ed53a5d9a82a29b1ad3209225331bb4de4a0459862a762cf83a1a"
+    ],
+    [
+      "ILeetSwapV2Callee.sol",
+      "d75dd0f36770883771952e0f01db5067a4277322c2395339bdabf204defcaf2d"
+    ],
+    [
+      "ILeetSwapV2Factory.sol",
+      "2e73879e84b4163205bbbce1ba9a54265681d1c64b0c9b4a4936658c6602215e"
+    ],
+    [
+      "ILeetSwapV2Pair.sol",
+      "57bacbb506dd791f6a7be4fb835d8f28ddc5b08774eba6b48039a3f00e9a5d81"
+    ],
+    [
+      "LeetSwapV2Fees.sol",
+      "38097df53f1572bb7f090786b7b0d22dbfc832adc7464830166a78312bfea1ed"
+    ],
+    [
+      "LeetSwapV2Pair.sol",
+      "a7359eeb8a291678896b1047895f53db29352ac48e23cccf10710ffbfb6131fe"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "d22e921271b99966df13be160d2ba5908e8bbabd8ba20626b11bdd8aeac3d523"
+    ],
+    [
+      "Math.sol",
+      "f26dc9eeeaf0385afa931c0a4717a20ab5e508e704463185c6aaf417428c2d8a"
+    ]
+  ],
+  "source_hashes": [
+    "2e73879e84b4163205bbbce1ba9a54265681d1c64b0c9b4a4936658c6602215e",
+    "38097df53f1572bb7f090786b7b0d22dbfc832adc7464830166a78312bfea1ed",
+    "57bacbb506dd791f6a7be4fb835d8f28ddc5b08774eba6b48039a3f00e9a5d81",
+    "7ebde70853ccafcf1876900dad458f46eb9444d591d39bfc58e952e2582f5587",
+    "a7359eeb8a291678896b1047895f53db29352ac48e23cccf10710ffbfb6131fe",
+    "b10e2f8bcc3ed53a5d9a82a29b1ad3209225331bb4de4a0459862a762cf83a1a",
+    "d22e921271b99966df13be160d2ba5908e8bbabd8ba20626b11bdd8aeac3d523",
+    "d75dd0f36770883771952e0f01db5067a4277322c2395339bdabf204defcaf2d",
+    "f26dc9eeeaf0385afa931c0a4717a20ab5e508e704463185c6aaf417428c2d8a"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

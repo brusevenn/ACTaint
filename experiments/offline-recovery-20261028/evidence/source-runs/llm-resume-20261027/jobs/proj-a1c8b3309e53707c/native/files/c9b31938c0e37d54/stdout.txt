@@ -1,0 +1,33 @@
+==============Start====================
+rules:
+{Function:transferAccountBalance, Visibility:external, Explanation:Writes to variable depositLockStart without any access control.}
+{Function:updateDepositLockStart, Visibility:internal, Explanation:Writes to variable depositLockStart without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable fixedApr without any access control.}
+{Function:setFixedApr, Visibility:public, Explanation:Writes to variable fixedApr without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable lockPeriod without any access control.}
+{Function:setLockPeriod, Visibility:external, Explanation:Writes to variable lockPeriod without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable allowEarlyWithdrawal without any access control.}
+{Function:setAllowEarlyWithdrawal, Visibility:public, Explanation:Writes to variable allowEarlyWithdrawal without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable claimFees without any access control.}
+{Function:setFees, Visibility:public, Explanation:Writes to variable claimFees without any access control.}
+{Function:setWaitForMaturity, Visibility:public, Explanation:Writes to variable rewardMaturityDuration without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable levelManager without any access control.}
+{Function:setLevelManager, Visibility:external, Explanation:Writes to variable levelManager without any access control.}
+{Function:transferAccountBalance, Visibility:external, Explanation:Writes to variable userInfo without any access control.}
+{Function:updateDepositLockStart, Visibility:internal, Explanation:Writes to variable userInfo without any access control.}
+{Function:updateUserDebt, Visibility:internal, Explanation:Writes to variable userInfo without any access control.}
+{Function:setSecondaryStaking, Visibility:external, Explanation:Writes to variable secondaryStaking without any access control.}
+{Function:withdrawToken, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: LaunchpadLockableStaking
+Sink:
+Reasoning:
+- `initialize` is a public initializer with only the `initializer` modifier. It sets critical state (`levelManager`, `treasury`, fees, `lockPeriod`, `fixedApr`, `allowEarlyWithdrawal`, `waitForRewardMaturity`). The first caller is not restricted, so it is a wrong-constructor/initializer sink.
+- `receiveUpPool` is external with no access-control modifier and no check that `msg.sender` is an allowed higher pool. It updates `userInfo[account]`, `depositLockStart[account]`, `lastClaimedAt[account]`, `stakersCount`, and pulls staking tokens for an arbitrary `account`.
+- `transferAccountBalance`, `setFixedApr`, `setLockPeriod`, `setAllowEarlyWithdrawal`, `setFees`, `setWaitForMaturity`, `setLevelManager`, `setSecondaryStaking`, and `withdrawToken` are protected by `onlyOwner` or `onlyOwnerOrAdmin`.
+- `updateDepositLockStart` and `updateUserDebt` are internal; their externally reachable unprotected path is through `receiveUpPool`, which is listed as the sink.
+- `deposit`, `withdraw`, `claim`, `stakePendingRewards`, `upPool`, and `migrateTokens` modify only `msg.sender`’s own state/assets.
+
+--Sink--:
+{Function: initialize, Sink: Initialization of critical state variables without caller access control, Visibility:public, Explanation: The initializer modifier only limits repeated initialization; it does not restrict who may call it first, so any address can initialize the contract and set critical addresses and parameters.}
+{Function: receiveUpPool, Sink: Unauthorized modification of arbitrary account state and token transfer, Visibility:external, Explanation: There is no access-control modifier and no check that msg.sender is an allowed pool; any caller can update userInfo[account], depositLockStart[account], lastClaimedAt[account], stakersCount, and pull staking tokens for an arbitrary account.}

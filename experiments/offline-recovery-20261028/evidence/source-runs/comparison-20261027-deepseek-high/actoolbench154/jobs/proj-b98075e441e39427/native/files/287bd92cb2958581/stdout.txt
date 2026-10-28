@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:isContract, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: RewardsHypervisor
+Sink:
+--Sink--:
+{Function: deposit, Sink: visr.safeTransferFrom(from, address(this), visrDeposit), Visibility: external, Explanation: The function allows any caller to specify `from` and executes `safeTransferFrom` as the hypervisor contract. It does not require `from == msg.sender` or prove that `msg.sender` is authorized by `from`. Since the ERC20 allowance is checked against the hypervisor as spender, any caller can spend tokens that an arbitrary `from` has approved to the hypervisor and mint shares to an arbitrary `to`.}

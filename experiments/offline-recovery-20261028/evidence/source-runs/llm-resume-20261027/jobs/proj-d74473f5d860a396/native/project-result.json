@@ -1,0 +1,127 @@
+{
+  "case_ids": [
+    "acb-77baf2f28b341ece",
+    "acb-a43fdb58953b12c5"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_path": "projects/proj-d74473f5d860a396/source_code/config.json",
+  "compile_config_sha256": "0a7aef19519a8909aa3b4931d9a63f163293e1c7ef6d355057c317c87b2db2b8",
+  "compiler": {
+    "actual_full_version": "0.8.9+commit.e5eed63a",
+    "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+    "metadata": "v0.8.9+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.9"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 1.841,
+  "ended_utc": "2026-10-27T14:24:51.643211+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "d23874e6794fb39b4f0d7e34a7aae70caf242bbbd3f7986f442c6600dc1ac02a",
+      "analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 2,
+        "contracts_skipped_interface_abstract_library": 1,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 1,
+        "elapsed_seconds": 0.245,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 2,
+        "total_token": 0
+      },
+      "compiler": {
+        "actual_full_version": "0.8.9+commit.e5eed63a",
+        "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+        "metadata": "v0.8.9+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.9"
+      },
+      "elapsed_seconds": 0.818,
+      "ended_utc": "2026-10-27T14:24:50.620215+00:00",
+      "exit_code": 0,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code/MultisigBase.sol",
+      "source_sha256": "d23874e6794fb39b4f0d7e34a7aae70caf242bbbd3f7986f442c6600dc1ac02a",
+      "started_utc": "2026-10-27T14:24:49.803270+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-d74473f5d860a396/source_code/MultisigBase.sol"
+    },
+    {
+      "actual_source_sha256": "f4493ecede0c80bdcb25279fdf17919bd7b1dd2bce2764c5699538112b3148dc",
+      "analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 8,
+        "contracts_skipped_interface_abstract_library": 7,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 1,
+        "elapsed_seconds": 0.412,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 8,
+        "total_token": 0
+      },
+      "compiler": {
+        "actual_full_version": "0.8.9+commit.e5eed63a",
+        "compiler_sha256": "f851f11fad37496baabaf8d6cb5c057ca0d9754fddb7a351ab580d7fd728cb94",
+        "metadata": "v0.8.9+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.9"
+      },
+      "elapsed_seconds": 1.839,
+      "ended_utc": "2026-10-27T14:24:51.641368+00:00",
+      "exit_code": 0,
+      "request_log_path": null,
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d74473f5d860a396/source_code/RemoteAddressValidator.sol",
+      "source_sha256": "f4493ecede0c80bdcb25279fdf17919bd7b1dd2bce2764c5699538112b3148dc",
+      "started_utc": "2026-10-27T14:24:50.623125+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-d74473f5d860a396/source_code/RemoteAddressValidator.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-d74473f5d860a396",
+  "prompt_layout": "prefix_stable_v2",
+  "record_count": 2,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T14:24:49.802651+00:00",
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

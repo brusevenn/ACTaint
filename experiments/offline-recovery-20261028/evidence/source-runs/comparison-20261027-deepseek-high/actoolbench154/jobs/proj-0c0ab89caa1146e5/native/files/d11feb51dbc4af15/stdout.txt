@@ -1,0 +1,27 @@
+==============Start====================
+rules:
+
+=============Contract: StrategyCmpdDaiV2
+Sink:
+Reasoning steps:
+- Evaluated all public/external state-changing functions.
+- `addKeeper`, `removeKeeper`, `setColFactorLeverageBuffer`, and `setColFactorSyncBuffer` require `msg.sender == governance || msg.sender == strategist`, so they have access control.
+- `leverageUntil` and `deleverageUntil` are guarded by `onlyKeepers`.
+- `sync`, `leverageToMax`, and `deleverageToMin` internally call `onlyKeepers`-protected functions; unauthorized callers revert before any privileged state mutation.
+- `harvest` is guarded by the inherited `onlyBenevolent` access-control modifier.
+- `deposit` only moves the contract’s own `want` balance into the constant cDAI market and mints cDAI to `address(this)`; it does not give the caller arbitrary control or transfer funds to an unauthorized address.
+- The non-view getter functions interact with Compound for the contract’s own account and do not grant caller-controlled privileged state changes.
+- The declared constructor is the actual constructor; no wrong constructor or initializer is present.
+- No cryptographic access-control sink is used.
+
+--Sink--: 
+no sinks
+Report:
+--Tx.origin Vulnerability--:
+{Function: onlyBenevolent, Explanation: Uses tx.origin as condition.}
+{Function: harvest, Explanation: Uses tx.origin as condition.}
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 21, "contracts_skipped_interface_abstract_library": 0, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 65.395, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 15039}
+==============End======================
+total time: 65.39490485191345
+total token: 15039

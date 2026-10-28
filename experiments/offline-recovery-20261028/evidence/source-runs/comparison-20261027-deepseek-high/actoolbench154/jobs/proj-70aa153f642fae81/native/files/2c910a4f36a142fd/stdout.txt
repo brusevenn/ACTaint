@@ -1,0 +1,30 @@
+==============Start====================
+rules:
+{Function:claimDividend, Visibility:external, Explanation:Writes to variable shares without any access control.}
+{Function:removeShareholder, Visibility:internal, Explanation:Writes to variable shareholders without any access control.}
+{Function:addShareholder, Visibility:internal, Explanation:Writes to variable shareholders without any access control.}
+{Function:distributeDividend, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: DividendDistributor
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:burn, Visibility:public, Explanation:Writes to variable _balances without any access control.}
+{Function:_basicTransfer, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:transfer, Visibility:external, Explanation:Writes to variable _balances without any access control.}
+{Function:takeFee, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable launchedAt without any access control.}
+{Function:transfer, Visibility:external, Explanation:Writes to variable launchedAt without any access control.}
+{Function:launch, Visibility:internal, Explanation:Writes to variable launchedAt without any access control.}
+{Function:buyTokens, Visibility:internal, Explanation:Writes to variable inSwap without any access control.}
+{Function:transfer, Visibility:external, Explanation:Writes to variable inSwap without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable inSwap without any access control.}
+{Function:approveMax, Visibility:external, Explanation:Writes to variable _allowances without any access control.}
+
+=============Contract: ShadowFi
+Sink:
+--Sink--:
+{Function: burn, Sink: Arbitrary token burn / unauthorized write to _balances[account] and transfer to DEAD, Visibility: public, Explanation: `burn(address account, uint256 _amount)` is public and calls `_transferFrom(account, DEAD, _amount)` without requiring `msg.sender == account` or an allowance from `account`. Any caller can therefore burn another account's tokens.}

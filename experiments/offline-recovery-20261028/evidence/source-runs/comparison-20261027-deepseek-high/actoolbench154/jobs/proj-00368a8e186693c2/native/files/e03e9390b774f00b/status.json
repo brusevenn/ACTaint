@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "529f16c13fbb2bcd140d10ef158d8a237022d5380ef73d94dc52b70dd95f93e1",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.c7e474f2",
+    "metadata_build": "c7e474f2",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-00368a8e186693c2/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "elapsed_seconds": 30.607,
+  "ended_utc": "2026-10-27T05:25:11.583954+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/e03e9390b774f00b/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-00368a8e186693c2/source_code/ROIToken.sol",
+  "source_sha256": "529f16c13fbb2bcd140d10ef158d8a237022d5380ef73d94dc52b70dd95f93e1",
+  "started_utc": "2026-10-27T05:24:54.828862+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-00368a8e186693c2/source_code/ROIToken.sol"
+}

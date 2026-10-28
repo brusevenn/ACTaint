@@ -1,0 +1,34 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-fba6e8b44a49ab3c",
+  "case_ids": [
+    "acb-3571ac97d5e7d766"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "f9138022b8df7bbb9294bda3fa8919e14ba77447a4f180aac998033b7f51d09b",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:55:13.447733+00:00",
+  "exit_code": 4,
+  "input_identity": "62fb9506dc1ff61870e177d6e006a28f4ba0fde07a9af61357d101cd17d64ce6",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-fba6e8b44a49ab3c",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MainContractFlattened.sol",
+      "559b9b029c508fecd56c230f4fb0bdd00d7f428f448906f6f534891109d6156f"
+    ],
+    [
+      "XBORNID.sol",
+      "83950b482ae3924897210e9051d022c503b8bcea84e79b866c9931f52f37afee"
+    ]
+  ],
+  "source_hashes": [
+    "559b9b029c508fecd56c230f4fb0bdd00d7f428f448906f6f534891109d6156f",
+    "83950b482ae3924897210e9051d022c503b8bcea84e79b866c9931f52f37afee"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

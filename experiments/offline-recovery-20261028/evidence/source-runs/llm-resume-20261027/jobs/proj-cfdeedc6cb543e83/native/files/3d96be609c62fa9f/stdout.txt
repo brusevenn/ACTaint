@@ -1,0 +1,9 @@
+==============Start====================
+rules:
+{Function:call, Visibility:external, Explanation:Uses low level call.}
+{Function:isContract, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: VirtualAccount
+Sink:
+--Sink--:
+{Function: payableCall, Sink: low-level external call `_call.target.call{value: val}(_call.callData)`, Visibility: public, Explanation: payableCall lacks the requiresApprovedCaller modifier, so any caller can execute arbitrary low-level calls from the virtual account and invoke external contract functions on its behalf.}

@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:submitTransaction, Visibility:public, Explanation:Writes to variable confirmations without any access control.}
+{Function:submitTransaction, Visibility:public, Explanation:Writes to variable transactions without any access control.}
+{Function:addTransaction, Visibility:public, Explanation:Writes to variable transactions without any access control.}
+{Function:submitTransaction, Visibility:public, Explanation:Writes to variable transactionCount without any access control.}
+{Function:addTransaction, Visibility:public, Explanation:Writes to variable transactionCount without any access control.}
+
+=============Contract: MultiSigWallet
+Sink:
+The legitimate constructor initializes owner state at deployment and is not callable afterward. Functions guarded by `onlyWallet` (`addOwner`, `removeOwner`, `replaceOwner`, `changeRequirement`) are restricted to calls originating from the wallet contract itself. `confirmTransaction` and `revokeConfirmation` require `ownerExists(msg.sender)` and only change the caller’s own confirmation state. `executeTransaction` is callable by anyone only after `isConfirmed` reaches the required threshold, which is the intended multisig execution model. `submitTransaction` calls `confirmTransaction`, whose `ownerExists(msg.sender)` modifier reverts for non-owners and rolls back the earlier `addTransaction` state writes. `addTransaction`, however, is `public` with only `notNull(destination)` and no owner check, so any caller can persist writes to `transactions` and increment `transactionCount`.
+
+--Sink--:
+{Function: addTransaction, Sink: transactions[transactionId] write, Visibility: public, Explanation: Public function lacks owner or onlyWallet access control; any caller can create arbitrary transaction records.}
+{Function: addTransaction, Sink: transactionCount increment, Visibility: public, Explanation: Public function lacks owner or onlyWallet access control; any caller can increment transactionCount and consume transaction IDs.}

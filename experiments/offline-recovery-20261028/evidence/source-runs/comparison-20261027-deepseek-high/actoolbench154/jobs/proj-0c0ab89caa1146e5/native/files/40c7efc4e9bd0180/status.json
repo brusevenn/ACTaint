@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "b6834ae372da21dc9b37ad52939d15b0f85bf273e56bd5e307133613fe64fe1e",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 25,
+    "contracts_skipped_interface_abstract_library": 0,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 32.396,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 7598
+  },
+  "compiler": {
+    "actual_full_version": "0.6.7+commit.b8d736ae",
+    "compiler_sha256": "20263aa17c2e7ca8c10ecd3d4242df61db9d549bc1ddb72b9a387c0c1136c1cf",
+    "metadata": "v0.6.7+commit.b8d736ae",
+    "metadata_build": "b8d736ae",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.7"
+  },
+  "elapsed_seconds": 619.531,
+  "ended_utc": "2026-10-27T05:37:52.105714+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/40c7efc4e9bd0180/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-0c0ab89caa1146e5/source_code/src/strategies/curve/strategy-curve-rencrv-v2.sol",
+  "source_sha256": "b6834ae372da21dc9b37ad52939d15b0f85bf273e56bd5e307133613fe64fe1e",
+  "started_utc": "2026-10-27T05:37:18.966631+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-0c0ab89caa1146e5/source_code/src/strategies/curve/strategy-curve-rencrv-v2.sol"
+}

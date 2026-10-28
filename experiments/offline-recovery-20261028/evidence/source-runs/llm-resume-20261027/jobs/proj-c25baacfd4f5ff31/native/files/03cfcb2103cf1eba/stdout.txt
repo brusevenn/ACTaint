@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:updateOracle, Visibility:external, Explanation:Writes to variable oracle without any access control.}
+{Function:updateMaxAssets, Visibility:external, Explanation:Writes to variable maxAssets without any access control.}
+
+=============Contract: SpotVault
+Sink:
+Reasoning:
+- The static analysis result lists `updateOracle` and `updateMaxAssets` as unguarded writes. However, in the actual source, `updateOracle` is protected by `onlyRole(ORACLE_MGR)` and `updateMaxAssets` by `onlyRole(OPERATOR)`. These are proper access-control modifiers, so these functions are not sinks.
+- `rotationSwaps` and `collectFee` are role-restricted (`onlyRole(ROTATOR)` and `onlyRole(OPERATOR)` respectively). Their state-changing or asset-transfer operations are access-controlled.
+- `approveAsset`, `updateDiscountPolicy`, `updateFeeDetails`, `updateSlippageTolerance`, `addDepositableAsset`, and `removeDepositableAsset` are all protected by `onlyRole(OPERATOR)`.
+- User-facing functions `deposit`, `depositNative`, and `redeem` do not write privileged configuration variables. They mint/burn only the caller’s shares and transfer assets to/from `msg.sender` according to the caller’s own deposit/redemption. The fee transfers go to the configured `feeRecipient` as part of intended contract logic. The router calls are part of the intended swap flow and are bounded by post-swap slippage/allocation checks.
+- The constructor is the legitimate constructor and is executed once at deployment.
+- No unguarded sink operation that modifies privileged state or transfers other users’ assets without authorization is present.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 25, "contracts_skipped_interface_abstract_library": 2, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 119.424, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 3, "total_token": 27757}
+==============End======================
+total time: 119.42409586906433
+total token: 27757

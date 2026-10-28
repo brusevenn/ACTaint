@@ -1,0 +1,126 @@
+{
+  "case_ids": [
+    "acb-860337c836004529"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-a6c36a55c19a84c2/source_code/config.json",
+  "compile_config_sha256": "9c9dd9a659ab3a6f3c0a0748d46dbcb6292c0045b5e9f28d8a970102268dd104",
+  "compiler": {
+    "actual_full_version": "0.8.1+commit.df193b15",
+    "compiler_sha256": "daa7f6d6cc0a316beb2607533183b64904798677b0cb99bda0549ea70e8de61a",
+    "metadata": "v0.8.1+commit.df193b15",
+    "metadata_build": "df193b15",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-a6c36a55c19a84c2/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.1"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 110.504,
+  "ended_utc": "2026-10-27T06:20:07.265771+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "2257799c2a006bed76255d0f72c74a53719db2c9187692d33e2458429d7613c7",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 8,
+        "contracts_skipped_interface_abstract_library": 7,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "elapsed_seconds": 56.657,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 8,
+        "total_token": 15593
+      },
+      "compiler": {
+        "actual_full_version": "0.8.1+commit.df193b15",
+        "compiler_sha256": "daa7f6d6cc0a316beb2607533183b64904798677b0cb99bda0549ea70e8de61a",
+        "metadata": "v0.8.1+commit.df193b15",
+        "metadata_build": "df193b15",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-a6c36a55c19a84c2/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.1"
+      },
+      "elapsed_seconds": 57.255,
+      "ended_utc": "2026-10-27T06:19:14.016635+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/84c738ebf7e19b1f/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a6c36a55c19a84c2/source_code/AnyswapV4Router.sol",
+      "source_sha256": "2257799c2a006bed76255d0f72c74a53719db2c9187692d33e2458429d7613c7",
+      "started_utc": "2026-10-27T06:18:16.762586+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-a6c36a55c19a84c2/source_code/AnyswapV4Router.sol"
+    },
+    {
+      "actual_source_sha256": "483c86b36f0336bc855068fbab5c9c4d97c644d4f1d0168072e210190e32ddbd",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 8,
+        "contracts_skipped_interface_abstract_library": 7,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "elapsed_seconds": 52.628,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 8,
+        "total_token": 14790
+      },
+      "compiler": {
+        "actual_full_version": "0.8.1+commit.df193b15",
+        "compiler_sha256": "daa7f6d6cc0a316beb2607533183b64904798677b0cb99bda0549ea70e8de61a",
+        "metadata": "v0.8.1+commit.df193b15",
+        "metadata_build": "df193b15",
+        "metadata_build_match": true,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-a6c36a55c19a84c2/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.1"
+      },
+      "elapsed_seconds": 110.502,
+      "ended_utc": "2026-10-27T06:20:07.263664+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/ecb42da97a1fd337/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a6c36a55c19a84c2/source_code/MainContractFlattened.sol",
+      "source_sha256": "483c86b36f0336bc855068fbab5c9c4d97c644d4f1d0168072e210190e32ddbd",
+      "started_utc": "2026-10-27T06:19:14.019795+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-a6c36a55c19a84c2/source_code/MainContractFlattened.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-a6c36a55c19a84c2",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:18:16.761961+00:00",
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

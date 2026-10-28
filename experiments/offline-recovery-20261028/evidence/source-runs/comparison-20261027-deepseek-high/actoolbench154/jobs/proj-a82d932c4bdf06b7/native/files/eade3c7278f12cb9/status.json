@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "b48d3e3411d64085b1128da7b0197dcfa0761319f4c42c907cf8e92bee512c50",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.17+commit.d19bba13",
+    "compiler_sha256": "c35ce7a4d3ffa5747c178b1e24c8541b2e5d8a82c1db3719eb4433a1f19e16f3",
+    "metadata": "v0.5.17+commit.d19bba13",
+    "metadata_build": "d19bba13",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.17"
+  },
+  "elapsed_seconds": 171.694,
+  "ended_utc": "2026-10-27T06:23:02.390719+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a82d932c4bdf06b7/source_code/contracts/mocks/ERC20Mock.sol",
+  "source_sha256": "b48d3e3411d64085b1128da7b0197dcfa0761319f4c42c907cf8e92bee512c50",
+  "started_utc": "2026-10-27T06:23:01.823514+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-a82d932c4bdf06b7/source_code/contracts/mocks/ERC20Mock.sol"
+}

@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721Upgradeable
+Sink:
+Reasoning:
+- The public `approve`, `setApprovalForAll`, `transferFrom`, and `safeTransferFrom` functions enforce standard ERC721 authorization: `approve` checks that the caller is the token owner or approved for all; `setApprovalForAll` only modifies the caller’s own operator approvals; `transferFrom`/`safeTransferFrom` require `_isApprovedOrOwner`, and `_transfer` verifies `from` is the token owner.
+- Internal helpers such as `_mint`, `_burn`, `_transfer`, `_approve`, and `_setApprovalForAll` are standard implementation helpers and are not externally reachable in this contract.
+- `_checkOnERC721Received` uses assembly only to bubble a revert reason. It does not perform an access-control-sensitive state change or authorization decision.
+- The contract has no constructor and contains initializer-like functions. Per the constructor context instruction, these initializer-like functions are marked as sinks. `onlyInitializing` restricts initialization phase/count, not caller authorization.
+
+--Sink--:
+{Function: __ERC721_init, Sink: Initializer function, Visibility: Internal, Explanation: Initializer-like function; onlyInitializing restricts initialization phase/count, not caller authorization.}
+{Function: __ERC721_init_unchained, Sink: State variable initialization (_name/_symbol), Visibility: Internal, Explanation: Initializer-like function; onlyInitializing restricts initialization phase/count, not caller authorization.}

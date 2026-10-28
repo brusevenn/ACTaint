@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "c25fda342859e1a4a44db72de829c076183c80854098610c05f2812372cc5e85",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.7.6+commit.7338295f",
+    "compiler_sha256": "bd69ea85427bf2f4da74cb426ad951dd78db9dfdd01d791208eccc2d4958a6bb",
+    "metadata": "v0.7.6+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-17083018925689a8/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.7.6"
+  },
+  "elapsed_seconds": 79.092,
+  "ended_utc": "2026-10-27T05:36:16.777060+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/beea12e644544800/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-17083018925689a8/source_code/AlgebraPool.sol",
+  "source_sha256": "c25fda342859e1a4a44db72de829c076183c80854098610c05f2812372cc5e85",
+  "started_utc": "2026-10-27T05:34:57.685802+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-17083018925689a8/source_code/AlgebraPool.sol"
+}

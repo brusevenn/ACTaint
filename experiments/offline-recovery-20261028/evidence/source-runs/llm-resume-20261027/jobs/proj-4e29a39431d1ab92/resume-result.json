@@ -1,0 +1,29 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-4e29a39431d1ab92",
+  "case_ids": [
+    "acb-3197645d591c5a77"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "27f508b4fb2f42cc8dc84dfd569b263cf8ad67759934546341887c0227d2418d",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:10:24.717502+00:00",
+  "exit_code": 0,
+  "input_identity": "96e65fe3b4cd9d6643fcacfa1c870ed930b3c5cc85751571f175560648628764",
+  "native_execution_status": "PROJECT_COMPLETED",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-4e29a39431d1ab92",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MarginTradingHook.sol",
+      "3d8a3f54b5899493d7331f075a5a6425d721af3d055bbc2d41f7d80a2bb42c24"
+    ]
+  ],
+  "source_hashes": [
+    "3d8a3f54b5899493d7331f075a5a6425d721af3d055bbc2d41f7d80a2bb42c24"
+  ],
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

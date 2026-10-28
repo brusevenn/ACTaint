@@ -1,0 +1,9 @@
+==============Start====================
+rules:
+{Function:batchClaiming, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimFees, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: FeeSplitter
+Sink:
+--Sink--:
+{Function: setCurves, Sink: Unauthorized assignment to the critical `curves` state variable, Visibility: public, Explanation: `setCurves` is externally callable and lacks access control, allowing any caller to replace the `Curves` contract address used by `balanceOf`, `totalSupply`, and fee calculations.}

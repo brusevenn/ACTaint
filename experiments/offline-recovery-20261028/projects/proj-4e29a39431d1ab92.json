@@ -1,0 +1,70 @@
+{
+  "case_ids": [
+    "acb-3197645d591c5a77"
+  ],
+  "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-4e29a39431d1ab92",
+  "files": [
+    {
+      "evidence_artifact_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-4e29a39431d1ab92",
+      "missing_stages": [
+        "SINK",
+        "TAINT"
+      ],
+      "original_analyzer_summary": {
+        "contracts_analyzed": 0,
+        "contracts_seen": 26,
+        "contracts_skipped_interface_abstract_library": 24,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 2,
+        "elapsed_seconds": 1.243,
+        "sink_agent_calls": 0,
+        "taint_agent_calls": 0,
+        "target_contracts": 26,
+        "total_token": 0
+      },
+      "original_error_type": null,
+      "original_exit_code": 0,
+      "original_file_evidence": {
+        "status.json": {
+          "bytes": 1533,
+          "sha256": "e8440044c525a1a94027d39fbb346aef24f024a5acbed331d350ad69ed44d0de",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-4e29a39431d1ab92/native/files/b360ba728f571f84/status.json",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-4e29a39431d1ab92/native/files/b360ba728f571f84/status.json"
+        },
+        "stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-4e29a39431d1ab92/native/files/b360ba728f571f84/stderr.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-4e29a39431d1ab92/native/files/b360ba728f571f84/stderr.txt"
+        },
+        "stdout.txt": {
+          "bytes": 489,
+          "sha256": "de9c4e8eed9b574af31e6bea20cee0d3b53e5165d55b4448305e254a6e11dac9",
+          "snapshot_path": "evidence/source-runs/llm-resume-20261027/jobs/proj-4e29a39431d1ab92/native/files/b360ba728f571f84/stdout.txt",
+          "source_path": "experiments/llm-resume-20261027/jobs/proj-4e29a39431d1ab92/native/files/b360ba728f571f84/stdout.txt"
+        }
+      },
+      "original_file_status": "COMPLETED",
+      "recovery_status": "NO_MODEL_CALL_EVIDENCE",
+      "request_evidence": {
+        "status": "NO_REQUEST_LOG"
+      },
+      "request_log_path": null,
+      "source_mapping_validated": true,
+      "source_path": "datasets/actoolbench-cleaned-154/full/projects/proj-4e29a39431d1ab92/source_code/MarginTradingHook.sol",
+      "source_sha256": "3d8a3f54b5899493d7331f075a5a6425d721af3d055bbc2d41f7d80a2bb42c24",
+      "stage_gap_reason": {
+        "code": "NATIVE_ANALYZER_SKIPPED_NON_IMPLEMENTABLE_CONTRACTS",
+        "explanation": "Original analyzer summary records interface/abstract/library skips and no analyzed contract."
+      },
+      "tool_input_path": "projects/proj-4e29a39431d1ab92/source_code/MarginTradingHook.sol"
+    }
+  ],
+  "original_project_result_sha256": "9a68c40c2960b128cd4fd173fafe9251480e5d96d8dc41ff875ce77664abe2e1",
+  "original_project_status": "PROJECT_COMPLETED",
+  "project_id": "proj-4e29a39431d1ab92",
+  "source_artifact": "experiments/llm-resume-20261027/jobs/proj-4e29a39431d1ab92",
+  "source_file_count": 1,
+  "status": "PROJECT_EVIDENCE_PRESERVED"
+}

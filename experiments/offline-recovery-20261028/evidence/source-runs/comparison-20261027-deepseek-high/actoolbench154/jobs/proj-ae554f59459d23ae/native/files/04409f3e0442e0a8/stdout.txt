@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:transfer, Visibility:public, Explanation:Writes to variable balanceOf without any access control.}
+{Function:owned, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: ERCDDAToken
+Sink:
+Reasoning:
+- `owned()` is not the constructor. It is a public function with no access control that writes `owner = msg.sender`, allowing any caller to become owner. This is a sink.
+- The actual `constructor(...)` is executed at deployment and is not treated as a sink.
+- `transfer()` and `_transfer()` implement standard token transfer behavior and only move tokens from `msg.sender`; they are not sinks.
+- `freezeAccount()`, `burn()`, and `mintToken()` are protected by `onlyOwner`, which enforces `msg.sender == owner`. They are not themselves sinks here; the ownership takeover in `owned()` is the access-control sink.
+
+--Sink--:
+{Function: owned, Sink: owner = msg.sender, Visibility: public, Explanation: Public function without access control allows any caller to set the contract owner to themselves.}

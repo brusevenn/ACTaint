@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+{Function:setMaxNodes, Visibility:external, Explanation:Writes to variable maxNodes without any access control.}
+{Function:createNode, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimAllNodesReward, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimNodeReward, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: AurumNodePool
+Sink:
+Reasoning:
+- `setMaxNodes` is protected by `onlyOwner`, so it is not a sink despite the static analysis result.
+- `createNode` uses `AURUM.transferFrom` from `msg.sender` and transfers the fee to the fixed `teamWallet`; it updates only the caller’s node state. It is not an unauthorized state modification.
+- `claimNodeReward` and `claimAllNodesReward` transfer rewards to `msg.sender` and update only the caller’s node state. The recipient is the caller, so these are not access-control sinks.
+- `changeNodePrice` and `changeRewardPerNode` are external functions without access control. They overwrite critical economic parameters that control token charging and reward payouts.
+
+--Sink--:
+{Function: changeNodePrice, Sink: nodePrice state update, Visibility:external, Explanation: The function is external and has no access control modifier, so any caller can overwrite nodePrice, which determines the token amount charged in createNode.}
+{Function: changeRewardPerNode, Sink: rewardPerDay state update, Visibility:external, Explanation: The function is external and has no access control modifier, so any caller can overwrite rewardPerDay, which determines the token reward paid by claimNodeReward and claimAllNodesReward.}

@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:receive, Visibility:external, Explanation:Writes to variable mintedAmount without any access control.}
+{Function:receive, Visibility:external, Explanation:Writes to variable nftMinted without any access control.}
+{Function:mintNFT, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: P404Token
+Sink:
+Reasoning:
+- `receive` and `mintNFT` are protected by the allowlist check inside `mintNFT`; they are not access-control sinks.
+- `batchSetAllowlist` is protected by `owner == msg.sender`.
+- `mint` is protected by `msg.sender == erc721`.
+- `_update` lacks an authorization check when `to == address(this)` or `to == erc721` and `value` is a valid tokenId; it calls `transform`, which burns the NFT and mints ERC20 to `msg.sender`.
+- `approve` (tokenId branch) and `setApproveForAll` call external ERC721 approval functions from the P404Token contract without checking that the original caller is authorized.
+
+--Sink--:
+{Function: _update, Sink: transform(value) -> IERC721Burnable(erc721).burn(_tokenId) and _mint(msg.sender, ...), Visibility: internal, Explanation: When to == address(this) or to == erc721 and value is a valid tokenId, _update calls transform without checking whether msg.sender is authorized for the NFT, allowing any caller to burn an NFT that the P404Token contract is approved for and mint the resulting ERC20 to themselves.}
+{Function: approve, Sink: IERC721(erc721).approve(spender, tokenId), Visibility: public, Explanation: The tokenId branch calls the external ERC721 approve from the P404Token contract without checking that msg.sender is authorized, so any user can approve a spender for NFTs owned by the P404Token contract.}
+{Function: setApproveForAll, Sink: IERC721(erc721).setApprovalForAll(operator, approved), Visibility: public, Explanation: The function calls the external ERC721 setApprovalForAll from the P404Token contract without checking that msg.sender is authorized, so any user can set an operator for all NFTs owned by the P404Token contract.}

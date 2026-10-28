@@ -1,0 +1,126 @@
+{
+  "case_ids": [
+    "acb-a7af120cb637fc4c"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-b49f8ec70ad0ee40/source_code/config.json",
+  "compile_config_sha256": "53f64c6d0bc488998f24f04e256b9d4fcde318710ddb3a57449b94ab116dc256",
+  "compiler": {
+    "actual_full_version": "0.4.13+commit.0fb4cb1a",
+    "compiler_sha256": "791ee3a20adf6c5ab76cc889f13cca102f76eb0b7cf0da4a0b5b11dc46edf349",
+    "metadata": "v0.4.13+commit.fb4cb1a",
+    "metadata_build": "fb4cb1a",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.13"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 34.07,
+  "ended_utc": "2026-10-27T06:23:32.600692+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "3fc4b9bfa9f6d237270ae63b20a98c03aabe904738b48f5c5a40b8a6837a88d1",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 2,
+        "contracts_skipped_interface_abstract_library": 0,
+        "contracts_skipped_no_implementation": 1,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "elapsed_seconds": 19.477,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 2,
+        "total_token": 5428
+      },
+      "compiler": {
+        "actual_full_version": "0.4.13+commit.0fb4cb1a",
+        "compiler_sha256": "791ee3a20adf6c5ab76cc889f13cca102f76eb0b7cf0da4a0b5b11dc46edf349",
+        "metadata": "v0.4.13+commit.fb4cb1a",
+        "metadata_build": "fb4cb1a",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.13"
+      },
+      "elapsed_seconds": 20.066,
+      "ended_utc": "2026-10-27T06:23:18.596810+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/1d9177c306843f5f/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b49f8ec70ad0ee40/source_code/Coinlancer.sol",
+      "source_sha256": "3fc4b9bfa9f6d237270ae63b20a98c03aabe904738b48f5c5a40b8a6837a88d1",
+      "started_utc": "2026-10-27T06:22:58.531634+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-b49f8ec70ad0ee40/source_code/Coinlancer.sol"
+    },
+    {
+      "actual_source_sha256": "7551ac323c3aee2b40d17ddb82db213aaf71e9fcb060bbbac00c1ec689172e28",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 2,
+        "contracts_skipped_interface_abstract_library": 0,
+        "contracts_skipped_no_implementation": 1,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 0,
+        "elapsed_seconds": 13.43,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 2,
+        "total_token": 4187
+      },
+      "compiler": {
+        "actual_full_version": "0.4.13+commit.0fb4cb1a",
+        "compiler_sha256": "791ee3a20adf6c5ab76cc889f13cca102f76eb0b7cf0da4a0b5b11dc46edf349",
+        "metadata": "v0.4.13+commit.fb4cb1a",
+        "metadata_build": "fb4cb1a",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --optimize-runs 200",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.4.13"
+      },
+      "elapsed_seconds": 34.068,
+      "ended_utc": "2026-10-27T06:23:32.598408+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/e8b7d917f632b6b4/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b49f8ec70ad0ee40/source_code/MainContractFlattened.sol",
+      "source_sha256": "7551ac323c3aee2b40d17ddb82db213aaf71e9fcb060bbbac00c1ec689172e28",
+      "started_utc": "2026-10-27T06:23:18.599951+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-b49f8ec70ad0ee40/source_code/MainContractFlattened.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-b49f8ec70ad0ee40",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T06:22:58.531022+00:00",
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

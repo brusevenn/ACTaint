@@ -1,0 +1,9 @@
+==============Start====================
+rules:
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable allowed without any access control.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: DimonCoin
+Sink:
+--Sink--:
+{Function: transferFrom, Sink: Unauthorized modification of balances and allowed mapping / token transfer from arbitrary _from, Visibility: public, Explanation: The function uses inverted balance/allowance checks (<=) and onlyPayloadSize, which does not enforce authorization, so a caller can update allowed[_from][msg.sender] and balances[_from]/balances[_to] without a valid allowance from _from.}

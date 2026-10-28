@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "192113b69fb1fb2cc2e7eed7e84f304951fb8a714813832271f2edd80d6b3f56",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.22+commit.4fc1097e",
+    "compiler_sha256": "8be0aeb74fc1b8213292a09a84cb524a403602526df87ecad5f5cd2a7ea7d089",
+    "metadata": "v0.8.22+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-987bf9a24ec4e435/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.22"
+  },
+  "elapsed_seconds": 1.32,
+  "ended_utc": "2026-10-27T05:24:00.925736+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-987bf9a24ec4e435/source_code/Upkeep.sol",
+  "source_sha256": "192113b69fb1fb2cc2e7eed7e84f304951fb8a714813832271f2edd80d6b3f56",
+  "started_utc": "2026-10-27T05:23:59.607193+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-987bf9a24ec4e435/source_code/Upkeep.sol"
+}

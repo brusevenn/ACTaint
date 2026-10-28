@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "fba169bc6b1e48abe0e5d2b1b8eb867abe569fb39abe11abfce0b4dcc328ea1f",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.10+commit.fc410830",
+    "compiler_sha256": "c7effacf28b9d64495f81b75228fbf4266ac0ec87e8f1adc489ddd8a4dd06d89",
+    "metadata": "v0.8.10+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-1657ccfa72539c65/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.10"
+  },
+  "elapsed_seconds": 1.721,
+  "ended_utc": "2026-10-27T05:34:56.546186+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-1657ccfa72539c65/source_code/Automator.sol",
+  "source_sha256": "fba169bc6b1e48abe0e5d2b1b8eb867abe569fb39abe11abfce0b4dcc328ea1f",
+  "started_utc": "2026-10-27T05:34:54.826547+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-1657ccfa72539c65/source_code/Automator.sol"
+}

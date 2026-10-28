@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "0af4bc8135e208a40ea7b65551ccaeb77b5271501dfa3b75eea627d4df49de36",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.7+commit.e28d00a7",
+    "compiler_sha256": "003d75383e45212f9812d0b6add90329fd3b239e6c378d2882f61f9345896d99",
+    "metadata": "v0.8.7+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-2e162a64a27e35d3/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.7"
+  },
+  "elapsed_seconds": 43.96,
+  "ended_utc": "2026-10-27T05:47:56.105330+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/a0227dcb47fb29be/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-2e162a64a27e35d3/source_code/MapleLoan.sol",
+  "source_sha256": "0af4bc8135e208a40ea7b65551ccaeb77b5271501dfa3b75eea627d4df49de36",
+  "started_utc": "2026-10-27T05:47:12.147311+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-2e162a64a27e35d3/source_code/MapleLoan.sol"
+}

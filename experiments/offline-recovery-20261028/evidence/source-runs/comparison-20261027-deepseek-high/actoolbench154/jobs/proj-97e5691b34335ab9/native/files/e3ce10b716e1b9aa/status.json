@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "7279b69f9cf3a2d6a50407924204466919715a89b3258d610ece90955da9dc36",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.0+commit.1d4f565a",
+    "compiler_sha256": "c1bb15b520f5076aebd7aa9ef4ce5fa245b6f210a91cbd2064b9e383e6510e08",
+    "metadata": "v0.5.0+commit.1d4f565a",
+    "metadata_build": "1d4f565a",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.0"
+  },
+  "elapsed_seconds": 263.491,
+  "ended_utc": "2026-10-27T06:17:45.239780+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/e3ce10b716e1b9aa/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-97e5691b34335ab9/source_code/MultiSigWallet.sol",
+  "source_sha256": "7279b69f9cf3a2d6a50407924204466919715a89b3258d610ece90955da9dc36",
+  "started_utc": "2026-10-27T06:16:57.908969+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-97e5691b34335ab9/source_code/MultiSigWallet.sol"
+}

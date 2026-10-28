@@ -1,0 +1,27 @@
+==============Start====================
+rules:
+{Function:redeem, Visibility:public, Explanation:Writes to variable strategies without any access control.}
+{Function:redeemAll, Visibility:external, Explanation:Writes to variable strategies without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable strategies without any access control.}
+{Function:setEmergencyShutdown, Visibility:external, Explanation:Writes to variable emergencyShutdown without any access control.}
+{Function:redeem, Visibility:public, Explanation:Writes to variable totalAllocBPS without any access control.}
+{Function:redeemAll, Visibility:external, Explanation:Writes to variable totalAllocBPS without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable totalAllocBPS without any access control.}
+{Function:removeTvlCap, Visibility:external, Explanation:Writes to variable tvlCap without any access control.}
+{Function:updateTvlCap, Visibility:public, Explanation:Writes to variable tvlCap without any access control.}
+
+=============Contract: ReaperVaultV2
+Sink:
+Reasoning:
+- `withdraw` and `redeem` accept arbitrary `owner` and `receiver` arguments and route them to `_withdraw`.
+- `_withdraw` executes `_burn(owner, shares)` and `IERC20Metadata(asset).safeTransfer(receiver, assets)`.
+- Neither `withdraw` nor `redeem` verifies `msg.sender == owner` nor checks an allowance from `owner`. Any caller can burn another account’s shares and direct the vault assets to an arbitrary receiver.
+- `redeemAll` calls `redeem(balanceOf(msg.sender), msg.sender, msg.sender)`, so it operates only on the caller’s own shares and is not an access-control sink.
+- `deposit`, `depositAll`, and `mint` follow standard ERC4626 behavior: the caller supplies assets and shares are minted to the selected receiver.
+- `addStrategy`, `updateStrategyAllocBPS`, `setWithdrawalQueue`, `updateWithdrawMaxLoss`, `updateTvlCap`, `removeTvlCap`, `setEmergencyShutdown`, `inCaseTokensGetStuck`, and `setLockedProfitDegradation` all enforce `_atLeastRole` with the appropriate role.
+- `revokeStrategy` is restricted to the strategy itself or GUARDIAN-or-higher; `report` is restricted to active strategies.
+- The constructor only initializes deployment state and grants roles at deployment.
+
+--Sink--:
+{Function: withdraw, Sink: _burn(owner, shares) and IERC20Metadata(asset).safeTransfer(receiver, assets) via _withdraw, Visibility: external, Explanation: The function accepts arbitrary owner and receiver and performs no check that msg.sender equals owner and no allowance check, so any caller can burn another account's shares and transfer vault assets to an arbitrary receiver.}
+{Function: redeem, Sink: _burn(owner, shares) and IERC20Metadata(asset).safeTransfer(receiver, assets) via _withdraw, Visibility: public, Explanation: The function accepts arbitrary owner and receiver and performs no check that msg.sender equals owner and no allowance check, so any caller can burn another account's shares and transfer vault assets to an arbitrary receiver.}

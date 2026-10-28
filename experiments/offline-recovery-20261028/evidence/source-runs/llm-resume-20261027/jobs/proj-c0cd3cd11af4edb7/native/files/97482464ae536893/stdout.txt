@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:_addBalance, Visibility:internal, Explanation:Writes to variable balanceOf without any access control.}
+
+=============Contract: LiquidXv2Zap
+Sink:
+## Reasoning
+
+1. `deposit` is `public` and accepts an arbitrary `account` parameter. It calls `IERC20(token).safeTransferFrom(account, address(this), amount[0])` without checking `account == msg.sender` or `operators[msg.sender]`. Any caller can spend an account’s approved tokens and control the swap path and minimum amounts.
+2. `withdraw` for `basketId == 0` is `public` and accepts an arbitrary `account` parameter. It calls `IERC20(pair).safeTransferFrom(account, address(this), amount)` without checking `account == msg.sender` or `operators[msg.sender]`. Any caller can spend an account’s approved LP tokens and control `tokenOut`, `wpath`, and minimum amounts.
+3. `_addBalance` is `internal` but writes `balanceOf[account][pair][basketId]` for an arbitrary `account` with no access control. It is called from the public `deposit` function with a caller-supplied `account`.
+4. Other functions with privileged operations (`withdrawToken`, setters) are guarded by `onlyOpertaor` or `operatorSetter` checks. The `withdraw` branch for `basketId != 0` has an access check. The constructor and `receive` do not introduce access-control sinks.
+
+--Sink--:
+{Function: deposit, Sink: IERC20(token).safeTransferFrom(account, address(this), amount[0]), Visibility: public, Explanation: No check that account == msg.sender or operators[msg.sender]; any caller can spend an approved account's tokens and control swap path/minimum amounts.}
+{Function: withdraw, Sink: IERC20(pair).safeTransferFrom(account, address(this), amount) in basketId == 0 branch, Visibility: public, Explanation: No check that account == msg.sender or operators[msg.sender] for basketId == 0; any caller can spend an approved account's LP tokens and control tokenOut/wpath/minimum amounts.}
+{Function: _addBalance, Sink: balanceOf[account][pair][basketId] += amount, Visibility: internal, Explanation: Writes an arbitrary account's balance without access control; called from public deposit with a caller-supplied account.}

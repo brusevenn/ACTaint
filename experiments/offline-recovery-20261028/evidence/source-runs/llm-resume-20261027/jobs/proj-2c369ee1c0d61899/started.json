@@ -1,0 +1,26 @@
+{
+  "automatic_retries": 0,
+  "case_ids": [
+    "acb-74bd087687516332"
+  ],
+  "case_timeout_seconds": 1200,
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "a6b95f35e1b979fe363950b8673993cbc316b945d9e09a8074c26d68b6e8d1ca",
+  "dataset": "ACToolBench154",
+  "input_identity": "07edc1b2aa7d17e6b73622743ae3399b4f038fc78c8135d810d29346fce5d1cc",
+  "max_tokens": 65536,
+  "prior_request_attempts": 0,
+  "project_id": "proj-2c369ee1c0d61899",
+  "prompt_layout": "prefix_stable_v2",
+  "reasoning_effort": "high",
+  "request_timeout_seconds": 300,
+  "source_hashes": [
+    "7372e96e5029bd32ebd8a7b45247f81e0fac2197712b925011cfd7b96019a2d2",
+    "8107a09e76b7e9fb64ec973c0be688c97aee6eef1f4215cb0d37f738f1c9ae16"
+  ],
+  "started_utc": "2026-10-27T13:01:28.440434+00:00",
+  "thinking": {
+    "type": "enabled"
+  },
+  "tool": "ACTaint"
+}

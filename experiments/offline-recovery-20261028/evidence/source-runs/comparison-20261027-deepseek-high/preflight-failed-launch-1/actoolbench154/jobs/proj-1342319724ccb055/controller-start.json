@@ -1,0 +1,17 @@
+{
+  "case_ids": [
+    "acb-68f88b36c23d2966",
+    "acb-fb13695db433b651"
+  ],
+  "code_sha": "69c06daa47e4e80e0ed93d3e97332035e7ff793f",
+  "dataset": "actoolbench154",
+  "file_count": 1,
+  "id": "proj-1342319724ccb055",
+  "input_identity": "b028f7e66206b129d16ff692109c4f5afac6ed2656246d866b199ad3ef7cef0c",
+  "manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "phase": "diagnostic-round-2",
+  "prompt_layout": "prefix_stable",
+  "started_utc": "2026-10-27T05:22:04.815749+00:00",
+  "timeout_seconds": 1200,
+  "tool": "ACTaint"
+}

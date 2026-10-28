@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "$REPO_ROOT/src/analyze_smart_contract.py", line 201, in <module>
+    sinks = sink_agent.process()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "$REPO_ROOT/src/llm/sink_agent.py", line 24, in process
+    raise ValueError("ACTaint sink response is missing the --Sink--: marker.")
+ValueError: ACTaint sink response is missing the --Sink--: marker.

@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "6356d09271d5ec4cdbfe9fd685af82e06368085354041018fd689e067b1d5246",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.17+commit.d19bba13",
+    "compiler_sha256": "c35ce7a4d3ffa5747c178b1e24c8541b2e5d8a82c1db3719eb4433a1f19e16f3",
+    "metadata": "v0.5.17+commit.d19bba13",
+    "metadata_build": "d19bba13",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.17"
+  },
+  "elapsed_seconds": 190.435,
+  "ended_utc": "2026-10-27T06:23:21.131592+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-a82d932c4bdf06b7/source_code/contracts/rewards/Vesting.sol",
+  "source_sha256": "6356d09271d5ec4cdbfe9fd685af82e06368085354041018fd689e067b1d5246",
+  "started_utc": "2026-10-27T06:23:20.564483+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-a82d932c4bdf06b7/source_code/contracts/rewards/Vesting.sol"
+}

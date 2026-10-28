@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "c1b0c49f259fc6f468e6a9e3c44c13c4291d530da49c553bfbdab815c57b5eb7",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.16+commit.d7661dd9",
+    "compiler_sha256": "78e0da6cad24ab145a8d17420c4f094c8314418ca23cff4b050bb2bfd36f3af2",
+    "metadata": "v0.4.16+commit.d7661dd9",
+    "metadata_build": "d7661dd9",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.16"
+  },
+  "elapsed_seconds": 35.099,
+  "ended_utc": "2026-10-27T06:24:08.794884+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/73d0bfafd0ce8949/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-b7ee8293723fb6f6/source_code/DimonCoin.sol",
+  "source_sha256": "c1b0c49f259fc6f468e6a9e3c44c13c4291d530da49c553bfbdab815c57b5eb7",
+  "started_utc": "2026-10-27T06:23:33.696713+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-b7ee8293723fb6f6/source_code/DimonCoin.sol"
+}

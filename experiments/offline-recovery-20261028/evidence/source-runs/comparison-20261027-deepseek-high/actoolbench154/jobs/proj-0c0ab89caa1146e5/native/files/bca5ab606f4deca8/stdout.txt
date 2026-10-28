@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+{Function:exit, Visibility:external, Explanation:Writes to variable _totalSupply without any access control.}
+
+=============Contract: StakingRewards
+Sink:
+The static-analysis flag on `exit()` is not an access-control sink. `exit()` calls `withdraw(_balances[msg.sender])` and `getReward()`. Internal calls preserve the original `msg.sender`, so `withdraw` and `getReward` update and transfer only the caller’s own staking balance and rewards. No other account’s state or assets are modified without authorization.
+
+`stake`, `withdraw`, and `getReward` likewise operate on `msg.sender` only. `notifyRewardAmount`, `recoverERC20`, and `setRewardsDuration` are protected by `onlyOwner`. The constructor initializes token addresses at deployment and is not externally callable after deployment.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 10, "contracts_skipped_interface_abstract_library": 0, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 14.111, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 4920}
+==============End======================
+total time: 14.110925674438477
+total token: 4920

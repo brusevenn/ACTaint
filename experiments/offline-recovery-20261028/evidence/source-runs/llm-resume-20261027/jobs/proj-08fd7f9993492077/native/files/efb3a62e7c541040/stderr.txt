@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "$REPO_ROOT/src/analyze_smart_contract.py", line 212, in <module>
+    vulnerability_report += taint_agent.process() + "\n"
+                            ^^^^^^^^^^^^^^^^^^^^^
+  File "$REPO_ROOT/src/llm/taint_agent.py", line 22, in process
+    raise ValueError("ACTaint taint response is missing the --Vulnerability--: marker.")
+ValueError: ACTaint taint response is missing the --Vulnerability--: marker.

@@ -1,0 +1,35 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-862052447925245a",
+  "case_ids": [
+    "acb-4618f6b1df04d765",
+    "acb-ca2f4543bc748244"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "0b213ef3782221a410b3e908cd52822b947d94c0a9c95d5ab6b4bcd80374f248",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:27:59.492440+00:00",
+  "exit_code": 4,
+  "input_identity": "eca66985aa12de22011cf45d3777f430dabe6dd36096d1ff137f62c21eec33a8",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-862052447925245a",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "DcntEth.sol",
+      "363a4859ec5688bcc354e41bdf51b3c78619a6be81cf6170b7fc4dae372b91bb"
+    ],
+    [
+      "DecentEthRouter.sol",
+      "77fc214e4daaa52985efeea8458e6aa1a705d111f5c9a8f5a5b32e613924a324"
+    ]
+  ],
+  "source_hashes": [
+    "363a4859ec5688bcc354e41bdf51b3c78619a6be81cf6170b7fc4dae372b91bb",
+    "77fc214e4daaa52985efeea8458e6aa1a705d111f5c9a8f5a5b32e613924a324"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

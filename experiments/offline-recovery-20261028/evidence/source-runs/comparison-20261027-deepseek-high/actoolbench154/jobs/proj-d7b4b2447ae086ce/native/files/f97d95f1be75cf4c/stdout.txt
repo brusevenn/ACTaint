@@ -1,0 +1,54 @@
+==============Start====================
+rules:
+{Function:initialize, Visibility:public, Explanation:Writes to variable initialExchangeRateMantissa without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _notEntered without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable accountBorrows without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable underlying without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable totalReserves without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable borrowIndex without any access control.}
+{Function:repayBorrowBehalf, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:repayBorrow, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:borrow, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:redeemUnderlying, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:_addReserves, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:liquidateBorrow, Visibility:external, Explanation:Writes to variable accrualBlockNumber without any access control.}
+{Function:doTransferOut, Visibility:internal, Explanation:Uses assembly.}
+{Function:doTransferIn, Visibility:internal, Explanation:Uses assembly.}
+{Function:doTransferOut, Visibility:internal, Explanation:Transfers Ether or Token.}
+{Function:sweepToken, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: CErc20
+Sink:
+Reasoning: The only unguarded initializer is `initialize`, which is public, has no constructor context, and writes `underlying` and initialization state. The other externally callable functions are standard lending/ERC-20 operations, intended public functions, or explicitly guarded (`_delegateCompLikeTo` requires `admin`). Internal `doTransferIn`/`doTransferOut` are standard transfer wrappers and are not directly callable.
+
+--Sink--:
+{Function: initialize, Sink: Initializer without access control, Visibility: public, Explanation: The public initialize function is a wrong constructor with no access control; it writes underlying and initialExchangeRateMantissa/initialization state and can be called by anyone to initialize the contract.}

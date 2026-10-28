@@ -1,0 +1,49 @@
+==============Start====================
+rules:
+{Function:permit, Visibility:external, Explanation:Writes to variable _ALLOWED_ without any access control.}
+{Function:approve, Visibility:public, Explanation:Writes to variable _ALLOWED_ without any access control.}
+{Function:_approve, Visibility:private, Explanation:Writes to variable _ALLOWED_ without any access control.}
+{Function:_burn, Visibility:internal, Explanation:Writes to variable _SHARES_ without any access control.}
+{Function:_mint, Visibility:internal, Explanation:Writes to variable _SHARES_ without any access control.}
+{Function:sync, Visibility:external, Explanation:Writes to variable _BASE_RESERVE_ without any access control.}
+{Function:sync, Visibility:external, Explanation:Writes to variable _QUOTE_RESERVE_ without any access control.}
+
+=============Contract: DVMVault
+Sink:
+Reasoning: `permit` verifies `recoveredAddress == owner` via `ecrecover`, so it is signature-authorized. `approve` and `_approve` modify only the caller’s allowance or an allowance authorized by the caller’s signature. `transfer` and `transferFrom` enforce balance and allowance checks. `sync` is permissionless reserve synchronization and does not modify user shares or transfer assets. `_mint` and `_burn` are internal and have no external caller in the provided source. No constructor or initializer-like function is present in the provided source.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:sellBase, Visibility:external, Explanation:Writes to variable _BASE_RESERVE_ without any access control.}
+{Function:sellQuote, Visibility:external, Explanation:Writes to variable _BASE_RESERVE_ without any access control.}
+{Function:sellBase, Visibility:external, Explanation:Writes to variable _QUOTE_RESERVE_ without any access control.}
+{Function:sellQuote, Visibility:external, Explanation:Writes to variable _QUOTE_RESERVE_ without any access control.}
+
+=============Contract: DVMTrader
+Sink:
+The static-analysis hits are on `sellBase` and `sellQuote` writing `_BASE_RESERVE_` and `_QUOTE_RESERVE_`. These are public DEX trading functions: any user is intended to call them after supplying the corresponding input token, and the reserve updates are the normal result of executing a swap. The functions do not grant unauthorized control over owner-only state or modify another user’s token balance/allowance directly. The `preventReentrant` modifier is not access control, but these functions are not intended to be access-controlled. `flashLoan` is also permissionless by design and performs intended token transfers plus a post-callback solvency check. No constructor or initializer-like function is present.
+
+Thus the flagged reserve writes are normal operation of the trading contract and are not access-control sinks.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:init, Visibility:external, Explanation:Writes to variable _IS_OPEN_TWAP_ without any access control.}
+{Function:init, Visibility:external, Explanation:Uses assembly.}
+
+=============Contract: DVM
+Sink:
+Reasoning:
+- The contract has no constructor. `init` is an external initializer and contains no `msg.sender` check, owner check, or initializer guard.
+- `init` writes critical storage variables: `_BASE_TOKEN_`, `_QUOTE_TOKEN_`, `_I_`, `_K_`, `_LP_FEE_RATE_`, `_MT_FEE_RATE_MODEL_`, `_MAINTAINER_`, `_IS_OPEN_TWAP_`, `_BLOCK_TIMESTAMP_LAST_`, `name`, `symbol`, `decimals`, and `DOMAIN_SEPARATOR`.
+- Any caller can invoke `init` and overwrite these critical values because no access control is enforced.
+- The inline assembly only reads `chainid()` into a local variable for `DOMAIN_SEPARATOR` construction; it does not modify storage and does not itself create an access-control sink.
+- `addressToShortString` and `version` are pure/view-like helpers and do not perform security-sensitive state changes.
+
+--Sink--:
+{Function: init, Sink: unprotected initializer, Visibility: external, Explanation: The function has no access control or initializer guard; any caller can set and overwrite critical state variables including _BASE_TOKEN_, _QUOTE_TOKEN_, _I_, _K_, _LP_FEE_RATE_, _MT_FEE_RATE_MODEL_, _MAINTAINER_, _IS_OPEN_TWAP_, _BLOCK_TIMESTAMP_LAST_, name, symbol, decimals, and DOMAIN_SEPARATOR.}

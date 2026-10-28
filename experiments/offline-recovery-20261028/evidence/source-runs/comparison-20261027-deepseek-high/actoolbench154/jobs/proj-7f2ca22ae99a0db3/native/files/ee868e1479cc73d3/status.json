@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "b886e7183854bc07dcf0a2dba0febb8c0dfbc4e35ef61b08c73390e4201c5718",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 1,
+    "contracts_skipped_interface_abstract_library": 1,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.055,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.7.4+commit.3f05b770",
+    "compiler_sha256": "e0fa6a8347a52bc6ec351e22537e645be06eb5041894460b1a9114f3732e9d07",
+    "metadata": "v0.7.4+commit.3f05b770",
+    "metadata_build": "3f05b770",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-7f2ca22ae99a0db3/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.7.4"
+  },
+  "elapsed_seconds": 163.421,
+  "ended_utc": "2026-10-27T06:07:38.599502+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-7f2ca22ae99a0db3/source_code/contracts/libraries/TransferHelper.sol",
+  "source_sha256": "b886e7183854bc07dcf0a2dba0febb8c0dfbc4e35ef61b08c73390e4201c5718",
+  "started_utc": "2026-10-27T06:07:37.982625+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-7f2ca22ae99a0db3/source_code/contracts/libraries/TransferHelper.sol"
+}

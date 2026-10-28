@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:proposeStrat, Visibility:public, Explanation:Writes to variable stratCandidate without any access control.}
+
+=============Contract: GrimBoostVault
+Sink:
+Reasoning:
+- Constructor only initializes `strategy` and `approvalDelay` at deployment; it is the accepted constructor and is not callable post-deployment, so it is not an access-control sink.
+- View functions (`want`, `balance`, `available`, `getPricePerFullShare`) do not modify state.
+- `deposit`, `depositAll`, `withdraw`, and `withdrawAll` modify only the caller’s own shares/assets and use standard ERC20 vault logic; `deposit` is `nonReentrant`. These are not sinks.
+- `earn` is permissionless but sends vault funds only to the fixed, owner-controlled `strategy`; it does not allow an arbitrary recipient or privileged state write. It is not an access-control sink.
+- `proposeStrat` and `upgradeStrat` are guarded by `onlyOwner`. The static-analysis claim that `proposeStrat` has no access control is incorrect in the provided source.
+- `inCaseTokensGetStuck` is `onlyOwner` and excludes `want()`, so it is not an access-control sink.
+- `depositFor` is public, has no access control, accepts an arbitrary `token` and arbitrary `user`, and calls `_mint(user, shares)`. It mints shares to an address that is not required to be `msg.sender` and for which no approval/authorization is checked. This is a sink.
+
+--Sink--:
+{Function: depositFor, Sink: _mint(user, shares), Visibility: public, Explanation: Public function lacks access control and mints vault shares to an arbitrary `user` address not required to be msg.sender and without approval, allowing unauthorized share minting; it also accepts an arbitrary token and lacks nonReentrant.}

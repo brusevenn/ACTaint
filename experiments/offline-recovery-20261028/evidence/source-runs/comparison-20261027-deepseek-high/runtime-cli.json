@@ -1,0 +1,54 @@
+{
+  "ACTaint": {
+    "command": [
+      "{python}",
+      "-B",
+      "scripts/benchmark.py",
+      "--project-id",
+      "{id}",
+      "--output",
+      "{output}",
+      "--compiler-map",
+      "{compiler_map}",
+      "--prompt-layout",
+      "{layout}",
+      "--code-sha",
+      "{code_sha}"
+    ]
+  },
+  "GPTLens": {
+    "command": [
+      "{python}",
+      "-B",
+      "scripts/benchmark.py",
+      "--project-id",
+      "{id}",
+      "--output",
+      "{output}",
+      "--prompt-layout",
+      "{layout}",
+      "--timeout-seconds",
+      "1200"
+    ]
+  },
+  "ASTRO": {
+    "command": [
+      "{python}",
+      "-B",
+      "scripts/benchmark.py",
+      "run",
+      "--dataset",
+      "{dataset}",
+      "--project-id",
+      "{id}",
+      "--output",
+      "{output}",
+      "--compiler-map",
+      "{compiler_map}",
+      "--reference-graphs",
+      "experiments/comparison-20261027-deepseek-high/reference-preparation/reference-graphs/0x0a0b34fc24b6a3477abc354eea9c9d8ae2c32132-Reputation",
+      "--timeout-seconds",
+      "1200"
+    ]
+  }
+}

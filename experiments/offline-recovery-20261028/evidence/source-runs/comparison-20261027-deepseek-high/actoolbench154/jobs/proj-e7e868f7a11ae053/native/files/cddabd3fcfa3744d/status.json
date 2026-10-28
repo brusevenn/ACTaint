@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "7a9d9fd69212e40577d29ee7d22328204c48ad79e0b34304e8a46aae21abb985",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 1,
+    "contracts_skipped_interface_abstract_library": 1,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.028,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.6.7+commit.b8d736ae",
+    "compiler_sha256": "20263aa17c2e7ca8c10ecd3d4242df61db9d549bc1ddb72b9a387c0c1136c1cf",
+    "metadata": "v0.6.7+commit.b8d736ae",
+    "metadata_build": "b8d736ae",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.6.7"
+  },
+  "elapsed_seconds": 63.964,
+  "ended_utc": "2026-10-27T06:43:22.452244+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-e7e868f7a11ae053/source_code/home/sylva/code/davidsylva/bscex/bscx-amm-plus-project/bscex-amm-plus/contracts/interfaces/IERC20.sol",
+  "source_sha256": "7a9d9fd69212e40577d29ee7d22328204c48ad79e0b34304e8a46aae21abb985",
+  "started_utc": "2026-10-27T06:43:21.834919+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-e7e868f7a11ae053/source_code/home/sylva/code/davidsylva/bscex/bscx-amm-plus-project/bscex-amm-plus/contracts/interfaces/IERC20.sol"
+}

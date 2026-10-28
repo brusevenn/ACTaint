@@ -1,0 +1,15 @@
+==============Start====================
+rules:
+{Function:fallback, Visibility:external, Explanation:Uses low level call.}
+
+=============Contract: VaultProxy
+Sink:
+Reasoning:
+- `initialise` is external and has no caller authorization. Its only guard is `isInitialized`, which restricts repeated calls but does not restrict who may call it. It writes privileged state, including `staderConfig` and `owner`; `owner` is assigned from the caller-supplied `_staderConfig` contract. This is a sink.
+- `fallback` is external payable and performs `vaultImplementation.delegatecall(_input)` with user-supplied calldata and no caller restriction. This low-level delegatecall executes external implementation code in the proxy’s storage context and is a sink.
+- `updateStaderConfig` and `updateOwner` are protected by `onlyOwner`, which checks `msg.sender != owner`, so those functions are not themselves sinks.
+- The constructor is empty and introduces no sink operations.
+
+--Sink--:
+{Function: initialise, Sink: write to owner and staderConfig using caller-supplied staderConfig, Visibility: external, Explanation: The function is an unprotected initializer; it checks only isInitialized, not msg.sender, and sets owner from the caller-supplied staderConfig contract, allowing the caller to initialize privileged ownership and configuration.}
+{Function: fallback, Sink: low-level delegatecall with user-supplied calldata, Visibility: external, Explanation: The fallback performs vaultImplementation.delegatecall(_input) without caller restriction; delegatecall executes implementation code in the proxy storage context and is a security-sensitive low-level call operation.}

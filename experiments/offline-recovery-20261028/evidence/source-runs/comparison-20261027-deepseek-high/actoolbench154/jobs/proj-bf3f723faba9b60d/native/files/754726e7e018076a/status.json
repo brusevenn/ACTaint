@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "8362c48e4fd391281d4c3526a80ee404d8b04b6cce8f5ddfa5ef5c589a667cc0",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.7+commit.e28d00a7",
+    "compiler_sha256": "003d75383e45212f9812d0b6add90329fd3b239e6c378d2882f61f9345896d99",
+    "metadata": "v0.8.7+commit.e28d00a7",
+    "metadata_build": "e28d00a7",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-bf3f723faba9b60d/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.7"
+  },
+  "elapsed_seconds": 239.11,
+  "ended_utc": "2026-10-27T06:29:38.302550+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/754726e7e018076a/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-bf3f723faba9b60d/source_code/SpaceGodzilla.sol",
+  "source_sha256": "8362c48e4fd391281d4c3526a80ee404d8b04b6cce8f5ddfa5ef5c589a667cc0",
+  "started_utc": "2026-10-27T06:27:15.092206+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-bf3f723faba9b60d/source_code/SpaceGodzilla.sol"
+}

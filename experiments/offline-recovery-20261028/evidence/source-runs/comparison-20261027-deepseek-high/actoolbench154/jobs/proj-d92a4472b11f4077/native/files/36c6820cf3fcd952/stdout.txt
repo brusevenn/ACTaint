@@ -1,0 +1,8 @@
+==============Start====================
+rules:
+{Function:setOwner, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: Owned
+Sink:
+--Sink--:
+{Function: setOwner, Sink: owner = _owner, Visibility: public, Explanation: The public function overwrites the owner state variable without any access control such as onlyOwner, allowing any caller to change ownership.}

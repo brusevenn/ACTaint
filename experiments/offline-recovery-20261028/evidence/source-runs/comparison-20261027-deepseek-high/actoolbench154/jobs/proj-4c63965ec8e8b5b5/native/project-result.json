@@ -1,0 +1,77 @@
+{
+  "case_ids": [
+    "acb-e63cbf4d02c20746"
+  ],
+  "code_sha": "9e9bfa7a41daf85e882e3332620b3e200efd23cf",
+  "compile_config_path": "projects/proj-4c63965ec8e8b5b5/source_code/config.json",
+  "compile_config_sha256": "cb4556c2fd0408366278e6bd62b053d92c37cf0882b6171ad3c46e0e47d18562",
+  "compiler": {
+    "actual_full_version": "0.8.4+commit.c7e474f2",
+    "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+    "metadata": "v0.8.4+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4c63965ec8e8b5b5/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.4"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 129.457,
+  "ended_utc": "2026-10-27T05:53:03.208040+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "14ab42693863290cc667032a0465176a6192bd676590bcc7ba9dd60820c90da5",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.4+commit.c7e474f2",
+        "compiler_sha256": "f7115ccaf11899dcf3aaa888949f8614421f2d10af65a74870bcfd67010da7f8",
+        "metadata": "v0.8.4+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-4c63965ec8e8b5b5/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.4"
+      },
+      "elapsed_seconds": 129.455,
+      "ended_utc": "2026-10-27T05:53:03.206494+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/3202f2809d414e01/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-4c63965ec8e8b5b5/source_code/NFTXVaultFactoryUpgradeable.sol",
+      "source_sha256": "14ab42693863290cc667032a0465176a6192bd676590bcc7ba9dd60820c90da5",
+      "started_utc": "2026-10-27T05:50:53.752285+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-4c63965ec8e8b5b5/source_code/NFTXVaultFactoryUpgradeable.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-4c63965ec8e8b5b5",
+  "prompt_layout": "prefix_stable",
+  "record_count": 1,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 1,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T05:50:53.751545+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

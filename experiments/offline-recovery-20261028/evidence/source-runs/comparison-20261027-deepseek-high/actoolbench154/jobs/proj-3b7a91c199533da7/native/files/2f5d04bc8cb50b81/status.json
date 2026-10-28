@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "114ed4ee8f801a68c4bf0abc5e56f084bba294dfba79b491814075f8c62ede94",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.10+commit.fc410830",
+    "compiler_sha256": "c7effacf28b9d64495f81b75228fbf4266ac0ec87e8f1adc489ddd8a4dd06d89",
+    "metadata": "v0.8.10+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.10"
+  },
+  "elapsed_seconds": 2.808,
+  "ended_utc": "2026-10-27T05:48:33.211870+00:00",
+  "exit_code": 1,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-3b7a91c199533da7/source_code/MIMOProxyFactory.sol",
+  "source_sha256": "114ed4ee8f801a68c4bf0abc5e56f084bba294dfba79b491814075f8c62ede94",
+  "started_utc": "2026-10-27T05:48:32.293768+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-3b7a91c199533da7/source_code/MIMOProxyFactory.sol"
+}

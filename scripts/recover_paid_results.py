@@ -170,10 +170,12 @@ def recover(input_path: Path, output: Path) -> dict:
     output = output.resolve()
     # Recovery must never overwrite a historical run or raw evidence.
     historical = (ROOT / "experiments").resolve()
-    if output == historical or any(output == (historical / name).resolve()
-                                   for name in ("llm-resume-20261027",
-                                                "comparison-20261027-deepseek-high",
-                                                "cache-optimization-20261027")):
+    protected = [historical / name for name in (
+        "llm-resume-20261027",
+        "comparison-20261027-deepseek-high",
+        "cache-optimization-20261027",
+    )]
+    if output == historical or any(output == path or path in output.parents for path in protected):
         raise ValueError("HISTORICAL_EVIDENCE_OUTPUT_FORBIDDEN")
     if output.exists() and any(output.iterdir()):
         raise FileExistsError("RECOVERY_OUTPUT_MUST_BE_EMPTY:" + str(output))

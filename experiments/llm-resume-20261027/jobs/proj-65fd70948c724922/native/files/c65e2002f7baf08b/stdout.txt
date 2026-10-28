@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:increaseReserve, Visibility:external, Explanation:Writes to variable _reserve without any access control.}
+
+=============Contract: PrizePool
+Sink:
+Reasoning:
+- Reviewed all external write functions in `PrizePool`: `setDrawManager`, `contributePrizeTokens`, `withdrawReserve`, `closeDraw`, `claimPrize`, `withdrawClaimRewards`, and `increaseReserve`.
+- `setDrawManager` has no caller authorization. Its `drawManager != address(0)` check only limits repeated initialization; it does not restrict who can call it. Any caller can set `drawManager` when it is unset, granting the privileged draw manager role.
+- `withdrawReserve` and `closeDraw` are guarded by `onlyDrawManager`.
+- `claimPrize` requires a valid winner proof for `msg.sender` as the vault and updates caller-specific claim state; it is not an unauthorized state modification in this contract.
+- `withdrawClaimRewards` only withdraws the caller’s own `claimerRewards`.
+- `contributePrizeTokens` and `increaseReserve` are permissionless contribution/deposit paths that only add accounting/reserve amounts; `increaseReserve` explicitly allows anyone to deposit directly.
+- The constructor is deployment-time only and is not a sink.
+
+--Sink--:
+{Function: setDrawManager, Sink: drawManager assignment, Visibility: external, Explanation: No access control; the initialization check only limits call count, so any caller can assign drawManager when unset and gain the privileged draw manager role.}

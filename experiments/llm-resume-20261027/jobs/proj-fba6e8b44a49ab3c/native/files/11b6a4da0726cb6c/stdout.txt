@@ -1,0 +1,31 @@
+==============Start====================
+rules:
+{Function:fallback, Visibility:external, Explanation:Writes to variable blacklist without any access control.}
+{Function:XBornID, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable balances without any access control.}
+{Function:XBornID, Visibility:public, Explanation:Writes to variable owner without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable distributionFinished without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable value without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable totalRemaining without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable totalDistributed without any access control.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: XBORNID
+Sink:
+Reasoning:
+- The contract name is `XBORNID`, while the function is `XBornID`. Solidity constructors must match the contract name exactly, so `XBornID` is not a constructor. It is public and sets `owner` and `balances` without access control.
+- `getTokens` is public. Its `onlyWhitelist` modifier only requires `blacklist[msg.sender] == false`; it does not restrict the function to an authorized owner or distributor. The function calls `distr`, which updates global distribution accounting and credits the caller's balance. It also modifies `value` and `distributionFinished`. The write to `blacklist[msg.sender]` only affects the caller's own status, so it is not a sink.
+- `withdraw` and `withdrawForeignTokens` have `onlyOwner`, but `owner` can be overwritten by the public `XBornID` function. Thus an attacker can become owner and trigger these asset transfers.
+- Standard ERC20 functions such as `transfer`, `transferFrom`, and `approve` only modify the caller's own balances or approved allowances and are not sinks. `burn` is owner-guarded and only burns the caller's own tokens.
+
+--Sink--:
+{Function: XBornID, Sink: owner, Visibility: public, Explanation: Public wrong constructor sets owner = msg.sender with no access control, allowing any caller to become owner.}
+{Function: XBornID, Sink: balances, Visibility: public, Explanation: Public wrong constructor sets balances[owner] = totalDistributed, assigning tokens to the caller-chosen owner without access control.}
+{Function: getTokens, Sink: totalDistributed, Visibility: public, Explanation: Public function with only canDistr and onlyWhitelist modifiers calls distr and increases totalDistributed without owner/privileged access control.}
+{Function: getTokens, Sink: totalRemaining, Visibility: public, Explanation: Public function calls distr and decreases totalRemaining without owner/privileged access control.}
+{Function: getTokens, Sink: balances, Visibility: public, Explanation: Public function calls distr(investor, toGive) and increases balances[msg.sender] without owner/privileged access control.}
+{Function: getTokens, Sink: value, Visibility: public, Explanation: Public function modifies global value with value = value.div(100000).mul(99999) without owner/privileged access control.}
+{Function: getTokens, Sink: distributionFinished, Visibility: public, Explanation: Public function can set distributionFinished = true without owner/privileged access control.}
+{Function: withdraw, Sink: Ether transfer, Visibility: public, Explanation: Transfers the contract Ether balance to owner; onlyOwner is bypassable because owner can be overwritten by public XBornID.}
+{Function: withdrawForeignTokens, Sink: foreign token transfer, Visibility: public, Explanation: Transfers the contract's foreign token balance to owner; onlyOwner is bypassable because owner can be overwritten by public XBornID.}

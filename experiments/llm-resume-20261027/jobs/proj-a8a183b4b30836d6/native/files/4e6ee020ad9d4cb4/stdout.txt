@@ -1,0 +1,26 @@
+==============Start====================
+rules:
+{Function:getTreasury, Visibility:external, Explanation:Uses assembly.}
+{Function:setInterfaces, Visibility:external, Explanation:Uses assembly.}
+{Function:getFactory, Visibility:external, Explanation:Uses assembly.}
+{Function:setTreasury, Visibility:external, Explanation:Uses assembly.}
+{Function:init, Visibility:external, Explanation:Uses assembly.}
+{Function:getOperator, Visibility:external, Explanation:Uses assembly.}
+{Function:setFactory, Visibility:external, Explanation:Uses assembly.}
+{Function:getBridge, Visibility:external, Explanation:Uses assembly.}
+{Function:getUtilityToken, Visibility:external, Explanation:Uses assembly.}
+{Function:setOperator, Visibility:external, Explanation:Uses assembly.}
+{Function:getHolographChainId, Visibility:external, Explanation:Uses assembly.}
+{Function:setBridge, Visibility:external, Explanation:Uses assembly.}
+{Function:setUtilityToken, Visibility:external, Explanation:Uses assembly.}
+{Function:getRegistry, Visibility:external, Explanation:Uses assembly.}
+{Function:setHolographChainId, Visibility:external, Explanation:Uses assembly.}
+{Function:getChainId, Visibility:external, Explanation:Uses assembly.}
+{Function:setRegistry, Visibility:external, Explanation:Uses assembly.}
+{Function:getInterfaces, Visibility:external, Explanation:Uses assembly.}
+{Function:setChainId, Visibility:external, Explanation:Uses assembly.}
+
+=============Contract: Holograph
+Sink:
+--Sink--:
+{Function: init, Sink: Unprotected initializer / assembly sstore of admin and module slots, Visibility: external, Explanation: init is externally callable, and require(!_isInitialized()) only prevents repeat initialization, not unauthorized callers. The first caller can set _adminSlot to tx.origin and overwrite all module addresses via assembly sstore.}

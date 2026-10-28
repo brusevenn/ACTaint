@@ -1,0 +1,29 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-06e0b606c3789db5",
+  "case_ids": [
+    "acb-49369c8a71135fab"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "9c9cf5082f5cad9ef682717796e926fd8e9d9f733b4edfa914c981555625ac33",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T12:39:20.682725+00:00",
+  "exit_code": 4,
+  "input_identity": "f8f791bc99eaa591b78d730cd119287c2e63295cdc371439a8178cb8a95afe39",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-06e0b606c3789db5",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "OwnershipNFTs.sol",
+      "54e88ef60ff604d0d416868e71d7c6bffbac73e594a3003948f67874d062e798"
+    ]
+  ],
+  "source_hashes": [
+    "54e88ef60ff604d0d416868e71d7c6bffbac73e594a3003948f67874d062e798"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

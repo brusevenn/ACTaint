@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:__TaxedStaking_init, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:__TaxedStaking_init_unchained, Visibility:public, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:__TaxedStaking_init, Visibility:public, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:setHpayTax, Visibility:external, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:setTax, Visibility:external, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:setHpayAddress, Visibility:external, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:setTaxAddresses, Visibility:external, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:_withdraw, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+{Function:_withdraw, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+
+=============Contract: TaxedStaking
+Sink:
+The only unprotected externally callable state-changing operations are the initializer functions. They are `public`, guarded only by `onlyInitializing`, which limits the initialization phase but does not restrict the caller. The contract has no constructor, so these initializers are wrong-constructor sinks. The admin setters are protected by `onlyRole(DEFAULT_ADMIN_ROLE)` and are not sinks. The internal `_stake`/`_withdraw` paths are not externally callable and operate on `msg.sender`-specific balances and allowances, so they are not access-control sinks.
+
+--Sink--:
+{Function: __TaxedStaking_init, Sink: Writes to configuration, Visibility:public, Explanation: Public initializer guarded only by onlyInitializing; onlyInitializing restricts initialization phase, not caller; no role check and no constructor, so any caller can initialize configuration.}
+{Function: __TaxedStaking_init_unchained, Sink: Writes to taxConfiguration, Visibility:public, Explanation: Public initializer guarded only by onlyInitializing; onlyInitializing restricts initialization phase, not caller; no role check and no constructor, so any caller can set taxConfiguration.}
+{Function: __TaxedStaking_init, Sink: Writes to taxConfiguration, Visibility:public, Explanation: Public initializer calls __TaxedStaking_init_unchained, which writes taxConfiguration; onlyInitializing does not restrict caller, so this initializer path is unprotected.}

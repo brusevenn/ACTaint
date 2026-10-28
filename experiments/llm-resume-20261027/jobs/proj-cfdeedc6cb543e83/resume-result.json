@@ -1,0 +1,35 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-cfdeedc6cb543e83",
+  "case_ids": [
+    "acb-a742eece31ce41ca",
+    "acb-dffcbc87bac7bb69"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "a0065bccef884bed6dd530480c433c2b525ac30e4d24672f1069a91a6dd63b7f",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:24:48.758009+00:00",
+  "exit_code": 4,
+  "input_identity": "9fd792f1dc06203f1a00fe6040bcd8d099690e55b5902ecd4257054a35a21f16",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-cfdeedc6cb543e83",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "RootPort.sol",
+      "bce5eb065edb54cb0ff228641f7ce11331d3f57379ae665f6e8dabf7b7866d3f"
+    ],
+    [
+      "VirtualAccount.sol",
+      "38d4305c8be5f34170282272501cb3d1d3179d507e829faaf3d09cbc2bf444d8"
+    ]
+  ],
+  "source_hashes": [
+    "38d4305c8be5f34170282272501cb3d1d3179d507e829faaf3d09cbc2bf444d8",
+    "bce5eb065edb54cb0ff228641f7ce11331d3f57379ae665f6e8dabf7b7866d3f"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

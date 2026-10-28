@@ -1,0 +1,31 @@
+==============Start====================
+rules:
+{Function:call, Visibility:external, Explanation:Uses low level call.}
+
+=============Contract: VirtualAccount
+Sink:
+The constructor only initializes `userAddress` and `localPortAddress`; it does not perform a sensitive state-changing operation that can be abused by an unauthorized caller.
+
+`withdrawERC20`, `withdrawERC721`, and `call` are all guarded by `requiresApprovedCaller`, which restricts execution to either the virtual account’s `userAddress` or a router explicitly approved by the trusted `localPortAddress` root port. The withdrawals and arbitrary call behavior are therefore explicitly authorized by the contract’s access-control logic and are intended virtual-account operations.
+
+`onERC721Received` is `pure` and only returns a selector; it changes no state and performs no sensitive operation.
+
+Thus, no valid sink remains after accounting for the actual access-control modifier.
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:_createMultipleSettlement, Visibility:internal, Explanation:Writes to variable getSettlement without any access control.}
+{Function:_reopenSettlemment, Visibility:internal, Explanation:Writes to variable getSettlement without any access control.}
+{Function:_createSettlement, Visibility:internal, Explanation:Writes to variable getSettlement without any access control.}
+{Function:_retrySettlement, Visibility:internal, Explanation:Writes to variable getSettlement without any access control.}
+{Function:_retrySettlement, Visibility:internal, Explanation:Writes to variable approvedGasPool without any access control.}
+
+=============Contract: RootBridgeAgent
+Sink:
+Reviewed the access-control modifiers and call paths. The internal settlement creation functions are only reachable through `requiresRouter`, and `_reopenSettlemment` is only reachable through `requiresExecutor`. The `approvedGasPool` update uses the pool address returned by the trusted local port, not caller-controlled input. The unguarded entry point is `retrySettlement`, which reaches `_retrySettlement` without checking settlement ownership.
+
+--Sink--:
+{Function: _retrySettlement, Sink: Writes to getSettlement (gasToBridgeOut, callData, status) and calls _performCall, Visibility: internal, Explanation: Reachable through the public retrySettlement function without an owner check. Any caller can modify an existing settlement’s gas value, overwrite its callData gas field, set its status to Success, and trigger its cross-chain call.}

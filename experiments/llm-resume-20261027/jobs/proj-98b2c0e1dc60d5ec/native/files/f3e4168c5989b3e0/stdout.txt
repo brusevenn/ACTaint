@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:claimFees, Visibility:external, Explanation:Writes to variable _unlocked without any access control.}
+{Function:_safeTransfer, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: LeetSwapV2Pair
+Sink:
+Reasoning:
+- The constructor only initializes immutable token/factory/fees addresses and the initial observation; it executes at deployment and is not an externally callable access-control sink.
+- `approve`, `transfer`, and `transferFrom` are standard ERC-20 operations; they update the caller’s allowance or use an existing allowance and do not modify others’ assets without authorization.
+- `permit` uses `ecrecover`, but it reverts when the recovered address is zero or differs from `owner`; the signature check enforces authorization.
+- `claimFees` calls `claimFeesFor(msg.sender)`. The `_unlocked` write is part of the reentrancy `lock` modifier, not an access-control operation. The static analysis flag on `_unlocked` is not a valid access-control sink.
+- `_safeTransfer` performs a token transfer using the pair’s token balance. It has no authorization check and is reachable from public functions, including the public `_transferFeesSupportingTaxTokens` which accepts caller-controlled `token` and `amount`.
+
+--Sink--:
+{Function: _safeTransfer, Sink: Token transfer via IERC20(token).transfer(to, value), Visibility: internal, Explanation: The internal helper transfers tokens held by the pair to the `to` address without authorization checks. It is reachable from the public `_transferFeesSupportingTaxTokens` function, which accepts caller-controlled `token` and `amount` and calls `_safeTransfer(token, fees, amount)`, and from other public functions with caller-controlled recipients.}

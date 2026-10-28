@@ -1,0 +1,34 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-e7864677dc9f4dcb",
+  "case_ids": [
+    "acb-94c7c6096a94649f"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "128b100db138e79bd3edde4e5ae4ffb27e351977b7d9c943c61a8ca83dae03e6",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:31:50.454965+00:00",
+  "exit_code": 4,
+  "input_identity": "0794fe92a566bcec39ba8cfc2ab71973a1572437c8f021bfb997ad40394c45ea",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-e7864677dc9f4dcb",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "AISPACE.sol",
+      "2c1c0b19fa1f03f3194f76e89cad500fd102b6ee8d03a6ed05af47f52051de7f"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "cdb2e75ca2e5a1f460ea99685b008ca6d57d7c787e604eb58235176993d9a09f"
+    ]
+  ],
+  "source_hashes": [
+    "2c1c0b19fa1f03f3194f76e89cad500fd102b6ee8d03a6ed05af47f52051de7f",
+    "cdb2e75ca2e5a1f460ea99685b008ca6d57d7c787e604eb58235176993d9a09f"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

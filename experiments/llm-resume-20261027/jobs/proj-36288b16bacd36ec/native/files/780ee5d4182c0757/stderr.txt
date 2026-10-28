@@ -1,0 +1,1 @@
+INFO:SlitherSolcParsing:No contracts were found in None, check the correct compilation

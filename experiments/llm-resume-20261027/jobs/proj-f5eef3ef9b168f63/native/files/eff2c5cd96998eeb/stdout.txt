@@ -1,0 +1,44 @@
+==============Start====================
+rules:
+{Function:mint, Visibility:external, Explanation:Writes to variable levReserve without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable levReserve without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable hisHighNav without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable hisHighNav without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable hisHighNav without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable borrowBalanceUSDC without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable borrowBalanceUSDC without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable borrowBalanceUSDT without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable borrowBalanceUSDT without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable _notEntered without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable _notEntered without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable totalSupply without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable totalSupply without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable underlying without any access control.}
+{Function:setDepErc20, Visibility:public, Explanation:Writes to variable depErc20 without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable extraBorrowSupply without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable extraBorrowSupply without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable redeemAmountInUSDC without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable redeemAmountInUSDC without any access control.}
+{Function:mint, Visibility:external, Explanation:Writes to variable extraBorrowDemand without any access control.}
+{Function:redeem, Visibility:external, Explanation:Writes to variable extraBorrowDemand without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable admin without any access control.}
+{Function:doTransferIn, Visibility:internal, Explanation:Uses assembly.}
+{Function:doTransferOut, Visibility:internal, Explanation:Uses assembly.}
+{Function:sweepToken, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:doTransferOut, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: LevErc20
+Sink:
+Reasoning:
+- The contract has no constructor. `initialize` is public and uses `initializer`; the modifier only limits repeated initialization and does not restrict who calls it. It writes `admin = payable(msg.sender)` and critical state (`underlying`, `borrowUnderlying`, NAV-related variables). This is an unprotected initializer sink.
+- `setDepErc20` is public and calls `super.setDepErc20(depErc20_)` without an admin/role check in this function. It writes the `depErc20` address, which is used as the authorization address for `forceRepay` and `updateLedger`. This is an unprotected privileged setter sink.
+- `setPrologue` and `sweepToken` are protected by `require(msg.sender == admin)`, so they are not access-control sinks here.
+- `forceRepay` and `updateLedger` are protected by `require(msg.sender == address(depErc20))` in this source context; the unprotected `depErc20` setter is the sink.
+- `mint` and `redeem` are public user entry points that operate on the caller’s own deposited/redeemed assets; the listed state writes are protocol accounting, not access-control sinks.
+- `doTransferIn` and `doTransferOut` are internal ERC-20 transfer wrappers; `transferFrom` relies on allowance and `transfer` sends to the caller/protocol-controlled recipient in the shown context. The assembly usage alone is not an access-control sink.
+- View/getter functions do not write privileged state.
+
+--Sink--:
+{Function: initialize, Sink: Unprotected initializer sets admin and critical state, Visibility:public, Explanation: No constructor/access control exists; the initializer modifier only restricts repeat calls, so any caller can invoke it first and set admin to msg.sender and initialize underlying, borrowUnderlying, and NAV state.}
+{Function: setDepErc20, Sink: Unprotected privileged setter writes depErc20, Visibility:public, Explanation: The public function calls super.setDepErc20 without require(msg.sender == admin) or an equivalent role check, allowing any caller to change depErc20 and the address authorized for forceRepay/updateLedger.}

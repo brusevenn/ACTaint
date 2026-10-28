@@ -1,0 +1,38 @@
+==============Start====================
+rules:
+{Function:batch, Visibility:external, Explanation:Uses low level call.}
+{Function:_getRevertMsg, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: BoringBatchable
+Sink:
+The contract `BoringBatchable` contains two functions:
+
+- `_getRevertMsg`: an `internal pure` helper that only extracts and reverts with a revert message. Its assembly only slices the return data pointer. It does not modify state, control access, or invoke external code.
+- `batch`: an `external payable` function that performs `delegatecall` only to `address(this)` with user-provided calldata. It does not modify contract state, does not grant privileged access, and preserves `msg.sender`/`msg.value` in the same context. The delegatecall target is fixed to the contract itself, and the contract has no privileged state or ownership operations. This is the intended batch entry point.
+
+No constructor or initializer exists in the source code.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:transferOwnership, Visibility:external, Explanation:Writes to variable owner without any access control.}
+{Function:initialize, Visibility:external, Explanation:Writes to variable owner without any access control.}
+{Function:multicall, Visibility:external, Explanation:Uses low level call.}
+{Function:execute, Visibility:public, Explanation:Uses low level call.}
+{Function:multicall, Visibility:external, Explanation:Uses assembly.}
+{Function:execute, Visibility:public, Explanation:Uses assembly.}
+
+=============Contract: MIMOProxy
+Sink:
+Reasoning:
+- `initialize` is external and only protected by `initializer`, which limits repeated calls but does not restrict the caller. Since there is no constructor, the first caller can set `owner = msg.sender` and gain owner privileges. This is a wrong-constructor/init access-control sink.
+- `transferOwnership` requires `oldOwner == msg.sender`, so only the current owner can transfer ownership. It is access-controlled and is not a sink.
+- `setPermission` requires `owner == msg.sender`, so only the owner can modify permissions. It is access-controlled and is not a sink.
+- `execute` has an owner check or envoy permission check before executing the delegatecall, and it checks that the owner remains unchanged. Access is explicitly controlled by the owner or permission mapping, so it is not a sink under the stated criteria.
+- `multicall` requires `msg.sender == owner` before making low-level calls. It is access-controlled and is not a sink.
+- `getPermission`, `receive`, and other read-only/no-state functions do not contain sensitive access-control sink operations.
+
+--Sink--:
+{Function: initialize, Sink: writing owner and minGasReserve, Visibility: external, Explanation: No constructor exists and initialize is an external initializer without caller authorization; the initializer modifier only limits repeated initialization, so the first caller can invoke it and set owner to msg.sender, gaining owner privileges.}

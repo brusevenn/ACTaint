@@ -8,3 +8,7 @@ Protocol: deepseek-flash, high reasoning, thinking enabled, max output 65,536 to
 
 The job folders retain native tool outputs, request/response/error logs, stdout/stderr, and per-project receipts. case-records.json, execution-summary.json, and resume-seal.json are written after the queue terminates. No vulnerability scoring is performed in the detector run.
 \nThe code_sha field identifies the latest commit that changed the execution scripts; later commits that only add plans, logs, or results do not change the runner identity.\n\nACTaint uses one project worker while running alongside GPTLens (two workers), so the temporary combined concurrency ceiling is 3.\n
+
+## Path privacy normalization
+
+To avoid publishing machine-specific absolute paths, runtime-only local paths in saved output files were replaced with explicit placeholders. Exact before/after SHA-256 values and replacement rules are recorded in path-normalization.json; original changed files and the preceding seal were preserved outside this repository on the execution host. This changes only path strings, not detector inputs, model outputs, case dispositions, or request counts. The new resume seal binds the normalized output set and references the prior seal.

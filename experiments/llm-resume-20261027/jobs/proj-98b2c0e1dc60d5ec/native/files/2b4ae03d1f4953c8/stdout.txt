@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:_safeTransfer, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: LeetSwapV2Fees
+Sink:
+Review of candidate operations:
+- `_safeTransfer` contains `IERC20(token).transfer(to, value)`, which transfers tokens held by this contract. It is `internal` and is only called by `claimFeesFor`.
+- `claimFeesFor` is `external`, but it first enforces `msg.sender == pair`. The `pair` address is set once in the constructor. Therefore, only the authorized pair contract can invoke the token transfers.
+- The constructor sets immutable configuration addresses and performs no token/Ether transfer, no owner-changing state update beyond initialization, and no externally callable privileged operation.
+- No `selfdestruct`, `delegatecall`, or unauthorized state modification is present.
+
+The token transfer is protected by the `msg.sender == pair` access check in its only reachable caller, so it is not an access-control sink.
+
+--Sink--:
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 2, "contracts_skipped_interface_abstract_library": 0, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 13.361, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 3628}
+==============End======================
+total time: 13.361076831817627
+total token: 3628

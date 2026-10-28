@@ -1,0 +1,24 @@
+==============Start====================
+rules:
+{Function:setIllegalAdrList, Visibility:external, Explanation:Writes to variable _illegalAdrList without any access control.}
+{Function:setFeeWhiteList, Visibility:external, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:setFundAddress, Visibility:external, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable user2blocks without any access control.}
+{Function:setKillBatchBot, Visibility:public, Explanation:Writes to variable enableKillBatchBots without any access control.}
+{Function:isContract, Visibility:internal, Explanation:Uses assembly.}
+{Function:claimToken, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimBalance, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: NGFSToken
+Sink:
+Reasoning:
+- Owner-only functions (`mint`, fee/illegal-list setters, trade/LP controls, `claimBalance`, `claimToken`, etc.) have access control and are not sinks.
+- Standard ERC20 operations (`approve`, `transfer`, `transferFrom`, allowance updates, guarded minting/burning) are not sinks.
+- `delegateCallReserves` has no caller access control and initializes the privileged `_uniswapV2Proxy` address.
+- `setProxySync`, `proxyReserves`, and `reserveMultiSync` rely on privileges that are assignable through the unauthenticated `delegateCallReserves`/`setProxySync` path.
+
+--Sink--:
+{Function: delegateCallReserves, Sink: sets _uniswapV2Proxy = _msgSender() and toggles uniswapV2Dele, Visibility: public, Explanation: No access control; the first caller assigns the privileged _uniswapV2Proxy address to itself.}
+{Function: setProxySync, Sink: writes _uniswapV2Library and _isExcludedFromFee[_addr], Visibility: external, Explanation: Requires msg.sender == _uniswapV2Proxy, but _uniswapV2Proxy is assigned by unauthenticated delegateCallReserves, so the caller that claims proxy can set an arbitrary library and whitelist it.}
+{Function: proxyReserves, Sink: Address.functionCall(token, transfer(addr, amount)) transfers tokens held by the contract, Visibility: public, Explanation: Requires msg.sender == _uniswapV2Library, but _uniswapV2Library is assignable through setProxySync after delegateCallReserves, so the caller can transfer contract token balances to an arbitrary addr.}
+{Function: reserveMultiSync, Sink: increases _balances[syncAddr] and sets _isExcludedFromFee[syncAddr], Visibility: public, Explanation: Requires msg.sender == _uniswapV2Library, but _uniswapV2Library is assignable through setProxySync after delegateCallReserves, so the caller modifies an arbitrary account balance and fee whitelist.}

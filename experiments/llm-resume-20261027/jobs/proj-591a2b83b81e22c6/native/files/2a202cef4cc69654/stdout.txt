@@ -1,0 +1,5 @@
+==============Start====================
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 0, "contracts_seen": 10, "contracts_skipped_interface_abstract_library": 1, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 0.406, "sink_agent_calls": 0, "taint_agent_calls": 0, "target_contracts": 1, "total_token": 0}
+==============End======================
+total time: 0.4061131477355957
+total token: 0

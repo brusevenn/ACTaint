@@ -1,0 +1,33 @@
+{
+  "automatic_retries": 0,
+  "case_ids": [
+    "acb-93c781dc1720a7e1"
+  ],
+  "case_timeout_seconds": 1200,
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "c669f832be016054a6c510cdef58c7f4ec64a4c4acef0d8a0a607360038ed5cd",
+  "dataset": "ACToolBench154",
+  "input_identity": "96ce7a4cd7be35ca04aa6f00499c15b322ab1a440b9d5bfb44731a8a86d01b84",
+  "max_tokens": 65536,
+  "prior_request_attempts": 0,
+  "project_id": "proj-b52c82706dcbf0ca",
+  "prompt_layout": "prefix_stable_v2",
+  "reasoning_effort": "high",
+  "request_timeout_seconds": 300,
+  "source_hashes": [
+    "1458c260d010a08e4c20a4a517882259a23a4baa0b5bd9add9fb6d6a1549814a",
+    "47c4e2096cbf21993fd52c017f0a1aee9050cfe5c25466fd2a8e657bc1477df5",
+    "7ebde70853ccafcf1876900dad458f46eb9444d591d39bfc58e952e2582f5587",
+    "82dc918d8df553e2461b96595580e565424b407d73dab8a7ce4bde479810fb2a",
+    "85e94bce856bc51c81fecc5065878c79c43bcd4d20c359cf1c92d8d4c80c82a2",
+    "8b85a2463eda119c2f42c34fa3d942b61aee65df381f48ed436fe8edb3a7d602",
+    "b7383c48331f3cc9901fc05e5d5830fcd533699a77f3ee1e756a98681bfbb2ee",
+    "f7251f8986b258f44f14dee91aed438a29a9e1751e79c8256d3290e83608c113",
+    "fc16aa4564878e1bb65740239d0c1422451cd32136306626ac37f5d5e0606a7b"
+  ],
+  "started_utc": "2026-10-27T14:05:56.332738+00:00",
+  "thinking": {
+    "type": "enabled"
+  },
+  "tool": "ACTaint"
+}

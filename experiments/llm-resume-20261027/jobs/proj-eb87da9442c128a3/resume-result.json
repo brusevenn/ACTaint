@@ -1,0 +1,34 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-eb87da9442c128a3",
+  "case_ids": [
+    "acb-2f337eb8e44f5d4c"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "b2202f968f8ae4eeb4bbda2648ff0b59fdeb859a71e7d4c23cf64a09c834b6cb",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:40:18.992515+00:00",
+  "exit_code": 4,
+  "input_identity": "8f4b806b59b5eab2558e1919f7dcca763d829cf08ae87966157b7d3cbdfb35d8",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-eb87da9442c128a3",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MainContractFlattened.sol",
+      "97c684338d4d884b937b902b51454ef19e7e7b3997cde6080c68182571786f04"
+    ],
+    [
+      "V3Migrator.sol",
+      "60c936a6b986fb11589622bbf2a66f31756b33b23a9085638db7c0dd3d22cd3f"
+    ]
+  ],
+  "source_hashes": [
+    "60c936a6b986fb11589622bbf2a66f31756b33b23a9085638db7c0dd3d22cd3f",
+    "97c684338d4d884b937b902b51454ef19e7e7b3997cde6080c68182571786f04"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

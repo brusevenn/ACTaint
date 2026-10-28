@@ -1,0 +1,29 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-a8a183b4b30836d6",
+  "case_ids": [
+    "acb-6fb316b58dca6dac"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "c04edc3e5bcff6532a77ebbcda7d805f6ad00aa100f0763293c9608f66def800",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:51:55.683605+00:00",
+  "exit_code": 4,
+  "input_identity": "9fb530bae8487a408f2161ff4239d580b31c54a3e18cda2d1163e1f6c1fc25d1",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-a8a183b4b30836d6",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "ERC721H.sol",
+      "171b21b0ff597b63ba4d718812a1e09f1cf436d42231bf219b6800ba89b92b40"
+    ]
+  ],
+  "source_hashes": [
+    "171b21b0ff597b63ba4d718812a1e09f1cf436d42231bf219b6800ba89b92b40"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

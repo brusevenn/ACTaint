@@ -1,0 +1,129 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-424da07d41309706",
+  "case_ids": [
+    "acb-9fda5c15bf2fef2f"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "754442e2b97a98196cb1b6c79f296774f20b87f14a34d70e61c403a2a48699c8",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:07:58.790555+00:00",
+  "exit_code": 4,
+  "input_identity": "0eed395c682de3cdd70243888a8221391955d09684701285d7e3a162a0c5966f",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-424da07d41309706",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "@openzeppelin/contracts/access/AccessControl.sol",
+      "0ab66c9c0b45fca5efad935058e889bd5bb5599eb95b0d17ec924f64ebcaf38f"
+    ],
+    [
+      "@openzeppelin/contracts/access/AccessControlEnumerable.sol",
+      "47861db7fa8d98b58cef570e7c8fca6af6d9d82e3ec0f525c3ad035cbfbed195"
+    ],
+    [
+      "@openzeppelin/contracts/access/IAccessControl.sol",
+      "d03c1257f2094da6c86efa7aa09c1c07ebd33dd31046480c5097bc2542140e45"
+    ],
+    [
+      "@openzeppelin/contracts/access/IAccessControlEnumerable.sol",
+      "655ab8dc2a9617376734d04ca293e099cc24f8ce893997e68c29cfebc4a61d39"
+    ],
+    [
+      "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "aa73590d5265031c5bb64b5c0e7f84c44cf5f8539e6d8606b763adac784e8b2e"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "3cd9bf87ad804088f574a5266771f038a2c44b53d85f355aadb35645e497d1c2"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "94f23e4af51a18c2269b355b8c7cf4db8003d075c9c541019eb8dcf4122864d5"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "af5c8a77965cc82c33b7ff844deb9826166689e55dc037a7f2f790d057811990"
+    ],
+    [
+      "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "b5a1340c5232f387b15592574f27eef78f6017bdc66542a1cea512ad4f78a0d2"
+    ],
+    [
+      "@openzeppelin/contracts/utils/Address.sol",
+      "aafa8f3e41700a8353aabcdf020e06735753e6bc4b615279b43de53cfbb4f2cd"
+    ],
+    [
+      "@openzeppelin/contracts/utils/Context.sol",
+      "1458c260d010a08e4c20a4a517882259a23a4baa0b5bd9add9fb6d6a1549814a"
+    ],
+    [
+      "@openzeppelin/contracts/utils/Strings.sol",
+      "8597c62818dcbc6cf85c21179b90b714fb4f70a4347ca2eed23e88c87b08b8a1"
+    ],
+    [
+      "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+      "8806a632d7b656cadb8133ff8f2acae4405b3a64d8709d93b0fa6a216a8a6154"
+    ],
+    [
+      "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "701e025d13ec6be09ae892eb029cd83b3064325801d73654847a5fb11c58b1e5"
+    ],
+    [
+      "@openzeppelin/contracts/utils/math/Math.sol",
+      "0c9d5d99d6c2eb63297a5d087aed5d1527dadbfef1487911c69069e73a685f3d"
+    ],
+    [
+      "@openzeppelin/contracts/utils/structs/EnumerableSet.sol",
+      "000b9ea0423e2384130d16e211a96a83ad0ad0f65622ed14b6650cf707a2d41d"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "9b7d87c318afcff983a38fd533bde6bf67830988560d35db900f76bfd838afa8"
+    ],
+    [
+      "contracts/ReaperVaultV2.sol",
+      "592c292ebc7d500d9b04f3db6fe715f1a36af1cd29e2ff4eb3b3d9b19680d8c2"
+    ],
+    [
+      "contracts/interfaces/IERC4626.sol",
+      "442ae487f41c48892c361b9b224e0f39a542ec17aab5c2f26095b6153c4e7849"
+    ],
+    [
+      "contracts/interfaces/IStrategy.sol",
+      "a69cbdae146074d4519bf01c4314d9faefe8b645d6c489b783a717a08995359e"
+    ],
+    [
+      "contracts/library/FixedPointMathLib.sol",
+      "b5407dbb9dc0cf9905523f173942848295089e1ae65bd2d1e30402ce0ba06295"
+    ]
+  ],
+  "source_hashes": [
+    "000b9ea0423e2384130d16e211a96a83ad0ad0f65622ed14b6650cf707a2d41d",
+    "0ab66c9c0b45fca5efad935058e889bd5bb5599eb95b0d17ec924f64ebcaf38f",
+    "0c9d5d99d6c2eb63297a5d087aed5d1527dadbfef1487911c69069e73a685f3d",
+    "1458c260d010a08e4c20a4a517882259a23a4baa0b5bd9add9fb6d6a1549814a",
+    "3cd9bf87ad804088f574a5266771f038a2c44b53d85f355aadb35645e497d1c2",
+    "442ae487f41c48892c361b9b224e0f39a542ec17aab5c2f26095b6153c4e7849",
+    "47861db7fa8d98b58cef570e7c8fca6af6d9d82e3ec0f525c3ad035cbfbed195",
+    "592c292ebc7d500d9b04f3db6fe715f1a36af1cd29e2ff4eb3b3d9b19680d8c2",
+    "655ab8dc2a9617376734d04ca293e099cc24f8ce893997e68c29cfebc4a61d39",
+    "701e025d13ec6be09ae892eb029cd83b3064325801d73654847a5fb11c58b1e5",
+    "8597c62818dcbc6cf85c21179b90b714fb4f70a4347ca2eed23e88c87b08b8a1",
+    "8806a632d7b656cadb8133ff8f2acae4405b3a64d8709d93b0fa6a216a8a6154",
+    "94f23e4af51a18c2269b355b8c7cf4db8003d075c9c541019eb8dcf4122864d5",
+    "9b7d87c318afcff983a38fd533bde6bf67830988560d35db900f76bfd838afa8",
+    "a69cbdae146074d4519bf01c4314d9faefe8b645d6c489b783a717a08995359e",
+    "aa73590d5265031c5bb64b5c0e7f84c44cf5f8539e6d8606b763adac784e8b2e",
+    "aafa8f3e41700a8353aabcdf020e06735753e6bc4b615279b43de53cfbb4f2cd",
+    "af5c8a77965cc82c33b7ff844deb9826166689e55dc037a7f2f790d057811990",
+    "b5407dbb9dc0cf9905523f173942848295089e1ae65bd2d1e30402ce0ba06295",
+    "b5a1340c5232f387b15592574f27eef78f6017bdc66542a1cea512ad4f78a0d2",
+    "d03c1257f2094da6c86efa7aa09c1c07ebd33dd31046480c5097bc2542140e45"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

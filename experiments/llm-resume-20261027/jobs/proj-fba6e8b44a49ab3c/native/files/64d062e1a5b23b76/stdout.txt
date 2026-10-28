@@ -1,0 +1,27 @@
+==============Start====================
+rules:
+{Function:fallback, Visibility:external, Explanation:Writes to variable blacklist without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable balances without any access control.}
+{Function:XBornID, Visibility:public, Explanation:Writes to variable balances without any access control.}
+{Function:XBornID, Visibility:public, Explanation:Writes to variable owner without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable distributionFinished without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable value without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable totalRemaining without any access control.}
+{Function:fallback, Visibility:external, Explanation:Writes to variable totalDistributed without any access control.}
+{Function:withdraw, Visibility:public, Explanation:Transfers Ether or Token.}
+{Function:withdrawForeignTokens, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: XBORNID
+Sink:
+Reasoning:
+- `XBornID()` is not a constructor because its name does not exactly match the contract name `XBORNID`. It is public and callable by anyone. It writes `owner` and `balances[owner]`, so it is a sink.
+- `getTokens()` is public and payable. Its modifiers do not provide proper access control: `canDistr` only checks whether distribution is finished, and `onlyWhitelist` only checks `blacklist[msg.sender] == false`, which is initially false for every address. It calls `distr(msg.sender, toGive)` and writes `balances[msg.sender]`, `totalDistributed`, `totalRemaining`, `blacklist[msg.sender]`, `distributionFinished`, and `value`. This allows any non-blacklisted caller to claim tokens and modify global distribution state.
+- The fallback function is external, payable, and calls `getTokens()`, exposing the same unauthorized state writes.
+- `withdraw`, `withdrawForeignTokens`, `burn`, `finishDistribution`, and `transferOwnership` are protected by `onlyOwner`, so they are not sinks.
+- `transfer`, `transferFrom`, and `approve` are standard ERC20 operations with appropriate caller/allowance checks, so they are not sinks.
+- `distr` is private and not externally callable. `balanceOf`, `allowance`, and `getTokenBalance` are constant/view functions.
+
+--Sink--:
+{Function: XBornID, Sink: Writes to owner and balances[owner] without access control, Visibility: public, Explanation: `XBornID` is a wrong constructor (name mismatch with `XBORNID`); any caller can set `owner = msg.sender` and `balances[owner] = totalDistributed`, enabling ownership takeover and token balance assignment.}
+{Function: getTokens, Sink: Writes to balances[msg.sender], totalDistributed, totalRemaining, blacklist[msg.sender], distributionFinished, and value without proper access control, Visibility: public, Explanation: `canDistr` and `onlyWhitelist` do not enforce authorization; `onlyWhitelist` only requires `blacklist[msg.sender] == false`, which is initially true for any address, so any non-blacklisted caller can claim tokens and modify global distribution state via `distr`.}
+{Function: fallback, Sink: Forwards to getTokens() which writes balances, blacklist, totalDistributed, totalRemaining, distributionFinished, and value without proper access control, Visibility: external, Explanation: The fallback is externally callable and payable; it calls `getTokens()`, exposing the same unauthorized token distribution and global state writes.}

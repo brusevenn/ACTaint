@@ -1,0 +1,134 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-c25baacfd4f5ff31",
+  "case_ids": [
+    "acb-5cb60e3e1c7deb69"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "a078662666669260fcbc867b9ba62788cd3e1de578da59f2a16f5ea1eecd751b",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:15:27.257625+00:00",
+  "exit_code": 0,
+  "input_identity": "ac8615a9968b71038dfe2491bcb764f6c771efee52db48fd05b6aa61ac47ca5e",
+  "native_execution_status": "PROJECT_COMPLETED",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-c25baacfd4f5ff31",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "AccessControl.sol",
+      "67f6dda67e9f2c773ea79e352c9e79c19c23c09fe5ba45590d7c147cfd5d582c"
+    ],
+    [
+      "AccessControlEnumerable.sol",
+      "8ad70b888900a00e3eb7b6413795969f6fe68135e8146fde9e9aed8dd3243d1e"
+    ],
+    [
+      "Address.sol",
+      "b3710b1712637eb8c0df81912da3450da6ff67b0b3ed18146b033ed15b1aa3b9"
+    ],
+    [
+      "Context.sol",
+      "847fda5460fee70f56f4200f59b82ae622bb03c79c77e67af010e31b7e2cc5b6"
+    ],
+    [
+      "DefaultAccess.sol",
+      "a08131722aee328f0b8aa11012030af2f8f0d51885d036ea38583788d3c64571"
+    ],
+    [
+      "ERC165.sol",
+      "329949e9568818d1c979c63a2f07cdae45567588367a89a3b7c0e904a6c9b63b"
+    ],
+    [
+      "ERC20.sol",
+      "24faad66347215f398631a202074e248c0c03fd937d0ccf37c93459175d1488e"
+    ],
+    [
+      "EnumerableSet.sol",
+      "c40bf629cac9f40a2d68153867e1099325bee57b2232add4b3e4c2bb08d0a6f5"
+    ],
+    [
+      "IAccessControl.sol",
+      "1d6ef09193265172824fa1139e85cba422117ca918961183f080e692489d8c3b"
+    ],
+    [
+      "IAccessControlEnumerable.sol",
+      "040ef1af575efb299e44a41a83d8451dd1e74089253d38779fcbb8c7063da0fd"
+    ],
+    [
+      "IDiscountPolicy.sol",
+      "d4bfabd3ea6a19fb272e081793b97fb3f907fafa644b92babd7c62a3d4c7738d"
+    ],
+    [
+      "IERC165.sol",
+      "07ae1ac964ab74dedada999e2dfc642031a6495469cffc0bf715daa4f1e4f904"
+    ],
+    [
+      "IERC20.sol",
+      "6f2faae462e286e24e091d7718575179644dc60e79936ef0c92e2d1ab3ca3cee"
+    ],
+    [
+      "IERC20Metadata.sol",
+      "2077241582da8d78601da6be96a1f3abdeba52f0b07daa6b3feb2e6b6e2f46c7"
+    ],
+    [
+      "IERC20Permit.sol",
+      "912509e0e9bf74e0f8a8c92d031b5b26d2d35c6d4abf3f56251be1ea9ca946bf"
+    ],
+    [
+      "IOracleConnector.sol",
+      "ff68fdfd4d5069084bf0346fbd6540e8e80202ff95747869eb3cc4057979869f"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "cfbd8a35009f2d43e19b785e0f128f73b3f1334a69317e2182a2d50e6a7a049b"
+    ],
+    [
+      "ReentrancyGuard.sol",
+      "8d0bac508a25133c9ff80206f65164cef959ec084645d1e7b06050c2971ae0fc"
+    ],
+    [
+      "SafeERC20.sol",
+      "556904378e5f65f6e57917b3cab603993d4fa26c9d532c6ebeae54e18a3870ad"
+    ],
+    [
+      "SpotVault.sol",
+      "5cf39c68971b7c36c721f805d6aad2e75d36dc19ad64312e9c15dae489dc1764"
+    ],
+    [
+      "Utils.sol",
+      "c73595e1889fe6bc104b3df49991f83fef7a647e3ae4bebb104950c6ebe0d095"
+    ],
+    [
+      "draft-IERC6093.sol",
+      "4aea87243e6de38804bf8737bf86f750443d3b5e63dd0fd0b7ad92f77cdbd3e3"
+    ]
+  ],
+  "source_hashes": [
+    "040ef1af575efb299e44a41a83d8451dd1e74089253d38779fcbb8c7063da0fd",
+    "07ae1ac964ab74dedada999e2dfc642031a6495469cffc0bf715daa4f1e4f904",
+    "1d6ef09193265172824fa1139e85cba422117ca918961183f080e692489d8c3b",
+    "2077241582da8d78601da6be96a1f3abdeba52f0b07daa6b3feb2e6b6e2f46c7",
+    "24faad66347215f398631a202074e248c0c03fd937d0ccf37c93459175d1488e",
+    "329949e9568818d1c979c63a2f07cdae45567588367a89a3b7c0e904a6c9b63b",
+    "4aea87243e6de38804bf8737bf86f750443d3b5e63dd0fd0b7ad92f77cdbd3e3",
+    "556904378e5f65f6e57917b3cab603993d4fa26c9d532c6ebeae54e18a3870ad",
+    "5cf39c68971b7c36c721f805d6aad2e75d36dc19ad64312e9c15dae489dc1764",
+    "67f6dda67e9f2c773ea79e352c9e79c19c23c09fe5ba45590d7c147cfd5d582c",
+    "6f2faae462e286e24e091d7718575179644dc60e79936ef0c92e2d1ab3ca3cee",
+    "847fda5460fee70f56f4200f59b82ae622bb03c79c77e67af010e31b7e2cc5b6",
+    "8ad70b888900a00e3eb7b6413795969f6fe68135e8146fde9e9aed8dd3243d1e",
+    "8d0bac508a25133c9ff80206f65164cef959ec084645d1e7b06050c2971ae0fc",
+    "912509e0e9bf74e0f8a8c92d031b5b26d2d35c6d4abf3f56251be1ea9ca946bf",
+    "a08131722aee328f0b8aa11012030af2f8f0d51885d036ea38583788d3c64571",
+    "b3710b1712637eb8c0df81912da3450da6ff67b0b3ed18146b033ed15b1aa3b9",
+    "c40bf629cac9f40a2d68153867e1099325bee57b2232add4b3e4c2bb08d0a6f5",
+    "c73595e1889fe6bc104b3df49991f83fef7a647e3ae4bebb104950c6ebe0d095",
+    "cfbd8a35009f2d43e19b785e0f128f73b3f1334a69317e2182a2d50e6a7a049b",
+    "d4bfabd3ea6a19fb272e081793b97fb3f907fafa644b92babd7c62a3d4c7738d",
+    "ff68fdfd4d5069084bf0346fbd6540e8e80202ff95747869eb3cc4057979869f"
+  ],
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

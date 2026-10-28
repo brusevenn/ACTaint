@@ -1,0 +1,29 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-61c865b273102a93",
+  "case_ids": [
+    "acb-2d04e643a8fd0486"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "d0f85a73aee6defda7f05ba7dc53b40e67fe53c268a640db5d3dc3367dd16347",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:14:28.825376+00:00",
+  "exit_code": 0,
+  "input_identity": "0a39f3ebebed406b618ee6ee3574b4499a07ff74c030330dcbe45c11a17685e1",
+  "native_execution_status": "PROJECT_COMPLETED",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-61c865b273102a93",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "CashManager.sol",
+      "b29a5193bc1a5e9469f20139f7f6a096ab13988bda619894054947c3a24bfe4b"
+    ]
+  ],
+  "source_hashes": [
+    "b29a5193bc1a5e9469f20139f7f6a096ab13988bda619894054947c3a24bfe4b"
+  ],
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

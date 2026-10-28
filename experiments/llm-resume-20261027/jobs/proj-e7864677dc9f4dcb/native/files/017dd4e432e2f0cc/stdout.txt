@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+{Function:setSwapPairs, Visibility:public, Explanation:Writes to variable Pairs without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable PendingMint without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable PendingMint without any access control.}
+{Function:transferFrom, Visibility:public, Explanation:Writes to variable PendingBrun without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable PendingBrun without any access control.}
+
+=============Contract: AISPACE
+Sink:
+Reviewed public/external functions for unauthorized state modifications affecting user balances or token supply. `setSwapPairs` lacks the intended `onlyOwner` restriction. `transfer` and `transferFrom` invoke `_transferAIS`, which writes `PendingBrun` and `PendingMint`; `PendingBrun` directly affects `balanceOf`. `harvestMarket` mints only to the owner-set `MarketAddress` and is amount-guarded by `PendingMint > MintPosition`, so it is not classified as an access-control sink here. Owner-only functions and the constructor are not sinks. Internal/private functions are not listed separately because the public entry points expose the writes.
+
+--Sink--:
+{Function: setSwapPairs, Sink: Pairs[_address] write, Visibility: public, Explanation: Public function writes the Pairs mapping without access control; the onlyOwner modifier is commented out.}
+{Function: transfer, Sink: PendingMint write, Visibility: public, Explanation: Public transfer invokes _transferAIS, which updates PendingMint without access control.}
+{Function: transfer, Sink: PendingBrun write, Visibility: public, Explanation: Public transfer invokes _transferAIS, which writes PendingBrun for from/to without access control; balanceOf depends on PendingBrun.}
+{Function: transferFrom, Sink: PendingMint write, Visibility: public, Explanation: Public transferFrom invokes _transferAIS, which updates PendingMint without access control.}
+{Function: transferFrom, Sink: PendingBrun write, Visibility: public, Explanation: Public transferFrom invokes _transferAIS, which writes PendingBrun for from/to without access control; balanceOf depends on PendingBrun.}

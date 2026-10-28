@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+{Function:setProcessWithdrawalsOnWithdraw, Visibility:public, Explanation:Writes to variable processWithdrawalsOnWithdraw without any access control.}
+{Function:processWithdrawals, Visibility:public, Explanation:Writes to variable totalClaimableWithdrawals without any access control.}
+{Function:claim, Visibility:public, Explanation:Writes to variable totalClaimableWithdrawals without any access control.}
+{Function:processWithdrawals, Visibility:public, Explanation:Writes to variable withdrawalProcessingCurrentIndex without any access control.}
+{Function:addDelegators, Visibility:public, Explanation:Writes to variable delegators without any access control.}
+
+=============Contract: AstridProtocol
+Sink:
+Reasoning:
+- Functions protected by `onlyRole(...)` are access-controlled and are not sinks: `setEigenLayerStrategyManagerAddress`, `setStakedTokenMapping`, `setProcessWithdrawalsOnWithdraw`, `pause`, `unpause`, `addDelegators`, `restakeDelegator`, `queueWithdrawalDelegator`, `completeQueuedWithdrawalDelegator`, `pullDelegator`, `rebase`.
+- `deposit`, `withdraw`, `claim`, and `completeQueuedWithdrawal` operate on the caller’s own assets or own withdrawal records and include ownership/allowance checks. They are not access-control sinks.
+- `processWithdrawals` and `_processWithdrawals` perform permissionless queue processing; they do not transfer assets to the caller or allow arbitrary state selection. They are not classified as sinks here.
+- `initialize` is an initializer function with only `initializer`, which restricts call count but not caller identity. The first caller can grant all privileged roles to an arbitrary address and set `eigenLayerStrategyManagerAddress`. This is a sink.
+
+--Sink--:
+{Function: initialize, Sink: Role granting and strategy manager assignment, Visibility: public, Explanation: The initializer modifier only prevents repeated initialization and does not restrict who performs the first call; the first caller can grant DEFAULT_ADMIN_ROLE, PAUSER_ROLE, UPGRADER_ROLE, and REBASER_ROLE to an arbitrary governance address and set eigenLayerStrategyManagerAddress.}

@@ -1,0 +1,35 @@
+==============Start====================
+rules:
+{Function:saveValue, Visibility:internal, Explanation:Uses assembly.}
+{Function:checkMultiSignature, Visibility:internal, Explanation:Uses assembly.}
+{Function:getValue, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: multiSignatureClient
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:txOrigin, Visibility:public, Explanation:Uses assembly.}
+{Function:_setProxyOwner, Visibility:internal, Explanation:Uses assembly.}
+{Function:_setVersion, Visibility:internal, Explanation:Uses assembly.}
+{Function:_setProxyOrigin, Visibility:internal, Explanation:Uses assembly.}
+{Function:isContract, Visibility:internal, Explanation:Uses assembly.}
+{Function:version, Visibility:public, Explanation:Uses assembly.}
+{Function:ownerExpiredTime, Visibility:public, Explanation:Uses assembly.}
+{Function:owner, Visibility:public, Explanation:Uses assembly.}
+
+=============Contract: proxyOwner
+Sink:
+Reasoning:
+- The getters `owner`, `txOrigin`, `version`, and `ownerExpiredTime` only use `sload`; they do not modify access-control state.
+- `isContract` only uses `extcodesize`; it is a view helper, not a sink.
+- `_setProxyOrigin` writes origin storage, but its public path `transferOrigin` is gated by `onlyOrigin`, which requires `msg.sender == txOrigin()` and calls `checkMultiSignature()`. No unauthorized origin-write path is present in this source.
+- `_setProxyOwner` writes the proxy owner and expiry via assembly `sstore`. Its public path is `transferOwnership`, guarded by `onlyOwner`. However, `isOwner()` does not check `ownerExpiredTime()`, so the intended expiration restriction is not enforced on the owner-change path. This is a security-sensitive owner-state write.
+- `_setVersion` writes version storage via assembly `sstore` and has no access-control check in the function.
+- The constructor initializes owner/origin at deployment only; it is not an externally callable sink.
+
+--Sink--:
+{Function: _setProxyOwner, Sink: assembly sstore to proxyOwnerPosition and ownerExpiredPosition, Visibility: internal, Explanation: Writes proxy owner and expiry. Called by transferOwnership (onlyOwner) and constructor; however onlyOwner/isOwner does not enforce ownerExpiredTime(), so the intended expiration check is missing on the owner-change path.}
+{Function: _setVersion, Sink: assembly sstore to versionPositon, Visibility: internal, Explanation: Writes the stored version value via assembly with no access-control check or require in the function.}

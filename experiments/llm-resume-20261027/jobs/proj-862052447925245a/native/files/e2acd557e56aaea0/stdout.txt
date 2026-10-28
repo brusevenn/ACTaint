@@ -1,0 +1,16 @@
+==============Start====================
+rules:
+{Function:setRouter, Visibility:public, Explanation:Writes to variable router without any access control.}
+
+=============Contract: DcntEth
+Sink:
+Reasoning:
+- `setRouter` is `public` and writes the `router` state variable without any access-control check. Any caller can change `router`.
+- `mint` and `burn` are guarded by `onlyRouter`, but `router` is controllable through the unguarded `setRouter`. Therefore the `onlyRouter` check does not reliably restrict callers: any caller can set `router` to itself and then invoke `mint` or `burn`.
+- `mintByOwner` and `burnByOwner` are protected by `onlyOwner`, which provides access control, so they are not treated as sinks.
+- The constructor is the constructor and is not treated as a sink.
+
+--Sink--:
+{Function: setRouter, Sink: router = _router, Visibility:public, Explanation: Writes the router address with no access control, allowing any caller to replace the router.}
+{Function: mint, Sink: _mint(_to, _amount), Visibility:public, Explanation: Although guarded by onlyRouter, router is set by the unguarded setRouter; any caller can set router to itself and call mint to create tokens to an arbitrary _to.}
+{Function: burn, Sink: _burn(_from, _amount), Visibility:public, Explanation: Although guarded by onlyRouter, router is set by the unguarded setRouter; any caller can set router to itself and call burn to burn tokens from an arbitrary _from.}

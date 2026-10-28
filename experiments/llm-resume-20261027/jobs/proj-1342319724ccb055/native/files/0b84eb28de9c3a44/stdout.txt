@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:_redeem, Visibility:internal, Explanation:Writes to variable orderbook without any access control.}
+
+=============Contract: InvestmentManager
+Sink:
+Reasoning:
+- The constructor is the only constructor and initializes `wards[msg.sender] = 1`; it is not an arbitrary initializer and is not a sink.
+- All externally callable state-changing functions have access control:
+  - `auth`: `file`, `requestDeposit`, `requestRedeem`, `decreaseDepositRequest`, `decreaseRedeemRequest`, `collectDeposit`, `collectRedeem`, `processDeposit`, `processMint`, `processRedeem`, `processWithdraw`.
+  - `onlyGateway`: `updateTrancheTokenPrice`, `handleExecutedCollectInvest`, `handleExecutedCollectRedeem`, `handleExecutedDecreaseInvestOrder`, `handleExecutedDecreaseRedeemOrder`.
+- Internal state-changing helpers (`_deposit`, `_redeem`, `_updateLiquidityPoolPrice`, `_decreaseDepositLimits`, `_decreaseRedemptionLimits`) are reachable only through protected external functions. The static-analysis candidate `_redeem` is internal and called by `processRedeem` and `processWithdraw`, both of which are `auth`-protected.
+- View functions do not modify state and are not sinks.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 11, "contracts_skipped_interface_abstract_library": 9, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 1, "elapsed_seconds": 57.74, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 11, "total_token": 18541}
+==============End======================
+total time: 57.7399628162384
+total token: 18541

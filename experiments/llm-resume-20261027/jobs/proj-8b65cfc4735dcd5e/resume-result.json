@@ -1,0 +1,30 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-8b65cfc4735dcd5e",
+  "case_ids": [
+    "acb-39713acf018b62f8",
+    "acb-c44c9b12d5ad42ea"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "2ad7a8709670457ee1989d3ff713c68e3903370cd6c915315eb213e34fca6d13",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:33:57.470059+00:00",
+  "exit_code": 4,
+  "input_identity": "dbec5b3429a819a2e02eb0cb289f8dc03bff1e014c966432ea746df801bf7fda",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-8b65cfc4735dcd5e",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "Configurator.sol",
+      "bb77aebb54b3e98fc705d1d1952ff1e13a7297e246eec4b8376da60b34b209c7"
+    ]
+  ],
+  "source_hashes": [
+    "bb77aebb54b3e98fc705d1d1952ff1e13a7297e246eec4b8376da60b34b209c7"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

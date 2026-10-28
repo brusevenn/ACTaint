@@ -1,0 +1,117 @@
+{
+  "case_ids": [
+    "acb-0e1a4fe478896088",
+    "acb-40cc8cc7c0543549",
+    "acb-5f2e0a38886e48c7",
+    "acb-793ca1309ed900be"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_path": "projects/proj-72984255e16aa0c1/source_code/config.json",
+  "compile_config_sha256": "7217dbaf1626cd711127b694efe05aa306e738cd1a8eccfb6176403152a595bb",
+  "compiler": {
+    "actual_full_version": "0.8.19+commit.7dd6d404",
+    "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+    "metadata": "v0.8.19+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-72984255e16aa0c1/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.19"
+  },
+  "dataset_id": "actoolbench-cleaned-154",
+  "elapsed_seconds": 140.83,
+  "ended_utc": "2026-10-27T13:21:38.863219+00:00",
+  "file_results": [
+    {
+      "actual_source_sha256": "b015f9b6c478fbe091a4338e4f7d1756aa651884c98bfd6cd34e63eca7ea043e",
+      "analyzer_summary": null,
+      "compiler": {
+        "actual_full_version": "0.8.19+commit.7dd6d404",
+        "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+        "metadata": "v0.8.19+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-72984255e16aa0c1/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.19"
+      },
+      "elapsed_seconds": 105.873,
+      "ended_utc": "2026-10-27T13:21:03.906229+00:00",
+      "exit_code": 1,
+      "request_log_path": "files/4a18dedb061ed71d/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-72984255e16aa0c1/source_code/FollowNFT.sol",
+      "source_sha256": "b015f9b6c478fbe091a4338e4f7d1756aa651884c98bfd6cd34e63eca7ea043e",
+      "started_utc": "2026-10-27T13:19:18.034437+00:00",
+      "status": "ERROR",
+      "tool_input_path": "projects/proj-72984255e16aa0c1/source_code/FollowNFT.sol"
+    },
+    {
+      "actual_source_sha256": "a67adb99d7464bfa1c69b858878523ea8fa9db742303b0d25dae05ad057700c3",
+      "analyzer_summary": {
+        "contracts_analyzed": 1,
+        "contracts_seen": 33,
+        "contracts_skipped_interface_abstract_library": 30,
+        "contracts_skipped_no_implementation": 0,
+        "contracts_skipped_pure_view": 0,
+        "contracts_without_native_candidates": 2,
+        "elapsed_seconds": 34.31,
+        "sink_agent_calls": 1,
+        "taint_agent_calls": 0,
+        "target_contracts": 33,
+        "total_token": 10107
+      },
+      "compiler": {
+        "actual_full_version": "0.8.19+commit.7dd6d404",
+        "compiler_sha256": "7a5c1d3dc9a8eba62bb2ec37192c9178ae5fe8a54a56e5573fd3c9c17cd9eb48",
+        "metadata": "v0.8.19+commit.c7dfd78e",
+        "metadata_build": "c7dfd78e",
+        "metadata_build_match": false,
+        "selection_rule": "project_compile_config",
+        "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-72984255e16aa0c1/source_code",
+        "solc_remappings": [],
+        "status": "READY",
+        "version": "0.8.19"
+      },
+      "elapsed_seconds": 140.827,
+      "ended_utc": "2026-10-27T13:21:38.860252+00:00",
+      "exit_code": 0,
+      "request_log_path": "files/459d64099a9c4d00/requests.jsonl",
+      "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-72984255e16aa0c1/source_code/LensHandles.sol",
+      "source_sha256": "a67adb99d7464bfa1c69b858878523ea8fa9db742303b0d25dae05ad057700c3",
+      "started_utc": "2026-10-27T13:21:03.912149+00:00",
+      "status": "COMPLETED",
+      "tool_input_path": "projects/proj-72984255e16aa0c1/source_code/LensHandles.sol"
+    }
+  ],
+  "ground_truth_read": false,
+  "input_index_sha256": "e8607c92c7e3a263e9257343b9005c2e5f0ef797e49789cf4e968bf4bc66d0a1",
+  "project_id": "proj-72984255e16aa0c1",
+  "prompt_layout": "prefix_stable_v2",
+  "record_count": 4,
+  "run_config": {
+    "automatic_retries": 0,
+    "concurrency": 2,
+    "max_tokens": 65536,
+    "model": "deepseek-flash",
+    "project_group_timeout_seconds": 1200,
+    "provider": "deepseek",
+    "reasoning_effort": "high",
+    "request_timeout_seconds": 300,
+    "temperature": null,
+    "thinking": {
+      "type": "enabled"
+    },
+    "top_p": null
+  },
+  "schema": "ACTAINT_PROJECT_RUN_V1",
+  "source_file_count": 2,
+  "source_manifest_sha256": "9c74d0a6c647543e80cced49044639b7a8c40e241fc8593c21e574210584b5fa",
+  "source_repository_commit": "99b0ad9f39ee54a7d9645ac693dd74e9d4479f7e",
+  "started_utc": "2026-10-27T13:19:18.033477+00:00",
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:start, Visibility:external, Explanation:Writes to variable started without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:__BaseStaking_init_unchained, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:setLimits, Visibility:external, Explanation:Writes to variable configuration without any access control.}
+{Function:__BaseStaking_init, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+
+=============Contract: BaseStaking
+Sink:
+Reasoning:
+- `start` and `setLimits` are protected by `onlyRole(...)`, so they are not access-control sinks.
+- `_stake` is internal and reachable through the public `stake` flow, which transfers the caller’s own staking tokens and credits the caller; this is standard staking behavior, not an unauthorized state modification.
+- The initializer functions `__BaseStaking_init` and `__BaseStaking_init_unchained` are public, have no constructor context, and are protected only by `onlyInitializing`, which does not enforce caller authorization. They perform privileged role setup and configuration assignment.
+
+--Sink--:
+{Function: __BaseStaking_init, Sink: Initializes contract by calling __BaseStaking_init_unchained, which sets roles and assigns configuration, Visibility: public, Explanation: No constructor exists and the public initializer has no caller authorization check; onlyInitializing does not restrict caller identity, so an unauthorized caller can trigger privileged role/configuration setup.}
+{Function: __BaseStaking_init_unchained, Sink: _setupRole(DEFAULT_ADMIN_ROLE, msg.sender), _setupRole(MANAGER_ROLE, msg.sender), _setupRole(DEFAULT_ADMIN_ROLE, 0x6FF5A4e3c726499F4b7F39421396Fe2E1B401BAE), and configuration = config, Visibility: public, Explanation: The public initializer is protected only by onlyInitializing, which does not enforce caller authorization; an unauthorized caller can grant themselves admin/manager roles and set configuration.}

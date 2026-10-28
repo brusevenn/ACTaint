@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "0ab66c9c0b45fca5efad935058e889bd5bb5599eb95b0d17ec924f64ebcaf38f",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 6,
+    "contracts_skipped_interface_abstract_library": 1,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 0,
+    "elapsed_seconds": 0.141,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 1,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.8.11+commit.d7f03943",
+    "compiler_sha256": "717c239f3a1dc3a4834c16046a0b4b9f46964665c8ffa82051a6d09fe741cd4f",
+    "metadata": "v0.8.11+commit.d7f03943",
+    "metadata_build": "d7f03943",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-424da07d41309706/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.11"
+  },
+  "elapsed_seconds": 0.718,
+  "ended_utc": "2026-10-27T13:05:57.885104+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-424da07d41309706/source_code/@openzeppelin/contracts/access/AccessControl.sol",
+  "source_sha256": "0ab66c9c0b45fca5efad935058e889bd5bb5599eb95b0d17ec924f64ebcaf38f",
+  "started_utc": "2026-10-27T13:05:57.168322+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-424da07d41309706/source_code/@openzeppelin/contracts/access/AccessControl.sol"
+}

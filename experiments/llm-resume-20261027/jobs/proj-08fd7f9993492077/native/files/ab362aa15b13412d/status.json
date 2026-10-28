@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "fe52027e65951067ac5b768c628f2ac3279366acf0e53a429310216bd7d2f1d3",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.18+commit.87f61d96",
+    "compiler_sha256": "95e6ed4949a63ad89afb443ecba1fb8302dd2860ee5e9baace3e674a0f48aa77",
+    "metadata": "v0.8.18+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.18"
+  },
+  "elapsed_seconds": 223.79,
+  "ended_utc": "2026-10-27T12:43:05.518779+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/ab362aa15b13412d/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code/RootBridgeAgent.sol",
+  "source_sha256": "fe52027e65951067ac5b768c628f2ac3279366acf0e53a429310216bd7d2f1d3",
+  "started_utc": "2026-10-27T12:39:49.334024+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-08fd7f9993492077/source_code/RootBridgeAgent.sol"
+}

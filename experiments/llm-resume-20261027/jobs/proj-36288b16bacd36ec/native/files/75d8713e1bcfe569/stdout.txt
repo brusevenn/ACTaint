@@ -1,0 +1,10 @@
+==============Start====================
+rules:
+{Function:initialize, Visibility:public, Explanation:Writes to variable vaults without any access control.}
+
+=============Contract: StableCoinVault
+Sink:
+The `initialize` function is public and protected only by `initializer`. The `initializer` modifier restricts repeated invocation but does not restrict the caller identity. The function writes `vaults` using an externally supplied `apolloXBscVaultAddr`, so an unauthorized caller can set critical vault configuration state. Per the constructor context, this initializer-like function is treated as a sink.
+
+--Sink--:
+{Function: initialize, Sink: vaults assignment, Visibility: public, Explanation: Public initializer writes the critical `vaults` state variable using caller-supplied `apolloXBscVaultAddr` without caller access control; the `initializer` modifier only limits repeated initialization and does not restrict who can invoke it.}

@@ -1,0 +1,10 @@
+==============Start====================
+rules:
+{Function:init, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: LinearVesting
+Sink:
+Reviewed state-changing operations. The privileged functions (`setHandler`, `setSwitchOperator`, `setSwitch`, `setModeInfos`, `setDefaultStart`, `setBlocklistBatch`, `addLinearVesting`, `addRedeemLinearVesting`, `withdraw`, `transferOwner`) are guarded by `onlyOwner` or `onlyHandler`. `release` is public but transfers only to the fixed schedule beneficiary according to an existing schedule and enabled switch, so it does not let the caller choose or redirect funds. The contract has no constructor, and `init` is a public initializer with no access control or one-time guard; it writes `owner`, `token`, `periods`, and `interval`, so any caller can reset ownership and core configuration.
+
+--Sink--:
+{Function: init, Sink: public initializer/wrong constructor writing owner, token, periods, interval, Visibility: public, Explanation: The contract has no constructor and `init()` has no access-control or initialization guard. Any caller can invoke it to set `owner = _msgSender()` and reset `token`, `periods`, and `interval`, taking ownership and reconfiguring the contract.}

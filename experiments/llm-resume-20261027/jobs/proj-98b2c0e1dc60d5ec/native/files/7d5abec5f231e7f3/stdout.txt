@@ -1,0 +1,28 @@
+==============Start====================
+rules:
+{Function:_safeTransfer, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: LeetSwapV2Fees
+Sink:
+`_safeTransfer` is `internal` and is only reachable through `claimFeesFor`.  
+`claimFeesFor` enforces `msg.sender == pair`, so token transfers are restricted to the authorized pair.  
+The constructor only initializes immutable state during deployment and is not externally invokable afterward.  
+
+--Sink--:
+no sinks
+Report:
+
+rules:
+{Function:claimFees, Visibility:external, Explanation:Writes to variable _unlocked without any access control.}
+{Function:_safeTransfer, Visibility:internal, Explanation:Transfers Ether or Token.}
+
+=============Contract: LeetSwapV2Pair
+Sink:
+Step 1: Reference the static analysis context. The tool flags `claimFees` for writing `_unlocked` and `_safeTransfer` for token transfer. `_unlocked` is only a reentrancy guard; writing it does not grant or violate access control. The token transfer in `_safeTransfer` is security-sensitive when reachable from an unsecured public function.
+
+Step 2: Identify sinks. The critical issue is `_transferFeesSupportingTaxTokens`. It is declared `public` with no access control. Any caller can pass an arbitrary `token` address and `amount`, causing the pair to transfer that token to the `fees` contract. This operation is performed via `_safeTransfer(token, fees, amount)`. It can drain token0/token1 reserves and bypass reserve accounting.
+
+Step 3: Self-evaluate. Standard ERC-20 operations (`approve`, `transfer`, `transferFrom`) are properly guarded by `msg.sender`/allowance checks. Standard pair operations (`mint`, `burn`, `swap`, `skim`, `sync`) are permissionless by design and rely on economic invariants or only affect excess/pair-held balances. `claimFeesFor` claims only for the specified recipient and does not allow redirecting another user’s fees to the caller. `permit` correctly verifies the signature against `owner`. The only clear access-control sink is the public arbitrary-token transfer wrapper.
+
+--Sink--:
+{Function: _transferFeesSupportingTaxTokens, Sink: _safeTransfer(token, fees, amount), Visibility: public, Explanation: Public function has no access control; any caller can transfer an arbitrary amount of any token held by the pair to the fees contract, enabling unauthorized draining of pair assets and reserve manipulation.}

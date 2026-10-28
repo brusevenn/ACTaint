@@ -1,0 +1,17 @@
+==============Start====================
+rules:
+{Function:batch, Visibility:external, Explanation:Uses low level call.}
+{Function:_getRevertMsg, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: BoringBatchable
+Sink:
+Step 1: The contract contains two functions: `batch` and `_getRevertMsg`. There is no constructor or initializer.
+
+Step 2: `_getRevertMsg` is `internal pure` and uses assembly only to adjust the memory pointer before reverting with a decoded string. It does not modify state or perform an access-control-sensitive operation, so it is not a sink.
+
+`batch` is `external payable` with no access control. It executes `address(this).delegatecall(calls[i])` using calldata fully controlled by the caller. This is a low-level delegatecall operation and is a security-sensitive sink.
+
+Step 3: The only valid sink is the delegatecall in `batch`.
+
+--Sink--:
+{Function: batch, Sink: delegatecall, Visibility: external, Explanation: The function is externally callable without access control and executes address(this).delegatecall(calls[i]) with caller-controlled calldata, making the low-level delegatecall a security-sensitive sink.}

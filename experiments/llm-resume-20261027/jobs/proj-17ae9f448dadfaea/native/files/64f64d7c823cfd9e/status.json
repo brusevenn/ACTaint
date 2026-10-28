@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "cf0b153feb4d39e87722c972e20cb0b2c9f6ed14b82192a3d0390f012f1c1a8f",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.8.24+commit.e11b9ed9",
+    "compiler_sha256": "fb03a29a517452b9f12bcf459ef37d0a543765bb3bbc911e70a87d6a37c30d5f",
+    "metadata": "v0.8.24+commit.e11b9ed9",
+    "metadata_build": "e11b9ed9",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200 --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-17ae9f448dadfaea/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.24"
+  },
+  "elapsed_seconds": 460.131,
+  "ended_utc": "2026-10-27T12:59:38.132409+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/64f64d7c823cfd9e/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-17ae9f448dadfaea/source_code/P404Token.sol",
+  "source_sha256": "cf0b153feb4d39e87722c972e20cb0b2c9f6ed14b82192a3d0390f012f1c1a8f",
+  "started_utc": "2026-10-27T12:56:04.453151+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-17ae9f448dadfaea/source_code/P404Token.sol"
+}

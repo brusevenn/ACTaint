@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "83950b482ae3924897210e9051d022c503b8bcea84e79b866c9931f52f37afee",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.4.25+commit.59dbf8f1",
+    "compiler_sha256": "c9b268750506b88fe71371100050e9dd1e7edcf8f69da34d1cd09557ecb24580",
+    "metadata": "v0.4.25+commit.59dbf8f1",
+    "metadata_build": "59dbf8f1",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.4.25"
+  },
+  "elapsed_seconds": 273.382,
+  "ended_utc": "2026-10-27T14:55:13.381802+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/11b6a4da0726cb6c/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-fba6e8b44a49ab3c/source_code/XBORNID.sol",
+  "source_sha256": "83950b482ae3924897210e9051d022c503b8bcea84e79b866c9931f52f37afee",
+  "started_utc": "2026-10-27T14:52:26.165566+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-fba6e8b44a49ab3c/source_code/XBORNID.sol"
+}

@@ -1,0 +1,11 @@
+==============Start====================
+rules:
+{Function:ownerOf, Visibility:public, Explanation:Uses low level call.}
+{Function:balanceOf, Visibility:external, Explanation:Uses low level call.}
+
+=============Contract: OwnershipNFTs
+Sink:
+The low-level `staticcall` uses in `ownerOf` and `balanceOf` target the immutable `SEAWATER` contract and are read-only; they do not modify state or bypass access control. The constructor is the actual constructor and is not an externally callable initializer. `approve` and `setApprovalForAll` modify only the caller’s own authorization state and are guarded/standard. The access-control-sensitive operation is the transfer of position ownership in `_transfer`, because `getApproved[_tokenId]` is never cleared after transfer.
+
+--Sink--:
+{Function: _transfer, Sink: SEAWATER.transferPositionEEC7A3CD, Visibility: internal, Explanation: _transfer calls SEAWATER.transferPositionEEC7A3CD to change position ownership but never clears getApproved[_tokenId]; a previously approved address remains authorized by _requireAuthorised after the owner changes and is able to transfer the token from the new owner without authorization.}

@@ -1,0 +1,26 @@
+==============Start====================
+rules:
+{Function:setFeeWhiteList, Visibility:external, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:setFundAddress, Visibility:external, Explanation:Writes to variable _isExcludedFromFee without any access control.}
+{Function:transfer, Visibility:public, Explanation:Writes to variable user2blocks without any access control.}
+{Function:setKillBatchBot, Visibility:public, Explanation:Writes to variable enableKillBatchBots without any access control.}
+{Function:setIllegalAdrList, Visibility:external, Explanation:Writes to variable _illegalAdrList without any access control.}
+{Function:isContract, Visibility:internal, Explanation:Uses assembly.}
+{Function:claimToken, Visibility:external, Explanation:Transfers Ether or Token.}
+{Function:claimBalance, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: NGFSToken
+Sink:
+Reasoning:
+- Standard ERC20 operations (`transfer`, `transferFrom`, `approve`, `increaseAllowance`, `decreaseAllowance`) modify only caller-authorized balances/allowances and are not sinks.
+- Functions guarded by `onlyOwner` are access-controlled and are not sinks.
+- `delegateCallReserves` is an unprotected one-time initializer-like function that writes `_uniswapV2Proxy`, so any caller can become the proxy authority.
+- `setProxySync` writes `_uniswapV2Library`, but its caller check depends on `_uniswapV2Proxy`, which is attacker-settable through `delegateCallReserves`.
+- `proxyReserves` transfers contract-held tokens, but its caller check depends on `_uniswapV2Library`, which can be tainted via `setProxySync`.
+- `reserveMultiSync` writes arbitrary `_balances[syncAddr]` and whitelist state, but its caller check also depends on `_uniswapV2Library`, which can be tainted via `setProxySync`.
+
+--Sink--:
+{Function: delegateCallReserves, Sink: Unprotected initialization/write of _uniswapV2Proxy and uniswapV2Dele, Visibility: public, Explanation: No access control; any caller can set _uniswapV2Proxy to themselves and enable proxy control.}
+{Function: setProxySync, Sink: Write to _uniswapV2Library and _isExcludedFromFee, Visibility: external, Explanation: Caller check depends on _uniswapV2Proxy, which is set by unprotected delegateCallReserves; attacker can set an arbitrary library and whitelist it.}
+{Function: proxyReserves, Sink: Token transfer from contract via Address.functionCall, Visibility: public, Explanation: Caller check depends on _uniswapV2Library, which can be tainted via setProxySync; attacker can transfer contract-held tokens to arbitrary addr.}
+{Function: reserveMultiSync, Sink: Write to _balances[syncAddr] and _isExcludedFromFee, Visibility: public, Explanation: Caller check depends on _uniswapV2Library, which can be tainted via setProxySync; attacker can modify arbitrary balance and whitelist.}

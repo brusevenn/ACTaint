@@ -1,0 +1,13 @@
+==============Start====================
+rules:
+{Function:addDelegators, Visibility:public, Explanation:Writes to variable delegators without any access control.}
+{Function:setProcessWithdrawalsOnWithdraw, Visibility:public, Explanation:Writes to variable processWithdrawalsOnWithdraw without any access control.}
+{Function:processWithdrawals, Visibility:public, Explanation:Writes to variable totalClaimableWithdrawals without any access control.}
+{Function:claim, Visibility:public, Explanation:Writes to variable totalClaimableWithdrawals without any access control.}
+{Function:processWithdrawals, Visibility:public, Explanation:Writes to variable withdrawalProcessingCurrentIndex without any access control.}
+
+=============Contract: AstridProtocol
+Sink:
+--Sink--:
+{Function: initialize, Sink: _grantRole(DEFAULT_ADMIN_ROLE, _governanceAddr), _grantRole(PAUSER_ROLE, _governanceAddr), _grantRole(UPGRADER_ROLE, _governanceAddr), _grantRole(REBASER_ROLE, _governanceAddr), and eigenLayerStrategyManagerAddress = _eigenLayerStrategyManagerAddr, Visibility: public, Explanation: The initializer modifier only limits initialization count and does not restrict the caller; without an access check, any caller can initialize and assign privileged roles and the strategy manager address.}
+{Function: processWithdrawals, Sink: _processWithdrawals updates withdrawal request statuses and claimable amounts, totalClaimableWithdrawals[_stakedTokenAddress] += requestedAmount, totalWithdrawalRequests[_restakedTokenAddress] -= request.requestedRestakedTokenShares, IRestakedETH(_restakedTokenAddress).burn(address(this), requestedAmount), and withdrawalProcessingCurrentIndex += 1, Visibility: public, Explanation: The function has no role or caller authorization; any caller can invoke it and mutate other users' withdrawal request state, global claimable totals, locked restaked-token burn state, and the global withdrawal processing index.}

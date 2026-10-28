@@ -1,0 +1,14 @@
+==============Start====================
+rules:
+{Function:init, Visibility:public, Explanation:Writes to variable owner without any access control.}
+
+=============Contract: LinearVesting
+Sink:
+Reasoning:
+- `init` is a public initializer with no access-control or initialization guard. It writes `token`, `periods`, `interval`, and `owner`, so any caller can set or overwrite ownership and configuration. This is an access-control sink.
+- Functions guarded by `onlyOwner` or `onlyHandler` are protected by `require` checks against `owner`/`handler`; they are not access-control sinks.
+- `release` is permissionless, but it transfers only to the stored `schedule.beneficiary` and updates that schedule as intended; no caller-controlled recipient redirection exists, so it is not an access-control sink.
+- View functions and protected `safeTransfer` calls do not introduce additional sinks.
+
+--Sink--:
+{Function: init, Sink: init, Visibility: public, Explanation: Public initializer lacks access control; any caller can set `token`, `periods`, `interval`, and `owner`, enabling ownership takeover and unauthorized reconfiguration.}

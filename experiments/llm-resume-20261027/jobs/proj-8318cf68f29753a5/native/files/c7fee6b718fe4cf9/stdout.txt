@@ -1,0 +1,29 @@
+==============Start====================
+rules:
+{Function:_awardDraw, Visibility:internal, Explanation:Writes to variable _reserve without any access control.}
+
+=============Contract: TieredLiquidityDistributor
+Sink:
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:withdrawShutdownBalance, Visibility:external, Explanation:Writes to variable shutdownObservation without any access control.}
+{Function:shutdownBalanceOf, Visibility:public, Explanation:Writes to variable shutdownObservation without any access control.}
+
+=============Contract: PrizePool
+Sink:
+Reviewing the contract’s state-changing functions:
+
+- `setDrawManager` is protected by `msg.sender == creator`.
+- `allocateRewardFromReserve` and `awardDraw` use `onlyDrawManager`.
+- `donatePrizeTokens` and `contributeReserve` transfer tokens from `msg.sender`.
+- `withdrawRewards` only modifies `_rewards[msg.sender]`.
+- `claimPrize` validates the caller as the vault via `isWinner(msg.sender, ...)`.
+- `contributePrizeTokens` is permissionless but only attributes already-transferred, unaccounted tokens; it does not directly transfer or withdraw assets.
+- `getShutdownInfo` is `public`, has no access-control modifier, and writes `shutdownObservation` and `shutdownBalance` when shutdown is active and the observation is uninitialized. This is a one-time initializer for critical shutdown state that can be invoked by anyone.
+- `withdrawShutdownBalance` and `shutdownBalanceOf` call `getShutdownInfo`, but the direct sink operation (the assignment to `shutdownObservation` and `shutdownBalance`) occurs inside `getShutdownInfo`.
+
+--Sink--:
+{Function: getShutdownInfo, Sink: Writes to shutdownObservation and shutdownBalance without access control, Visibility: public, Explanation: The public function getShutdownInfo can be called by any address after shutdown. When shutdownObservation is uninitialized, it sets shutdownObservation and shutdownBalance based on the current state. Since it lacks access control and only checks initialization state, any caller can trigger this one-time initialization and influence the stored shutdown balance used for subsequent withdrawals.}

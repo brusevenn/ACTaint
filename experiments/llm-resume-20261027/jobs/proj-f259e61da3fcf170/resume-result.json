@@ -1,0 +1,44 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-f259e61da3fcf170",
+  "case_ids": [
+    "acb-dcb9ce1fd3da02c7"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "b2afe045c9a74bbe6f6db200dcd0e6f169fefcd28a4ac6d0ad120d4dbfaf3f9c",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:40:22.972408+00:00",
+  "exit_code": 0,
+  "input_identity": "0fd96c98c0d465344dc6d4145e9fc8e2d6d26ff63b2c3b064585afbf76ea2c99",
+  "native_execution_status": "PROJECT_COMPLETED",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-f259e61da3fcf170",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MainContractFlattened.sol",
+      "85a426464a4619046465fb86b57725c0ecacb0db9b466a3e747619b8071d5768"
+    ],
+    [
+      "contracts/Adminable.sol",
+      "b2a7ea12d5c0e49a311d0d8b61391a7d138d6565eb409debe5f769f65519cc79"
+    ],
+    [
+      "contracts/DelegatorInterface.sol",
+      "53609aeea2b86d76479efb3c59c3de49ac5c0b44f4d45195eaa3e8c6c0afba7d"
+    ],
+    [
+      "contracts/RewardVaultDelegator.sol",
+      "b57fd231ee622f084d1b9032ecc1cea1514f3d0ff7d9403e5b49769547f038e1"
+    ]
+  ],
+  "source_hashes": [
+    "53609aeea2b86d76479efb3c59c3de49ac5c0b44f4d45195eaa3e8c6c0afba7d",
+    "85a426464a4619046465fb86b57725c0ecacb0db9b466a3e747619b8071d5768",
+    "b2a7ea12d5c0e49a311d0d8b61391a7d138d6565eb409debe5f769f65519cc79",
+    "b57fd231ee622f084d1b9032ecc1cea1514f3d0ff7d9403e5b49769547f038e1"
+  ],
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}

@@ -1,0 +1,19 @@
+==============Start====================
+rules:
+{Function:start, Visibility:external, Explanation:Writes to variable started without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:__BaseStaking_init, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:setLimits, Visibility:external, Explanation:Writes to variable configuration without any access control.}
+{Function:__BaseStaking_init_unchained, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+
+=============Contract: BaseStaking
+Sink:
+The standard staking, withdrawal, claim, and compound paths only modify the caller’s own balances/rewards, so they are not access-control sinks. Functions guarded by `onlyRole(...)` (`start`, `setRewardRate`, `setLimits`, `rescueTokens`) are protected. The initializer-like functions are public and have no caller authorization beyond `onlyInitializing`, which does not restrict who can call during initialization; the contract has no constructor, so these are treated as wrong-constructor sinks.
+
+--Sink--:
+{Function: __BaseStaking_init, Sink: initialization entry point / delegates to __BaseStaking_init_unchained, Visibility: public, Explanation: Public initializer-like function with no caller authorization; onlyInitializing restricts initialization timing, not caller identity. If initialization is triggered, it can initialize AccessControl and execute role/configuration setup.}
+{Function: __BaseStaking_init_unchained, Sink: _setupRole(DEFAULT_ADMIN_ROLE, msg.sender), Visibility: public, Explanation: Public initializer-like function assigns the DEFAULT_ADMIN_ROLE to the caller without checking who the caller is.}
+{Function: __BaseStaking_init_unchained, Sink: _setupRole(MANAGER_ROLE, msg.sender), Visibility: public, Explanation: Public initializer-like function assigns the MANAGER_ROLE to the caller without checking who the caller is.}
+{Function: __BaseStaking_init_unchained, Sink: _setupRole(DEFAULT_ADMIN_ROLE, 0x6FF5A4e3c726499F4b7F39421396Fe2E1B401BAE), Visibility: public, Explanation: Public initializer-like function assigns the DEFAULT_ADMIN_ROLE to a fixed privileged address without caller authorization.}
+{Function: __BaseStaking_init_unchained, Sink: configuration = config, Visibility: public, Explanation: Public initializer-like function writes the staking configuration without an access-control modifier; onlyInitializing does not restrict the caller identity.}

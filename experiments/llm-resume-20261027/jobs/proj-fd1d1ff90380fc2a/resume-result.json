@@ -1,0 +1,34 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-fd1d1ff90380fc2a",
+  "case_ids": [
+    "acb-adf2aefd6e40e71b"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "f41cea88b8bc7e9653bdd603df4dc58bbb1bb363994bb1e28be836922d971d19",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T14:56:41.913274+00:00",
+  "exit_code": 4,
+  "input_identity": "8265f2963c26ec74682cf06b7cf1beb48166848d19c6c350e4b238a4a1290e27",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-fd1d1ff90380fc2a",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "MainContractFlattened.sol",
+      "5813d5237721b63d5cad4417394a71e253c36c163172b2d8f7445c2a0eb0b25f"
+    ],
+    [
+      "TSURUWrapper.sol",
+      "86ebb5abcbfaf0c43101e0bbb6bc66fe639a9e978d1eabac72f628680ed83fd7"
+    ]
+  ],
+  "source_hashes": [
+    "5813d5237721b63d5cad4417394a71e253c36c163172b2d8f7445c2a0eb0b25f",
+    "86ebb5abcbfaf0c43101e0bbb6bc66fe639a9e978d1eabac72f628680ed83fd7"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

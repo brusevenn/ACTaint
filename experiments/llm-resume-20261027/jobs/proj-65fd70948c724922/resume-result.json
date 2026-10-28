@@ -1,0 +1,29 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-65fd70948c724922",
+  "case_ids": [
+    "acb-ab82fcc111d9bcaf"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "db1bd9bd5636abf2890fa848d2e5273a31d4db724f6e8bf4d72c8828991881d1",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:19:00.056190+00:00",
+  "exit_code": 4,
+  "input_identity": "bb0e27d84378600b0df93acb269e8d1e1b30828495f43b8bfd88a8e114d326c0",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-65fd70948c724922",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "RngRelayAuction.sol",
+      "45d878a5239108c77d4e8a6a3fc9dc401acbdd42250380db8083b1a9937901ef"
+    ]
+  ],
+  "source_hashes": [
+    "45d878a5239108c77d4e8a6a3fc9dc401acbdd42250380db8083b1a9937901ef"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

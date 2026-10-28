@@ -1,0 +1,29 @@
+==============Start====================
+rules:
+{Function:_start, Visibility:internal, Explanation:Writes to variable started without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable locks without any access control.}
+{Function:takeUnstakeTax, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:_compound, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable earlyUnlockPenalty without any access control.}
+{Function:setToken, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:setRewardRate, Visibility:external, Explanation:Writes to variable configuration without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:setStartTime, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:takeUnstakeTax, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+{Function:_compound, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+
+=============Contract: MintableAutoCompundRelockBonus
+Sink:
+Reasoning:
+- `initialize` is public, and the contract has no constructor. The `initializer` modifier limits repeated calls but does not restrict who may call it, so the first caller can initialize critical staking, tax, autocompound, lock-time, and relock-bonus state. This is a sink.
+- `setToken` is public with no access-control modifier. It directly overwrites `configuration.stakingToken` and `configuration.rewardsToken` with an arbitrary address. This is a sink.
+- `setRewardRate` and `setStartTime` are protected by `onlyRole(DEFAULT_ADMIN_ROLE)`, so they are not sinks.
+- `stake`, `withdraw`, and their internal helpers modify caller-specific staking/accounting state or are not externally callable. They do not modify another user's state without authorization in this contract.
+- View functions and empty overrides do not perform security-sensitive state changes.
+
+--Sink--:
+{Function: initialize, Sink: unprotected initialization of critical staking, tax, autocompound, lock-time, and relock-bonus state, Visibility:public, Explanation: The contract has no constructor and initialize is public; initializer restricts only repeated calls, not caller identity, so any address can call it first and set critical protocol configuration.}
+{Function: setToken, Sink: unprotected overwrite of configuration.stakingToken and configuration.rewardsToken, Visibility:public, Explanation: setToken has no access-control modifier and accepts an arbitrary token address, so any caller can replace the staking and rewards token addresses.}

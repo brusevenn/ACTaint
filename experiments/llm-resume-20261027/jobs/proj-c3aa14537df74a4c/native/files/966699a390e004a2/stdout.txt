@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:_checkOnERC721Received, Visibility:private, Explanation:Uses assembly.}
+
+=============Contract: ERC721
+Sink:
+Reasoning:
+- Public state-changing functions `approve`, `setApprovalForAll`, `transferFrom`, and `safeTransferFrom` are standard ERC721 operations. Each enforces the required ERC721 authorization before modifying approvals or transferring tokens.
+- `_mint`, `_burn`, `_transfer`, `_approve`, `_setApprovalForAll`, `_safeMint`, `_safeTransfer`, and `__unsafe_increaseBalance` are internal and are not externally callable in this contract. They do not constitute externally reachable access-control sinks in this source.
+- `_checkOnERC721Received` is private and is invoked only after the relevant transfer/mint logic. Its assembly block only reverts with a provided reason; it does not perform an access-control-sensitive state update.
+- The constructor only initializes `_name` and `_symbol` at deployment and is not an access-control sink.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:withdraw, Visibility:external, Explanation:Writes to variable delegateTokenInfo without any access control.}
+
+=============Contract: DelegateToken
+Sink:
+--Sink--:
+{Function: withdraw, Sink: Write to delegateTokenInfo, Visibility: external, Explanation: The function writes to delegateTokenInfo and performs asset transfers without adequate access control, allowing unauthorized state modification.}

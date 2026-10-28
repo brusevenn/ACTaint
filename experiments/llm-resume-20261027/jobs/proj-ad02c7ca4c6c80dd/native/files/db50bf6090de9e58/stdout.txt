@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:setRegistryContracts, Visibility:external, Explanation:Writes to variable paymentERC20Registry without any access control.}
+{Function:setRegistryContracts, Visibility:external, Explanation:Writes to variable cancellationRegistry without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: ExchangeV4
+Sink:
+Reasoning:
+- `setMakerWallet`, `setRegistryContracts`, `pause`, `unpause`, and `withdraw` are protected by `onlyOwner`; they are not access-control sinks. The static-analysis entries for `setRegistryContracts` and `withdraw` are therefore protected by access control.
+- `setRoyalty` requires the caller to be the NFT contract owner.
+- `cancelBuyOrder` requires the caller to be the buyer or exchange owner and validates the buyer signature.
+- `cancelPreviousSellOrders` requires the caller to be `addr` or the exchange owner.
+- `fillSellOrder`: the seller signature validates the seller, but in the ERC20 payment branch the `buyer` parameter is caller-controlled and is not checked against `msg.sender` or a buyer signature. `_sendERC20PaymentsWithRoyalties` executes `safeTransferFrom(buyer, ...)` after only checking the buyer’s allowance to the exchange, so an arbitrary caller can spend an approved buyer’s ERC20 tokens.
+- `fillDutchAuctionOrder`: the seller signature validates the seller, but in the ERC20 payment branch the `buyer` parameter is caller-controlled and is not checked against `msg.sender` or a buyer signature. `_sendERC20PaymentsWithRoyalties` executes `safeTransferFrom(buyer, ...)` after only checking the buyer’s allowance, so an arbitrary caller can spend an approved buyer’s ERC20 tokens.
+- `fillBuyOrder`: the buyer signature validates the buyer, but the `seller` parameter is caller-controlled and is not checked against `msg.sender` or a seller signature. `_transferNFT` executes `erc721.transferFrom(seller, buyer, tokenId)` or `erc1155.safeTransferFrom(seller, buyer, tokenId, quantity, "")` after only checking the seller’s approval to the exchange, so an arbitrary caller can transfer an approved seller’s NFT to the buyer.
+- Other NFT transfers in `fillSellOrder` and `fillDutchAuctionOrder` are signed by the seller; ERC20 payments in `fillBuyOrder` are signed by the buyer; ETH payments in `fillSellOrder` and `fillDutchAuctionOrder` are paid by the caller or sent to the signed seller. These are not access-control sinks.
+
+--Sink--:
+{Function: fillSellOrder, Sink: _sendERC20PaymentsWithRoyalties (safeTransferFrom from buyer), Visibility: external, Explanation: The buyer parameter is caller-controlled and not checked against msg.sender or a buyer signature; in the ERC20 payment branch the function calls _sendERC20PaymentsWithRoyalties, which executes safeTransferFrom(buyer, ...) after only checking the buyer's allowance to the exchange, allowing any caller to spend an approved buyer's ERC20 tokens.}
+{Function: fillDutchAuctionOrder, Sink: _sendERC20PaymentsWithRoyalties (safeTransferFrom from buyer), Visibility: external, Explanation: The buyer parameter is caller-controlled and not checked against msg.sender or a buyer signature; in the ERC20 payment branch the function calls _sendERC20PaymentsWithRoyalties, which executes safeTransferFrom(buyer, ...) after only checking the buyer's allowance to the exchange, allowing any caller to spend an approved buyer's ERC20 tokens.}
+{Function: fillBuyOrder, Sink: _transferNFT (erc721.transferFrom/erc1155.safeTransferFrom from seller), Visibility: external, Explanation: The seller parameter is caller-controlled and not checked against msg.sender or a seller signature; the function calls _fillBuyOrder and _transferNFT, which execute erc721.transferFrom(seller, buyer, tokenId) or erc1155.safeTransferFrom(seller, buyer, tokenId, quantity, "") after only checking the seller's approval to the exchange, allowing any caller to transfer an approved seller's NFT to the buyer.}

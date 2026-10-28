@@ -1,0 +1,41 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-0fe4b3faf45f3e29",
+  "case_ids": [
+    "acb-22a75d69f1c00c11",
+    "acb-ed61f3b5f23eb606",
+    "acb-f16d2287950d3a28"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "2f1e7f7b7166f7f31a078aaea5abe27dd45b63b7e3f4aabefcb4138ea82d796f",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T12:50:57.483901+00:00",
+  "exit_code": 4,
+  "input_identity": "b735e4720536463e95e5b05bf69e9cb8f4b2f371105fcf0754083e2fda2f0d38",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-0fe4b3faf45f3e29",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "StaderConfig.sol",
+      "263757a0de23e83e4c8605b8f6eabb4cbd6cfbffce26d1f00e0b7438d36ae7bd"
+    ],
+    [
+      "ValidatorWithdrawalVault.sol",
+      "f4611306f585bb580fe54f45103fd678f5889db3db5b7e3dc40e2e6ec4d588c2"
+    ],
+    [
+      "VaultProxy.sol",
+      "e02a5abb52640e0856d0dc1f3d68ecf70eca1a583af02c17051d662c756974cb"
+    ]
+  ],
+  "source_hashes": [
+    "263757a0de23e83e4c8605b8f6eabb4cbd6cfbffce26d1f00e0b7438d36ae7bd",
+    "e02a5abb52640e0856d0dc1f3d68ecf70eca1a583af02c17051d662c756974cb",
+    "f4611306f585bb580fe54f45103fd678f5889db3db5b7e3dc40e2e6ec4d588c2"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

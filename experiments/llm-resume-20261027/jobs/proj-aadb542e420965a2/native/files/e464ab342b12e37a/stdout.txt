@@ -1,0 +1,23 @@
+==============Start====================
+rules:
+{Function:__AutocompundStaking_init, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _totalSupply without any access control.}
+{Function:__AutocompundStaking_init, Visibility:public, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:resetLastCompound, Visibility:public, Explanation:Writes to variable lastCompund without any access control.}
+{Function:_stake, Visibility:internal, Explanation:Writes to variable _balances without any access control.}
+
+=============Contract: AutocompundStaking
+Sink:
+Reasoning:
+- The contract has no constructor. `__AutocompundStaking_init` and `__AutocompundStaking_init_unchained` are public initializer-style functions. `onlyInitializing` does not restrict the caller, only the initialization phase. They write critical configuration state and are therefore wrong-constructor sinks.
+- `compundForAccount` is public, accepts an arbitrary `account`, writes `rewards[account]`, and calls `_compound(account)`. The `updateReward(account)` modifier does not enforce caller authorization. This modifies another account’s reward/staking state without authorization.
+- `_stake` and `_withdraw` are internal overrides operating on `msg.sender`; they are not externally callable in this source and do not modify other users’ assets.
+- `resetLastCompound`, `setPerformanceFee`, and `setCompundReward` are protected by `onlyRole(MANAGER_ROLE)`, so they are not sinks.
+- `runCompund` is permissionless and pays the compound fee to `msg.sender`; this payment is explicit contract logic. The arbitrary-account state change it invokes is captured under `compundForAccount`.
+- View functions do not perform state-changing sink operations.
+
+--Sink--:
+{Function: __AutocompundStaking_init, Sink: configuration, Visibility: public, Explanation: Public initializer with onlyInitializing and no caller restriction; no constructor exists, so it writes critical staking configuration without access control.}
+{Function: __AutocompundStaking_init, Sink: taxConfiguration, Visibility: public, Explanation: Public initializer with onlyInitializing and no caller restriction; no constructor exists, so it writes critical tax configuration without access control.}
+{Function: __AutocompundStaking_init_unchained, Sink: autoConfig, Visibility: public, Explanation: Public initializer with onlyInitializing and no caller restriction; no constructor exists, so it writes autoConfig without access control.}
+{Function: compundForAccount, Sink: rewards[account] and _compound(account), Visibility: public, Explanation: Public function accepts an arbitrary account, subtracts fees from rewards[account], and calls _compound(account); updateReward does not enforce caller authorization, so any caller can modify another account's reward and staking state.}

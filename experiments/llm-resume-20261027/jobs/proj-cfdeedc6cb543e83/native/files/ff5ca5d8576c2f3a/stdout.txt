@@ -1,0 +1,9 @@
+==============Start====================
+rules:
+{Function:call, Visibility:external, Explanation:Uses low level call.}
+{Function:isContract, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: VirtualAccount
+Sink:
+--Sink--:
+{Function: payableCall, Sink: low-level external call, Visibility: public, Explanation: payableCall is public payable and lacks the requiresApprovedCaller modifier; any caller can make the VirtualAccount execute arbitrary calls to contract targets, enabling unauthorized state changes or asset transfers from the virtual account.}

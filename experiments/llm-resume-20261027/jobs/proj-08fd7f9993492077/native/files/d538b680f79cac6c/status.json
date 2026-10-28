@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "1839ff55167f7628f89b039f4a4f5bf1796d82bbfd4373049f57f782efe5d8bb",
+  "analyzer_summary": {
+    "contracts_analyzed": 2,
+    "contracts_seen": 19,
+    "contracts_skipped_interface_abstract_library": 15,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 2,
+    "elapsed_seconds": 129.437,
+    "sink_agent_calls": 2,
+    "taint_agent_calls": 0,
+    "target_contracts": 19,
+    "total_token": 33600
+  },
+  "compiler": {
+    "actual_full_version": "0.8.18+commit.87f61d96",
+    "compiler_sha256": "95e6ed4949a63ad89afb443ecba1fb8302dd2860ee5e9baace3e674a0f48aa77",
+    "metadata": "v0.8.18+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --via-ir --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.18"
+  },
+  "elapsed_seconds": 354.071,
+  "ended_utc": "2026-10-27T12:45:15.799295+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/d538b680f79cac6c/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-08fd7f9993492077/source_code/UlyssesRouter.sol",
+  "source_sha256": "1839ff55167f7628f89b039f4a4f5bf1796d82bbfd4373049f57f782efe5d8bb",
+  "started_utc": "2026-10-27T12:43:05.527234+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-08fd7f9993492077/source_code/UlyssesRouter.sol"
+}

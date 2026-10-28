@@ -1,0 +1,26 @@
+==============Start====================
+rules:
+{Function:redeemAll, Visibility:external, Explanation:Writes to variable strategies without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable strategies without any access control.}
+{Function:redeem, Visibility:public, Explanation:Writes to variable strategies without any access control.}
+{Function:setEmergencyShutdown, Visibility:external, Explanation:Writes to variable emergencyShutdown without any access control.}
+{Function:redeemAll, Visibility:external, Explanation:Writes to variable totalAllocBPS without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Writes to variable totalAllocBPS without any access control.}
+{Function:redeem, Visibility:public, Explanation:Writes to variable totalAllocBPS without any access control.}
+{Function:removeTvlCap, Visibility:external, Explanation:Writes to variable tvlCap without any access control.}
+{Function:updateTvlCap, Visibility:public, Explanation:Writes to variable tvlCap without any access control.}
+
+=============Contract: ReaperVaultV2
+Sink:
+Reasoning:
+- Reviewed all external/public state-changing functions.
+- Standard deposit/mint paths use `msg.sender` as the payer and only mint shares to `receiver`; they do not modify another user’s shares without authorization.
+- `redeemAll` is safe because it hardcodes `owner = msg.sender`.
+- `setEmergencyShutdown`, `updateTvlCap`, `removeTvlCap`, `addStrategy`, `updateStrategyAllocBPS`, `setWithdrawalQueue`, `updateWithdrawMaxLoss`, `setLockedProfitDegradation`, and `inCaseTokensGetStuck` are protected by `_atLeastRole`.
+- `report` is restricted to active strategies via `strategies[stratAddr].activation != 0`.
+- `revokeStrategy` allows a strategy to revoke itself or requires GUARDIAN otherwise.
+- The real access-control sinks are `withdraw` and `redeem`: both allow an arbitrary `owner` and `receiver`, then `_withdraw` calls `_burn(owner, shares)` and transfers assets to `receiver` without checking `msg.sender == owner` or spending allowance.
+
+--Sink--:
+{Function: withdraw, Sink: unauthorized _burn(owner, shares) and safeTransfer(receiver, assets), Visibility:external, Explanation: The caller can pass an arbitrary owner and receiver. The function burns the owner's shares and transfers assets to the receiver without checking msg.sender == owner or an allowance, so anyone can withdraw another user's funds.}
+{Function: redeem, Sink: unauthorized _burn(owner, shares) and safeTransfer(receiver, assets), Visibility:public, Explanation: The caller can pass an arbitrary owner and receiver. The function redeems the owner's shares and transfers assets to the receiver without checking msg.sender == owner or an allowance, so anyone can redeem another user's shares.}

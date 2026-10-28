@@ -1,0 +1,79 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-71cf2e6aa17c4f2f",
+  "case_ids": [
+    "acb-d803093a7656e8b4"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "3d050ca80ed7f8c43dc2c4a97ee66e240c398b3bc167ef6e33eae54587ad8b61",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:19:17.003028+00:00",
+  "exit_code": 4,
+  "input_identity": "2e2e3254ca7ecae2df44671e0796cdce0a2590eb16e651f5b325f17a74fc98f3",
+  "native_execution_status": "PROJECT_WITH_ERRORS",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-71cf2e6aa17c4f2f",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+      "1fbf2a131b895514f0027866cc0deff151ea16424b4aed2b8c573d2275cfa9e8"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "a2c4e5c274a586f145d278293ae33198cd8f412ab7e6d26f2394c8949b32b24b"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol",
+      "26219dd6b9b574cf3e225ee00466bdf1b74fbcc1b24bd93ae3628c812a76333e"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+      "13808c7113e4138b97967f9b53868ecad712bcd4edf8bff0edab06804f00a261"
+    ],
+    [
+      "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
+      "5fb301961e45cb482fe4e05646d2f529aa449fe0e90c6671475d6a32356fa2d4"
+    ],
+    [
+      "MainContractFlattened.sol",
+      "7728dfdac6d93367a720f4691d19e7929348e8b09d81ed97ad3dd6a420a98a5b"
+    ],
+    [
+      "contracts/XBridge.sol",
+      "02e368b906b86147e67f1ee916466b308c360121570cb6665805e1e3fc665c3a"
+    ],
+    [
+      "contracts/interfaces/IERC20.sol",
+      "10f643d4110d18f8b5765afaea22b76b443762e7d620b41f2461256ddf27c5b7"
+    ],
+    [
+      "contracts/interfaces/IUniswapV2Factory.sol",
+      "7c77acda05cad7262e72c46e92b313cdbbc01160bf8061f0145f005cb9494aeb"
+    ],
+    [
+      "contracts/interfaces/IUniswapV2Router01.sol",
+      "e79e8a7f0c4468c28da3da1e65e6c1fdf45adaf78750b746774e34a73f43821d"
+    ],
+    [
+      "contracts/interfaces/IUniswapV2Router02.sol",
+      "dcae59586aba48ef6f255c1031fa7623bfca43a1d233b34bbda89a844334c997"
+    ]
+  ],
+  "source_hashes": [
+    "02e368b906b86147e67f1ee916466b308c360121570cb6665805e1e3fc665c3a",
+    "10f643d4110d18f8b5765afaea22b76b443762e7d620b41f2461256ddf27c5b7",
+    "13808c7113e4138b97967f9b53868ecad712bcd4edf8bff0edab06804f00a261",
+    "1fbf2a131b895514f0027866cc0deff151ea16424b4aed2b8c573d2275cfa9e8",
+    "26219dd6b9b574cf3e225ee00466bdf1b74fbcc1b24bd93ae3628c812a76333e",
+    "5fb301961e45cb482fe4e05646d2f529aa449fe0e90c6671475d6a32356fa2d4",
+    "7728dfdac6d93367a720f4691d19e7929348e8b09d81ed97ad3dd6a420a98a5b",
+    "7c77acda05cad7262e72c46e92b313cdbbc01160bf8061f0145f005cb9494aeb",
+    "a2c4e5c274a586f145d278293ae33198cd8f412ab7e6d26f2394c8949b32b24b",
+    "dcae59586aba48ef6f255c1031fa7623bfca43a1d233b34bbda89a844334c997",
+    "e79e8a7f0c4468c28da3da1e65e6c1fdf45adaf78750b746774e34a73f43821d"
+  ],
+  "status": "PROJECT_WITH_ERRORS",
+  "tool": "ACTaint"
+}

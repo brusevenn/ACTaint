@@ -1,0 +1,25 @@
+{
+  "actual_source_sha256": "0e8fffd670364b74141a2606fba118dd699fa0b3174710c9d8123ecf8fba0cc1",
+  "analyzer_summary": null,
+  "compiler": {
+    "actual_full_version": "0.5.16+commit.9c3226ce",
+    "compiler_sha256": "a15f01700ec7e02f91bbdfd4b6ff4450b3c2decae173e4f41910a3cfbaf5d3d3",
+    "metadata": "v0.5.16+commit.9c3226ce",
+    "metadata_build": "9c3226ce",
+    "metadata_build_match": true,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --optimize-runs 200",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.5.16"
+  },
+  "elapsed_seconds": 409.032,
+  "ended_utc": "2026-10-27T14:47:13.046293+00:00",
+  "exit_code": 1,
+  "request_log_path": "files/e11f32bcc25cb2d2/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-f5e36ac4bfa08f3f/source_code/leveragedPool.sol",
+  "source_sha256": "0e8fffd670364b74141a2606fba118dd699fa0b3174710c9d8123ecf8fba0cc1",
+  "started_utc": "2026-10-27T14:43:21.924380+00:00",
+  "status": "ERROR",
+  "tool_input_path": "projects/proj-f5e36ac4bfa08f3f/source_code/leveragedPool.sol"
+}

@@ -1,0 +1,2 @@
+ERROR:ContractSolcParsing:Impossible to generate IR for Pool.constructor (Pool.sol#4587-4624):
+ 'NoneType' object has no attribute 'parameters'

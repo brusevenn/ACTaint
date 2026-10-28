@@ -1,0 +1,22 @@
+==============Start====================
+rules:
+{Function:receive, Visibility:external, Explanation:Writes to variable nftMinted without any access control.}
+{Function:receive, Visibility:external, Explanation:Writes to variable mintedAmount without any access control.}
+{Function:mintNFT, Visibility:public, Explanation:Transfers Ether or Token.}
+
+=============Contract: P404Token
+Sink:
+Reasoning:
+- The constructor only initializes state and is not a sink.
+- `batchSetAllowlist` is protected by `owner == msg.sender`, so it is not a sink.
+- `mintNFT` and `receive` are guarded by `allowlist[msg.sender]` (set only by the owner) and supply limits; they implement intended minting logic and are not access-control sinks.
+- `approve` and `setApproveForAll` are public and make ERC721 calls as the contract without checking whether the caller is authorized for the affected token(s). These are sinks.
+- `_update` calls `transform(value)` when `to == address(this) || to == erc721` without verifying authorization for the asset being transformed. This reaches `_erc20ToErc721` and `_erc721ToErc20`.
+- `_erc20ToErc721` burns `address(this)` tokens and mints NFTs to `msg.sender`. When reached via `transferFrom(from, address(this), amount)` with `from != msg.sender`, a spender can convert the owner’s ERC20 tokens into an NFT for themselves; when `to == erc721`, the contract’s own ERC20 balance is burned without receiving the transferred tokens.
+- `_erc721ToErc20` burns an NFT and mints ERC20 to `msg.sender`. When reached via `_update` with a valid token ID to `address(this)` or `erc721`, it lacks the authorization check performed in the explicit NFT transfer paths, so a caller can burn a contract-owned or contract-approved NFT and receive the ERC20.
+
+--Sink--:
+{Function: approve, Sink: IERC721(erc721).approve(spender, tokenIdOrValue), Visibility: public, Explanation: No check that msg.sender is authorized for the NFT; any caller can make P404Token call ERC721 approve for a token owned or approved by P404Token, allowing unauthorized approval of contract-held NFTs.}
+{Function: setApproveForAll, Sink: IERC721(erc721).setApprovalForAll(operator, approved), Visibility: public, Explanation: No access control; any caller can make P404Token set approval for all its NFTs to an arbitrary operator, allowing unauthorized control of contract-held NFTs.}
+{Function: _erc20ToErc721, Sink: _burn(address(this), _realcost) and IERC721Mintable(erc721).mint(msg.sender), Visibility: internal, Explanation: Reached via _update/transfer or transferFrom to address(this) or erc721 without ensuring the caller is authorized for the burned tokens; a spender can use transferFrom to convert the owner's ERC20 to an NFT for themselves, and when to == erc721 the contract's own ERC20 balance is burned without receiving tokens.}
+{Function: _erc721ToErc20, Sink: IERC721Burnable(erc721).burn(_tokenId) and _mint(msg.sender, ...), Visibility: internal, Explanation: Reached via _update/transfer with a valid tokenId to address(this) or erc721 without checking authorization for the NFT; any caller can burn a contract-owned or contract-approved NFT and mint ERC20 to themselves.}

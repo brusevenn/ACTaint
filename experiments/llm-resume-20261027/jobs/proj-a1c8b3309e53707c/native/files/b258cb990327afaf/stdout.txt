@@ -1,0 +1,44 @@
+==============Start====================
+rules:
+{Function:withdrawToken, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: StandaloneTreasury
+Sink:
+The only sensitive operations are:
+
+- `allowPoolClaiming` calls `rewardToken.approve(stakingPool, amount)`, but it is protected by `onlyOwner` and only lets the owner approve spending from the treasury.
+- `withdrawToken` calls `IERC20(token).transfer(owner(), balanceOf(this))`, but it is protected by `onlyOwner` and sends the treasury’s token balance to the owner.
+
+Both operations are restricted to the owner and do not allow unauthorized modification of another account’s assets. The static-analysis candidate `withdrawToken` is not a valid sink because the transfer is owner-gated and the recipient is the owner.
+
+--Sink--: 
+no sinks
+Report:
+
+rules:
+{Function:updateDepositLockStart, Visibility:internal, Explanation:Writes to variable depositLockStart without any access control.}
+{Function:transferAccountBalance, Visibility:external, Explanation:Writes to variable depositLockStart without any access control.}
+{Function:setFixedApr, Visibility:public, Explanation:Writes to variable fixedApr without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable fixedApr without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable lockPeriod without any access control.}
+{Function:setLockPeriod, Visibility:external, Explanation:Writes to variable lockPeriod without any access control.}
+{Function:setFees, Visibility:public, Explanation:Writes to variable claimFees without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable claimFees without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable allowEarlyWithdrawal without any access control.}
+{Function:setAllowEarlyWithdrawal, Visibility:public, Explanation:Writes to variable allowEarlyWithdrawal without any access control.}
+{Function:setWaitForMaturity, Visibility:public, Explanation:Writes to variable rewardMaturityDuration without any access control.}
+{Function:updateDepositLockStart, Visibility:internal, Explanation:Writes to variable userInfo without any access control.}
+{Function:updateUserDebt, Visibility:internal, Explanation:Writes to variable userInfo without any access control.}
+{Function:transferAccountBalance, Visibility:external, Explanation:Writes to variable userInfo without any access control.}
+{Function:initialize, Visibility:public, Explanation:Writes to variable levelManager without any access control.}
+{Function:setLevelManager, Visibility:external, Explanation:Writes to variable levelManager without any access control.}
+{Function:setSecondaryStaking, Visibility:external, Explanation:Writes to variable secondaryStaking without any access control.}
+{Function:withdrawToken, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: LaunchpadLockableStaking
+Sink:
+Reasoning: `onlyOwner`, `onlyOwnerOrAdmin`, and `onlyLevelManager` provide access control and exclude their functions from sink classification. `notMigrated` only blocks migrated callers and does not authorize arbitrary-account writes. Functions such as `deposit`, `withdraw`, `claim`, `stakePendingRewards`, `upPool`, and `migrateTokens` modify only the caller’s own accounting. The public initializer is a wrong-constructor sink because no constructor exists and `initializer` does not restrict who may call it first. `receiveUpPool` is externally callable without access control and writes an arbitrary `account`’s staking and lock state.
+
+--Sink--:
+{Function: initialize, Sink: unprotected initializer writes critical state (owner/levelManager/treasury/fees/lockPeriod/fixedApr/allowEarlyWithdrawal), Visibility: public, Explanation: No constructor is present. The public initializer has no caller restriction before initializing ownership and critical storage. Any caller invokes it before initialization, becomes owner through __Adminable_init, and sets levelManager, treasury, fees, lockPeriod, fixedApr, and allowEarlyWithdrawal.}
+{Function: receiveUpPool, Sink: arbitrary account state modification and token acceptance, Visibility: external, Explanation: The external function has no access-control modifier and does not require msg.sender to be an approved pool or the account. It accepts arbitrary account and amount, writes userInfo[account], depositLockStart[account], and lastClaimedAt[account], transfers staking tokens from msg.sender, and modifies another account’s staking/lock state without authorization.}

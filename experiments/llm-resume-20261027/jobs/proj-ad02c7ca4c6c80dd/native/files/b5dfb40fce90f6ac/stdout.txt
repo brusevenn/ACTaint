@@ -1,0 +1,29 @@
+==============Start====================
+rules:
+{Function:setRegistryContracts, Visibility:external, Explanation:Writes to variable paymentERC20Registry without any access control.}
+{Function:setRegistryContracts, Visibility:external, Explanation:Writes to variable cancellationRegistry without any access control.}
+{Function:withdraw, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: ExchangeV4
+Sink:
+I reviewed the contract functions and the provided static analysis context. The static analysis flagged `setRegistryContracts` and `withdraw`, but the actual source shows that both are protected by `onlyOwner`. Other state-changing or asset-transferring functions are guarded by signature validation, registry cancellation authorization, or NFT-owner authorization. The internal payment and transfer helpers are reached only through those guarded external flows.
+
+The protected functions are:
+- `setMakerWallet`, `setRegistryContracts`, `pause`, `unpause`, and `withdraw` use `onlyOwner`.
+- `setRoyalty` requires the caller to be the owner of the NFT contract.
+- `cancelBuyOrder` requires the caller to be the buyer or the exchange owner and validates the buyer signature.
+- `cancelPreviousSellOrders` requires the caller to be the order address or the exchange owner.
+- `fillSellOrder` and `fillDutchAuctionOrder` validate the seller signature and require NFT approval before transferring the seller’s NFT.
+- `fillBuyOrder` validates the buyer signature, checks ERC20 allowance, and requires NFT approval before transferring the seller’s NFT.
+- Internal helpers `_fillSellOrder`, `_fillBuyOrder`, `_fillDutchAuction`, `_sendETHPaymentsWithRoyalties`, `_sendERC20PaymentsWithRoyalties`, and `_transferNFT` are called only from those guarded flows.
+
+No unprotected security-sensitive operation causing an access control vulnerability is present.
+
+--Sink--: 
+no sinks
+Report:
+
+ACTAINT_ANALYZER_SUMMARY_JSON={"contracts_analyzed": 1, "contracts_seen": 17, "contracts_skipped_interface_abstract_library": 16, "contracts_skipped_no_implementation": 0, "contracts_skipped_pure_view": 0, "contracts_without_native_candidates": 0, "elapsed_seconds": 56.625, "sink_agent_calls": 1, "taint_agent_calls": 0, "target_contracts": 17, "total_token": 16164}
+==============End======================
+total time: 56.62479090690613
+total token: 16164

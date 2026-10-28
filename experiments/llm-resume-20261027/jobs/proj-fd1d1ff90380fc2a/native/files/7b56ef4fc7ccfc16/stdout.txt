@@ -1,0 +1,18 @@
+==============Start====================
+rules:
+{Function:open, Visibility:external, Explanation:Writes to variable _opened without any access control.}
+{Function:close, Visibility:external, Explanation:Writes to variable _opened without any access control.}
+
+=============Contract: TSURUWrapper
+Sink:
+Reasoning:
+- Constructor executes at deployment and mints fixed initial amounts to hardcoded addresses. It is not externally callable, so it is not a sink.
+- `onERC721Received` requires `_opened` and `msg.sender == address(erc721Contract)` before minting. This restricts the callback to the configured ERC721 contract, so the mint is tied to an authorized NFT deposit. Not a sink.
+- `onERC1155Received` has no valid caller restriction for the mint path. The branch for `msg.sender == address(erc1155Contract)` returns without minting, while all other callers reach `_safeMint(from, amount * ERC1155_RATIO)`. Any external account can mint ERC20 tokens to an arbitrary `from` address. This is a sink.
+- `onERC1155BatchReceived` reverts and performs no sensitive state change.
+- `unwrap` burns `msg.sender`'s own ERC20 balance and transfers ERC1155 tokens from the wrapper to `msg.sender` according to contract logic. It checks the caller's balance and does not modify another account's balance without authorization. Not a sink.
+- `open` and `close` are protected by `onlyOwner`, which is valid access control. Not sinks.
+- `_safeMint` and `_safeBurn` are internal helpers. The access-control failure is exposed through `onERC1155Received`.
+
+--Sink--:
+{Function: onERC1155Received, Sink: _safeMint(from, amount * ERC1155_RATIO) / ERC20 minting, Visibility: external, Explanation: The function has no caller restriction for callers other than erc1155Contract. The `msg.sender == address(erc1155Contract)` branch returns without minting; all other callers reach `_safeMint`. Any external account can mint ERC20 tokens to an arbitrary `from` address, bounded only by `_maxTotalSupply`.}

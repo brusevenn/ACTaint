@@ -1,0 +1,25 @@
+==============Start====================
+rules:
+{Function:_replaceFollower, Visibility:internal, Explanation:Writes to variable _followTokenIdByFollowerProfileId without any access control.}
+{Function:removeFollower, Visibility:external, Explanation:Writes to variable _followTokenIdByFollowerProfileId without any access control.}
+{Function:_followWithWrappedToken, Visibility:internal, Explanation:Writes to variable _followTokenIdByFollowerProfileId without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _followTokenIdByFollowerProfileId without any access control.}
+{Function:_followMintingNewToken, Visibility:internal, Explanation:Writes to variable _followTokenIdByFollowerProfileId without any access control.}
+{Function:_unfollow, Visibility:internal, Explanation:Writes to variable _followTokenIdByFollowerProfileId without any access control.}
+{Function:_unfollowIfHasFollower, Visibility:internal, Explanation:Writes to variable _followTokenIdByFollowerProfileId without any access control.}
+{Function:wrap, Visibility:external, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:_replaceFollower, Visibility:internal, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:_wrap, Visibility:internal, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:removeFollower, Visibility:external, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:_followWithWrappedToken, Visibility:internal, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:burn, Visibility:public, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:wrap, Visibility:external, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:_followMintingNewToken, Visibility:internal, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:_unfollow, Visibility:internal, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:_unfollowIfHasFollower, Visibility:internal, Explanation:Writes to variable _followDataByFollowTokenId without any access control.}
+{Function:_getRoyaltiesInBasisPointsSlot, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: FollowNFT
+Sink:
+--Sink--:
+{Function: initialize, Sink: Unauthorized initializer writes `_followedProfileId` and calls `_setRoyalty(1000)`, Visibility: external, Explanation: This external initializer has no caller-based access control; it only checks the `_initialized` flag. Per the constructor/initializer rule, it is treated as a wrong constructor/initializer and therefore a sink.}

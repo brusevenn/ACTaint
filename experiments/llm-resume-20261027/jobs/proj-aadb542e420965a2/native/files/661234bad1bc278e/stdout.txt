@@ -1,0 +1,24 @@
+==============Start====================
+rules:
+{Function:__FixedTimeLockStaking_init, Visibility:public, Explanation:Writes to variable configuration without any access control.}
+{Function:setAllowEarlyUnlock, Visibility:external, Explanation:Writes to variable allowEarlyUnlock without any access control.}
+{Function:__FixedTimeLockStaking_init, Visibility:public, Explanation:Writes to variable taxConfiguration without any access control.}
+{Function:setPenalty, Visibility:external, Explanation:Writes to variable earlyUnlockPenalty without any access control.}
+{Function:__FixedTimeLockStaking_init_unchained, Visibility:public, Explanation:Writes to variable earlyUnlockPenalty without any access control.}
+{Function:__FixedTimeLockStaking_init, Visibility:public, Explanation:Writes to variable earlyUnlockPenalty without any access control.}
+
+=============Contract: FixedTimeLockStaking
+Sink:
+Reasoning:
+- `__FixedTimeLockStaking_init` is `public` and protected only by `onlyInitializing`. `onlyInitializing` does not restrict who can call it, so it is a wrong initializer/constructor sink. It writes `configuration`, `taxConfiguration`, `lockTime`, and `earlyUnlockPenalty` through its calls.
+- `__FixedTimeLockStaking_init_unchained` is `public` and protected only by `onlyInitializing`. It writes `lockTime` and `earlyUnlockPenalty`, so it is a wrong initializer/constructor sink.
+- `setTimelock`, `setPenalty`, and `setAllowEarlyUnlock` are protected by `onlyRole(DEFAULT_ADMIN_ROLE)`, which is access control, so they are not sinks despite the static analysis flags for `setPenalty` and `setAllowEarlyUnlock`.
+- `stake`, `_withdraw`, `_stake`, `_canWithdraw`, `takeUnstakeTax`, `lockEnded`, and `timelockConfigurations` do not perform unauthorized modification of other users’ state or privileged configuration.
+
+--Sink--:
+{Function: __FixedTimeLockStaking_init, Sink: configuration, Visibility: public, Explanation: Public initializer protected only by onlyInitializing; onlyInitializing does not restrict the caller, so it is a wrong constructor/initializer sink that writes configuration.}
+{Function: __FixedTimeLockStaking_init, Sink: taxConfiguration, Visibility: public, Explanation: Public initializer protected only by onlyInitializing; onlyInitializing does not restrict the caller, so it is a wrong constructor/initializer sink that writes taxConfiguration.}
+{Function: __FixedTimeLockStaking_init, Sink: lockTime, Visibility: public, Explanation: Public initializer protected only by onlyInitializing; it calls __FixedTimeLockStaking_init_unchained, which writes lockTime, and onlyInitializing does not restrict the caller.}
+{Function: __FixedTimeLockStaking_init, Sink: earlyUnlockPenalty, Visibility: public, Explanation: Public initializer protected only by onlyInitializing; it calls __FixedTimeLockStaking_init_unchained, which writes earlyUnlockPenalty, and onlyInitializing does not restrict the caller.}
+{Function: __FixedTimeLockStaking_init_unchained, Sink: lockTime, Visibility: public, Explanation: Public initializer protected only by onlyInitializing; onlyInitializing does not restrict the caller, so it is a wrong constructor/initializer sink that writes lockTime.}
+{Function: __FixedTimeLockStaking_init_unchained, Sink: earlyUnlockPenalty, Visibility: public, Explanation: Public initializer protected only by onlyInitializing; onlyInitializing does not restrict the caller, so it is a wrong constructor/initializer sink that writes earlyUnlockPenalty.}

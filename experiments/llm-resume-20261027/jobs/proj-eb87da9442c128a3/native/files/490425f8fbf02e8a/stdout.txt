@@ -1,0 +1,21 @@
+==============Start====================
+rules:
+{Function:getPoolState, Visibility:public, Explanation:Uses low level call.}
+
+=============Contract: V3Migrator
+Sink:
+Reasoning:
+- `mint` is external with no access control and forwards caller-supplied `mintParam` to the liquidity manager.
+- `migrate` is external with no access control and uses caller-supplied `params` for LP transfer, pair burn, token approvals, liquidity minting, token refunds, and WETH/ETH refunds.
+- `getPoolState` is a `view` function using `staticcall`; it does not modify state and does not perform an access-controlled state change.
+- `getFullRangeTicks` and `stretchToPD` are view/pure calculations.
+- The constructor only sets immutable deployment parameters.
+
+--Sink--:
+{Function: mint, Sink: ILiquidityManager(liquidityManager).mint(mintParam), Visibility: external, Explanation: No access control; caller supplies all MintParam fields including miner, token addresses, and limits, so the migrator invokes the liquidity manager and mints a position using the migrator's token balances/allowances for an arbitrary miner.}
+{Function: migrate, Sink: IBiswapPair(params.pair).transferFrom(params.recipient, params.pair, params.liquidityToMigrate), Visibility: external, Explanation: No check that msg.sender equals params.recipient and no validation of params.pair; any caller can trigger a transferFrom from an approved recipient and invoke an arbitrary pair address with the migrator as msg.sender.}
+{Function: migrate, Sink: IBiswapPair(params.pair).burn(address(this)), Visibility: external, Explanation: No validation of params.pair; caller controls the target contract and the returned amount0V2/amount1V2, which are then used for approvals, liquidity minting, and refunds.}
+{Function: migrate, Sink: safeApprove(params.token0, liquidityManager, amount0V2ToMigrate) and safeApprove(params.token1, liquidityManager, amount1V2ToMigrate), Visibility: external, Explanation: No access control; caller controls the token addresses and derived approval amounts, so any caller makes the migrator grant allowances over its token balances to the liquidity manager.}
+{Function: migrate, Sink: ILiquidityManager(liquidityManager).mint(...), Visibility: external, Explanation: No access control; caller supplies tokenX/tokenY, miner, and limits, allowing any caller to make the migrator spend its token balances/allowances and mint a position to an arbitrary recipient.}
+{Function: migrate, Sink: safeTransfer(params.token0, params.recipient, refund0) and safeTransfer(params.token1, params.recipient, refund1), Visibility: external, Explanation: No access control; caller controls the token addresses and recipient, so the migrator transfers its token balances to a caller-chosen recipient.}
+{Function: migrate, Sink: IWETH9(WETH9).withdraw(refund0/refund1) and safeTransferETH(params.recipient, refund0/refund1), Visibility: external, Explanation: No access control; caller controls the refund path and recipient, so the migrator withdraws its WETH and sends ETH to a caller-chosen recipient.}

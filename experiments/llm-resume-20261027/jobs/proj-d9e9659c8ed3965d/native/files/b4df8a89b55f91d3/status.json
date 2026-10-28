@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "f1dfdd1f29d5ceba6ae13c1f9aee75da790d59d01fcf29a046d2f9cd902dbea9",
+  "analyzer_summary": {
+    "contracts_analyzed": 0,
+    "contracts_seen": 37,
+    "contracts_skipped_interface_abstract_library": 32,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 2,
+    "contracts_without_native_candidates": 3,
+    "elapsed_seconds": 4.993,
+    "sink_agent_calls": 0,
+    "taint_agent_calls": 0,
+    "target_contracts": 37,
+    "total_token": 0
+  },
+  "compiler": {
+    "actual_full_version": "0.8.20+commit.a1b79de6",
+    "compiler_sha256": "0479d44fdf9c501c25337fdc540419f1593b884a87b47f023da4f1c700fda782",
+    "metadata": "v0.8.20+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-d9e9659c8ed3965d/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.20"
+  },
+  "elapsed_seconds": 5.78,
+  "ended_utc": "2026-10-27T14:24:58.508532+00:00",
+  "exit_code": 0,
+  "request_log_path": null,
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-d9e9659c8ed3965d/source_code/WellUpgradeable.sol",
+  "source_sha256": "f1dfdd1f29d5ceba6ae13c1f9aee75da790d59d01fcf29a046d2f9cd902dbea9",
+  "started_utc": "2026-10-27T14:24:52.729229+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-d9e9659c8ed3965d/source_code/WellUpgradeable.sol"
+}

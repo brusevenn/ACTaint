@@ -1,0 +1,24 @@
+==============Start====================
+rules:
+{Function:setPremiumTradingEnabled, Visibility:external, Explanation:Writes to variable premiumTradingEnabled without any access control.}
+{Function:distributeRewards, Visibility:external, Explanation:Transfers Ether or Token.}
+
+=============Contract: Configurator
+Sink:
+The `checkRole` modifier only calls `GovernanceTimelock.checkRole(role, msg.sender)` and ignores its boolean return value, so it does not enforce access control. Functions protected only by `checkRole` are therefore unguarded. The `onlyRole` modifier calls `checkOnlyRole`, which is treated as the enforcing check. `distributeRewards` has no access control and performs token transfers, approvals, and exchanges.
+
+--Sink--:
+{Function: setProtocolRewardsPool, Sink: state write lybraProtocolRewardsPool, Visibility: external, Explanation: checkRole modifier ignores the return value of GovernanceTimelock.checkRole, so any caller can change the protocol rewards pool address.}
+{Function: setEUSDMiningIncentives, Sink: state write eUSDMiningIncentives, Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can change the eUSDMiningIncentives address.}
+{Function: setvaultBurnPaused, Sink: state write vaultBurnPaused[pool], Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can pause or unpause vault burning for any pool.}
+{Function: setPremiumTradingEnabled, Sink: state write premiumTradingEnabled, Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can enable or disable premium trading.}
+{Function: setvaultMintPaused, Sink: state write vaultMintPaused[pool], Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can pause or unpause vault minting for any pool.}
+{Function: setRedemptionFee, Sink: state write redemptionFee, Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can change the redemption fee within the require limit.}
+{Function: setSafeCollateralRatio, Sink: state write vaultSafeCollateralRatio[pool], Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can set the safe collateral ratio and trigger IVault(pool).vaultType().}
+{Function: setBorrowApy, Sink: state write vaultMintFeeApy[pool], Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can set the borrow APY for any pool.}
+{Function: setKeeperRatio, Sink: state write vaultKeeperRatio[pool], Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can set the keeper reward ratio for any pool.}
+{Function: setTokenMiner, Sink: state write tokenMiner[_contracts[i]], Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can set token mining permissions for arbitrary contracts.}
+{Function: setMaxStableRatio, Sink: state write maxStableRatio, Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can change the maximum stable ratio within the require limit.}
+{Function: setFlashloanFee, Sink: state write flashloanFee, Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can change the flashloan fee within the require limit.}
+{Function: setProtocolRewardsToken, Sink: state write stableToken, Visibility: external, Explanation: checkRole modifier does not enforce access control; any caller can change the stable token address used for rewards distribution.}
+{Function: distributeRewards, Sink: token transfers, approval, and exchange, Visibility: external, Explanation: callable by anyone; it transfers contract-held peUSD/EUSD to lybraProtocolRewardsPool, approves and exchanges EUSD via curvePool, and notifies reward amounts without access control.}

@@ -1,0 +1,37 @@
+{
+  "actual_source_sha256": "6d64713fecde96a1e139f39f5e30525882cca7a3a744bd4458d1437767eb1fad",
+  "analyzer_summary": {
+    "contracts_analyzed": 1,
+    "contracts_seen": 11,
+    "contracts_skipped_interface_abstract_library": 9,
+    "contracts_skipped_no_implementation": 0,
+    "contracts_skipped_pure_view": 0,
+    "contracts_without_native_candidates": 1,
+    "elapsed_seconds": 57.74,
+    "sink_agent_calls": 1,
+    "taint_agent_calls": 0,
+    "target_contracts": 11,
+    "total_token": 18541
+  },
+  "compiler": {
+    "actual_full_version": "0.8.21+commit.d9974bed",
+    "compiler_sha256": "f2857a898be15c69e8de5598dcd3f3e169e94964a0ce9a0bbb1b111f145a81df",
+    "metadata": "v0.8.21+commit.c7dfd78e",
+    "metadata_build": "c7dfd78e",
+    "metadata_build_match": false,
+    "selection_rule": "project_compile_config",
+    "solc_args": "--optimize --base-path $ACTAINT_REPO/datasets/actoolbench-cleaned-154/full/projects/proj-1342319724ccb055/source_code",
+    "solc_remappings": [],
+    "status": "READY",
+    "version": "0.8.21"
+  },
+  "elapsed_seconds": 58.357,
+  "ended_utc": "2026-10-27T12:51:56.889569+00:00",
+  "exit_code": 0,
+  "request_log_path": "files/0b84eb28de9c3a44/requests.jsonl",
+  "source_repo_path": "datasets/actoolbench-cleaned-154/full/projects/proj-1342319724ccb055/source_code/InvestmentManager.sol",
+  "source_sha256": "6d64713fecde96a1e139f39f5e30525882cca7a3a744bd4458d1437767eb1fad",
+  "started_utc": "2026-10-27T12:50:58.533716+00:00",
+  "status": "COMPLETED",
+  "tool_input_path": "projects/proj-1342319724ccb055/source_code/InvestmentManager.sol"
+}

@@ -1,0 +1,25 @@
+==============Start====================
+rules:
+{Function:setLiquidpool, Visibility:external, Explanation:Writes to variable _liquidpool without any access control.}
+{Function:setWrapNative, Visibility:external, Explanation:Writes to variable wNATIVE without any access control.}
+{Function:pause, Visibility:external, Explanation:Writes to variable _paused without any access control.}
+{Function:unpause, Visibility:external, Explanation:Writes to variable _paused without any access control.}
+{Function:_isMinter, Visibility:internal, Explanation:Uses low level call.}
+{Function:_getMinter, Visibility:internal, Explanation:Uses low level call.}
+{Function:isMinterWithData, Visibility:external, Explanation:Uses low level call.}
+{Function:bytesToAddress, Visibility:internal, Explanation:Uses assembly.}
+{Function:toUint, Visibility:internal, Explanation:Uses assembly.}
+
+=============Contract: MinterProxyV2
+Sink:
+Reasoning:
+- `setLiquidpool`, `setWrapNative`, `pause`, `unpause`, `call`, and `withdrawFee` are protected by `onlyOwner`; they are not sinks.
+- `vaultIn`, `vaultInAndCall`, `mintTo`, and the internal `_callAndTransfer` path are protected by `onlyController`; they are not sinks from an access-control perspective.
+- `_getMinter`, `_isMinter`, and `isMinterWithData` use `staticcall` and are view-only; they do not modify state or enforce access control. They are not sinks.
+- `vaultOut` transfers or burns only the caller’s own assets using `_msgSender()`, so it is not an access-control sink.
+- `swap` is externally callable without `onlyOwner` or `onlyController`. It accepts arbitrary `target` and `callData`, grants arbitrary targets a `MAX_UINT256` allowance of `tokenAddr`, and executes external calls as `MinterProxy`. These are access-control-sensitive sink operations.
+
+--Sink--:
+{Function: swap, Sink: IERC20(tokenAddr).safeApprove(target, MAX_UINT256), Visibility: external, Explanation: Public swap grants an arbitrary caller-supplied target unlimited allowance of tokenAddr from MinterProxy, enabling that target to transferFrom MinterProxy’s tokenAddr balance.}
+{Function: swap, Sink: target.functionCall(callData, "MP: FunctionCall failed"), Visibility: external, Explanation: In the ERC20 branch, public swap executes an arbitrary external call as MinterProxy to a caller-supplied target with caller-supplied calldata, allowing any caller to invoke functions on contracts where MinterProxy has privileges or token balances.}
+{Function: swap, Sink: target.functionCallWithValue(callData, amount, "MP: CallWithValue failed"), Visibility: external, Explanation: In the native branch, public swap executes an arbitrary value-bearing external call as MinterProxy to a caller-supplied target with caller-supplied calldata, allowing any caller to invoke payable functions on arbitrary contracts with MinterProxy as msg.sender.}

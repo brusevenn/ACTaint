@@ -1,0 +1,29 @@
+{
+  "artifact": "experiments/llm-resume-20261027/jobs/proj-6e618d658e448260",
+  "case_ids": [
+    "acb-fd7c41226af562e1"
+  ],
+  "code_sha": "7c30beee8403934fdf59c499d3cb5bc1a9539208",
+  "compile_config_sha256": "477b806b14e46454a35a7d182a139eb044df5f4979a4f472026f0971f2f5e17d",
+  "dataset": "ACToolBench154",
+  "ended_utc": "2026-10-27T13:19:05.040069+00:00",
+  "exit_code": 0,
+  "input_identity": "22c8da7cdf8060f843af2a044908dfe4c1581b294fa5aecc418c875edcf444ec",
+  "native_execution_status": "PROJECT_COMPLETED",
+  "native_output": "native/project-result.json",
+  "native_result_present": true,
+  "prior_request_attempts": 0,
+  "project_id": "proj-6e618d658e448260",
+  "prompt_layout": "prefix_stable_v2",
+  "source_file_inventory": [
+    [
+      "V3Utils.sol",
+      "91d92b9f318f9b8e4f66e0accf3f3a0245aac8fa9829d75d12581b2b50780d38"
+    ]
+  ],
+  "source_hashes": [
+    "91d92b9f318f9b8e4f66e0accf3f3a0245aac8fa9829d75d12581b2b50780d38"
+  ],
+  "status": "PROJECT_COMPLETED",
+  "tool": "ACTaint"
+}
